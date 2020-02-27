@@ -1,0 +1,49 @@
+{
+  "Version": "2008-10-17",
+  "Id": "PolicyForCloudFrontPrivateContent",
+  "Statement": [
+      {
+          "Sid": "0",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::980222764383:role/service-role/codebuild-paulhastings-qa-service-role"
+          },
+          "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:DeleteObject"
+          ],
+          "Resource": [
+              "arn:aws:s3:::paulhastings-qa",
+              "arn:aws:s3:::paulhastings-qa/*"
+          ]
+      },
+      {
+          "Sid": "1",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::980222764383:role/service-role/AWSCodePipelineServiceRole-us-east-1-paulhastings-qa"
+          },
+          "Action": [
+              "s3:PutObject",
+              "s3:GetObject",
+              "s3:ListBucket",
+              "s3:DeleteObject"
+          ],
+          "Resource": [
+              "arn:aws:s3:::paulhastings-qa",
+              "arn:aws:s3:::paulhastings-qa/*"
+          ]
+      },
+      {
+          "Sid": "2",
+          "Effect": "Allow",
+          "Principal": {
+              "AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity E3TZ7ML6ZKP2H5"
+          },
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::paulhastings-qa/*"
+      }
+  ]
+}
