@@ -1,8 +1,9 @@
-import s3 from './services/s3';
+// import s3 from './services/s3';
+import cF from './services/cF';
 
 const deploy = async () => {
   try {
-    s3()
+    cF()
   } catch (e){
     console.error(e)
   }
