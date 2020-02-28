@@ -1,9 +1,12 @@
 import createCloudFrontDistribution from './createCloudFrontDistribution'
+import createCloudFrontOriginAccessIdentity from './createCloudFrontOriginAccessIdentity';
 
 const createCloudFront = async () => {
-
   try {
-    createCloudFrontDistribution();
+    createCloudFrontOriginAccessIdentity().then((res) => {
+      let { Id } = res.CloudFrontOriginAccessIdentity;
+      createCloudFrontDistribution(Id);
+    })
   } catch (e){
     console.error(e)
   }
