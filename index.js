@@ -1,9 +1,21 @@
-// import s3 from './services/s3';
-import cF from './services/cF';
+import s3 from './services/s3';
+import cF from './services/cloudfront';
+import iam from './services/iam';
+import cb from './services/codebuild';
 
+// create s3 bucket
+// create cF
+// create iam policies
+// create and start the codebuild
 const deploy = async () => {
   try {
-    cF()
+    s3.then(() => {
+      cF().then(() => {
+        iam().then(() => {
+          cb()
+        })
+      })
+    })
   } catch (e){
     console.error(e)
   }

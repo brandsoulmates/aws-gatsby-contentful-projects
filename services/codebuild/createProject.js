@@ -3,15 +3,25 @@ import CodeBuild from 'aws-sdk/clients/CodeBuild';
 import config from '../../config';
 require('dotenv').config()
 
-const { baseServiceName, accessKeyId, secretAccessKey, region, apiVersions: { s3: apiVersion }, canonicalUserId } = config;
+const {
+  baseServiceName, accessKeyId, secretAccessKey, region, descriptions, branch,
+  github: {
+    base,
+    org,
+    repo
+  }
+} = config;
 
-// create an s3 service object
+// create an cb service object
 const cb = new CodeBuild({
   accessKeyId,
   secretAccessKey,
   region
 })
 
+let serviceName = baseServiceName;
+let gitRepo = `${base}/${org}/${repo}.git`
+let serviceRole = `${baseServiceName}-cb-role`
 
 const constructEnvVariables = (envObj, prefixEnvKeyStr) => {
   let envVariables = Object.keys(envObj);
@@ -22,13 +32,34 @@ const constructEnvVariables = (envObj, prefixEnvKeyStr) => {
     value: process.env[variableKey], /* required */
     type: 'PLAINTEXT'
   }))
+  for (let i = 0; i < awsOkayVariables.length; i++){
+    if (awsOkayVariables[i]['GATSBY_AWS_CLOUDFRONT_DISTRIBUTION']){
+      // need the id passed in here
+      awsOkayVariables[i] = {
+        GATSBY_AWS_CLOUDFRONT_DISTRIBUTION: baseServiceName
+      }
+    }
+    if (awsOkayVariables[i]['GATSBY_AWS_TARGET_BUCKET_NAME']){
+      awsOkayVariables[i] = {
+        GATSBY_AWS_TARGET_BUCKET_NAME: baseServiceName
+      }
+    } else {
+      continue;
+    }
+  }
   return awsOkayVariables;
 }
 let environmentVariables = constructEnvVariables(process.env, 'GATSBY'); 
+let srcVersion = false;
+
 const createCbProject = async () => {
 
 
 var paramsCodeBuild = {
+  name: baseServiceName, 
+  description: descriptions[branch],
+  serviceRole: serviceRole, /* required */
+  badgeEnabled: false,
   artifacts: { /* required */
     type: 'NO_ARTIFACTS', /* required */
   },
@@ -36,130 +67,45 @@ var paramsCodeBuild = {
     computeType: 'BUILD_GENERAL1_SMALL', /* required */
     image: 'aws/codebuild/standard:3.0', /* required */
     type: 'LINUX_CONTAINER', /* required */
-    environmentVariables, 
-    imagePullCredentialsType: CODEBUILD | SERVICE_ROLE,
-    privilegedMode: true || false,
-    registryCredential: {
-      credential: 'STRING_VALUE', /* required */
-      credentialProvider: SECRETS_MANAGER /* required */
-    }
+    environmentVariables,     // imagePullCredentialsType: CODEBUILD | SERVICE_ROLE,
+    privilegedMode: false
   },
-  name: baseServiceName, /* required */
-  serviceRole: 'STRING_VALUE', /* required */
   source: { /* required */
-    type: GITHUB, /* required */
-    auth: {
-      type: OAUTH, /* required */
-      resource: 'STRING_VALUE'
-    },
+    type: 'GITHUB', /* required */
     buildspec: 'buildspec.yml',
-    location: 'STRING_VALUE',
+    location: gitRepo,
     reportBuildStatus: true,
-    sourceIdentifier: 'STRING_VALUE'
+    sourceIdentifier: `GitHub_${org}_Repo_${repo}`
   },
-  badgeEnabled: false,
-  cache: {
-    type: NO_CACHE | S3 | LOCAL, /* required */
-    location: 'STRING_VALUE',
-    modes: [
-      LOCAL_DOCKER_LAYER_CACHE | LOCAL_SOURCE_CACHE | LOCAL_CUSTOM_CACHE,
-      /* more items */
-    ]
+  cache: { /* */
+    type: 'NO_CACHE', /* required */
+    location: 'STRING_VALUE'
   },
-  description: 'STRING_VALUE',
-  encryptionKey: 'STRING_VALUE',
-  fileSystemLocations: [
-    {
-      identifier: 'STRING_VALUE',
-      location: 'STRING_VALUE',
-      mountOptions: 'STRING_VALUE',
-      mountPoint: 'STRING_VALUE',
-      type: EFS
-    },
-    /* more items */
-  ],
   logsConfig: {
     cloudWatchLogs: {
-      status: ENABLED | DISABLED, /* required */
-      groupName: 'STRING_VALUE',
-      streamName: 'STRING_VALUE'
+      status: 'ENABLED', /* required */
     },
     s3Logs: {
-      status: ENABLED | DISABLED, /* required */
-      encryptionDisabled: true || false,
-      location: 'STRING_VALUE'
+      status: 'DISABLED', /* required */
     }
-  },
-  secondaryArtifacts: [
-    {
-      type: CODEPIPELINE | S3 | NO_ARTIFACTS, /* required */
-      artifactIdentifier: 'STRING_VALUE',
-      encryptionDisabled: true || false,
-      location: 'STRING_VALUE',
-      name: 'STRING_VALUE',
-      namespaceType: NONE | BUILD_ID,
-      overrideArtifactName: true || false,
-      packaging: NONE | ZIP,
-      path: 'STRING_VALUE'
-    },
-    /* more items */
-  ],
-  secondarySourceVersions: [
-    {
-      sourceIdentifier: 'STRING_VALUE', /* required */
-      sourceVersion: 'STRING_VALUE' /* required */
-    },
-    /* more items */
-  ],
-  secondarySources: [
-    {
-      type: CODECOMMIT | CODEPIPELINE | GITHUB | S3 | BITBUCKET | GITHUB_ENTERPRISE | NO_SOURCE, /* required */
-      auth: {
-        type: OAUTH, /* required */
-        resource: 'STRING_VALUE'
-      },
-      buildspec: 'STRING_VALUE',
-      gitCloneDepth: 'NUMBER_VALUE',
-      gitSubmodulesConfig: {
-        fetchSubmodules: true || false /* required */
-      },
-      insecureSsl: true || false,
-      location: 'STRING_VALUE',
-      reportBuildStatus: true || false,
-      sourceIdentifier: 'STRING_VALUE'
-    },
-    /* more items */
-  ],
-  sourceVersion: 'STRING_VALUE',
-  tags: [
-    {
-      key: 'STRING_VALUE',
-      value: 'STRING_VALUE'
-    },
-    /* more items */
-  ],
-  vpcConfig: {
-    securityGroupIds: [
-      'STRING_VALUE',
-      /* more items */
-    ],
-    subnets: [
-      'STRING_VALUE',
-      /* more items */
-    ],
-    vpcId: 'STRING_VALUE'
   }
 };
 
-// try {
-//   await cb.createProject(paramsCodeBuild).promise()
+// to do - set src version from repo via config
+// add when doing git api int
+if (srcVersion){
+  paramsCodeBuild.sourceVersion = 'STRING_VALUE';
+}
 
-// } catch(e){
-//   console.error(e)
-// }
+try {
+  await cb.createProject(paramsCodeBuild).promise()
+
+} catch(e){
+  console.error(e)
+}
 
 
 }
 
-constructEnvVariables(process.env)
-export default createCbProject;
+createCbProject()
+// export default createCbProject;

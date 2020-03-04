@@ -107,7 +107,7 @@ const createCloudFrontDistribution = async (id) => {
           },
         ]
       },
-      DefaultRootObject: './index.html',
+      DefaultRootObject: 'index.html',
       HttpVersion: 'http2',
       IsIPV6Enabled: true,
       OriginGroups: {
