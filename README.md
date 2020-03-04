@@ -14,10 +14,10 @@
 
 Together:
 ```
-brew install yarn
-yarn global add contentful-cli aws gatsby gh
-git clone https://github.com/brandsoulmates/aws-gatsby-contentful-projects
-code-insiders aws-gatsby-contentful-projects
+$ brew install yarn
+$ yarn global add contentful-cli aws gatsby gh
+$ git clone https://github.com/brandsoulmates/aws-gatsby-contentful-projects
+$ code-insiders aws-gatsby-contentful-projects
 
 ```
 
@@ -29,18 +29,18 @@ Please note, whatever you put as your client nickname, you'll be using on Conten
 4. Save the repo url to the config file.
 
 ```
-gh repo create brandsoulmates/CLIENT_NICKNAME
+$ gh repo create brandsoulmates/CLIENT_NICKNAME
 // authenticate in browser, follow prompts
-cd client
-git init
+$ cd client
+$ git init
 // OR if git already exists
-rm -rf .git
-git init
-git submodule add <url> client
-git add .
-git commit -m 'first commit
-git remote add origin https://github.com/brandsoulmates/CLIENT_NICKNAME.git
-git push -u origin master
+$ rm -rf .git
+$ git init
+$ git submodule add <url> client
+$ git add .
+$ git commit -m 'first commit
+$ git remote add origin https://github.com/brandsoulmates/CLIENT_NICKNAME.git
+$ git push -u origin master
 // save https://github.com/brandsoulmates/CLIENT_NICKNAME.git to variable
 
 ```
@@ -56,11 +56,11 @@ git push -u origin master
 Step 4: Seed the new space with the example content model the-example-app. Replace the SPACE_ID with the id returned from the create command executed in step 3
 
 ```
-contentful login
-contentful space create --name REPLACEMECLIENTNICKNAME
-contentful space use --space-id REPLACEMECLIENTNICKNAME --environment-id master
-contentful space import --content-file='./services/contentful/model/base-model.json'
-yarn contentful
+$ contentful login
+$ contentful space create --name REPLACEMECLIENTNICKNAME
+$ contentful space use --space-id REPLACEMECLIENTNICKNAME --environment-id master
+$ contentful space import --content-file='./services/contentful/model/base-model.json'
+$ yarn contentful
 
 ```
 
@@ -126,7 +126,7 @@ These scripts were created to scan entries from Contentful for errors. It has be
    - CONTENTFUL_ENVIRONMENT
 
 
-### Quickstart
+### Commands
 
 To test all entries across all content types for errors, run :
 
@@ -155,7 +155,3 @@ or
 
 $ yarn find -h
 ```
-
-### TODO
-
-- Add script for updating content across multiple branches
