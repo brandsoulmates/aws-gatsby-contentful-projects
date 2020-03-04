@@ -1,15 +1,24 @@
-// TODO
-
-import createSpace from "./createSpace"
+import {
+  initContentfulClients,
+  getSpace,
+} from './initClient'
 import duplicateEnvironmentsFromMaster from "./duplicateEnvironmentsFromMaster";
 
 const setupContentful = async () => {
-  createSpace()
-  createAndSaveKeys()
-  seedMasterEnvironment()
-  .then((space) => {
-    let spaceId = space.sys.id;
-    // upload seeding information to 
-    duplicateEnvironmentsFromMaster(spaceId)
+  initContentfulClients()
+  const space = await getSpace('cma')
+  //TODO
+  // create Extensions
+  // create Sidebar w/ custom extensions
+
+  duplicateEnvironmentsFromMaster(space).then((res) => {
+    console.log("res", res)
   })
+
+  // TODO
+  // aliasMaster();
 }
+
+setupContentful()
+
+export default setupContentful()
