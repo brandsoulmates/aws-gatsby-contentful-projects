@@ -1,0 +1,14 @@
+[
+  {
+    "match": "/publications-items/details/?id=c28bbf6e-2334-6428-811c-ff00004cbded",
+    "redirect": "/insights/caveat-vendor/ftc-puts-children's-sites-on-notice-is-your-refrigerator-next"
+  },
+  {
+    "match": "^/PHOffices(/|)$",
+    "redirect": "/offices"
+  },
+  {
+    "match": "^/publications-items(/|)$",
+    "redirect": "/insights"
+  }
+]
