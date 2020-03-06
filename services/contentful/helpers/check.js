@@ -60,27 +60,51 @@ const getFilteredFields = (fields, exclude = []) => {
   return entries.filter(([key]) => !exclude.includes(key))
 }
 
-exports.checkDupOffices = entry => {
-  const offices = entry.fields.offices && entry.fields.offices['en-US']
-  if (!offices) return
+exports.checkDupArrayFields = (
+  entry,
+  exclude,
+  field = 'office',
+  locales = defaultLocales
+) => {
+  const totalInvalidFields = []
 
-  const officeMap = {}
-  offices.forEach(o => {
-    const id = o.sys.id
-    if (officeMap[id]) {
-      officeMap[id] = officeMap[id] + 1
-    } else {
-      officeMap[id] = 1
-    }
-  })
+  for (const [key, outerVal] of getFilteredFields(entry.fields, exclude)) {
+    locales.forEach(l => {
+      const val = outerVal && outerVal[l]
+      const fieldArray = Array.isArray(val) && val
 
-  const entries = Object.entries(officeMap)
-  const invalidFields =
-    entries && entries.filter(o => o[1] > 1).map(o => `${o[0]} (${o[1]})`)
+      if (fieldArray) {
+        const fieldArrayMap = {}
+        fieldArray.forEach(f => {
+          const id = f.sys.id
+          const title = f.fields.title && f.fields.title['en-US']
+          const link = f.fields.link && f.fields.link['en-US']
+          const label = title || link || id
+          if (fieldArrayMap[id]) {
+            fieldArrayMap[id].count = fieldArrayMap[id].count + 1
+          } else {
+            fieldArrayMap[id] = { count: 1, title: label }
+          }
+        })
 
-  // Log all fields with errors
-  if (invalidFields.length > 0) {
-    return `Duplicate offices: ${invalidFields.join(', ')}`
+        const entries = Object.entries(fieldArrayMap)
+        const invalidFields =
+          entries &&
+          entries
+            .filter(o => o[1].count > 1)
+            .map(o => `${o[1].title} (id: ${o[0]}, count: ${o[1].count})`)
+
+        // Log all fields with errors
+        if (invalidFields.length > 0) {
+          totalInvalidFields.push(
+            `Duplicate ${field}: ${invalidFields.join(', ')}`
+          )
+        }
+      }
+    })
+  }
+  if (totalInvalidFields.length > 0) {
+    return totalInvalidFields.join('\n')
   }
 }
 
