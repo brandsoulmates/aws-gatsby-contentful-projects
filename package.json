@@ -1,0 +1,46 @@
+{
+  "name": "aws-gatsby-deployment-tools",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "babel-node ./index.js",
+    "cb:start": "babel-node ./services/codebuild/startBuild.js",
+    "cb:create": "babel-node ./services/codebuild/createProject.js",
+    "cb": "babel-node ./services/codebuild/index.js",
+    "contentful": "babel-node ./services/contentful/index.js",
+    "save:env": "babel-node ./services/contentful/createAndSaveKeys.js",
+    "iam": "babel-node ./services/iam/index.js",
+    "test": "node ./services/contentful/checkEntries.js",
+    "find": "node ./services/contentful/findEntries.js"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.6",
+    "aws-sdk": "^2.628.0",
+    "chalk": "^3.0.0",
+    "contentful": "^7.14.0",
+    "contentful-import": "^7.7.0",
+    "contentful-management": "^5.13.0",
+    "core-js": "2",
+    "dotenv": "^8.2.0",
+    "envfile": "^4.5.0",
+    "fs": "^0.0.1-security",
+    "inquirer": "^7.0.6",
+    "path": "^0.12.7",
+    "yargs": "^15.1.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "corejs": "2",
+          "useBuiltIns": "entry"
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo prepare env and check latest version of node available.
+      - apt-get update && apt-get install -y make apt-transport-https
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get install -y yarn
+      - yarn global add gatsby-cli
+      - echo done with prepare env.
+  pre_build:
+    commands:
+      - echo prebuild site using yarn
+      - yarn
+  build:
+    commands:
+      - echo build site using yarn
+      - yarn build
+      - echo done building
+  post_build:
+    commands:
+      - echo syncing to s3 and cloudfront
+      - yarn deploy
+      - echo after sync to S3
+artifacts:
+  base-directory: public
+  files:
+    - '**/*'
+  discard-paths: yes
+# cache:
+#   paths:
+# - '.cache/*'
+# - 'node_modules/*'
+# - 'public/*'
