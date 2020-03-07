@@ -1,26 +1,38 @@
-import { CodePipeline } from "aws-sdk";
+import CodePipeline from 'aws-sdk/clients/codepipeline';
+import config from '../../config';
+
+const {
+  baseServiceName, accessKeyId, secretAccessKey, region, descriptions, branch,
+  github: {
+    base,
+    org,
+    repo
+  }
+} = config;
 
 const cp = new CodePipeline({
-
+  accessKeyId,
+  secretAccessKey,
+  region
 });
 
 
 const createPipeline = async () => {
   var params = {
     pipeline: { /* required */
-      name: 'STRING_VALUE', /* required */
+      name: baseServiceName, /* required */
       roleArn: 'STRING_VALUE', /* required */
       stages: [ /* required */
         {
           actions: [ /* required */
             {
               actionTypeId: { /* required */
-                category: Source | Build | Deploy | Test | Invoke | Approval, /* required */
-                owner: AWS | ThirdParty | Custom, /* required */
-                provider: 'STRING_VALUE', /* required */
-                version: 'STRING_VALUE' /* required */
+                category: 'Source', /* required */
+                owner: 'AWS' | 'ThirdParty', /* required */
+                provider: 'GitHub', /* required */
+                version: '1.1.1' /* required */
               },
-              name: 'STRING_VALUE', /* required */
+              name: 'GitHub', /* required */
               configuration: {
                 '<ActionConfigurationKey>': 'STRING_VALUE',
                 /* '<ActionConfigurationKey>': ... */
@@ -34,13 +46,12 @@ const createPipeline = async () => {
               namespace: 'STRING_VALUE',
               outputArtifacts: [
                 {
-                  name: 'STRING_VALUE' /* required */
+                  name: 'SourceArtifact' /* required */
                 },
                 /* more items */
               ],
-              region: 'STRING_VALUE',
-              roleArn: 'STRING_VALUE',
-              runOrder: 'NUMBER_VALUE'
+              region: region,
+              roleArn: 'STRING_VALUE'
             },
             /* more items */
           ],
@@ -53,6 +64,47 @@ const createPipeline = async () => {
             /* more items */
           ]
         },
+        {
+          actions: [ /* required */
+            {
+              actionTypeId: { /* required */
+                category: 'Build', /* required */
+                owner: 'AWS', /* required */
+                provider: 'AWS CodeBuild', /* required */
+                version: 'STRING_VALUE' /* required */
+              },
+              name: 'STRING_VALUE', /* required */
+              configuration: {
+                '<ActionConfigurationKey>': 'STRING_VALUE',
+                /* '<ActionConfigurationKey>': ... */
+              },
+              inputArtifacts: [
+                {
+                  name: 'SourceArtifact' /* required */
+                },
+                /* more items */
+              ],
+              namespace: baseServiceName,
+              outputArtifacts: [
+                {
+                  name: 'BuildArtifact' /* required */
+                },
+                /* more items */
+              ],
+              region: region,
+              roleArn: 'STRING_VALUE',
+              runOrder: 'NUMBER_VALUE'
+            }
+          ],
+          name: 'STRING_VALUE', /* required */
+          blockers: [
+            {
+              name: 'STRING_VALUE', /* required */
+              type: Schedule /* required */
+            },
+            /* more items */
+          ]
+        }
         /* more items */
       ],
       artifactStore: {

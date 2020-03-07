@@ -56,7 +56,7 @@ module.exports.initContentfulClients = (options) => {
 
 /**
  * Get the Space the app is connected to. Used for the settings form and to get all available locales
- * @param api - string - the api to use, cda or cap. Default: 'cda'
+ * @param api - string - the api to use, cda, cma, or cap. Default: 'cda'
  * @returns {undefined}
  */
 module.exports.getSpace = throwOnEmptyResult('Space', (api = 'cda') => {

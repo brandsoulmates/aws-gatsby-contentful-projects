@@ -1,33 +1,32 @@
-function startPipeline(awsCodeBuildProjectName, previousBuild, callback) {
+import CodePipeline from 'aws-sdk/clients/codepipeline';
+import config from '../../config';
+
+const {
+  baseServiceName, accessKeyId, secretAccessKey, region, descriptions, branch,
+  github: {
+    base,
+    org,
+    repo
+  }
+} = config;
+
+const cp = new CodePipeline({
+  accessKeyId,
+  secretAccessKey,
+  region
+});
+
+const startPipeline = async (awsCodeBuildProjectName, previousBuild, callback) => {
   var params = {
     name: awsCodeBuildProjectName,
   };
-  codepipeline.startPipelineExecution(params, (error, data) => {
-    if (error){
-      console.log(error, error.stack);
-      return callback(error);
-
-    }
-    let startTime = new Date();
-              let responseBuildTriggered = {
-          statusCode: responseCode,
-          headers,
-          body: JSON.stringify({
-            "buildStatus": `TRIGGERED`,
-            "currentBuild": {
-              "status": "IN_PROGRESS",
-              "phase": "PROVISIONING",
-              "startTime": startTime,
-            },
-                          "previousBuild": {
-              "status": "SUCCEEDED",
-              "phase": "COMPLETED",
-              "endTime": previousBuild.endTime
-            }
-          })
-        }
-    return callback(null, responseBuildTriggered);
-  })
+  try {
+   let res = await cp.startPipelineExecution(params).promise()
+    return res;
+    
+  } catch (e){
+    console.error(e)
+  }
 }
 
 

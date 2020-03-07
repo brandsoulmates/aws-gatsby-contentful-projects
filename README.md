@@ -21,7 +21,9 @@ $ code-insiders aws-gatsby-contentful-projects
 
 ```
 
-### Configure Git
+### Configure Git, Contentful, AWS
+<details><summary>Git</summary>
+<p>
 1. Clone your desired repo to `client`, or use the base repo in `client`.
 2. Create a new repo. For our purposes, we're using the Ayz org. Use a client nickname.
 Please note, whatever you put as your client nickname, you'll be using on Contentful and AWS as well.
@@ -45,7 +47,10 @@ $ git push -u origin master
 
 ```
 
-### Configure Contentful
+</p>
+</details>
+<details><summary>Contentful</summary>
+<p>
 1. Login to Contentful through the CLI. It will help you to create a free account if you don't have one already.
 2. Create a new space: `contentful space create --name 'CLIENT_NICKNAME'`
 3. Select the spae you just created.
@@ -63,8 +68,10 @@ $ contentful space import --content-file='./services/contentful/model/base-model
 $ yarn contentful
 
 ```
-
-### Configure AWS
+</p>
+</details>
+<details><summary>AWS</summary>
+<p>
 
 *mvp* 
 - [x] s3
@@ -97,7 +104,8 @@ iam:PutRolePolicy
 iam:UpdateAssumeRolePolicy
 
 2. Get and save AWS access keys 
-
+</p>
+</details>
 
 ## Contentful 
 
@@ -155,3 +163,4 @@ or
 
 $ yarn find -h
 ```
+
