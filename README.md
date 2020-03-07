@@ -134,10 +134,10 @@ To test all entries across all content types for errors, run :
 $ yarn test
 ```
 
-Because sitefinity migration scripts kept the special characters in the rich text fields, entries will always fail the special-chars test. To exclude these fields from the tests, run:
+Because sitefinity migration scripts kept the special characters in the rich text fields, entries will always fail the special-chars test. Therefore, we will exclude these fields from the tests by default. To not use this default exclusion, run:
 
 ```
-$ yarn test -e sitefinityContentHtml sitefinityDescriptionHtml
+$ yarn test:all
 ```
 
 To find entries across all content types for duplicate fields (slugs/ids), run:

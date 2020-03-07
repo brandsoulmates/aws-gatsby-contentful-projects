@@ -49,7 +49,7 @@ const argv = yargs
   .option('test', {
     alias: 't',
     description:
-      'Specify a certain test. Valid arguments are: "char-limit, special-chars, broken-links, and dup-offices"',
+      'Specify a certain test. Valid arguments are: "char-limit, special-chars, broken-links, and dup-array-fields"',
     type: 'string',
   })
   // .option('verbose', {

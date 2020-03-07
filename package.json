@@ -11,7 +11,8 @@
     "contentful": "babel-node ./services/contentful/index.js",
     "save:env": "babel-node ./services/contentful/createAndSaveKeys.js",
     "iam": "babel-node ./services/iam/index.js",
-    "test": "node ./services/contentful/checkEntries.js",
+    "test:all": "node ./services/contentful/checkEntries.js",
+    "test": "node ./services/contentful/checkEntries.js -e sitefinityContentHtml sitefinityDescriptionHtml",
     "find": "node ./services/contentful/findEntries.js"
   },
   "dependencies": {
