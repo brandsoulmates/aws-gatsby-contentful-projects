@@ -38,10 +38,17 @@ module.exports.initContentfulClients = (options) => {
     removeUnresolved: true
   })
 
+  // managementClient = contentful.createClient({
+  //   accessToken: managementAccessTokenSecret,
+  //   space: spaceId,
+  //   application: applicationName,
+  //   environment: 'qa' // to do
+
+  // })
   managementClient = contentful.createClient({
-    accessToken: managementAccessTokenSecret,
-    space: spaceId,
-    application: applicationName,
+    accessToken: 'CFPAT-8Nh5ZONjRd9SGlQy-xFM_Rr_1nzDs-n7P0jrcYY_Fts',
+    space: 't0ydv1wnf2mi',
+    application: 'PaulHastings.com',
 
   })
 
