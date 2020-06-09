@@ -34,6 +34,7 @@
     "envfile": "^4.5.0",
     "fs": "^0.0.1-security",
     "inquirer": "^7.0.6",
+    "node-fetch": "^2.6.0",
     "path": "^0.12.7",
     "yargs": "^15.1.0"
   },
