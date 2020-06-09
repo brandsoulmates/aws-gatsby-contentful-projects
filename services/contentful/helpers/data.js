@@ -155,6 +155,7 @@ exports.buildEntryJson = (entry, testType, data) =>
     ? {
         id: entry.sys.id,
         name: entry.fields.name && entry.fields.name[defaultLocale],
+        active: entry.fields.active ? entry.fields.active[defaultLocale] : 'true',
         title: entry.fields.title && entry.fields.title[defaultLocale],
         contentType: entry.sys.contentType.sys.id,
         errors: data,
@@ -162,6 +163,7 @@ exports.buildEntryJson = (entry, testType, data) =>
     : {
         id: entry.sys.id,
         name: entry.fields.name && entry.fields.name[defaultLocale],
+        active: entry.fields.active ? entry.fields.active[defaultLocale] : 'true',
         title: entry.fields.title && entry.fields.title[defaultLocale],
         contentType: entry.sys.contentType.sys.id,
         locale: data,

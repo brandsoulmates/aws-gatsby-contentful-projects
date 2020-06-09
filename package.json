@@ -5,6 +5,9 @@
   "license": "MIT",
   "scripts": {
     "deploy": "babel-node ./index.js",
+    "s3": "babel-node ./services/s3/index.js",
+    "cf": "babel-node ./services/cloudfront/index.js",
+    "report": "babel-node ./services/out/check.js",
     "cb:start": "babel-node ./services/codebuild/startBuild.js",
     "cb:create": "babel-node ./services/codebuild/createProject.js",
     "cb": "babel-node ./services/codebuild/index.js",

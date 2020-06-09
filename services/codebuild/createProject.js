@@ -75,7 +75,7 @@ var paramsCodeBuild = {
     buildspec: 'buildspec.yml',
     location: gitRepo,
     reportBuildStatus: true,
-    sourceIdentifier: `GitHub_${org}_Repo_${repo}`
+    sourceIdentifier: `github_${org}_repo`
   },
   cache: { /* */
     type: 'NO_CACHE', /* required */
@@ -92,6 +92,40 @@ var paramsCodeBuild = {
 };
 
 // to do - set src version from repo via config
+/**
+ * version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12
+    commands:
+      - echo prepare env and check latest version of node.
+      - apt-get update && apt-get install -y make apt-transport-https
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get install -y yarn
+      - yarn global add lerna gatsby-cli
+  pre_build:
+    commands:
+      - echo prebuild site using lerna
+      - lerna bootstrap
+  build:
+    commands:
+      - echo build site using yarn
+      - yarn build:coh
+  post_build:
+    commands:
+      - echo syncing to s3 and cloudfront
+      - yarn deploy:coh
+      - echo after sync to S3
+artifacts:
+  base-directory: packages/coh/public
+  files:
+discard-paths: yes
+
+add this build spec inline
+update the api keys env default
+ */
 // add when doing git api int
 if (srcVersion){
   paramsCodeBuild.sourceVersion = 'STRING_VALUE';

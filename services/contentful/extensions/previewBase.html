@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/contentful-ui-extensions-sdk@3"></script>
+  <link rel="stylesheet" href="https://unpkg.com/contentful-ui-extensions-sdk@3/dist/cf-extension.css" />
+  <style>
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      max-width: 50%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    button:disabled{
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+    }
+    button:focus {
+      outline: 0;
+    }
+
+    #previewEntry {
+      width: 100%;
+      border-color: #19819E;
+      background-image: -webkit-gradient(linear,left bottom,left top,from(#26C0EB),to(#23B6DE));
+      background-image: linear-gradient(0deg,#26C0EB,#23B6DE);
+      background-size: 100% 200%;
+      outline: 0 !important;
+    }
+     #previewEntry:disabled {
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+      outline: 0 !important;
+    }
+    #localeDropDown {
+      display: inline-block;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    }
+    #localeDropDown > select {
+      background-color: transparent;
+      text-align-last: right;
+      height: 1.5rem;
+      border-width: 0px;
+      border-style: initial;
+      border-color: initial;
+      border-image: initial;
+      padding: 0px 1.5rem 0px 0px;
+      outline: 0 !important;
+      color: #536171;
+    font-size: .875rem;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+
+    }
+
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div id="root" style="display:none">
+    <span id="innerSpan">
+      <a href="https://localhost:8000/preview">
+    	<button id="previewEntry" class="cf-btn-primary">Preview Entry</button>
+      </a>
+    </span>
+  
+    <div id="infoBox" style="margin-top: 1.285714285714286em; color: #8091a5;"></div>
+    <div id="site" style="margin-top: 10px"></div>
+    <ul id="history" style="margin-top: 10px; padding-left: 15px;"></ul>
+  </div>
+  <script>
+
+    function showExtension(extension) {
+      document.getElementById('root').style.display = 'block';
+
+      /** HTML CONSTANTS**/
+      let innerSpan = document.getElementById('innerSpan');
+      let previewBtn = document.getElementById('previewEntry')
+        
+      /** COMMON FUNCTIONS **/
+
+      const setPreviewButtonUrl = (url) => innerSpan.innerHTML = '<span id="innerSpan"><a target="_blank" href="'+url+'"><button id="previewEntry" class="cf-btn-primary">Preview Entry</button></a></span>';
+      const setPreviewButtonDisabled = () => previewBtn.disabled = true;
+
+      /** CONSTANTS **/
+      const { ids: { environment, entry: cId }, contentType: { name: contentType }, entry: { fields: entry} } = extension;
+      
+      const aT= 'coh'
+      const protocol = 'http://'
+      const domainName = "coh.com"
+      const contentfulBranchNamesToCloudfrontDeployments = {
+          "production": `${protocol}${domainName}`,
+          "staging": `${protocol}${environment}.${domainName}`,
+          "qa": `${protocol}${environment}.${domainName}`,
+          "development": `${protocol}${environment}.${domainName}`,
+        };
+
+      const branchName = 'development'
+      const baseUrl = contentfulBranchNamesToCloudfrontDeployments[branchName];
+      const tempUrl = `${baseUrl}/preview?t=${aT}&id=${cId}`;
+
+      setPreviewButtonUrl(tempUrl)  
+        
+    }
+
+    window.contentfulExtension.init(function (extension) {
+      extension.window.startAutoResizer()
+      showExtension(extension);
+    });
+  </script>
+</body>
+
+</html>
