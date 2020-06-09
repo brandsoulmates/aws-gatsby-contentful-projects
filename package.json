@@ -16,7 +16,8 @@
     "iam": "babel-node ./services/iam/index.js",
     "test:all": "node ./services/contentful/checkEntries.js",
     "test": "node ./services/contentful/checkEntries.js -e sitefinityContentHtml sitefinityDescriptionHtml",
-    "find": "node ./services/contentful/findEntries.js"
+    "find": "node ./services/contentful/findEntries.js",
+    "wp": "node ./services/wordpress/index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
