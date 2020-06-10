@@ -8,21 +8,26 @@ const { getAssets } = require("./getAssets");
 const main = async () => {
   const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
+  // 1 Get posts from WP
   const posts = await exportBlogposts(`${apiUrl}/posts`);
+
+  // 2 Process posts
   const processedPosts = transformPosts(posts);
+
+  // 3 Get categories fron WP
   const categories = await getCategories(
     processedPosts,
     `${apiUrl}/categories`
   );
 
-  // Create list of assets needed from WP
+  // 4 Create list of assets needed from WP
   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
 
-  // Create and publish assets in Contentful
+  // 5 Create and publish assets in Contentful
 
-  // Create and publish categories in Contentful
+  // 6 Create and publish categories in Contentful
 
-  // Create, link and publish posts
+  // 7 Create, link and publish posts
 };
 
 main();
