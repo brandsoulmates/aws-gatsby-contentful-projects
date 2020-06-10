@@ -15,9 +15,11 @@ const tasks = new Listr([
     title: `Get posts from api ${apiUrl}/posts`,
     task: (ctx) => {
       return new Observable(async (observer) => {
-        ctx.posts = await exportBlogposts(`${apiUrl}/posts`, (val) =>
+        const posts = await exportBlogposts(`${apiUrl}/posts`, (val) =>
           observer.next(val)
         );
+        if (!posts.length) ctx.error = "No posts were found";
+        ctx.posts = posts;
         observer.complete();
       });
     },
@@ -25,6 +27,7 @@ const tasks = new Listr([
   {
     title: "Process posts",
     task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
       return new Observable((observer) => {
         ctx.processedPosts = transformPosts(ctx.posts);
         observer.complete();
@@ -34,13 +37,15 @@ const tasks = new Listr([
   {
     title: `Get unique categories at api ${apiUrl}/categories`,
     task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
       return new Observable(async (observer) => {
-        ctx.categories = await getCategories(
+        const categories = await getCategories(
           ctx.processedPosts,
           `${apiUrl}/categories`,
           (val) => observer.next(val)
         );
-
+        if (!categories.length) ctx.error = "No categories were found";
+        ctx.categories = categories;
         observer.complete();
       });
     },
@@ -48,27 +53,45 @@ const tasks = new Listr([
   {
     title: `Get unique assets at api ${apiUrl}/media`,
     task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
       return new Observable(async (observer) => {
-        ctx.assets = await getAssets(
+        const assets = await getAssets(
           ctx.processedPosts,
           `${apiUrl}/media`,
           (val) => observer.next(val)
         );
+        if (!assets.length) ctx.error = "No assets were found";
+        ctx.assets = assets;
         observer.complete();
       });
     },
   },
   {
     title: `Create and publish assets in Contentful`,
-    task: () => {},
+    task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
+    },
   },
   {
     title: `Create and publish categories in Contentful`,
-    task: () => {},
+    task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
+    },
   },
   {
     title: `Create, link and publish posts`,
-    task: () => {},
+    task: (ctx) => {
+      if (ctx.error) return Promise.reject(new Error(ctx.error));
+    },
+  },
+  {
+    title: `Success`,
+    task: (ctx, task) => {
+      if (ctx.error) {
+        task.title = "Failure";
+        return Promise.reject(new Error(ctx.error));
+      }
+    },
   },
 ]);
 
