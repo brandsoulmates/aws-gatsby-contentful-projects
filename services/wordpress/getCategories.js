@@ -1,7 +1,7 @@
 const { getJSON } = require("./utils");
 
 exports.getCategories = async (posts, apiURL) => {
-  console.log("\nGet unique categories");
+  console.log(`\nGetting unique categories at api ${apiURL}`);
   const categories = await Promise.all(
     posts
       .reduce((all, post) => {
@@ -10,7 +10,7 @@ exports.getCategories = async (posts, apiURL) => {
         return all.concat([post.category]);
       }, [])
       .map(async (categoryId) => {
-        console.log(`...getting information about category ${categoryId}`);
+        console.log(`...getting data for category ${categoryId}`);
         const categoryData = await getJSON(`${apiURL}/${categoryId}`);
         return {
           id: categoryId,

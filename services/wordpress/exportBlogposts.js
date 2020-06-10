@@ -10,7 +10,7 @@ const exportPageOfPosts = async (apiUrl, page = 1, allPosts = []) => {
 };
 
 exports.exportBlogposts = async (apiUrl) => {
-  console.log(`Getting posts at url ${apiUrl}`);
+  console.log(`Getting posts at api ${apiUrl}`);
   const allPosts = await exportPageOfPosts(apiUrl);
   if (!allPosts.length)
     console.error(`Error: Unable to retrieve posts for ${apiUrl}\n`);

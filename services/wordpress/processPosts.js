@@ -13,8 +13,9 @@ const extractBodyImages = (post) => {
   return post;
 };
 
-exports.transformPosts = (posts) =>
-  posts.map(({ date_gmt, content, title, slug, categories }) => {
+exports.transformPosts = (posts) => {
+  console.log("\nTransforming posts...");
+  return posts.map(({ date_gmt, content, title, slug, categories }) => {
     return extractBodyImages({
       publishDate: date_gmt + "+00:00",
       body: `<div>${content.rendered}</div>`,
@@ -23,3 +24,4 @@ exports.transformPosts = (posts) =>
       category: categories[0],
     });
   });
+};
