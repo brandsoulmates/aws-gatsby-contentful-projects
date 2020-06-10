@@ -1,33 +1,18 @@
-var https = require("https");
+const { getJSON } = require("./utils");
 
-exports.exportBlogposts = (apiUrl, log = console.log) =>
-  new Promise((resolve) => {
-    const exportPageOfPosts = (apiUrl, page = 1, allPosts = []) => {
-      log(`Getting posts for page ${page}`);
-      const url = `${apiUrl}?page=${page}`;
-      https
-        .get(url, (res) => {
-          if (res.statusCode === 400) {
-            return resolve(allPosts);
-          }
-          let result = "";
+const exportPageOfPosts = async (apiUrl, page = 1, allPosts = []) => {
+  console.log(`...getting posts for page ${page}`);
+  const url = `${apiUrl}?page=${page}`;
+  const posts = await getJSON(url);
+  return posts
+    ? await exportPageOfPosts(apiUrl, page + 1, allPosts.concat(posts))
+    : allPosts;
+};
 
-          res.on("data", (d) => {
-            result += d.toString();
-          });
-
-          res.on("end", async () => {
-            blogPosts = JSON.parse(result);
-            return exportPageOfPosts(
-              apiUrl,
-              page + 1,
-              allPosts.concat(blogPosts)
-            );
-          });
-        })
-        .on("error", (e) => {
-          throw Error("Error while exporting blogposts", e);
-        });
-    };
-    exportPageOfPosts(apiUrl);
-  });
+exports.exportBlogposts = async (apiUrl) => {
+  console.log(`Getting posts at url ${apiUrl}`);
+  const allPosts = await exportPageOfPosts(apiUrl);
+  if (!allPosts.length)
+    console.error(`Error: Unable to retrieve posts for ${apiUrl}\n`);
+  return allPosts;
+};

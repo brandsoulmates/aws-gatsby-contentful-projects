@@ -14,30 +14,12 @@ const extractBodyImages = (post) => {
 };
 
 exports.transformPosts = (posts) =>
-  posts.map((post) => {
-    delete post._links;
-    delete post.guid;
-    delete post.excerpt;
-    delete post.author;
-    delete post.comment_status;
-    delete post.ping_status;
-    delete post.template;
-    delete post.format;
-    delete post.meta;
-    delete post.status;
-    delete post.type;
-    post.publishDate = post.date_gmt + "+00:00";
-    delete post.date_gmt;
-    delete post.date;
-    delete post.modified;
-    delete post.modified_gmt;
-    delete post.tags;
-    delete post.sticky;
-    post.body = `<div>${post.content.rendered}</div>`;
-    delete post.content;
-    post.title = post.title.rendered;
-    post.slug = post.slug;
-    post.category = post.categories[0];
-    delete post.categories;
-    return extractBodyImages(post);
+  posts.map(({ date_gmt, content, title, slug, categories }) => {
+    return extractBodyImages({
+      publishDate: date_gmt + "+00:00",
+      body: `<div>${content.rendered}</div>`,
+      title: title.rendered,
+      slug: slug,
+      category: categories[0],
+    });
   });
