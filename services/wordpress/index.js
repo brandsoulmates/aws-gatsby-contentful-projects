@@ -12,10 +12,12 @@ const main = async () => {
 
   // Process posts
   const processedPosts = transformPosts(posts);
-  console.log(processedPosts);
 
   // Get Categories fron WP
-  // const categories = await generateAssetsList(posts, apiUrl);
+  const categories = await generateAssetsList(
+    processedPosts,
+    `${apiUrl}/categories`
+  );
 
   // Create list of assets needed from WP
 
