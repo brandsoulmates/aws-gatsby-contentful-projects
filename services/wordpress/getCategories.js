@@ -20,5 +20,7 @@ exports.getCategories = async (posts, apiURL) => {
         };
       })
   );
+
+  console.log(`Successfully retrieved ${categories.length} categories.`);
   return categories;
 };

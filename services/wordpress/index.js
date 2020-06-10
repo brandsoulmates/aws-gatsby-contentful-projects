@@ -1,6 +1,7 @@
 const { exportBlogposts } = require("./exportBlogposts");
 const { transformPosts } = require("./processPosts");
 const { getCategories } = require("./getCategories");
+const { getAssets } = require("./getAssets");
 
 // Reference: https://hoverbaum.net/2018/03/22/Wordpress-to-Contentful-migration/
 
@@ -15,6 +16,7 @@ const main = async () => {
   );
 
   // Create list of assets needed from WP
+  const assets = await getAssets(processedPosts, `${apiUrl}/media`);
 
   // Create and publish assets in Contentful
 

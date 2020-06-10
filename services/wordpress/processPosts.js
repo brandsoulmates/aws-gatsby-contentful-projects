@@ -15,13 +15,16 @@ const extractBodyImages = (post) => {
 
 exports.transformPosts = (posts) => {
   console.log("\nTransforming posts...");
-  return posts.map(({ date_gmt, content, title, slug, categories }) => {
-    return extractBodyImages({
-      publishDate: date_gmt + "+00:00",
-      body: `<div>${content.rendered}</div>`,
-      title: title.rendered,
-      slug: slug,
-      category: categories[0],
-    });
-  });
+  return posts.map(
+    ({ date_gmt, content, title, slug, categories, ...rest }) => {
+      return extractBodyImages({
+        publishDate: date_gmt + "+00:00",
+        body: `<div>${content.rendered}</div>`,
+        title: title.rendered,
+        slug: slug,
+        category: categories[0],
+        ...rest,
+      });
+    }
+  );
 };
