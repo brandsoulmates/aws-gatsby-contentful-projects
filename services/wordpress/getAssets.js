@@ -18,7 +18,7 @@ exports.getAssets = async (posts, apiURL, log = console.log) => {
       .map(async ({ mediaNumber, postId }, i, array) => {
         const featuredMedia = await getJSON(`${apiURL}/${mediaNumber}`);
         infosFetched += 1;
-        log(`...getting info for asset ${infosFetched}/${array.length}`);
+        log(`getting info for asset ${infosFetched}/${array.length}`);
         return {
           mediaNumber,
           link: featuredMedia.guid.rendered,
@@ -30,7 +30,7 @@ exports.getAssets = async (posts, apiURL, log = console.log) => {
   );
 
   // After all this we also add images from the body of posts.
-  log("...adding images from body of posts");
+  log("adding images from body of posts");
   const assets = featuredAssets.concat(
     posts.reduce((all, post) => {
       const images = post.bodyImages ? post.bodyImages : [];

@@ -10,6 +10,17 @@ const { getAssets } = require("./getAssets");
 
 const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
+// const main = async () => {
+//   const posts = await exportBlogposts(`${apiUrl}/posts`);
+//   const processedPosts = transformPosts(posts);
+//   const categories = await getCategories(
+//     processedPosts,
+//     `${apiUrl}/categories`
+//   );
+//   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
+// };
+// main();
+
 const tasks = new Listr([
   {
     title: `Get posts from api ${apiUrl}/posts`,
@@ -18,6 +29,7 @@ const tasks = new Listr([
         const posts = await exportBlogposts(`${apiUrl}/posts`, (val) =>
           observer.next(val)
         );
+
         if (!posts.length) ctx.error = "No posts were found";
         ctx.posts = posts;
         observer.complete();
