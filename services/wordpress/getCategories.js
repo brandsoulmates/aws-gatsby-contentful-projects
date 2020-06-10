@@ -1,6 +1,6 @@
 const { getJSON } = require("./utils");
 
-exports.generateAssetsList = async (posts, apiURL) => {
+exports.getCategories = async (posts, apiURL) => {
   console.log("\nGet unique categories");
   const categories = await Promise.all(
     posts
