@@ -10,8 +10,8 @@ exports.getCategories = async (posts, apiUrl) => {
         if (all.indexOf(post.category) > -1) return all;
         return all.concat([post.category]);
       }, [])
-      .map(async (categoryId) => {
-        console.log(`...getting data for category ${categoryId}`);
+      .map(async (categoryId, i, arr) => {
+        console.log(`...getting data for category ${i + 1}/${arr.length}`);
         const categoryData = await getJSON(`${apiUrl}/${categoryId}`);
         return {
           id: categoryId,
