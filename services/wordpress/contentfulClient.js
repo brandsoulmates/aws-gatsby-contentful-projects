@@ -16,6 +16,28 @@ const client = contentful.createClient({
 
 exports.getContentfulClient = () => client;
 const getContentfulSpace = async () => await client.getSpace(spaceID);
+const getContentfulEnvironment = async () =>
+  await (await getContentfulSpace()).getEnvironment(environment);
+
+exports.purgeAssets = async (skip = 0) => {
+  try {
+    const env = await getContentfulEnvironment();
+    const cmsAssets = await env.getAssets({ skip });
+    const hasMoreItems = cmsAssets.skip + cmsAssets.limit < cmsAssets.total;
+
+    await Promise.all(
+      cmsAssets.items.map(async (asset) => {
+        await asset.unpublish();
+        return await asset.delete();
+      })
+    );
+
+    if (hasMoreItems) this.purgeAssets(cmsAssets.skip + cmsAssets.limit);
+    else console.log("done");
+  } catch (e) {
+    console.log("Error deleting assets", e);
+  }
+};
 
 const createAsset = async (asset, log = console.log) => {
   try {
@@ -31,7 +53,9 @@ const createAsset = async (asset, log = console.log) => {
         file: {
           [locale]: {
             contentType: "image/jpeg",
-            fileName: `${asset.title.toLowerCase().replace(/\s/g, "-")}.jpg`,
+            fileName: `${asset.title.toLowerCase().replace(/\s/g, "-")}-${
+              asset.mediaNumber
+            }.jpg`,
             upload: encodeURI(asset.link),
           },
         },

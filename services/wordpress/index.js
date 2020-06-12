@@ -8,11 +8,16 @@ const { getAssets } = require("./getAssets");
 const {
   getContentfulClient,
   createAndPublishAssets,
+  purgeAssets,
 } = require("./contentfulClient");
 
 // Reference: https://hoverbaum.net/2018/03/22/Wordpress-to-Contentful-migration/
 
 const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
+
+const resetContentfulAssets = async () => {
+  await purgeAssets();
+};
 
 const main = async () => {
   console.log(`Get posts from api ${apiUrl}/posts`);
@@ -29,17 +34,21 @@ const main = async () => {
 
   console.log(`Get unique assets at api ${apiUrl}/media`);
   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
+  console.log(assets.slice(0, 10));
 
-  console.log(`Create and publish assets in Contentful`);
-  const publishedAssets = await createAndPublishAssets(assets);
+  // console.log(`Create and publish assets in Contentful`);
+  // const publishedAssets = await createAndPublishAssets(assets);
 
-  console.log(publishedAssets.length);
+  // console.log(publishedAssets.length);
 
   // console.log(`Create and publish categories in Contentful`);
   // console.log(`Create, link and publish posts`);
 };
 
-main();
+// main();
+resetContentfulAssets();
+
+// ==================== //
 
 // const tasks = new Listr([
 //   {
