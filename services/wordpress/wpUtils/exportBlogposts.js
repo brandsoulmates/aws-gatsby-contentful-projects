@@ -1,4 +1,4 @@
-const { getJSON } = require("./utils");
+const { getJSON } = require("../utils");
 
 const exportPageOfPosts = async (apiUrl, page = 1, allPosts = []) => {
   console.log(`...getting posts for page ${page}`);

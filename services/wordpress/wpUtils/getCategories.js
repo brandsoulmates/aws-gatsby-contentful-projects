@@ -1,4 +1,4 @@
-const { getJSON } = require("./utils");
+const { getJSON } = require("../utils");
 
 exports.getCategories = async (posts, apiUrl) => {
   console.log(`\nGeting unique categories from api ${apiUrl}`);

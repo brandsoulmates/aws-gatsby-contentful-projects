@@ -17,7 +17,8 @@
     "test:all": "node ./services/contentful/checkEntries.js",
     "test": "node ./services/contentful/checkEntries.js -e sitefinityContentHtml sitefinityDescriptionHtml",
     "find": "node ./services/contentful/findEntries.js",
-    "wp": "node ./services/wordpress/index.js"
+    "wp": "node ./services/wordpress/index.js",
+    "wp:clean": "node ./services/wordpress/clean.js"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",

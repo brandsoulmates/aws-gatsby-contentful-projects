@@ -1,21 +1,16 @@
-const Listr = require("listr");
-const { Observable } = require("rxjs");
-
-const { exportBlogposts } = require("./exportBlogposts");
-const { transformPosts } = require("./processPosts");
-const { getCategories } = require("./getCategories");
-const { getAssets } = require("./getAssets");
 const {
-  getContentfulClient,
-  createAndPublishAssets,
-  purgeAssets,
-} = require("./contentfulClient");
+  exportBlogposts,
+  getAssets,
+  getCategories,
+  transformPosts,
+} = require("./wpUtils");
+const { createAndPublishAssets } = require("./contentfulUtils");
 
 // Reference: https://hoverbaum.net/2018/03/22/Wordpress-to-Contentful-migration/
 
 const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
-const main = async () => {
+const migrateWP2Contentful = async () => {
   const posts = await exportBlogposts(`${apiUrl}/posts`);
   const processedPosts = transformPosts(posts);
   const categories = await getCategories(
@@ -23,10 +18,7 @@ const main = async () => {
     `${apiUrl}/categories`
   );
   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
-  // console.log(assets.slice(0, 10));
-
-  // console.log(`Create and publish assets in Contentful`);
-  // const publishedAssets = await createAndPublishAssets(assets);
+  const publishedAssets = await createAndPublishAssets(assets);
 
   // console.log(publishedAssets.length);
 
@@ -34,4 +26,4 @@ const main = async () => {
   // console.log(`Create, link and publish posts`);
 };
 
-main();
+migrateWP2Contentful();

@@ -1,4 +1,4 @@
-const { getJSON } = require("./utils");
+const { getJSON } = require("../utils");
 
 exports.getAssets = async (posts, apiUrl) => {
   let assetsFetched = 0;
