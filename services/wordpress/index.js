@@ -31,7 +31,9 @@ const main = async () => {
   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
 
   console.log(`Create and publish assets in Contentful`);
-  await createAndPublishAssets(assets);
+  const publishedAssets = await createAndPublishAssets(assets);
+
+  console.log(publishedAssets.length);
 
   // console.log(`Create and publish categories in Contentful`);
   // console.log(`Create, link and publish posts`);

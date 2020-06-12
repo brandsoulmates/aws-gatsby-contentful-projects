@@ -11,6 +11,7 @@ const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
 const client = contentful.createClient({
   accessToken,
+  // logHandler: (level, data) => console.log(`${level} | ${data}`),
 });
 
 exports.getContentfulClient = () => client;
@@ -36,26 +37,39 @@ const createAsset = async (asset, log = console.log) => {
         },
       },
     });
-    log(cmsAsset);
+    return cmsAsset;
   } catch (e) {
-    log(e);
     log(`Asset "${asset.title}" failed to create, retrying...`);
   }
 };
 
-const publishAsset = async () => {};
+const publishAsset = async (cmsAsset, log = console.log) => {
+  try {
+    const processedCMSAsset = await cmsAsset.processForAllLocales();
+    const publishedCMSAsset = await processedCMSAsset.publish();
 
-const createAndPublishSingleAsset = async (asset, log = console.log) => {
-  createAsset(asset, log);
-
-  return asset;
+    return publishedCMSAsset;
+  } catch (e) {
+    log(`Asset "${asset.title}" failed to publish, retrying...`);
+  }
 };
 
 exports.createAndPublishAssets = async (assets, log = console.log) => {
-  assets = assets.slice(0, 1);
+  // assets = assets.slice(0, 25);
+  const numAssets = assets.length;
+  let numPublished = 0;
+
+  const createAndPublishSingleAsset = async (asset, log = console.log) => {
+    const cmsAsset = await createAsset(asset, log);
+    const publishedAsset = await publishAsset(cmsAsset, log);
+
+    numPublished++;
+    console.log(`published ${numPublished} of ${numAssets}`);
+    return publishedAsset;
+  };
 
   return await Promise.all(
-    assets.map(async (asset) => {
+    assets.map(async (asset, i, array) => {
       return await createAndPublishSingleAsset(asset, log);
     })
   );
