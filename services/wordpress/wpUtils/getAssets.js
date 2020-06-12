@@ -3,7 +3,7 @@ const { getJSON } = require("../utils");
 exports.getAssets = async (posts, apiUrl) => {
   let assetsFetched = 0;
 
-  console.log(`\nGeting unique featured_media images from api ${apiUrl}`);
+  console.log(`\nGetting unique featured_media images from api ${apiUrl}`);
   const featuredAssets = await Promise.all(
     posts
       .reduce((all, post) => {

@@ -1,5 +1,4 @@
 const { getContentfulEnvironment } = require("./client.js");
-const { async } = require("rxjs/internal/scheduler/async");
 
 exports.purgeAssets = async () => {
   let total = 0;
@@ -9,28 +8,29 @@ exports.purgeAssets = async () => {
   const purgeAssetsPerLimit = async (skip = 0) => {
     try {
       const env = await getContentfulEnvironment();
-      const cmsAssets = await env.getAssets({ skip });
+      const cmsAssets = await env.getAssets();
       if (!total) total = cmsAssets.total;
 
       await Promise.all(
         cmsAssets.items.map(async (asset) => {
           if (asset.isPublished()) await asset.unpublish();
-          const res = await asset.delete();
+          await asset.delete();
+
           sucessfullyDeleted++;
           console.log(
             `...deleted ${sucessfullyDeleted} of ${total} total assets`
           );
-          return res;
+          return asset;
         })
       );
 
-      const hasMoreItems = cmsAssets.skip + cmsAssets.items.length < total;
-      if (hasMoreItems)
-        await purgeAssetsPerLimit(cmsAssets.skip + cmsAssets.items.length);
+      const hasMoreItems = cmsAssets.items.length < cmsAssets.total;
+      if (hasMoreItems) await purgeAssetsPerLimit();
     } catch (e) {
       console.log("Error deleting assets", e);
     }
   };
+
   await purgeAssetsPerLimit();
   console.log(
     `Successfully deleted ${sucessfullyDeleted} of ${total} total assets`

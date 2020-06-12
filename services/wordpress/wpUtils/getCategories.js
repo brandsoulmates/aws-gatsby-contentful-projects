@@ -1,7 +1,7 @@
 const { getJSON } = require("../utils");
 
 exports.getCategories = async (posts, apiUrl) => {
-  console.log(`\nGeting unique categories from api ${apiUrl}`);
+  console.log(`\nGetting unique categories from api ${apiUrl}`);
 
   const categories = await Promise.all(
     posts

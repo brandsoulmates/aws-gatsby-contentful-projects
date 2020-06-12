@@ -8,8 +8,10 @@ const spaceID = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_MANAGEMENT_API;
 const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
+const showWarnings = false;
+
 const logHandler = (level, data) => {
-  if (level !== "warning") {
+  if (showWarnings || level !== "warning") {
     console.log(`${level} | ${data}`);
   }
 };
