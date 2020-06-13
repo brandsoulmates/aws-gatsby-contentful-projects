@@ -20,6 +20,7 @@ const migrateWP2Contentful = async () => {
   );
   const assets = await getAssets(processedPosts, `${apiUrl}/media`);
   const publishedAssets = await createAndPublishAssets(assets);
+  // console.log(publishedAssets);
 
   // console.log(`Create and publish categories in Contentful`);
   // console.log(`Create, link and publish posts`);

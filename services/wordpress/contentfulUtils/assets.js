@@ -3,13 +3,20 @@ const { log } = require("../utils");
 
 const locale = "en-US";
 
+const getAssetFileName = (asset) => {
+  const parsedLink = asset.link.split("/");
+  return asset.title
+    ? `${asset.title.toLowerCase().replace(/\s/g, "-")}.jpg`
+    : parsedLink[parsedLink.length - 1];
+};
+
 const createAsset = async (asset) => {
   try {
     const space = await getContentfulSpace();
     const cmsAsset = await space.createAsset({
       fields: {
         title: {
-          [locale]: asset.title,
+          [locale]: getAssetFileName(asset).split(".")[0],
         },
         description: {
           [locale]: asset.description,
@@ -17,9 +24,7 @@ const createAsset = async (asset) => {
         file: {
           [locale]: {
             contentType: "image/jpeg",
-            fileName: `${asset.title.toLowerCase().replace(/\s/g, "-")}-${
-              asset.mediaNumber
-            }.jpg`,
+            fileName: getAssetFileName(asset),
             upload: encodeURI(asset.link),
           },
         },
@@ -71,12 +76,12 @@ exports.createAndPublishAssets = async (assets) => {
   return publishedAssets;
 };
 
-exports.purgeAssets = async () => {
+exports.deleteAssets = async () => {
   let total = 0;
   let sucessfullyDeleted = 0;
 
   log("info", `Purging all assets from contentful`, true);
-  const purgeAssetsPerLimit = async (skip = 0) => {
+  const deleteAssetsPerLimit = async () => {
     try {
       const env = await getContentfulEnvironment();
       const cmsAssets = await env.getAssets();
@@ -97,13 +102,13 @@ exports.purgeAssets = async () => {
       );
 
       const hasMoreItems = cmsAssets.items.length < cmsAssets.total;
-      if (hasMoreItems) await purgeAssetsPerLimit();
+      if (hasMoreItems) await deleteAssetsPerLimit();
     } catch (e) {
       log("error", `Unable to complete deletion of all assets`);
       log("error", e);
     }
   };
 
-  await purgeAssetsPerLimit();
+  await deleteAssetsPerLimit();
   log("success", `Deleted ${sucessfullyDeleted} of ${total} total assets`);
 };

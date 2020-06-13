@@ -11,7 +11,7 @@ exports.getCategories = async (posts, apiUrl) => {
         return all.concat([post.category]);
       }, [])
       .map(async (categoryId, i, arr) => {
-        log("progress", `getting data for category ${i + 1}/${arr.length}`);
+        log("progress", `getting data for category ${i + 1} of ${arr.length}`);
         const categoryData = await getJSON(`${apiUrl}/${categoryId}`);
         return {
           id: categoryId,

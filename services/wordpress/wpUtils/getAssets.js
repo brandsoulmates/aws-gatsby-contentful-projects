@@ -20,7 +20,7 @@ exports.getAssets = async (posts, apiUrl) => {
         assetsFetched += 1;
         log(
           "progress",
-          `getting data for asset ${assetsFetched}/${array.length}`
+          `getting data for asset ${assetsFetched} of ${array.length}`
         );
         return {
           mediaNumber,

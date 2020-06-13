@@ -3,10 +3,10 @@ const {
   getContentfulEnvironment,
   getContentfulSpace,
 } = require("./client");
-const { createAndPublishAssets, purgeAssets } = require("./assets");
+const { createAndPublishAssets, deleteAssets } = require("./assets");
 
 module.exports = {
-  purgeAssets,
+  deleteAssets,
   getContentfulClient,
   getContentfulEnvironment,
   getContentfulSpace,

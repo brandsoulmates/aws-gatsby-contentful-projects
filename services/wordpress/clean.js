@@ -1,7 +1,7 @@
-const { purgeAssets } = require("./contentfulUtils");
+const { deleteAssets } = require("./contentfulUtils");
 
 const resetContentfulAssets = async () => {
-  await purgeAssets();
+  await deleteAssets();
 };
 
 resetContentfulAssets();
