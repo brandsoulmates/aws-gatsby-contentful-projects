@@ -1,10 +1,9 @@
-const { purgeAssets } = require("./purgeAssets");
 const {
   getContentfulClient,
   getContentfulEnvironment,
   getContentfulSpace,
 } = require("./client");
-const { createAndPublishAssets } = require("./assets");
+const { createAndPublishAssets, purgeAssets } = require("./assets");
 
 module.exports = {
   purgeAssets,

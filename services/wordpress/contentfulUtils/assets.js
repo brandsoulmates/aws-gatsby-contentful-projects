@@ -1,4 +1,4 @@
-const { getContentfulSpace } = require("./client");
+const { getContentfulSpace, getContentfulEnvironment } = require("./client");
 const { log } = require("../utils");
 
 const locale = "en-US";
@@ -47,22 +47,63 @@ exports.createAndPublishAssets = async (assets) => {
   // assets = assets.slice(0, 25);
   const numAssets = assets.length;
   let numPublished = 0;
+  const publishedAssets = [];
 
   const createAndPublishSingleAsset = async (asset) => {
     const cmsAsset = await createAsset(asset);
     const publishedAsset = await publishAsset(cmsAsset);
+
+    publishedAsset.wpAsset = asset;
+    publishedAssets.push(publishedAsset);
 
     numPublished++;
     log("progress", `published ${numPublished} of ${numAssets}`);
     return publishedAsset;
   };
 
-  const publishedAssets = await Promise.all(
-    assets.map(async (asset, i, array) => {
+  await Promise.all(
+    assets.map(async (asset) => {
       return await createAndPublishSingleAsset(asset);
     })
   );
 
   log("success", `Published ${numPublished} of ${numAssets} total assets`);
   return publishedAssets;
+};
+
+exports.purgeAssets = async () => {
+  let total = 0;
+  let sucessfullyDeleted = 0;
+
+  log("info", `Purging all assets from contentful`, true);
+  const purgeAssetsPerLimit = async (skip = 0) => {
+    try {
+      const env = await getContentfulEnvironment();
+      const cmsAssets = await env.getAssets();
+      if (!total) total = cmsAssets.total;
+
+      await Promise.all(
+        cmsAssets.items.map(async (asset) => {
+          if (asset.isPublished()) await asset.unpublish();
+          await asset.delete();
+
+          sucessfullyDeleted++;
+          log(
+            "progress",
+            `deleted ${sucessfullyDeleted} of ${total} total assets`
+          );
+          return asset;
+        })
+      );
+
+      const hasMoreItems = cmsAssets.items.length < cmsAssets.total;
+      if (hasMoreItems) await purgeAssetsPerLimit();
+    } catch (e) {
+      log("error", `Unable to complete deletion of all assets`);
+      log("error", e);
+    }
+  };
+
+  await purgeAssetsPerLimit();
+  log("success", `Deleted ${sucessfullyDeleted} of ${total} total assets`);
 };
