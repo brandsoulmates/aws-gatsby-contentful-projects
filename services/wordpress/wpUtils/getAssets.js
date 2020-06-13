@@ -1,9 +1,9 @@
-const { getJSON } = require("../utils");
+const { getJSON, log } = require("../utils");
 
 exports.getAssets = async (posts, apiUrl) => {
   let assetsFetched = 0;
 
-  console.log(`\nGetting unique featured_media images from api ${apiUrl}`);
+  log("info", `Getting unique featured_media images from api ${apiUrl}`, true);
   const featuredAssets = await Promise.all(
     posts
       .reduce((all, post) => {
@@ -18,8 +18,9 @@ exports.getAssets = async (posts, apiUrl) => {
       .map(async ({ mediaNumber, postId }, i, array) => {
         const featuredMedia = await getJSON(`${apiUrl}/${mediaNumber}`);
         assetsFetched += 1;
-        console.log(
-          `...getting data for asset ${assetsFetched}/${array.length}`
+        log(
+          "progress",
+          `getting data for asset ${assetsFetched}/${array.length}`
         );
         return {
           mediaNumber,
@@ -31,14 +32,16 @@ exports.getAssets = async (posts, apiUrl) => {
       })
   );
 
-  console.log("...parsing images from body of posts");
+  log("progress", "parsing images from body of posts");
   const bodyImages = posts.reduce((all, post) => {
     const images = post.bodyImages ? post.bodyImages : [];
     return all.concat(images);
   }, []);
   const assets = featuredAssets.concat(bodyImages);
-  console.log(`...added ${bodyImages.length} images from body of posts`);
+  log("progress", `added ${bodyImages.length} images from body of posts`);
 
-  console.log(`Total Assets retrieved: ${assets.length}`);
+  if (!assets.length) log("warning", "No assets were found");
+  else log("success", `Total Assets retrieved: ${assets.length}`);
+
   return assets;
 };

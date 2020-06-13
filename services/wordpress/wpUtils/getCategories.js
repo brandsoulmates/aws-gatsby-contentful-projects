@@ -1,7 +1,7 @@
-const { getJSON } = require("../utils");
+const { getJSON, log } = require("../utils");
 
 exports.getCategories = async (posts, apiUrl) => {
-  console.log(`\nGetting unique categories from api ${apiUrl}`);
+  log("info", `Getting unique categories from api ${apiUrl}`, true);
 
   const categories = await Promise.all(
     posts
@@ -11,7 +11,7 @@ exports.getCategories = async (posts, apiUrl) => {
         return all.concat([post.category]);
       }, [])
       .map(async (categoryId, i, arr) => {
-        console.log(`...getting data for category ${i + 1}/${arr.length}`);
+        log("progress", `getting data for category ${i + 1}/${arr.length}`);
         const categoryData = await getJSON(`${apiUrl}/${categoryId}`);
         return {
           id: categoryId,
@@ -21,6 +21,9 @@ exports.getCategories = async (posts, apiUrl) => {
         };
       })
   );
+
+  if (!categories.length) log("warning", "No categories were found");
+  else log("success", `Retrieved ${categories.length} unique categories`);
 
   return categories;
 };

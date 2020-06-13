@@ -1,7 +1,7 @@
-const { getJSON } = require("../utils");
+const { getJSON, log } = require("../utils");
 
 const exportPageOfPosts = async (apiUrl, page = 1, allPosts = []) => {
-  console.log(`...getting posts for page ${page}`);
+  log("progress", `getting posts for page ${page}`);
   const url = `${apiUrl}?page=${page}`;
   const posts = await getJSON(url);
   return posts
@@ -10,9 +10,15 @@ const exportPageOfPosts = async (apiUrl, page = 1, allPosts = []) => {
 };
 
 exports.exportBlogposts = async (apiUrl) => {
-  console.log(`Getting posts from api ${apiUrl}`);
+  log("info", `Getting posts from api ${apiUrl}`, true);
   const allPosts = await exportPageOfPosts(apiUrl);
+
   if (!allPosts.length)
-    console.error(`Error: Unable to retrieve posts for ${apiUrl}\n`);
+    log(
+      "error",
+      `${chalk.red("Error")}: Unable to retrieve posts for ${apiUrl}\n`
+    );
+  else log("success", `Retrieved ${allPosts.length} posts`);
+
   return allPosts;
 };

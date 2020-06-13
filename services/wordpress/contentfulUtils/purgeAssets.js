@@ -1,10 +1,11 @@
 const { getContentfulEnvironment } = require("./client.js");
+const { log } = require("../utils");
 
 exports.purgeAssets = async () => {
   let total = 0;
   let sucessfullyDeleted = 0;
 
-  console.log(`Purging all assets from contentful`);
+  log("info", `Purging all assets from contentful`, true);
   const purgeAssetsPerLimit = async (skip = 0) => {
     try {
       const env = await getContentfulEnvironment();
@@ -17,8 +18,9 @@ exports.purgeAssets = async () => {
           await asset.delete();
 
           sucessfullyDeleted++;
-          console.log(
-            `...deleted ${sucessfullyDeleted} of ${total} total assets`
+          log(
+            "progress",
+            `deleted ${sucessfullyDeleted} of ${total} total assets`
           );
           return asset;
         })
@@ -27,12 +29,11 @@ exports.purgeAssets = async () => {
       const hasMoreItems = cmsAssets.items.length < cmsAssets.total;
       if (hasMoreItems) await purgeAssetsPerLimit();
     } catch (e) {
-      console.log("Error deleting assets", e);
+      log("error", `Unable to complete deletion of all assets`);
+      log("error", e);
     }
   };
 
   await purgeAssetsPerLimit();
-  console.log(
-    `Successfully deleted ${sucessfullyDeleted} of ${total} total assets`
-  );
+  log("success", `Deleted ${sucessfullyDeleted} of ${total} total assets`);
 };

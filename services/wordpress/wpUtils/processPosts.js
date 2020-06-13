@@ -1,3 +1,5 @@
+const { log } = require("../utils");
+const { transformPosts } = require(".");
 const extractBodyImages = (post) => {
   const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;
   post.bodyImages = [];
@@ -14,8 +16,8 @@ const extractBodyImages = (post) => {
 };
 
 exports.transformPosts = (posts) => {
-  console.log("\nTransforming Posts...");
-  return posts.map(
+  log("info", `Transforming Posts...`, true);
+  const transformedPosts = posts.map(
     ({ date_gmt, content, title, slug, categories, ...rest }) => {
       return extractBodyImages({
         publishDate: date_gmt + "+00:00",
@@ -27,4 +29,15 @@ exports.transformPosts = (posts) => {
       });
     }
   );
+
+  if (!transformedPosts.length) {
+    log("warning", `No posts were transformed`);
+  } else {
+    log(
+      "success",
+      `Transformed ${transformedPosts.length} of ${posts.length} total posts`
+    );
+  }
+
+  return transformedPosts;
 };

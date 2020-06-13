@@ -1,4 +1,5 @@
 const contentful = require("contentful-management");
+const chalk = require("chalk"); // make it pretty
 require("dotenv").config({
   path: `.env`,
 });
@@ -11,8 +12,19 @@ const environment = process.env.CONTENTFUL_ENVIRONMENT;
 const showWarnings = false;
 
 const logHandler = (level, data) => {
-  if (showWarnings || level !== "warning") {
-    console.log(`${level} | ${data}`);
+  switch (level) {
+    case "warning":
+      if (showWarnings) console.log(`${chalk.yellow(level)} ${data}`);
+      break;
+    case "error":
+      const title = [data.name, data.message].filter((a) => a).join(" - ");
+      console.error(`${chalk.red(level)} ${title}`);
+      console.error(data);
+      break;
+    case "info":
+      console.log(`${chalk.blue(level)} ${data}`);
+    default:
+      console.log(`[${level}] ${data}`);
   }
 };
 

@@ -1,4 +1,5 @@
 const { getContentfulSpace } = require("./client");
+const { log } = require("../utils");
 
 const locale = "en-US";
 
@@ -26,8 +27,7 @@ const createAsset = async (asset) => {
     });
     return cmsAsset;
   } catch (e) {
-    console.log(e);
-    console.log(`Asset "${asset.title}" failed to create, retrying...`);
+    log("warning", `Asset "${asset.title}" failed to create, retrying...`);
   }
 };
 
@@ -38,12 +38,12 @@ const publishAsset = async (cmsAsset) => {
 
     return publishedCMSAsset;
   } catch (e) {
-    console.log(`Asset "${asset.title}" failed to publish, retrying...`);
+    log("warning", `Asset "${asset.title}" failed to publish, retrying...`);
   }
 };
 
 exports.createAndPublishAssets = async (assets) => {
-  console.log(`\nCreating and publishing assets in Contentful`);
+  log("info", `Creating and publishing assets in Contentful`, true);
   // assets = assets.slice(0, 25);
   const numAssets = assets.length;
   let numPublished = 0;
@@ -53,7 +53,7 @@ exports.createAndPublishAssets = async (assets) => {
     const publishedAsset = await publishAsset(cmsAsset);
 
     numPublished++;
-    console.log(`...published ${numPublished} of ${numAssets}`);
+    log("progress", `published ${numPublished} of ${numAssets}`);
     return publishedAsset;
   };
 
@@ -63,8 +63,6 @@ exports.createAndPublishAssets = async (assets) => {
     })
   );
 
-  console.log(
-    `Successfully published ${numPublished} of ${numAssets} total assets`
-  );
+  log("success", `Published ${numPublished} of ${numAssets} total assets`);
   return publishedAssets;
 };
