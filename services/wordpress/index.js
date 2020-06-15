@@ -4,7 +4,10 @@ const {
   getCategories,
   transformPosts,
 } = require("./wpUtils");
-const { createAndPublishAssets } = require("./contentfulUtils");
+const {
+  createAndPublishAssets,
+  createAndPublishEntries,
+} = require("./contentfulUtils");
 
 // Migration Reference: https://hoverbaum.net/2018/03/22/Wordpress-to-Contentful-migration/
 // Contentful Management Reference: https://contentful.github.io/contentful-management.js/contentful-management/5.26.5/globals.html
@@ -18,9 +21,12 @@ const migrateWP2Contentful = async () => {
     processedPosts,
     `${apiUrl}/categories`
   );
-  const assets = await getAssets(processedPosts, `${apiUrl}/media`);
-  const publishedAssets = await createAndPublishAssets(assets);
+  // const assets = await getAssets(processedPosts, `${apiUrl}/media`);
+  // const publishedAssets = await createAndPublishAssets(assets);
   // console.log(publishedAssets);
+
+  const publishedCategories = await createAndPublishEntries(categories);
+  // console.log(publishedCategories);
 
   // console.log(`Create and publish categories in Contentful`);
   // console.log(`Create, link and publish posts`);

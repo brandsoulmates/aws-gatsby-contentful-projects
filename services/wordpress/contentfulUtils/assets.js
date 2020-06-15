@@ -49,7 +49,6 @@ const publishAsset = async (cmsAsset) => {
 
 exports.createAndPublishAssets = async (assets) => {
   log("info", `Creating and publishing assets in Contentful`, true);
-  // assets = assets.slice(0, 25);
   const numAssets = assets.length;
   let numPublished = 0;
   const publishedAssets = [];
@@ -80,7 +79,7 @@ exports.deleteAssets = async () => {
   let total = 0;
   let sucessfullyDeleted = 0;
 
-  log("info", `Purging all assets from contentful`, true);
+  log("info", `Deleting all assets from contentful`, true);
   const deleteAssetsPerLimit = async () => {
     try {
       const env = await getContentfulEnvironment();
