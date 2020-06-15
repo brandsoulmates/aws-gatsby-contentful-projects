@@ -15,20 +15,18 @@ const {
 const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
 const migrateWP2Contentful = async () => {
+  // Collect data from WP
   const posts = await exportBlogposts(`${apiUrl}/posts`);
   const processedPosts = transformPosts(posts);
   const categories = await getCategories(
     processedPosts,
     `${apiUrl}/categories`
   );
-  // const assets = await getAssets(processedPosts, `${apiUrl}/media`);
-  // const publishedAssets = await createAndPublishAssets(assets);
-  // console.log(publishedAssets);
+  const assets = await getAssets(processedPosts, `${apiUrl}/media`);
 
+  // Migrate to Contentful
   const publishedCategories = await createAndPublishEntries(categories);
-  // console.log(publishedCategories);
-
-  // console.log(`Create and publish categories in Contentful`);
+  const publishedAssets = await createAndPublishAssets(assets);
   // console.log(`Create, link and publish posts`);
 };
 

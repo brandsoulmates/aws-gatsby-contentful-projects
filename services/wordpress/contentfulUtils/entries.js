@@ -1,7 +1,18 @@
 const { getContentfulSpace, getContentfulEnvironment } = require("./client");
 const { log } = require("../utils");
 
-const checkForExistingContentType = async (contentType) => {
+const getContentType = (blogType) => {
+  switch (blogType) {
+    case "category":
+      return "Blog Category";
+    case "post":
+    default:
+      return "Blog Post";
+  }
+};
+
+const checkForExistingContentType = async (blogType) => {
+  const contentType = getContentType(blogType);
   try {
     log("progress", `checking for existing content type ${contentType}`);
     const environment = await getContentfulEnvironment();
@@ -19,6 +30,7 @@ const checkForExistingContentType = async (contentType) => {
 };
 
 const createContentType = async (contentType) => {
+  const contentType = getContentType(blogType);
   try {
     const environment = await getContentfulEnvironment();
     const existingContentType = await checkForExistingContentType(contentType);
@@ -76,7 +88,7 @@ const publishEntry = async (cmsEntry) => {
   }
 };
 
-exports.createAndPublishEntries = async (entries) => {
+exports.createAndPublishEntries = async (entries, blogType) => {
   log(
     "info",
     `Creating and publishing entries (categories) in Contentful`,
@@ -85,7 +97,7 @@ exports.createAndPublishEntries = async (entries) => {
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
-  const publishedContentType = await createContentType("Blog Category");
+  const publishedContentType = await createContentType(blogType);
 
   const createAndPublishSingleEntry = async (entry) => {
     const cmsEntry = await createEntry(entry, publishedContentType);
