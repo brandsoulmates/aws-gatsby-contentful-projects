@@ -17,8 +17,7 @@ const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
 const migrateWP2Contentful = async () => {
   // Collect data from WP
-  let posts = await exportBlogposts(`${apiUrl}/posts`);
-  posts = posts.slice(0, 2);
+  const posts = await exportBlogposts(`${apiUrl}/posts`);
   const processedPosts = transformPosts(posts);
   const categories = await getCategories(
     processedPosts,

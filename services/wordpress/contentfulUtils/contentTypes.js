@@ -1,4 +1,4 @@
-const { getContentfulSpace, getContentfulEnvironment } = require("./client");
+const { getContentfulEnvironment } = require("./client");
 const { log } = require("../utils");
 
 const locale = "en-US";
@@ -108,7 +108,7 @@ const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
   const cmsHeroImageAsset = assets.find(
     (asset) => asset.wpAsset.mediaNumber === post.featured_media
   );
-  const heroImageId = cmsHeroImageAsset.sys.id;
+  const heroImageId = cmsHeroImageAsset && cmsHeroImageAsset.sys.id;
   const cmsCategory = categories.find(
     (category) => category.wpEntry.id === post.category
   );
@@ -127,7 +127,7 @@ const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
     publishDate: {
       [locale]: post.publishDate,
     },
-    heroImage: {
+    heroImage: heroImageId && {
       [locale]: {
         sys: {
           type: "Link",
