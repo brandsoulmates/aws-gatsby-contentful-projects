@@ -31,8 +31,10 @@ const migrateWP2Contentful = async () => {
     CONTENT_TYPES.CATEGORY
   );
   const publishedAssets = await createAndPublishAssets(assets);
-  const publishedPosts = createAndPublishEntries(posts, CONTENT_TYPES.POST);
-  // console.log(`Create, link and publish posts`);
+  const publishedPosts = createAndPublishEntries(posts, CONTENT_TYPES.POST, {
+    categories: publishedCategories,
+    assets: publishedAssets,
+  });
 };
 
 migrateWP2Contentful();

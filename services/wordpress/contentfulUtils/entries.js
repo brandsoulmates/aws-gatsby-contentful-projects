@@ -6,15 +6,18 @@ const {
 } = require("./contentTypes");
 const { log } = require("../utils");
 
-const createEntry = async (entry, contentType) => {
+const createEntry = async (entry, contentType, linkingData) => {
   try {
     const environment = await getContentfulEnvironment();
     const cmsCategory = await environment.createEntry(contentType.id, {
-      fields: getPopulatedEntryFields(entry, contentType),
+      fields: getPopulatedEntryFields(entry, contentType, linkingData),
     });
     return cmsCategory;
   } catch (e) {
-    log("warning", `Entry "${entry.name}" failed to create, retrying...`);
+    log(
+      "warning",
+      `Entry "${entry.name || entry.title}" failed to create, retrying...`
+    );
     log("warning", e);
   }
 };
@@ -59,33 +62,54 @@ const createAndPublishCategoryEntries = async (entries, contentType) => {
   return publishedEntries;
 };
 
-const createAndPublishPostEntries = async (entries, contentType) => {
+const createAndPublishPostEntries = async (
+  entries,
+  contentType,
+  linkingData
+) => {
+  if (!linkingData || !linkingData.assets || !linkingData.categories) {
+    log(
+      "error",
+      "no linking data (assets and categories) could be found",
+      true
+    );
+    return;
+  }
+
   log("info", `Creating and publishing entries (post) in Contentful`, true);
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
   await createContentType(contentType);
 
-  // const createAndPublishSingleEntry = async (entry) => {
-  //   const cmsEntry = await createEntry(entry, contentType);
-  //   const publishedEntry = await publishEntry(cmsEntry);
+  const linkMap = new Map();
+  linkingData.assets.forEach((asset) =>
+    linkMap.set(asset.wpAsset.link, asset.fields.file["en-US"].url)
+  );
 
-  //   publishedEntry.wpEntry = entry;
-  //   publishedEntries.push(publishedEntry);
+  const createAndPublishSingleEntry = async (entry) => {
+    const cmsEntry = await createEntry(entry, contentType, {
+      linkMap,
+      ...linkingData,
+    });
+    const publishedEntry = await publishEntry(cmsEntry);
 
-  //   numPublished++;
-  //   log("progress", `published ${numPublished} of ${numEntries}`);
-  //   return publishedEntry;
-  // };
+    publishedEntry.wpEntry = entry;
+    publishedEntries.push(publishedEntry);
 
-  // await Promise.all(
-  //   entries.map(async (entry) => {
-  //     return await createAndPublishSingleEntry(entry);
-  //   })
-  // );
+    numPublished++;
+    log("progress", `published ${numPublished} of ${numEntries}`);
+    return publishedEntry;
+  };
 
-  // log("success", `Published ${numPublished} of ${numEntries} total entries`);
-  // return publishedEntries;
+  await Promise.all(
+    entries.map(async (entry) => {
+      return await createAndPublishSingleEntry(entry);
+    })
+  );
+
+  log("success", `Published ${numPublished} of ${numEntries} total entries`);
+  return publishedEntries;
 };
 
 exports.createAndPublishEntries = async (entries, contentType, linkingData) => {

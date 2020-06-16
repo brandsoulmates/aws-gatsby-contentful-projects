@@ -90,13 +90,30 @@ exports.CONTENT_TYPES = {
   POST: { id: "blogPost", name: "Blog Post", fields: blogPostFields },
 };
 
+const replaceWPWithContentfulLinks = (text, linkMap) => {
+  let replacedText = text;
+  linkMap.forEach((newUrl, oldUrl) => {
+    replacedText = replacedText.replace(oldUrl, newUrl);
+  });
+  return replacedText;
+};
+
 const getPopulatedBlogCategoryFields = (entry) => ({
   categoryName: {
     [locale]: entry.name,
   },
 });
 
-const getPopulatedBlogPostFields = (post, heroImageId, categoryId) => {
+const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
+  const cmsHeroImageAsset = assets.find(
+    (asset) => asset.wpAsset.mediaNumber === post.featured_media
+  );
+  const heroImageId = cmsHeroImageAsset.sys.id;
+  const cmsCategory = categories.find(
+    (category) => category.wpCategory.categoryNumber === post.category
+  );
+  const categoryId = cmsCategory.sys.id;
+
   return {
     title: {
       [locale]: post.title,
@@ -131,12 +148,12 @@ const getPopulatedBlogPostFields = (post, heroImageId, categoryId) => {
   };
 };
 
-exports.getPopulatedEntryFields = (entry, contentType) => {
+exports.getPopulatedEntryFields = (entry, contentType, linkingData) => {
   switch (contentType) {
     case this.CONTENT_TYPES.CATEGORY:
       return getPopulatedBlogCategoryFields(entry);
     case this.CONTENT_TYPES.POST:
-      return getPopulatedBlogPostFields(entry);
+      return getPopulatedBlogPostFields(entry, linkingData);
     default:
       return null;
   }
