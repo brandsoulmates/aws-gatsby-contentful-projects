@@ -30,8 +30,12 @@ const blogPostFields = [
 ];
 
 exports.CONTENT_TYPES = {
-  CATEGORY: { name: "Blog Category", fields: blogCategoryFields },
-  POST: { name: "Blog Post", fields: blogPostFields },
+  CATEGORY: {
+    id: "blogCategory",
+    name: "Blog Category",
+    fields: blogCategoryFields,
+  },
+  POST: { id: "blogPost", name: "Blog Post", fields: blogPostFields },
 };
 
 const getPopulatedBlogCategoryFields = (entry) => ({
@@ -40,11 +44,40 @@ const getPopulatedBlogCategoryFields = (entry) => ({
   },
 });
 
-const getPopulatedBlogPostFields = (entry) => ({
-  categoryName: {
-    [locale]: entry.name,
-  },
-});
+const getPopulatedBlogPostFields = (post, heroImageId, categoryId) => {
+  return {
+    title: {
+      [locale]: post.title,
+    },
+    body: {
+      [locale]: replaceWPWithContentfulLinks(post.body, linkMap),
+    },
+    slug: {
+      [locale]: post.slug,
+    },
+    publishDate: {
+      [locale]: post.publishDate,
+    },
+    heroImage: {
+      [locale]: {
+        sys: {
+          type: "Link",
+          linkType: "Asset",
+          id: heroImageId,
+        },
+      },
+    },
+    category: {
+      [locale]: {
+        sys: {
+          type: "Link",
+          linkType: "Entry",
+          id: categoryId,
+        },
+      },
+    },
+  };
+};
 
 exports.getPopulatedEntryFields = (entry, contentType) => {
   switch (contentType) {
@@ -57,8 +90,7 @@ exports.getPopulatedEntryFields = (entry, contentType) => {
   }
 };
 
-const checkForExistingContentType = async (contentType) => {
-  const contentTypeName = contentType.name;
+const checkForExistingContentType = async (contentTypeName) => {
   try {
     log("progress", `checking for existing content type ${contentTypeName}`);
     const environment = await getContentfulEnvironment();
@@ -79,21 +111,23 @@ const checkForExistingContentType = async (contentType) => {
 };
 
 exports.createContentType = async (contentType) => {
-  const contentTypeName = contentType.name;
+  const { id, name, fields } = contentType;
+
   try {
     const environment = await getContentfulEnvironment();
-    const existingContentType = await checkForExistingContentType(contentType);
+    const existingContentType = await checkForExistingContentType(name);
     if (existingContentType.length) return existingContentType[0];
 
-    log("progress", `creating content type "${contentType}"`);
-    const createdContentType = await environment.createContentType({
-      name: contentTypeName,
-      fields: blogCategoryFields,
+    log("progress", `creating content type "${name}"`);
+    const createdContentType = await environment.createContentTypeWithId(id, {
+      displayField: fields[0].id,
+      name,
+      fields,
     });
 
     return createdContentType.publish();
   } catch (e) {
-    log("error", `Content Type "${contentTypeName}" failed to create`);
+    log("error", `Content Type "${name}" failed to create`);
     log("error", e);
   }
 };

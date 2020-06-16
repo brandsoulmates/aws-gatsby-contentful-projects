@@ -30,6 +30,6 @@ exports.log = (level, message, newSection) => {
       console.log(chalk.dim(`...${message}`));
       break;
     default:
-      console.log(message);
+      console.log(level, message);
   }
 };
