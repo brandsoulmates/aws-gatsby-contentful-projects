@@ -18,14 +18,66 @@ const blogCategoryFields = [
 
 const blogPostFields = [
   {
-    id: "categoryName",
-    name: "Category Name",
+    id: "title",
+    name: "Title",
     type: "Symbol",
     localized: false,
     required: true,
     validations: [],
     disabled: false,
     omitted: false,
+  },
+  {
+    id: "body",
+    name: "Body",
+    type: "Symbol",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "slug",
+    name: "Slug",
+    type: "Symbol",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "publishDate",
+    name: "Publish Date",
+    type: "Symbol",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "heroImage",
+    name: "Hero Image",
+    type: "Link",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+    linkType: "Asset",
+  },
+  {
+    id: "category",
+    name: "Category",
+    type: "Link",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+    linkType: "Entry",
   },
 ];
 
@@ -124,8 +176,10 @@ exports.createContentType = async (contentType) => {
       name,
       fields,
     });
+    const publishedContentType = createdContentType.publish();
 
-    return createdContentType.publish();
+    log("progress", `successfully published content type "${name}"`);
+    return publishedContentType;
   } catch (e) {
     log("error", `Content Type "${name}" failed to create`);
     log("error", e);

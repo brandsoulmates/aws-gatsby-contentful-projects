@@ -60,7 +60,32 @@ const createAndPublishCategoryEntries = async (entries, contentType) => {
 };
 
 const createAndPublishPostEntries = async (entries, contentType) => {
-  return null;
+  log("info", `Creating and publishing entries (post) in Contentful`, true);
+  const numEntries = entries.length;
+  let numPublished = 0;
+  const publishedEntries = [];
+  await createContentType(contentType);
+
+  // const createAndPublishSingleEntry = async (entry) => {
+  //   const cmsEntry = await createEntry(entry, contentType);
+  //   const publishedEntry = await publishEntry(cmsEntry);
+
+  //   publishedEntry.wpEntry = entry;
+  //   publishedEntries.push(publishedEntry);
+
+  //   numPublished++;
+  //   log("progress", `published ${numPublished} of ${numEntries}`);
+  //   return publishedEntry;
+  // };
+
+  // await Promise.all(
+  //   entries.map(async (entry) => {
+  //     return await createAndPublishSingleEntry(entry);
+  //   })
+  // );
+
+  // log("success", `Published ${numPublished} of ${numEntries} total entries`);
+  // return publishedEntries;
 };
 
 exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
