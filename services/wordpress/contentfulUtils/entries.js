@@ -1,74 +1,15 @@
-const { getContentfulSpace, getContentfulEnvironment } = require("./client");
+const { getContentfulEnvironment } = require("./client");
+const {
+  createContentType,
+  getPopulatedEntryFields,
+} = require("./contentTypes");
 const { log } = require("../utils");
 
-const getContentType = (blogType) => {
-  switch (blogType) {
-    case "category":
-      return "Blog Category";
-    case "post":
-    default:
-      return "Blog Post";
-  }
-};
-
-const checkForExistingContentType = async (blogType) => {
-  const contentType = getContentType(blogType);
-  try {
-    log("progress", `checking for existing content type ${contentType}`);
-    const environment = await getContentfulEnvironment();
-    const allContentTypes = await environment.getContentTypes();
-    const existingContentType =
-      allContentTypes &&
-      allContentTypes.items.filter(({ name }) => name === contentType);
-
-    log("progress", `content type "${contentType}" already exists`);
-    return existingContentType;
-  } catch (e) {
-    log("progress", `content type "${contentType}" does not currently exist`);
-    return null;
-  }
-};
-
-const createContentType = async (contentType) => {
-  const contentType = getContentType(blogType);
+const createEntry = async (entry, contentType, contentTypeObj) => {
   try {
     const environment = await getContentfulEnvironment();
-    const existingContentType = await checkForExistingContentType(contentType);
-    if (existingContentType.length) return existingContentType[0];
-
-    log("progress", `creating content type "${contentType}"`);
-    const createdContentType = await environment.createContentType({
-      name: contentType,
-      fields: [
-        {
-          id: "categoryName",
-          name: "Category Name",
-          type: "Symbol",
-          localized: false,
-          required: true,
-          validations: [],
-          disabled: false,
-          omitted: false,
-        },
-      ],
-    });
-
-    return createdContentType.publish();
-  } catch (e) {
-    log("error", `Content Type "${contentType}" failed to create`);
-    log("error", e);
-  }
-};
-
-const createEntry = async (entry, contentType) => {
-  try {
-    const environment = await getContentfulEnvironment();
-    const cmsCategory = await environment.createEntry(contentType.sys.id, {
-      fields: {
-        categoryName: {
-          "en-US": entry.name,
-        },
-      },
+    const cmsCategory = await environment.createEntry(contentTypeObj.sys.id, {
+      fields: getPopulatedEntryFields(entry, contentType),
     });
     return cmsCategory;
   } catch (e) {
@@ -88,7 +29,7 @@ const publishEntry = async (cmsEntry) => {
   }
 };
 
-exports.createAndPublishEntries = async (entries, blogType) => {
+exports.createAndPublishEntries = async (entries, contentType) => {
   log(
     "info",
     `Creating and publishing entries (categories) in Contentful`,
@@ -97,10 +38,14 @@ exports.createAndPublishEntries = async (entries, blogType) => {
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
-  const publishedContentType = await createContentType(blogType);
+  const publishedContentType = await createContentType(contentType);
 
   const createAndPublishSingleEntry = async (entry) => {
-    const cmsEntry = await createEntry(entry, publishedContentType);
+    const cmsEntry = await createEntry(
+      entry,
+      contentType,
+      publishedContentType
+    );
     const publishedEntry = await publishEntry(cmsEntry);
 
     publishedEntry.wpEntry = entry;

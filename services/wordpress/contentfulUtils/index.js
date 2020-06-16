@@ -5,6 +5,11 @@ const {
 } = require("./client");
 const { createAndPublishAssets, deleteAssets } = require("./assets");
 const { createAndPublishEntries } = require("./entries");
+const {
+  CONTENT_TYPES,
+  createContentType,
+  getPopulatedEntryFields,
+} = require("./contentTypes");
 
 module.exports = {
   deleteAssets,
@@ -13,4 +18,7 @@ module.exports = {
   getContentfulSpace,
   createAndPublishAssets,
   createAndPublishEntries,
+  CONTENT_TYPES,
+  createContentType,
+  getPopulatedEntryFields,
 };
