@@ -30,7 +30,7 @@ const blogPostFields = [
   {
     id: "body",
     name: "Body",
-    type: "Symbol",
+    type: "Text",
     localized: false,
     required: false,
     validations: [],
@@ -50,7 +50,7 @@ const blogPostFields = [
   {
     id: "publishDate",
     name: "Publish Date",
-    type: "Symbol",
+    type: "Date",
     localized: false,
     required: false,
     validations: [],
@@ -110,7 +110,7 @@ const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
   );
   const heroImageId = cmsHeroImageAsset.sys.id;
   const cmsCategory = categories.find(
-    (category) => category.wpCategory.categoryNumber === post.category
+    (category) => category.wpEntry.id === post.category
   );
   const categoryId = cmsCategory.sys.id;
 

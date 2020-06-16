@@ -17,7 +17,8 @@ const apiUrl = "https://www.ayzenberg.com/wp-json/wp/v2";
 
 const migrateWP2Contentful = async () => {
   // Collect data from WP
-  const posts = await exportBlogposts(`${apiUrl}/posts`);
+  let posts = await exportBlogposts(`${apiUrl}/posts`);
+  posts = posts.slice(0, 2);
   const processedPosts = transformPosts(posts);
   const categories = await getCategories(
     processedPosts,
@@ -31,10 +32,14 @@ const migrateWP2Contentful = async () => {
     CONTENT_TYPES.CATEGORY
   );
   const publishedAssets = await createAndPublishAssets(assets);
-  const publishedPosts = createAndPublishEntries(posts, CONTENT_TYPES.POST, {
-    categories: publishedCategories,
-    assets: publishedAssets,
-  });
+  const publishedPosts = createAndPublishEntries(
+    processedPosts,
+    CONTENT_TYPES.POST,
+    {
+      categories: publishedCategories,
+      assets: publishedAssets,
+    }
+  );
 };
 
 migrateWP2Contentful();

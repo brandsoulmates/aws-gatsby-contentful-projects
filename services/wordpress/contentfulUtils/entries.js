@@ -28,7 +28,12 @@ const publishEntry = async (cmsEntry) => {
 
     return publishedCMSEntry;
   } catch (e) {
-    log("warning", `Entry "${cmsEntry.title}" failed to publish, retrying...`);
+    log(
+      "warning",
+      `Entry "${
+        cmsEntry.name || cmsEntry.title
+      }" failed to publish, retrying...`
+    );
     log("warning", e);
   }
 };
