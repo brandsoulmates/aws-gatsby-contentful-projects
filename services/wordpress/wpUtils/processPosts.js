@@ -18,14 +18,13 @@ const extractBodyImages = (post) => {
 exports.transformPosts = (posts) => {
   log("info", `Transforming Posts...`, true);
   const transformedPosts = posts.map(
-    ({ date_gmt, content, title, slug, categories, ...rest }) => {
+    ({ date_gmt, content, title, slug, categories }) => {
       return extractBodyImages({
         publishDate: date_gmt + "+00:00",
         body: `<div>${content.rendered}</div>`,
         title: title.rendered,
         slug: slug,
         category: categories[0],
-        ...rest,
       });
     }
   );

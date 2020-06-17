@@ -88,11 +88,11 @@ exports.deleteEntries = async (contentType) => {
   let total = 0;
   let sucessfullyDeleted = 0;
 
-  log("info", `Deleting ${contentType} entries from contentful`, true);
+  log("info", `Deleting ${contentType.name} entries from contentful`, true);
   const deleteEntriesPerLimit = async () => {
     try {
       const env = await getContentfulEnvironment();
-      const cmsEntries = await env.getEntries({ content_type: contentType });
+      const cmsEntries = await env.getEntries({ content_type: contentType.id });
       if (!total) total = cmsEntries.total;
 
       await Promise.all(
