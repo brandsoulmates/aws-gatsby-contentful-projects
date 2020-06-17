@@ -1,4 +1,4 @@
-const { getContentfulSpace, getContentfulEnvironment } = require("./client");
+const { getContentfulEnvironment } = require("./client");
 const { log } = require("../utils");
 
 const locale = "en-US";
@@ -12,8 +12,8 @@ const getAssetFileName = (asset) => {
 
 const createAsset = async (asset) => {
   try {
-    const space = await getContentfulSpace();
-    const cmsAsset = await space.createAsset({
+    const env = await getContentfulEnvironment();
+    const cmsAsset = await env.createAsset({
       fields: {
         title: {
           [locale]: getAssetFileName(asset).split(".")[0],

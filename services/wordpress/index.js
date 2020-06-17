@@ -21,18 +21,19 @@ const migrateWP2Contentful = async () => {
     // Collect data from WP
     const posts = await exportBlogposts(`${apiUrl}/posts`);
     const processedPosts = transformPosts(posts);
+    const assets = await getAssets(processedPosts, `${apiUrl}/media`);
     const categories = await getCategories(
       processedPosts,
       `${apiUrl}/categories`
     );
-    const assets = await getAssets(processedPosts, `${apiUrl}/media`);
 
     // Migrate to Contentful
+    const publishedAssets = await createAndPublishAssets(assets);
     const publishedCategories = await createAndPublishEntries(
       categories,
       CONTENT_TYPES.CATEGORY
     );
-    const publishedAssets = await createAndPublishAssets(assets);
+
     await createAndPublishEntries(processedPosts, CONTENT_TYPES.POST, {
       categories: publishedCategories,
       assets: publishedAssets,

@@ -183,11 +183,11 @@ exports.createContentType = async (contentType) => {
   const { id, name, fields } = contentType;
 
   try {
-    const environment = await getContentfulEnvironment();
     const existingContentType = await checkForExistingContentType(name);
     if (existingContentType.length) return existingContentType[0];
 
     log("progress", `creating content type "${name}"`);
+    const environment = await getContentfulEnvironment();
     const createdContentType = await environment.createContentTypeWithId(id, {
       displayField: fields[0].id,
       name,

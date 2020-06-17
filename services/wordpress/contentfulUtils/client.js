@@ -9,7 +9,7 @@ const spaceID = process.env.CONTENTFUL_SPACE_ID;
 const accessToken = process.env.CONTENTFUL_MANAGEMENT_API;
 const environment = process.env.CONTENTFUL_ENVIRONMENT;
 
-const showWarnings = false;
+const showWarnings = process.env.SHOW_CONTENTFUL_WARNINGS || false;
 
 const logHandler = (level, data) => {
   switch (level) {
