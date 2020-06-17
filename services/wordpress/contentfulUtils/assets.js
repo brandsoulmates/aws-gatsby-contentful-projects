@@ -61,7 +61,7 @@ exports.createAndPublishAssets = async (assets) => {
     publishedAssets.push(publishedAsset);
 
     numPublished++;
-    log("progress", `published ${numPublished} of ${numAssets}`);
+    log("progress", `published asset ${numPublished} of ${numAssets}`);
     return publishedAsset;
   };
 

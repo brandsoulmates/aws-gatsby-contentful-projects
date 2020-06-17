@@ -5,7 +5,6 @@ const {
   CONTENT_TYPES,
 } = require("./contentTypes");
 const { log } = require("../utils");
-const { link } = require("fs");
 
 const createEntry = async (entry, contentType, linkingData) => {
   try {
@@ -68,7 +67,10 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
     publishedEntries.push(publishedEntry);
 
     numPublished++;
-    log("progress", `published ${numPublished} of ${numEntries}`);
+    log(
+      "progress",
+      `published ${contentType.name} ${numPublished} of ${numEntries}`
+    );
     return publishedEntry;
   };
 
@@ -99,7 +101,10 @@ exports.deleteEntries = async (contentType) => {
           await entry.delete();
 
           sucessfullyDeleted++;
-          log("progress", `deleted ${sucessfullyDeleted} of ${total} entries`);
+          log(
+            "progress",
+            `deleted ${contentType.name} ${sucessfullyDeleted} of ${total} entries`
+          );
           return entry;
         })
       );
