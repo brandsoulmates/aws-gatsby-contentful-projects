@@ -1,4 +1,6 @@
 const { log } = require("../utils");
+const Entities = require("html-entities").XmlEntities;
+const entities = new Entities();
 
 const extractBodyImages = (post) => {
   const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;
@@ -21,8 +23,8 @@ exports.transformPosts = (posts) => {
     ({ date_gmt, content, title, slug, categories }) => {
       return extractBodyImages({
         publishDate: date_gmt + "+00:00",
-        body: `<div>${content.rendered}</div>`,
-        title: title.rendered,
+        body: `<div>${entities.decode(content.rendered)}</div>`,
+        title: entities.decode(title.rendered),
         slug: slug,
         category: categories[0],
       });
