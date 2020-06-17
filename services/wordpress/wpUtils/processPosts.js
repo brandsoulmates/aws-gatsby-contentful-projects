@@ -1,5 +1,4 @@
 const { log } = require("../utils");
-const { transformPosts } = require(".");
 
 const extractBodyImages = (post) => {
   const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;

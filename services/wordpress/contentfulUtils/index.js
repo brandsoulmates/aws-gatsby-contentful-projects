@@ -4,7 +4,7 @@ const {
   getContentfulSpace,
 } = require("./client");
 const { createAndPublishAssets, deleteAssets } = require("./assets");
-const { createAndPublishEntries } = require("./entries");
+const { createAndPublishEntries, deleteEntries } = require("./entries");
 const {
   CONTENT_TYPES,
   createContentType,
@@ -13,6 +13,7 @@ const {
 
 module.exports = {
   deleteAssets,
+  deleteEntries,
   getContentfulClient,
   getContentfulEnvironment,
   getContentfulSpace,
