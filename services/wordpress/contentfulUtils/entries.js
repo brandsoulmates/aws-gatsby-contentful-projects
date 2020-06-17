@@ -99,10 +99,7 @@ exports.deleteEntries = async (contentType) => {
           await entry.delete();
 
           sucessfullyDeleted++;
-          log(
-            "progress",
-            `deleted ${sucessfullyDeleted} of ${total} total entries`
-          );
+          log("progress", `deleted ${sucessfullyDeleted} of ${total} entries`);
           return entry;
         })
       );

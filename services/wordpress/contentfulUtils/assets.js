@@ -92,10 +92,7 @@ exports.deleteAssets = async () => {
           await asset.delete();
 
           sucessfullyDeleted++;
-          log(
-            "progress",
-            `deleted ${sucessfullyDeleted} of ${total} total assets`
-          );
+          log("progress", `deleted ${sucessfullyDeleted} of ${total} assets`);
           return asset;
         })
       );
