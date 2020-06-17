@@ -5,6 +5,7 @@ const {
   CONTENT_TYPES,
 } = require("./contentTypes");
 const { log } = require("../utils");
+const { link } = require("fs");
 
 const createEntry = async (entry, contentType, linkingData) => {
   try {
@@ -38,59 +39,23 @@ const publishEntry = async (cmsEntry) => {
   }
 };
 
-const createAndPublishCategoryEntries = async (entries, contentType) => {
-  log("info", `Creating and publishing entries (category) in Contentful`, true);
-  const numEntries = entries.length;
-  let numPublished = 0;
-  const publishedEntries = [];
-  await createContentType(contentType);
-
-  const createAndPublishSingleEntry = async (entry) => {
-    const cmsEntry = await createEntry(entry, contentType);
-    const publishedEntry = await publishEntry(cmsEntry);
-
-    publishedEntry.wpEntry = entry;
-    publishedEntries.push(publishedEntry);
-
-    numPublished++;
-    log("progress", `published ${numPublished} of ${numEntries}`);
-    return publishedEntry;
-  };
-
-  await Promise.all(
-    entries.map(async (entry) => {
-      return await createAndPublishSingleEntry(entry);
-    })
+exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
+  log(
+    "info",
+    `Creating and publishing ${contentType.name} entries in Contentful`,
+    true
   );
-
-  log("success", `Published ${numPublished} of ${numEntries} total entries`);
-  return publishedEntries;
-};
-
-const createAndPublishPostEntries = async (
-  entries,
-  contentType,
-  linkingData
-) => {
-  if (!linkingData || !linkingData.assets || !linkingData.categories) {
-    log(
-      "error",
-      "no linking data (assets and categories) could be found",
-      true
-    );
-    return;
-  }
-
-  log("info", `Creating and publishing entries (post) in Contentful`, true);
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
   await createContentType(contentType);
 
   const linkMap = new Map();
-  linkingData.assets.forEach((asset) =>
-    linkMap.set(asset.wpAsset.link, asset.fields.file["en-US"].url)
-  );
+  if (linkingData) {
+    linkingData.assets.forEach((asset) =>
+      linkMap.set(asset.wpAsset.link, asset.fields.file["en-US"].url)
+    );
+  }
 
   const createAndPublishSingleEntry = async (entry) => {
     const cmsEntry = await createEntry(entry, contentType, {
@@ -115,17 +80,6 @@ const createAndPublishPostEntries = async (
 
   log("success", `Published ${numPublished} of ${numEntries} total entries`);
   return publishedEntries;
-};
-
-exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
-  switch (contentType) {
-    case CONTENT_TYPES.CATEGORY:
-      return createAndPublishCategoryEntries(entries, contentType);
-    case CONTENT_TYPES.POST:
-      return createAndPublishPostEntries(entries, contentType, linkingData);
-    default:
-      return null;
-  }
 };
 
 exports.deleteEntries = async (contentType) => {
