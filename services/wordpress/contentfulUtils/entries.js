@@ -14,10 +14,7 @@ const createEntry = async (entry, contentType, linkingData) => {
     });
     return cmsCategory;
   } catch (e) {
-    log(
-      "warning",
-      `Entry "${entry.name || entry.title}" failed to create, retrying...`
-    );
+    log("warning", `Entry "${entry.name || entry.title}" failed to create`);
     log("warning", e);
   }
 };
@@ -30,9 +27,7 @@ const publishEntry = async (cmsEntry) => {
   } catch (e) {
     log(
       "warning",
-      `Entry "${
-        cmsEntry.name || cmsEntry.title
-      }" failed to publish, retrying...`
+      `Entry "${cmsEntry.name || cmsEntry.title}" failed to publish`
     );
     log("warning", e);
   }

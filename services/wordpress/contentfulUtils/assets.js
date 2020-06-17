@@ -32,7 +32,8 @@ const createAsset = async (asset) => {
     });
     return cmsAsset;
   } catch (e) {
-    log("warning", `Asset "${asset.title}" failed to create, retrying...`);
+    log("warning", `Asset "${asset.title}" failed to create`);
+    log("error", e);
   }
 };
 
@@ -43,7 +44,8 @@ const publishAsset = async (cmsAsset) => {
 
     return publishedCMSAsset;
   } catch (e) {
-    log("warning", `Asset "${asset.title}" failed to publish, retrying...`);
+    log("warning", `Asset "${asset.title}" failed to publish`);
+    log("error", e);
   }
 };
 
