@@ -2,8 +2,22 @@ const { log } = require("../utils");
 const Entities = require("html-entities").XmlEntities;
 const entities = new Entities();
 
+const addMissingClosingTag = (post) => {
+  const regex = /<img.*?src="(.*?)"(.*?)>/g;
+  while ((foundImage = regex.exec(post.body))) {
+    if (foundImage[0].slice(-2) !== "/>") {
+      post.body.replace(foundImage[0], `${foundImage[0].slice(0, -2)}/>`);
+    }
+  }
+  return post;
+};
+
 const extractBodyImages = (post) => {
-  const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;
+  post = addMissingClosingTag(post);
+
+  // const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;
+  const regex = /<img.*?src="(.*?)"/g;
+
   post.bodyImages = [];
   while ((foundImage = regex.exec(post.body))) {
     const alt = foundImage[2] ? foundImage[2].replace(/_/g, " ") : "";
