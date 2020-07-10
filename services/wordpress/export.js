@@ -27,4 +27,6 @@ const exportCurrentContentfulData = async () => {
   });
 };
 
-export { exportCurrentContentfulData };
+exportCurrentContentfulData();
+
+// module.exports = { exportCurrentContentfulData };

@@ -8,6 +8,7 @@ yarn-error.log*
 temp/
 out/
 *.out
+contentful-export*.json
 
 .env
 .env.development
