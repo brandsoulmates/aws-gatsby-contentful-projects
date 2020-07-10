@@ -26,6 +26,7 @@
     "@babel/core": "^7.8.6",
     "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.8.6",
+    "@contentful/rich-text-from-markdown": "^14.1.1",
     "aws-sdk": "^2.628.0",
     "chalk": "^3.0.0",
     "contentful": "^7.14.0",
@@ -39,6 +40,8 @@
     "inquirer": "^7.0.6",
     "node-fetch": "^2.6.0",
     "path": "^0.12.7",
+    "striptags": "^3.1.1",
+    "turndown": "^6.0.0",
     "yargs": "^15.1.0"
   },
   "babel": {
