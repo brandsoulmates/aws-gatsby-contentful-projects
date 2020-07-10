@@ -3,9 +3,11 @@ const Entities = require("html-entities").XmlEntities;
 const entities = new Entities();
 
 const extractBodyImages = (post) => {
-  const regex = /<img.*?src="(.*?)"[\s\S]*?alt="(.*?)"/g;
+  const regex = /<img.*?src="(.*?)"/g;
   post.bodyImages = [];
+
   while ((foundImage = regex.exec(post.body))) {
+    post.body = post.body.replace(/(<img("[^"]*"|[^\/">])*)>/gi, "$1/>");
     const alt = foundImage[2] ? foundImage[2].replace(/_/g, " ") : "";
     post.bodyImages.push({
       link: foundImage[1],
@@ -14,6 +16,19 @@ const extractBodyImages = (post) => {
       postId: post.id,
     });
   }
+  // const bi = [];
+  // const uniqImages =
+  //   post.bodyImages.length > 1 &&
+  //   post.bodyImages.filter((image) => {
+  //     if (bi.length === 0) {
+  //       bi.push(image);
+  //       return image;
+  //     }
+  //     const uniq = bi.find((b) => b.link === image.link);
+  //     if (!uniq) return image;
+  //   });
+  // post.bodyImages = uniqImages || post.bodyImages;
+  // console.log("arr", post.bodyImages);
   return post;
 };
 
