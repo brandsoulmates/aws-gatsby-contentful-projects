@@ -16,19 +16,13 @@ const extractBodyImages = (post) => {
       postId: post.id,
     });
   }
-  // const bi = [];
-  // const uniqImages =
-  //   post.bodyImages.length > 1 &&
-  //   post.bodyImages.filter((image) => {
-  //     if (bi.length === 0) {
-  //       bi.push(image);
-  //       return image;
-  //     }
-  //     const uniq = bi.find((b) => b.link === image.link);
-  //     if (!uniq) return image;
-  //   });
-  // post.bodyImages = uniqImages || post.bodyImages;
-  // console.log("arr", post.bodyImages);
+  const uniqueImages =
+    (post.bodyImages.length > 1 &&
+      Array.from(new Set(post.bodyImages.map((p) => p.link))).map((link) => {
+        return post.bodyImages.find((p) => p.link === link);
+      })) ||
+    post.bodyImages;
+  post.bodyImages = uniqueImages;
   return post;
 };
 
