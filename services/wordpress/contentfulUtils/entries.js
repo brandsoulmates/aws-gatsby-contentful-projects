@@ -23,7 +23,7 @@ const sanitizeMd = (markdown) =>
   striptags(markdown)
     .split("\n\n")
     .map((text) =>
-      text.match(new RegExp(/\[!\[/)) || new RegExp(/\_!\[/)
+      text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
         ? text.slice(1)
         : text
     )

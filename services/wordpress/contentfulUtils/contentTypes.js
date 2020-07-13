@@ -28,16 +28,6 @@ const blogPostFields = [
     omitted: false,
   },
   {
-    id: "body",
-    name: "Body",
-    type: "Text",
-    localized: false,
-    required: false,
-    validations: [],
-    disabled: false,
-    omitted: false,
-  },
-  {
     id: "slug",
     name: "Slug",
     type: "Symbol",
@@ -80,8 +70,8 @@ const blogPostFields = [
     linkType: "Entry",
   },
   {
-    id: "articleBody",
-    name: "Article Body",
+    id: "body",
+    name: "Body",
     type: "RichText",
     localized: false,
     required: false,
@@ -158,9 +148,6 @@ const getPopulatedBlogPostFields = (
     title: {
       [locale]: post.title,
     },
-    body: {
-      [locale]: replaceWPWithContentfulLinks(post.body, linkMap),
-    },
     slug: {
       [locale]: post.slug,
     },
@@ -185,7 +172,7 @@ const getPopulatedBlogPostFields = (
         },
       },
     },
-    articleBody: {
+    body: {
       [locale]: richtext,
     },
   };
