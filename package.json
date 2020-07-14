@@ -19,7 +19,8 @@
     "find": "node ./services/contentful/findEntries.js",
     "wp": "node ./services/wordpress/migrate.js",
     "wp:clean": "node ./services/wordpress/clean.js",
-    "export": "node ./services/wordpress/export.js"
+    "export": "node ./services/wordpress/export.js",
+    "diff": "node ./services/wordpress/diff.js"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
