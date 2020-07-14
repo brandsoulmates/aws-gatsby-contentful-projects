@@ -4,6 +4,8 @@ exports.getAssets = async (posts, apiUrl) => {
   let assetsFetched = 0;
 
   log("info", `Getting unique featured_media images from api ${apiUrl}`, true);
+  const media = await getJSON(apiUrl);
+  log("media", media.length);
   const featuredAssets = await Promise.all(
     posts
       .reduce((all, post) => {
