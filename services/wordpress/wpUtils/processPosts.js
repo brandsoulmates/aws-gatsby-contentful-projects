@@ -23,19 +23,29 @@ const extractBodyImages = (post) => {
       })) ||
     post.bodyImages;
   post.bodyImages = uniqueImages;
+  if (post.heroImage) {
+    post.bodyImages.push({
+      link: `${post.heroImage}`,
+      description: "",
+      title: "",
+      postId: "",
+    });
+  }
   return post;
 };
 
 exports.transformPosts = (posts) => {
   log("info", `Transforming Posts...`, true);
   const transformedPosts = posts.map(
-    ({ date_gmt, content, title, slug, categories }) => {
+    ({ date_gmt, content, title, slug, categories, acf, featured_media }) => {
       return extractBodyImages({
         publishDate: date_gmt + "+00:00",
         body: `<div>${entities.decode(content.rendered)}</div>`,
         title: entities.decode(title.rendered),
         slug: slug,
         category: categories[0],
+        heroImage: acf && acf.tile_image,
+        featured_media: featured_media,
       });
     }
   );
