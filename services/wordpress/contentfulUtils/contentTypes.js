@@ -28,16 +28,6 @@ const blogPostFields = [
     omitted: false,
   },
   {
-    id: "body",
-    name: "Body",
-    type: "Text",
-    localized: false,
-    required: false,
-    validations: [],
-    disabled: false,
-    omitted: false,
-  },
-  {
     id: "slug",
     name: "Slug",
     type: "Symbol",
@@ -79,6 +69,42 @@ const blogPostFields = [
     omitted: false,
     linkType: "Entry",
   },
+  {
+    id: "body",
+    name: "Body",
+    type: "RichText",
+    localized: false,
+    required: false,
+    validations: [
+      {
+        nodes: {},
+      },
+      {
+        enabledNodeTypes: [
+          "heading-1",
+          "heading-2",
+          "heading-3",
+          "heading-4",
+          "heading-5",
+          "heading-6",
+          "ordered-list",
+          "unordered-list",
+          "hr",
+          "blockquote",
+          "embedded-asset-block",
+          "hyperlink",
+          "entry-hyperlink",
+          "asset-hyperlink",
+          "break",
+          "text",
+        ],
+        message:
+          "Only heading 1, heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, asset, link to Url, link to entry, and link to asset nodes are allowed",
+      },
+    ],
+    disabled: false,
+    omitted: false,
+  },
 ];
 
 exports.CONTENT_TYPES = {
@@ -104,7 +130,11 @@ const getPopulatedBlogCategoryFields = (entry) => ({
   },
 });
 
-const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
+const getPopulatedBlogPostFields = (
+  post,
+  { categories, assets, linkMap },
+  richtext
+) => {
   const cmsHeroImageAsset = assets.find(
     (asset) => asset.wpAsset.mediaNumber === post.featured_media
   );
@@ -117,9 +147,6 @@ const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
   return {
     title: {
       [locale]: post.title,
-    },
-    body: {
-      [locale]: replaceWPWithContentfulLinks(post.body, linkMap),
     },
     slug: {
       [locale]: post.slug,
@@ -145,15 +172,24 @@ const getPopulatedBlogPostFields = (post, { categories, assets, linkMap }) => {
         },
       },
     },
+    body: {
+      [locale]: richtext,
+    },
   };
 };
 
-exports.getPopulatedEntryFields = (entry, contentType, linkingData) => {
+exports.getPopulatedEntryFields = (
+  entry,
+  contentType,
+  linkingData,
+  richtext
+) => {
+  const rt = richtext && richtext.content;
   switch (contentType) {
     case this.CONTENT_TYPES.CATEGORY:
       return getPopulatedBlogCategoryFields(entry);
     case this.CONTENT_TYPES.POST:
-      return getPopulatedBlogPostFields(entry, linkingData);
+      return getPopulatedBlogPostFields(entry, linkingData, richtext);
     default:
       return null;
   }
