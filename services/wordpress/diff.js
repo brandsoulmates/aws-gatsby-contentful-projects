@@ -1,6 +1,6 @@
 const yargs = require("yargs");
 const fs = require("fs");
-const diff = require("diff");
+const JSdiff = require("diff");
 require("colors");
 
 const isValidJSONString = (str) => {
@@ -36,17 +36,25 @@ const argv = yargs
   .help()
   .alias("help", "h").argv;
 
+const formatOutput = (diff) => {
+  const { added, removed, value, count } = diff;
+
+  if (added || removed) {
+    console.log(added, removed);
+  }
+};
+
 const main = async () => {
   const [filepath1, filepath2] = argv._;
   const json1 = JSON.parse(fs.readFileSync(filepath1, "utf8"));
   const json2 = JSON.parse(fs.readFileSync(filepath2, "utf8"));
 
-  let diffRes = diff.diffJson(json1, json2);
-  diffRes = diffRes.slice(0, 1);
+  let diff = JSdiff.diffJson(json1, json2);
+  diff = diff.slice(0, 1);
 
-  console.log(diffRes[0].count);
+  formatOutput(diff[0]);
 
-  // diffRes.forEach(function (part) {
+  // diff.forEach(function (part) {
   //   // green for additions, red for deletions
   //   // grey for common parts
   //   var color = part.added ? "green" : part.removed ? "red" : "grey";
@@ -54,9 +62,9 @@ const main = async () => {
   //     process.stderr.write(part.value[color]);
   // });
 
-  // console.log(diffRes);
-  // console.log(JSON.parse(JSON.stringify({ diffRes })));
-  // const prettified = JSON.stringify({ diffRes }, null, 2);
+  // console.log(diff);
+  // console.log(JSON.parse(JSON.stringify({ diff })));
+  // const prettified = JSON.stringify({ diff }, null, 2);
   // fs.writeFile("test.json", prettified, (err) => {
   //   if (err) throw err;
   // });
