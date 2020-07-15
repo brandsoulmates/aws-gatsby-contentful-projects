@@ -1,4 +1,4 @@
-const { log } = require("../utils");
+const { log, getUniqueImages } = require("../utils");
 const Entities = require("html-entities").XmlEntities;
 const entities = new Entities();
 
@@ -17,12 +17,10 @@ const extractBodyImages = (post) => {
     });
   }
   const uniqueImages =
-    (post.bodyImages.length > 1 &&
-      Array.from(new Set(post.bodyImages.map((p) => p.link))).map((link) => {
-        return post.bodyImages.find((p) => p.link === link);
-      })) ||
+    (post.bodyImages.length > 1 && getUniqueImages(post.bodyImages)) ||
     post.bodyImages;
   post.bodyImages = uniqueImages;
+
   if (post.heroImage) {
     post.bodyImages.push({
       link: `${post.heroImage}`,
@@ -31,6 +29,7 @@ const extractBodyImages = (post) => {
       postId: "",
     });
   }
+
   return post;
 };
 

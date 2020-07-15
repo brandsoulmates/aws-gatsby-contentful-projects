@@ -19,14 +19,19 @@ const getContentfulAssetId = (link, linkIds) => {
   return replacedText;
 };
 
-const sanitizeMd = (markdown) =>
+const sanitizeMd = (markdown, linkingData) =>
   striptags(markdown)
     .split("\n\n")
-    .map((text) =>
-      text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
-        ? text.slice(1)
-        : text
-    )
+    .map((text) => {
+      if (text.match(new RegExp(/\[!\[\]\((.*?)\)\]\((.*?)\)/gi))) {
+        const index = text.lastIndexOf("(");
+        const image = text.slice(1, index - 1);
+        let link = index !== -1 && text.slice(index + 1, text.length - 1);
+        link = `##### [${link}](${link})`;
+        return `${image} \n${link}`;
+      }
+      return text;
+    })
     .join("\n\n");
 
 const createEntry = async (entry, contentType, linkingData) => {
@@ -34,6 +39,7 @@ const createEntry = async (entry, contentType, linkingData) => {
     const environment = await getContentfulEnvironment();
     const getRichtext = async (entry) => {
       const turndownService = new TurndownService();
+      turndownService.remove("style");
       const markdown = turndownService.turndown(entry.body);
       const sanitizedMd = sanitizeMd(markdown);
       const convertToRichText = await richTextFromMarkdown(
