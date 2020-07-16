@@ -33,3 +33,9 @@ exports.log = (level, message, newSection) => {
       console.log(level, message);
   }
 };
+
+exports.getUniqueImages = (arr) => {
+  return Array.from(new Set(arr.map((a) => a.link))).map((link) => {
+    return arr.find((a) => a.link === link);
+  });
+};
