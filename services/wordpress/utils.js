@@ -39,3 +39,43 @@ exports.getUniqueImages = (arr) => {
     return arr.find((a) => a.link === link);
   });
 };
+
+// exports.createAndPublishEmbeds = async (
+//   image,
+//   externalLink,
+//   create,
+//   publish
+// ) => {
+//   const cmsEntries = [];
+//   const cmsExternalEntry = await create(
+//     {
+//       linkId: externalLink,
+//     },
+//     CONTENT_TYPES.EXTERNAL_LINK
+//   );
+//   const cmsNavigationEntry = await create(
+//     {
+//       title: `Navigation - ${link}`,
+//       linkId: cmsExternalEntry.sys.id,
+//     },
+//     CONTENT_TYPES.NAV_ITEM
+//   );
+//   const cmsMediaImageEntry = await create(
+//     {
+//       title: `Media - ${image}`,
+//       linkId: image,
+//       navId: cmsNavigationEntry.sys.id,
+//     },
+//     CONTENT_TYPES.MEDIA_IMAGE,
+//     linkingData
+//   );
+
+//   // cmsEntries.push(cmsNavigationEntry, cmsExternalEntry, cmsMediaImageEntry);
+
+//   // await Promise.all(
+//   //   cmsEntries.map(async (entry) => {
+//   //     return await publish(entry);
+//   //   })
+//   // );
+//   // const publishedEntry = await publishEntry(cmsEntry);
+// };

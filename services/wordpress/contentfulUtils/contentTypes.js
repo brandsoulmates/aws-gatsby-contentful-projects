@@ -107,6 +107,121 @@ const blogPostFields = [
   },
 ];
 
+const mediaImageFields = [
+  {
+    id: "title",
+    name: "Title",
+    type: "Symbol",
+    localized: false,
+    required: true,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "src",
+    name: "Source",
+    type: "Symbol",
+    localized: false,
+    required: true,
+    validations: [
+      {
+        in: ["Contentful - JPG", "Contentful - PNG"],
+      },
+    ],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "srcContentful",
+    name: "Source - Contentful Asset",
+    type: "Link",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+    linkType: "Asset",
+  },
+  {
+    id: "thumbnail",
+    name: "Thumbnail",
+    type: "Link",
+    localized: false,
+    required: true,
+    validations: [],
+    disabled: false,
+    omitted: false,
+    linkType: "Asset",
+  },
+  {
+    id: "navigationLink",
+    name: "Navigation Link",
+    type: "Link",
+    localized: false,
+    required: false,
+    validations: [
+      {
+        linkContentType: ["navigationItem"],
+      },
+    ],
+    disabled: false,
+    omitted: false,
+    linkType: "Entry",
+  },
+];
+
+const navItemFields = [
+  {
+    id: "displayText",
+    name: "Display Text",
+    type: "Symbol",
+    localized: true,
+    required: true,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "navigationLink",
+    name: "Navigation Link",
+    type: "Link",
+    localized: false,
+    required: false,
+    validations: [
+      {
+        linkContentType: ["externalLink"],
+      },
+    ],
+    disabled: false,
+    omitted: false,
+    linkType: "Entry",
+  },
+];
+
+const externalLinkFields = [
+  {
+    id: "internalTitle",
+    name: "Internal - Title",
+    type: "Symbol",
+    localized: false,
+    required: true,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+  {
+    id: "url",
+    name: "Url",
+    type: "Symbol",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+];
+
 exports.CONTENT_TYPES = {
   CATEGORY: {
     id: "blogCategory",
@@ -114,6 +229,21 @@ exports.CONTENT_TYPES = {
     fields: blogCategoryFields,
   },
   POST: { id: "blogPost", name: "Blog Post", fields: blogPostFields },
+  MEDIA_IMAGE: {
+    id: "mediaImage",
+    name: "Media - Image",
+    fields: mediaImageFields,
+  },
+  NAV_ITEM: {
+    id: "navigationItem",
+    name: "Navigation Item",
+    fields: navItemFields,
+  },
+  EXTERNAL_LINK: {
+    id: "externalLink",
+    name: "External Link",
+    fields: externalLinkFields,
+  },
 };
 
 const replaceWPWithContentfulLinks = (text, linkMap) => {
@@ -180,6 +310,72 @@ const getPopulatedBlogPostFields = (
   };
 };
 
+const getPopulatedMediaImageFields = (entry, { assets }) => {
+  const cmsImageAsset = assets.find(
+    (asset) => asset.wpAsset.link === entry.linkId
+  );
+  const imageId = cmsImageAsset && cmsImageAsset.sys.id;
+  return {
+    title: {
+      [locale]: entry.title,
+    },
+    src: {
+      [locale]: "Contentful - JPG",
+    },
+    srcContentful: imageId && {
+      [locale]: {
+        sys: {
+          type: "Link",
+          linkType: "Asset",
+          id: imageId,
+        },
+      },
+    },
+    thumbnail: imageId && {
+      [locale]: {
+        sys: {
+          type: "Link",
+          linkType: "Asset",
+          id: imageId,
+        },
+      },
+    },
+    navigationLink: {
+      [locale]: {
+        sys: {
+          type: "Link",
+          linkType: "Entry",
+          id: entry.navId,
+        },
+      },
+    },
+  };
+};
+
+const getPopulatedExternalLinkFields = (entry) => ({
+  internalTitle: {
+    [locale]: entry.linkId,
+  },
+  url: {
+    [locale]: entry.linkId,
+  },
+});
+
+const getPopulatedNavItemFields = (entry) => ({
+  displayText: {
+    [locale]: entry.title,
+  },
+  navigationLink: {
+    [locale]: {
+      sys: {
+        type: "Link",
+        linkType: "Entry",
+        id: entry.linkId,
+      },
+    },
+  },
+});
+
 exports.getPopulatedEntryFields = (
   entry,
   contentType,
@@ -192,6 +388,12 @@ exports.getPopulatedEntryFields = (
       return getPopulatedBlogCategoryFields(entry);
     case this.CONTENT_TYPES.POST:
       return getPopulatedBlogPostFields(entry, linkingData, richtext);
+    case this.CONTENT_TYPES.MEDIA_IMAGE:
+      return getPopulatedMediaImageFields(entry, linkingData);
+    case this.CONTENT_TYPES.EXTERNAL_LINK:
+      return getPopulatedExternalLinkFields(entry);
+    case this.CONTENT_TYPES.NAV_ITEM:
+      return getPopulatedNavItemFields(entry);
     default:
       return null;
   }

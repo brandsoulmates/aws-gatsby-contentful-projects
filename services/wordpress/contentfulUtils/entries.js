@@ -19,16 +19,49 @@ const getContentfulAssetId = (link, linkIds) => {
   return replacedText;
 };
 
-const sanitizeMd = (markdown) =>
+const sanitizeMd = async (markdown, linkingData) =>
   striptags(markdown)
     .split("\n\n")
-    .map((text) => {
+    .map(async (text) => {
       if (text.match(new RegExp(/\[!\[\]\((.*?)\)\]\((.*?)\)/gi))) {
         const index = text.lastIndexOf("(");
         const image = text.slice(1, index - 1);
-        let link = index !== -1 && text.slice(index + 1, text.length - 1);
-        link = `##### [${link}](${link})`;
-        return `${image} \n${link}`;
+        const link = index !== -1 && text.slice(index + 1, text.length - 1);
+        const mdString = `##### [${link}](${link})`;
+        if (link) {
+          let imgLink = image.split("(")[1];
+          imgLink = imgLink.slice(0, imgLink.length - 1);
+          // const embeds = await createAndPublishEmbeds(
+          //   imgLink,
+          //   link,
+          //   createEntry,
+          //   publishEntry
+          // );
+          const cmsExternalEntry = await createEntry(
+            {
+              linkId: link,
+            },
+            CONTENT_TYPES.EXTERNAL_LINK
+          );
+          const cmsNavigationEntry = await createEntry(
+            {
+              title: `Navigation - ${link}`,
+              linkId: cmsExternalEntry.sys.id,
+            },
+            CONTENT_TYPES.NAV_ITEM
+          );
+          const cmsMediaImageEntry = await createEntry(
+            {
+              title: `Navigation - ${imgLink}`,
+              linkId: imgLink,
+              navId: cmsNavigationEntry.sys.id,
+            },
+            CONTENT_TYPES.MEDIA_IMAGE,
+            linkingData
+          );
+          // const publishedEntry = await publishEntry(cmsEntry);
+        }
+        return `${image} \n${mdString}`;
       }
       text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
         ? (text = text.slice(1))
@@ -44,7 +77,7 @@ const createEntry = async (entry, contentType, linkingData) => {
       const turndownService = new TurndownService();
       turndownService.remove("style");
       const markdown = turndownService.turndown(entry.body);
-      const sanitizedMd = sanitizeMd(markdown);
+      const sanitizedMd = await sanitizeMd(markdown, linkingData);
       const convertToRichText = await richTextFromMarkdown(
         sanitizedMd,
         async (mdNode) => {
