@@ -11,7 +11,7 @@ const argv = yargs
   .option("content-types", {
     alias: "c",
     description:
-      "Specify the content-types to delete. If not provided, defaults to blogPosts and blogCategories",
+      "Specify the content type ids to delete. If not provided, defaults to blogPosts and blogCategories",
     type: "array",
   })
   .option("assets", {
@@ -30,7 +30,7 @@ const deletAssetsAndEntries = async () => {
   try {
     if (argv.a) await deleteAssets();
 
-    for (contentType of contentTypes) {
+    for (const contentType of contentTypes) {
       await deleteEntries(contentType);
     }
 
