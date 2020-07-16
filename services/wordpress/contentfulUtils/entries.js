@@ -19,7 +19,7 @@ const getContentfulAssetId = (link, linkIds) => {
   return replacedText;
 };
 
-const sanitizeMd = (markdown, linkingData) =>
+const sanitizeMd = (markdown) =>
   striptags(markdown)
     .split("\n\n")
     .map((text) => {
@@ -30,6 +30,9 @@ const sanitizeMd = (markdown, linkingData) =>
         link = `##### [${link}](${link})`;
         return `${image} \n${link}`;
       }
+      text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
+        ? (text = text.slice(1))
+        : text;
       return text;
     })
     .join("\n\n");

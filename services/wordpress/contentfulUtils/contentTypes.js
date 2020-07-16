@@ -136,7 +136,9 @@ const getPopulatedBlogPostFields = (
   richtext
 ) => {
   const cmsHeroImageAsset = assets.find(
-    (asset) => asset.wpAsset.mediaNumber === post.featured_media
+    (asset) =>
+      asset.wpAsset.mediaNumber === post.featured_media ||
+      asset.wpAsset.link === post.heroImage
   );
   const heroImageId = cmsHeroImageAsset && cmsHeroImageAsset.sys.id;
   const cmsCategory = categories.find(
