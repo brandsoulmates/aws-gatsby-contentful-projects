@@ -37,10 +37,15 @@ const migrateWP2Contentful = async () => {
       categories,
       CONTENT_TYPES.CATEGORY
     );
+    const publishedTags = await createAndPublishEntries(
+      tags,
+      CONTENT_TYPES.TAG
+    );
 
     await createAndPublishEntries(processedPosts, CONTENT_TYPES.POST, {
       categories: publishedCategories,
       assets: publishedAssets,
+      tags: publishedTags,
     });
 
     log("success", "Migration Complete", true);

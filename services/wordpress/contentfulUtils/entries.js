@@ -29,44 +29,47 @@ const sanitizeMd = (markdown) =>
     )
     .join("\n\n");
 
+const getRichtext = async (entry, linkingData) => {
+  if (!entry || !entry.body) return null;
+
+  const turndownService = new TurndownService();
+  const markdown = turndownService.turndown(entry.body);
+  const sanitizedMd = sanitizeMd(markdown);
+  const convertToRichText = await richTextFromMarkdown(
+    sanitizedMd,
+    async (mdNode) => {
+      if (mdNode.type !== "image") {
+        return null;
+      }
+      if (
+        mdNode &&
+        mdNode.url &&
+        getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
+      ) {
+        return {
+          nodeType: "embedded-asset-block",
+          content: [],
+          data: {
+            target: {
+              sys: {
+                type: "Link",
+                linkType: "Asset",
+                id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
+              },
+            },
+          },
+        };
+      }
+      return null;
+    }
+  );
+  return convertToRichText;
+};
+
 const createEntry = async (entry, contentType, linkingData) => {
   try {
     const environment = await getContentfulEnvironment();
-    const getRichtext = async (entry) => {
-      const turndownService = new TurndownService();
-      const markdown = turndownService.turndown(entry.body);
-      const sanitizedMd = sanitizeMd(markdown);
-      const convertToRichText = await richTextFromMarkdown(
-        sanitizedMd,
-        async (mdNode) => {
-          if (mdNode.type !== "image") {
-            return null;
-          }
-          if (
-            mdNode &&
-            mdNode.url &&
-            getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
-          ) {
-            return {
-              nodeType: "embedded-asset-block",
-              content: [],
-              data: {
-                target: {
-                  sys: {
-                    type: "Link",
-                    linkType: "Asset",
-                    id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
-                  },
-                },
-              },
-            };
-          }
-          return null;
-        }
-      );
-      return convertToRichText;
-    };
-    const richtext = entry && entry.body && (await getRichtext(entry));
+    const richtext = await getRichtext(entry, linkingData);
     const cmsCategory = await environment.createEntry(contentType.id, {
       fields: getPopulatedEntryFields(
         entry,

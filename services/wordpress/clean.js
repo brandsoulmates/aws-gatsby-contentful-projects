@@ -22,7 +22,11 @@ const argv = yargs
   .help()
   .alias("help", "h").argv;
 
-const defaultContentTypes = [CONTENT_TYPES.CATEGORY, CONTENT_TYPES.POST];
+const defaultContentTypes = [
+  CONTENT_TYPES.CATEGORY,
+  CONTENT_TYPES.POST,
+  CONTENT_TYPES.TAG,
+];
 
 const deletAssetsAndEntries = async () => {
   const contentTypes = argv["content-types"] || defaultContentTypes;

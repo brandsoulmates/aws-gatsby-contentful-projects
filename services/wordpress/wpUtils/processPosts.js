@@ -37,14 +37,14 @@ const extractBodyImages = (post) => {
   return post;
 };
 
-const getMappedTags = (tagIds, tagsList) => {
-  return tagIds
-    .map((id) => {
-      const foundTag = tagsList.find((tag) => tag.id === id);
-      return foundTag && foundTag.name;
-    })
-    .filter((tag) => tag);
-};
+// const getMappedTags = (tagIds, tagsList) => {
+//   return tagIds
+//     .map((id) => {
+//       const foundTag = tagsList.find((tag) => tag.id === id);
+//       return foundTag && foundTag.name;
+//     })
+//     .filter((tag) => tag);
+// };
 
 exports.transformPosts = (posts, tagsList) => {
   log("info", `Transforming Posts...`, true);
@@ -68,7 +68,8 @@ exports.transformPosts = (posts, tagsList) => {
         category: categories[0],
         heroImage: acf && acf.tile_image,
         featured_media: featured_media,
-        tags: getMappedTags(tags, tagsList),
+        tags,
+        // tags: getMappedTags(tags, tagsList),
       });
     }
   );
