@@ -149,6 +149,10 @@ exports.deleteEntries = async (contentType) => {
   let total = 0;
   let sucessfullyDeleted = 0;
 
+  if (typeof contentType === "string") {
+    contentType = { name: contentType, id: contentType };
+  }
+
   log("info", `Deleting ${contentType.name} entries from contentful`, true);
   const deleteEntriesPerLimit = async () => {
     try {
