@@ -34,16 +34,7 @@ const extractBodyImages = (post) => {
   return post;
 };
 
-// const getMappedTags = (tagIds, tagsList) => {
-//   return tagIds
-//     .map((id) => {
-//       const foundTag = tagsList.find((tag) => tag.id === id);
-//       return foundTag && foundTag.name;
-//     })
-//     .filter((tag) => tag);
-// };
-
-exports.transformPosts = (posts, tagsList) => {
+exports.transformPosts = (posts) => {
   log("info", `Transforming Posts...`, true);
 
   const transformedPosts = posts.map(
@@ -66,7 +57,6 @@ exports.transformPosts = (posts, tagsList) => {
         heroImage: acf && acf.tile_image,
         featured_media: featured_media,
         tags,
-        // tags: getMappedTags(tags, tagsList),
       });
     }
   );
