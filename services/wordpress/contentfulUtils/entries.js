@@ -19,56 +19,29 @@ const getContentfulAssetId = (link, linkIds) => {
   return replacedText;
 };
 
-const sanitizeMd = async (markdown, linkingData) =>
-  striptags(markdown)
+const sanitizeMd = (markdown) => {
+  let embeddedExternalLink = false;
+  const md = striptags(markdown)
     .split("\n\n")
-    .map(async (text) => {
+    .map((text) => {
       if (text.match(new RegExp(/\[!\[\]\((.*?)\)\]\((.*?)\)/gi))) {
         const index = text.lastIndexOf("(");
         const image = text.slice(1, index - 1);
-        const link = index !== -1 && text.slice(index + 1, text.length - 1);
-        const mdString = `##### [${link}](${link})`;
-        if (link) {
-          let imgLink = image.split("(")[1];
-          imgLink = imgLink.slice(0, imgLink.length - 1);
-          // const embeds = await createAndPublishEmbeds(
-          //   imgLink,
-          //   link,
-          //   createEntry,
-          //   publishEntry
-          // );
-          const cmsExternalEntry = await createEntry(
-            {
-              linkId: link,
-            },
-            CONTENT_TYPES.EXTERNAL_LINK
-          );
-          const cmsNavigationEntry = await createEntry(
-            {
-              title: `Navigation - ${link}`,
-              linkId: cmsExternalEntry.sys.id,
-            },
-            CONTENT_TYPES.NAV_ITEM
-          );
-          const cmsMediaImageEntry = await createEntry(
-            {
-              title: `Navigation - ${imgLink}`,
-              linkId: imgLink,
-              navId: cmsNavigationEntry.sys.id,
-            },
-            CONTENT_TYPES.MEDIA_IMAGE,
-            linkingData
-          );
-          // const publishedEntry = await publishEntry(cmsEntry);
-        }
+        const externalUrl =
+          index !== -1 && text.slice(index + 1, text.length - 1);
+        const mdString = `##### Linked Entry - [${externalUrl}](${externalUrl})`;
+        embeddedExternalLink = true;
         return `${image} \n${mdString}`;
       }
-      text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
-        ? (text = text.slice(1))
-        : text;
+      if (text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))) {
+        text = text.slice(1);
+      }
       return text;
     })
     .join("\n\n");
+
+  return { text: md, richtext: embeddedExternalLink };
+};
 
 const createEntry = async (entry, contentType, linkingData) => {
   try {
@@ -77,16 +50,14 @@ const createEntry = async (entry, contentType, linkingData) => {
       const turndownService = new TurndownService();
       turndownService.remove("style");
       const markdown = turndownService.turndown(entry.body);
-      const sanitizedMd = await sanitizeMd(markdown, linkingData);
+      const sanitizedMd = sanitizeMd(markdown);
       const convertToRichText = await richTextFromMarkdown(
-        sanitizedMd,
-        async (mdNode) => {
+        sanitizedMd.text,
+        (mdNode) => {
           if (mdNode.type !== "image") {
             return null;
           }
           if (
-            mdNode &&
-            mdNode.url &&
             getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
           ) {
             return {
@@ -106,7 +77,7 @@ const createEntry = async (entry, contentType, linkingData) => {
           return null;
         }
       );
-      return convertToRichText;
+      return { convertToRichText, sanitizedMd };
     };
     const richtext = entry && entry.body && (await getRichtext(entry));
     const cmsCategory = await environment.createEntry(contentType.id, {
@@ -117,7 +88,11 @@ const createEntry = async (entry, contentType, linkingData) => {
         richtext
       ),
     });
-    return cmsCategory;
+    if (richtext) {
+      const { sanitizedMd } = richtext;
+      return { cmsCategory, richtext: sanitizedMd.richtext };
+    }
+    return { cmsCategory };
   } catch (e) {
     log("warning", `Entry "${entry.name || entry.title}" failed to create`);
     log("warning", e);
@@ -147,24 +122,33 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
+  const richTextLinkedEntries = [];
   await createContentType(contentType);
 
-  const linkMap = new Map();
   const linkIds = new Map();
   if (linkingData) {
     linkingData.assets.forEach((asset) => {
       linkIds.set(asset.wpAsset.link, asset.sys.id);
-      linkMap.set(asset.wpAsset.link, asset.fields.file["en-US"].url);
     });
   }
 
   const createAndPublishSingleEntry = async (entry) => {
     const cmsEntry = await createEntry(entry, contentType, {
-      linkMap,
       linkIds,
       ...linkingData,
     });
-    const publishedEntry = await publishEntry(cmsEntry);
+    const publishedEntry = await publishEntry(cmsEntry.cmsCategory);
+    if (cmsEntry.richtext) {
+      const { cmsCategory } = cmsEntry;
+      const richtextObj = {
+        message: "Rich text has embedded assets with external links.",
+        contentful_id: cmsCategory.sys.id,
+        type: cmsCategory.sys.type,
+        createdAt: cmsCategory.sys.createdAt,
+        content_type: cmsCategory.sys.contentType.sys.id,
+      };
+      richTextLinkedEntries.push(richtextObj);
+    }
 
     publishedEntry.wpEntry = entry;
     publishedEntries.push(publishedEntry);
@@ -184,12 +168,16 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
   );
 
   log("success", `Published ${numPublished} of ${numEntries} total entries`);
-  return publishedEntries;
+  return { publishedEntries, richTextLinkedEntries };
 };
 
 exports.deleteEntries = async (contentType) => {
   let total = 0;
   let sucessfullyDeleted = 0;
+
+  if (typeof contentType === "string") {
+    contentType = { name: contentType, id: contentType };
+  }
 
   log("info", `Deleting ${contentType.name} entries from contentful`, true);
   const deleteEntriesPerLimit = async () => {

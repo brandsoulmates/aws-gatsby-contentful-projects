@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 const chalk = require("chalk");
+const fs = require("fs");
+const path = require("path");
 
 exports.getJSON = async (url) => {
   try {
@@ -40,42 +42,23 @@ exports.getUniqueImages = (arr) => {
   });
 };
 
-// exports.createAndPublishEmbeds = async (
-//   image,
-//   externalLink,
-//   create,
-//   publish
-// ) => {
-//   const cmsEntries = [];
-//   const cmsExternalEntry = await create(
-//     {
-//       linkId: externalLink,
-//     },
-//     CONTENT_TYPES.EXTERNAL_LINK
-//   );
-//   const cmsNavigationEntry = await create(
-//     {
-//       title: `Navigation - ${link}`,
-//       linkId: cmsExternalEntry.sys.id,
-//     },
-//     CONTENT_TYPES.NAV_ITEM
-//   );
-//   const cmsMediaImageEntry = await create(
-//     {
-//       title: `Media - ${image}`,
-//       linkId: image,
-//       navId: cmsNavigationEntry.sys.id,
-//     },
-//     CONTENT_TYPES.MEDIA_IMAGE,
-//     linkingData
-//   );
+exports.writeToJson = (richtext, input) => {
+  // Create filename
+  const dirPath = path.resolve(__dirname, "../../out");
+  const filename = path.resolve(dirPath, `${richtext}.json`);
 
-//   // cmsEntries.push(cmsNavigationEntry, cmsExternalEntry, cmsMediaImageEntry);
+  // Construct output file
+  const output = JSON.stringify(input);
 
-//   // await Promise.all(
-//   //   cmsEntries.map(async (entry) => {
-//   //     return await publish(entry);
-//   //   })
-//   // );
-//   // const publishedEntry = await publishEntry(cmsEntry);
-// };
+  // Write to existing directory or create a new one
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath);
+  }
+  fs.writeFile(filename, output, (err) => {
+    if (err) throw err;
+  });
+
+  console.log(
+    `Finished running tests. \nPlease check the output file ${filename}`
+  );
+};

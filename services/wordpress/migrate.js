@@ -9,7 +9,7 @@ const {
   createAndPublishEntries,
   CONTENT_TYPES,
 } = require("./contentfulUtils");
-const { log } = require("./utils");
+const { log, writeToJson } = require("./utils");
 
 // Migration Reference: https://hoverbaum.net/2018/03/22/Wordpress-to-Contentful-migration/
 // Contentful Management Reference: https://contentful.github.io/contentful-management.js/contentful-management/5.26.5/globals.html
@@ -20,7 +20,7 @@ const migrateWP2Contentful = async () => {
   try {
     // Collect data from WP
     let posts = await exportBlogposts(`${apiUrl}/posts`);
-    posts = posts.slice(3, 4);
+    // posts = posts.slice(3, 4);
     const processedPosts = transformPosts(posts);
     const assets = await getAssets(processedPosts, `${apiUrl}/media`);
     const categories = await getCategories(
@@ -30,16 +30,19 @@ const migrateWP2Contentful = async () => {
 
     // Migrate to Contentful
     const publishedAssets = await createAndPublishAssets(assets);
-    const publishedCategories = await createAndPublishEntries(
+    const { publishedEntries } = await createAndPublishEntries(
       categories,
       CONTENT_TYPES.CATEGORY
     );
-
-    await createAndPublishEntries(processedPosts, CONTENT_TYPES.POST, {
-      categories: publishedCategories,
-      assets: publishedAssets,
-    });
-
+    const { richTextLinkedEntries } = await createAndPublishEntries(
+      processedPosts,
+      CONTENT_TYPES.POST,
+      {
+        categories: publishedEntries,
+        assets: publishedAssets,
+      }
+    );
+    writeToJson("richtext", richTextLinkedEntries);
     log("success", "Migration Complete", true);
   } catch (e) {
     log("error", "Migration Failed", true);
