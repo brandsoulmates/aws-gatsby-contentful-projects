@@ -40,7 +40,7 @@ const sanitizeMd = (markdown) => {
     })
     .join("\n\n");
 
-  return { text: md, richtext: embeddedExternalLink };
+  return { text: md, richtextBool: embeddedExternalLink };
 };
 
 const getRichtext = async (entry, linkingData) => {
@@ -48,34 +48,29 @@ const getRichtext = async (entry, linkingData) => {
   const turndownService = new TurndownService();
   turndownService.remove("style");
   const markdown = turndownService.turndown(entry.body);
-  const sanitizedMd = sanitizeMd(markdown);
-  const convertToRichText = await richTextFromMarkdown(
-    sanitizedMd.text,
-    (mdNode) => {
-      if (mdNode.type !== "image") {
-        return null;
-      }
-      if (
-        getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
-      ) {
-        return {
-          nodeType: "embedded-asset-block",
-          content: [],
-          data: {
-            target: {
-              sys: {
-                type: "Link",
-                linkType: "Asset",
-                id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
-              },
-            },
-          },
-        };
-      }
+  const { text, richtextBool } = sanitizeMd(markdown);
+  const convertToRichText = await richTextFromMarkdown(text, (mdNode) => {
+    if (mdNode.type !== "image") {
       return null;
     }
-  );
-  return { convertToRichText, sanitizedMd };
+    if (getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url) {
+      return {
+        nodeType: "embedded-asset-block",
+        content: [],
+        data: {
+          target: {
+            sys: {
+              type: "Link",
+              linkType: "Asset",
+              id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
+            },
+          },
+        },
+      };
+    }
+    return null;
+  });
+  return { convertToRichText, richtextBool };
 };
 
 const createEntry = async (entry, contentType, linkingData) => {
@@ -91,8 +86,8 @@ const createEntry = async (entry, contentType, linkingData) => {
       ),
     });
     if (richtext) {
-      const { sanitizedMd } = richtext;
-      return { cmsCategory, richtext: sanitizedMd.richtext };
+      const { richtextBool } = richtext;
+      return { cmsCategory, richtext: richtextBool };
     }
     return { cmsCategory };
   } catch (e) {

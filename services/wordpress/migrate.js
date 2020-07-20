@@ -22,7 +22,6 @@ const migrateWP2Contentful = async () => {
   try {
     // Collect data from WP
     let posts = await exportBlogposts(`${apiUrl}/posts`);
-    posts = posts.slice(0, 4);
     const tags = await exportTags(`${apiUrl}/tags`);
     const processedPosts = transformPosts(posts, tags);
     const assets = await getAssets(processedPosts, `${apiUrl}/media`);
