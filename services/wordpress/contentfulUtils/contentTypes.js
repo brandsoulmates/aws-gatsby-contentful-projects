@@ -430,11 +430,7 @@ exports.getPopulatedEntryFields = (
     case this.CONTENT_TYPES.TAG:
       return getPopulatedBlogTagFields(entry);
     case this.CONTENT_TYPES.POST:
-      return getPopulatedBlogPostFields(
-        entry,
-        linkingData,
-        richtext.convertToRichText
-      );
+      return getPopulatedBlogPostFields(entry, linkingData, richtext);
     case this.CONTENT_TYPES.MEDIA_IMAGE:
       return getPopulatedMediaImageFields(entry, linkingData);
     case this.CONTENT_TYPES.EXTERNAL_LINK:
