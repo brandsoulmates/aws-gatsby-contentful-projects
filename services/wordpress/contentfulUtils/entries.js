@@ -19,64 +19,71 @@ const getContentfulAssetId = (link, linkIds) => {
   return replacedText;
 };
 
-const sanitizeMd = (markdown) =>
-  striptags(markdown)
+const sanitizeMd = (markdown) => {
+  let hasEmbeddedExternalLink = false;
+  const sanitizedMd = striptags(markdown)
     .split("\n\n")
     .map((text) => {
       if (text.match(new RegExp(/\[!\[\]\((.*?)\)\]\((.*?)\)/gi))) {
         const index = text.lastIndexOf("(");
         const image = text.slice(1, index - 1);
-        let link = index !== -1 && text.slice(index + 1, text.length - 1);
-        link = `##### [${link}](${link})`;
-        return `${image} \n${link}`;
+        const externalUrl =
+          index !== -1 && text.slice(index + 1, text.length - 1);
+        const mdString = `##### Linked Entry - [${externalUrl}](${externalUrl})`;
+        hasEmbeddedExternalLink = true;
+        return `${image} \n${mdString}`;
       }
-      text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))
-        ? (text = text.slice(1))
-        : text;
+      if (text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))) {
+        text = text.slice(1);
+      }
       return text;
     })
     .join("\n\n");
 
+  return { sanitizedMd, hasEmbeddedExternalLink };
+};
+
+const getRichtext = async (entry, linkingData) => {
+  if (!entry || !entry.body)
+    return { richText: null, hasEmbeddedExternalLink: false };
+
+  const turndownService = new TurndownService();
+  turndownService.remove("style");
+  const markdown = turndownService.turndown(entry.body);
+  const { sanitizedMd, hasEmbeddedExternalLink } = sanitizeMd(markdown);
+  const richtext = await richTextFromMarkdown(sanitizedMd, (mdNode) => {
+    if (mdNode.type !== "image") {
+      return null;
+    }
+    if (getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url) {
+      return {
+        nodeType: "embedded-asset-block",
+        content: [],
+        data: {
+          target: {
+            sys: {
+              type: "Link",
+              linkType: "Asset",
+              id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
+            },
+          },
+        },
+      };
+    }
+    return null;
+  });
+  return { richtext, hasEmbeddedExternalLink };
+};
+
 const createEntry = async (entry, contentType, linkingData) => {
   try {
     const environment = await getContentfulEnvironment();
-    const getRichtext = async (entry) => {
-      const turndownService = new TurndownService();
-      turndownService.remove("style");
-      const markdown = turndownService.turndown(entry.body);
-      const sanitizedMd = sanitizeMd(markdown);
-      const convertToRichText = await richTextFromMarkdown(
-        sanitizedMd,
-        async (mdNode) => {
-          if (mdNode.type !== "image") {
-            return null;
-          }
-          if (
-            mdNode &&
-            mdNode.url &&
-            getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
-          ) {
-            return {
-              nodeType: "embedded-asset-block",
-              content: [],
-              data: {
-                target: {
-                  sys: {
-                    type: "Link",
-                    linkType: "Asset",
-                    id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
-                  },
-                },
-              },
-            };
-          }
-          return null;
-        }
-      );
-      return convertToRichText;
-    };
-    const richtext = entry && entry.body && (await getRichtext(entry));
-    const cmsCategory = await environment.createEntry(contentType.id, {
+    const { richtext, hasEmbeddedExternalLink } = await getRichtext(
+      entry,
+      linkingData
+    );
+
+    const cmsEntry = await environment.createEntry(contentType.id, {
       fields: getPopulatedEntryFields(
         entry,
         contentType,
@@ -84,7 +91,7 @@ const createEntry = async (entry, contentType, linkingData) => {
         richtext
       ),
     });
-    return cmsCategory;
+    return { cmsEntry, hasEmbeddedExternalLink };
   } catch (e) {
     log("warning", `Entry "${entry.name || entry.title}" failed to create`);
     log("warning", e);
@@ -114,24 +121,35 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
   const numEntries = entries.length;
   let numPublished = 0;
   const publishedEntries = [];
+  const richTextLinkedEntries = [];
   await createContentType(contentType);
 
-  const linkMap = new Map();
   const linkIds = new Map();
-  if (linkingData) {
+  if (linkingData && linkingData.assets) {
     linkingData.assets.forEach((asset) => {
       linkIds.set(asset.wpAsset.link, asset.sys.id);
-      linkMap.set(asset.wpAsset.link, asset.fields.file["en-US"].url);
     });
   }
 
   const createAndPublishSingleEntry = async (entry) => {
-    const cmsEntry = await createEntry(entry, contentType, {
-      linkMap,
-      linkIds,
-      ...linkingData,
-    });
+    const { cmsEntry, hasEmbeddedExternalLink } = await createEntry(
+      entry,
+      contentType,
+      {
+        linkIds,
+        ...linkingData,
+      }
+    );
     const publishedEntry = await publishEntry(cmsEntry);
+    if (hasEmbeddedExternalLink) {
+      const richtextObj = {
+        contentful_id: cmsEntry.sys.id,
+        title: cmsEntry.fields.title["en-US"],
+        createdAt: cmsEntry.sys.createdAt,
+        content_type: cmsEntry.sys.contentType.sys.id,
+      };
+      richTextLinkedEntries.push(richtextObj);
+    }
 
     publishedEntry.wpEntry = entry;
     publishedEntries.push(publishedEntry);
@@ -151,12 +169,16 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
   );
 
   log("success", `Published ${numPublished} of ${numEntries} total entries`);
-  return publishedEntries;
+  return { publishedEntries, richTextLinkedEntries };
 };
 
 exports.deleteEntries = async (contentType) => {
   let total = 0;
   let sucessfullyDeleted = 0;
+
+  if (typeof contentType === "string") {
+    contentType = { name: contentType, id: contentType };
+  }
 
   log("info", `Deleting ${contentType.name} entries from contentful`, true);
   const deleteEntriesPerLimit = async () => {

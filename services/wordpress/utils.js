@@ -1,5 +1,7 @@
 const fetch = require("node-fetch");
 const chalk = require("chalk");
+const fs = require("fs");
+const path = require("path");
 
 exports.getJSON = async (url) => {
   try {
@@ -38,4 +40,25 @@ exports.getUniqueImages = (arr) => {
   return Array.from(new Set(arr.map((a) => a.link))).map((link) => {
     return arr.find((a) => a.link === link);
   });
+};
+
+exports.writeToJson = (richtext, input) => {
+  // Create filename
+  const dirPath = path.resolve(__dirname, "../../out");
+  const filename = path.resolve(dirPath, `${richtext}.json`);
+
+  // Construct output file
+  const output = JSON.stringify(input, null, 2);
+
+  // Write to existing directory or create a new one
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath);
+  }
+  fs.writeFile(filename, output, (err) => {
+    if (err) throw err;
+  });
+
+  console.log(
+    `Finished running tests. \nPlease check the output file ${filename}`
+  );
 };

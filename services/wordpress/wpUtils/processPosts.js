@@ -16,6 +16,7 @@ const extractBodyImages = (post) => {
       postId: post.id,
     });
   }
+
   const uniqueImages =
     (post.bodyImages.length > 1 && getUniqueImages(post.bodyImages)) ||
     post.bodyImages;
@@ -35,8 +36,18 @@ const extractBodyImages = (post) => {
 
 exports.transformPosts = (posts) => {
   log("info", `Transforming Posts...`, true);
+
   const transformedPosts = posts.map(
-    ({ date_gmt, content, title, slug, categories, acf, featured_media }) => {
+    ({
+      date_gmt,
+      content,
+      title,
+      slug,
+      categories,
+      acf,
+      featured_media,
+      tags,
+    }) => {
       return extractBodyImages({
         publishDate: date_gmt + "+00:00",
         body: `<div>${entities.decode(content.rendered)}</div>`,
@@ -45,6 +56,7 @@ exports.transformPosts = (posts) => {
         category: categories[0],
         heroImage: acf && acf.tile_image,
         featured_media: featured_media,
+        tags,
       });
     }
   );

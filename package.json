@@ -18,7 +18,9 @@
     "test": "node ./services/contentful/checkEntries.js -e sitefinityContentHtml sitefinityDescriptionHtml",
     "find": "node ./services/contentful/findEntries.js",
     "wp": "node ./services/wordpress/migrate.js",
-    "wp:clean": "node ./services/wordpress/clean.js"
+    "wp:clean": "node ./services/wordpress/clean.js",
+    "export": "node ./services/wordpress/export.js",
+    "diff": "node ./services/wordpress/diff.js"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
@@ -32,6 +34,7 @@
     "contentful-import": "^7.7.0",
     "contentful-management": "^5.13.0",
     "core-js": "2",
+    "diff": "^4.0.2",
     "dotenv": "^8.2.0",
     "envfile": "^4.5.0",
     "fs": "^0.0.1-security",
