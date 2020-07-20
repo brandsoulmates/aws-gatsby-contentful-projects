@@ -9,7 +9,7 @@ const exportPageOfTags = async (apiUrl, page = 1, allTags = []) => {
     : allTags;
 };
 
-exports.exportTags = async (apiUrl) => {
+exports.getTags = async (apiUrl) => {
   log("info", `Getting tags from api ${apiUrl}`, true);
   const allTags = await exportPageOfTags(apiUrl);
 

@@ -1,5 +1,5 @@
 const { exportBlogposts } = require("./exportBlogposts");
-const { exportTags } = require("./exportTags");
+const { getTags } = require("./getTags");
 const { getAssets } = require("./getAssets");
 const { getCategories } = require("./getCategories");
 const { transformPosts } = require("./processPosts");
@@ -9,5 +9,5 @@ module.exports = {
   getAssets,
   getCategories,
   transformPosts,
-  exportTags,
+  getTags,
 };
