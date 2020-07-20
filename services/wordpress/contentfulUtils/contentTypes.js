@@ -291,7 +291,7 @@ const getPopulatedBlogTagFields = (entry) => ({
 
 const getPopulatedBlogPostFields = (
   post,
-  { categories, assets, tags: tagsList, linkMap },
+  { categories, assets, tags: tagsList },
   richtext
 ) => {
   const cmsHeroImageAsset = assets.find(
@@ -424,7 +424,6 @@ exports.getPopulatedEntryFields = (
   linkingData,
   richtext
 ) => {
-  const rt = richtext && richtext.content;
   switch (contentType) {
     case this.CONTENT_TYPES.CATEGORY:
       return getPopulatedBlogCategoryFields(entry);
