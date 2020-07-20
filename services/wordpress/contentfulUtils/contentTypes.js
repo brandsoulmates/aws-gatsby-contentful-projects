@@ -16,6 +16,19 @@ const blogCategoryFields = [
   },
 ];
 
+const blogTagFields = [
+  {
+    id: "blogTag",
+    name: "Tag Name",
+    type: "Symbol",
+    localized: false,
+    required: true,
+    validations: [],
+    disabled: false,
+    omitted: false,
+  },
+];
+
 const blogPostFields = [
   {
     id: "title",
@@ -68,6 +81,25 @@ const blogPostFields = [
     disabled: false,
     omitted: false,
     linkType: "Entry",
+  },
+  {
+    id: "tag",
+    name: "Tag",
+    type: "Array",
+    localized: false,
+    required: false,
+    validations: [],
+    disabled: false,
+    omitted: false,
+    items: {
+      type: "Link",
+      validations: [
+        {
+          linkContentType: ["blogTag"],
+        },
+      ],
+      linkType: "Entry",
+    },
   },
   {
     id: "body",
@@ -242,6 +274,7 @@ exports.CONTENT_TYPES = {
     name: "External Link",
     fields: externalLinkFields,
   },
+  TAG: { id: "blogTag", name: "Blog Tag", fields: blogTagFields },
 };
 
 // const replaceWPWithContentfulLinks = (text, linkMap) => {
@@ -258,7 +291,17 @@ const getPopulatedBlogCategoryFields = (entry) => ({
   },
 });
 
-const getPopulatedBlogPostFields = (post, { categories, assets }, richtext) => {
+const getPopulatedBlogTagFields = (entry) => ({
+  blogTag: {
+    [locale]: entry.name,
+  },
+});
+
+const getPopulatedBlogPostFields = (
+  post,
+  { categories, assets, tags: tagsList, linkMap },
+  richtext
+) => {
   const cmsHeroImageAsset = assets.find(
     (asset) =>
       asset.wpAsset.mediaNumber === post.featured_media ||
@@ -269,6 +312,10 @@ const getPopulatedBlogPostFields = (post, { categories, assets }, richtext) => {
     (category) => category.wpEntry.id === post.category
   );
   const categoryId = cmsCategory.sys.id;
+  const cmsTags = post.tags.map((tagId) =>
+    tagsList.find((t) => t.wpEntry.id === tagId)
+  );
+  const tagIds = cmsTags.map((t) => t.sys.id);
 
   return {
     title: {
@@ -297,6 +344,15 @@ const getPopulatedBlogPostFields = (post, { categories, assets }, richtext) => {
           id: categoryId,
         },
       },
+    },
+    tag: {
+      [locale]: tagIds.map((tagId) => ({
+        sys: {
+          type: "Link",
+          linkType: "Entry",
+          id: tagId,
+        },
+      })),
     },
     body: {
       [locale]: richtext,
@@ -380,6 +436,8 @@ exports.getPopulatedEntryFields = (
   switch (contentType) {
     case this.CONTENT_TYPES.CATEGORY:
       return getPopulatedBlogCategoryFields(entry);
+    case this.CONTENT_TYPES.TAG:
+      return getPopulatedBlogTagFields(entry);
     case this.CONTENT_TYPES.POST:
       return getPopulatedBlogPostFields(
         entry,
