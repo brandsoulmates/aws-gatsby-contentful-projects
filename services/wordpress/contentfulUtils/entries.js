@@ -51,7 +51,7 @@ const getRichtext = async (entry, linkingData) => {
   turndownService.remove("style");
   const markdown = turndownService.turndown(entry.body);
   const { sanitizedMd, hasEmbeddedExternalLink } = sanitizeMd(markdown);
-  const richText = await richTextFromMarkdown(sanitizedMd, (mdNode) => {
+  const richtext = await richTextFromMarkdown(sanitizedMd, (mdNode) => {
     if (mdNode.type !== "image") {
       return null;
     }
@@ -72,7 +72,7 @@ const getRichtext = async (entry, linkingData) => {
     }
     return null;
   });
-  return { richText, hasEmbeddedExternalLink };
+  return { richtext, hasEmbeddedExternalLink };
 };
 
 const createEntry = async (entry, contentType, linkingData) => {
@@ -82,6 +82,7 @@ const createEntry = async (entry, contentType, linkingData) => {
       entry,
       linkingData
     );
+
     const cmsEntry = await environment.createEntry(contentType.id, {
       fields: getPopulatedEntryFields(
         entry,
