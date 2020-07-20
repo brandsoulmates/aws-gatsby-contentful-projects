@@ -277,14 +277,6 @@ exports.CONTENT_TYPES = {
   TAG: { id: "blogTag", name: "Blog Tag", fields: blogTagFields },
 };
 
-// const replaceWPWithContentfulLinks = (text, linkMap) => {
-//   let replacedText = text;
-//   linkMap.forEach((newUrl, oldUrl) => {
-//     replacedText = replacedText.replace(oldUrl, newUrl);
-//   });
-//   return replacedText;
-// };
-
 const getPopulatedBlogCategoryFields = (entry) => ({
   categoryName: {
     [locale]: entry.name,
