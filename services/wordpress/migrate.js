@@ -20,7 +20,6 @@ const migrateWP2Contentful = async () => {
   try {
     // Collect data from WP
     let posts = await exportBlogposts(`${apiUrl}/posts`);
-    // posts = posts.slice(3, 4);
     const processedPosts = transformPosts(posts);
     const assets = await getAssets(processedPosts, `${apiUrl}/media`);
     const categories = await getCategories(
@@ -42,7 +41,12 @@ const migrateWP2Contentful = async () => {
         assets: publishedAssets,
       }
     );
-    writeToJson("richtext", richTextLinkedEntries);
+    const postsWithRichTextLinkedEntries = {
+      message: "Rich text has embedded assets with external links.",
+      count: richTextLinkedEntries.length,
+      entries: richTextLinkedEntries,
+    };
+    writeToJson("richtext", postsWithRichTextLinkedEntries);
     log("success", "Migration Complete", true);
   } catch (e) {
     log("error", "Migration Failed", true);

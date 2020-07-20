@@ -48,7 +48,7 @@ exports.writeToJson = (richtext, input) => {
   const filename = path.resolve(dirPath, `${richtext}.json`);
 
   // Construct output file
-  const output = JSON.stringify(input);
+  const output = JSON.stringify(input, null, 2);
 
   // Write to existing directory or create a new one
   if (!fs.existsSync(dirPath)) {

@@ -141,9 +141,8 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
     if (cmsEntry.richtext) {
       const { cmsCategory } = cmsEntry;
       const richtextObj = {
-        message: "Rich text has embedded assets with external links.",
         contentful_id: cmsCategory.sys.id,
-        type: cmsCategory.sys.type,
+        title: cmsCategory.fields.title["en-US"],
         createdAt: cmsCategory.sys.createdAt,
         content_type: cmsCategory.sys.contentType.sys.id,
       };
