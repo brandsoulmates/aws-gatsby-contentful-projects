@@ -20,8 +20,8 @@ const getContentfulAssetId = (link, linkIds) => {
 };
 
 const sanitizeMd = (markdown) => {
-  let embeddedExternalLink = false;
-  const md = striptags(markdown)
+  let hasEmbeddedExternalLink = false;
+  const sanitizedMd = striptags(markdown)
     .split("\n\n")
     .map((text) => {
       if (text.match(new RegExp(/\[!\[\]\((.*?)\)\]\((.*?)\)/gi))) {
@@ -30,7 +30,7 @@ const sanitizeMd = (markdown) => {
         const externalUrl =
           index !== -1 && text.slice(index + 1, text.length - 1);
         const mdString = `##### Linked Entry - [${externalUrl}](${externalUrl})`;
-        embeddedExternalLink = true;
+        hasEmbeddedExternalLink = true;
         return `${image} \n${mdString}`;
       }
       if (text.match(new RegExp(/\[!\[/)) || text.match(new RegExp(/\_!\[/))) {
@@ -40,49 +40,49 @@ const sanitizeMd = (markdown) => {
     })
     .join("\n\n");
 
-  return { text: md, richtext: embeddedExternalLink };
+  return { sanitizedMd, hasEmbeddedExternalLink };
 };
 
 const getRichtext = async (entry, linkingData) => {
-  if (!entry || !entry.body) return null;
+  if (!entry || !entry.body)
+    return { richText: null, hasEmbeddedExternalLink: false };
+
   const turndownService = new TurndownService();
   turndownService.remove("style");
   const markdown = turndownService.turndown(entry.body);
-  const sanitizedMd = sanitizeMd(markdown);
-  const convertToRichText = await richTextFromMarkdown(
-    sanitizedMd.text,
-    (mdNode) => {
-      if (mdNode.type !== "image") {
-        return null;
-      }
-      if (
-        getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url
-      ) {
-        return {
-          nodeType: "embedded-asset-block",
-          content: [],
-          data: {
-            target: {
-              sys: {
-                type: "Link",
-                linkType: "Asset",
-                id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
-              },
-            },
-          },
-        };
-      }
+  const { sanitizedMd, hasEmbeddedExternalLink } = sanitizeMd(markdown);
+  const richText = await richTextFromMarkdown(sanitizedMd, (mdNode) => {
+    if (mdNode.type !== "image") {
       return null;
     }
-  );
-  return { convertToRichText, sanitizedMd };
+    if (getContentfulAssetId(mdNode.url, linkingData.linkIds) !== mdNode.url) {
+      return {
+        nodeType: "embedded-asset-block",
+        content: [],
+        data: {
+          target: {
+            sys: {
+              type: "Link",
+              linkType: "Asset",
+              id: getContentfulAssetId(mdNode.url, linkingData.linkIds),
+            },
+          },
+        },
+      };
+    }
+    return null;
+  });
+  return { richText, hasEmbeddedExternalLink };
 };
 
 const createEntry = async (entry, contentType, linkingData) => {
   try {
     const environment = await getContentfulEnvironment();
-    const richtext = await getRichtext(entry, linkingData);
-    const cmsCategory = await environment.createEntry(contentType.id, {
+    const { richtext, hasEmbeddedExternalLink } = await getRichtext(
+      entry,
+      linkingData
+    );
+    const cmsEntry = await environment.createEntry(contentType.id, {
       fields: getPopulatedEntryFields(
         entry,
         contentType,
@@ -90,11 +90,7 @@ const createEntry = async (entry, contentType, linkingData) => {
         richtext
       ),
     });
-    if (richtext) {
-      const { sanitizedMd } = richtext;
-      return { cmsCategory, richtext: sanitizedMd.richtext };
-    }
-    return { cmsCategory };
+    return { cmsEntry, hasEmbeddedExternalLink };
   } catch (e) {
     log("warning", `Entry "${entry.name || entry.title}" failed to create`);
     log("warning", e);
@@ -128,25 +124,28 @@ exports.createAndPublishEntries = async (entries, contentType, linkingData) => {
   await createContentType(contentType);
 
   const linkIds = new Map();
-  if (linkingData) {
+  if (linkingData && linkingData.assets) {
     linkingData.assets.forEach((asset) => {
       linkIds.set(asset.wpAsset.link, asset.sys.id);
     });
   }
 
   const createAndPublishSingleEntry = async (entry) => {
-    const cmsEntry = await createEntry(entry, contentType, {
-      linkIds,
-      ...linkingData,
-    });
-    const publishedEntry = await publishEntry(cmsEntry.cmsCategory);
-    if (cmsEntry.richtext) {
-      const { cmsCategory } = cmsEntry;
+    const { cmsEntry, hasEmbeddedExternalLink } = await createEntry(
+      entry,
+      contentType,
+      {
+        linkIds,
+        ...linkingData,
+      }
+    );
+    const publishedEntry = await publishEntry(cmsEntry);
+    if (hasEmbeddedExternalLink) {
       const richtextObj = {
-        contentful_id: cmsCategory.sys.id,
-        title: cmsCategory.fields.title["en-US"],
-        createdAt: cmsCategory.sys.createdAt,
-        content_type: cmsCategory.sys.contentType.sys.id,
+        contentful_id: cmsEntry.sys.id,
+        title: cmsEntry.fields.title["en-US"],
+        createdAt: cmsEntry.sys.createdAt,
+        content_type: cmsEntry.sys.contentType.sys.id,
       };
       richTextLinkedEntries.push(richtextObj);
     }

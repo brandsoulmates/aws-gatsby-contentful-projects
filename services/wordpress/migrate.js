@@ -49,12 +49,16 @@ const migrateWP2Contentful = async () => {
         tags: publishedTags,
       }
     );
+
+    // Export marked posts with rich text that has embedded assets with external links
+    // Requires manual work on Contentful Site
     const postsWithRichTextLinkedEntries = {
       message: "Rich text has embedded assets with external links.",
       count: richTextLinkedEntries.length,
       entries: richTextLinkedEntries,
     };
     writeToJson("richtext", postsWithRichTextLinkedEntries);
+
     log("success", "Migration Complete", true);
   } catch (e) {
     log("error", "Migration Failed", true);

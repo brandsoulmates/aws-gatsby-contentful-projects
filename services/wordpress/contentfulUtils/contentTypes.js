@@ -299,7 +299,7 @@ const getPopulatedBlogTagFields = (entry) => ({
 
 const getPopulatedBlogPostFields = (
   post,
-  { categories, assets, tags: tagsList, linkMap },
+  { categories, assets, tags: tagsList },
   richtext
 ) => {
   const cmsHeroImageAsset = assets.find(
@@ -432,18 +432,13 @@ exports.getPopulatedEntryFields = (
   linkingData,
   richtext
 ) => {
-  const rt = richtext && richtext.content;
   switch (contentType) {
     case this.CONTENT_TYPES.CATEGORY:
       return getPopulatedBlogCategoryFields(entry);
     case this.CONTENT_TYPES.TAG:
       return getPopulatedBlogTagFields(entry);
     case this.CONTENT_TYPES.POST:
-      return getPopulatedBlogPostFields(
-        entry,
-        linkingData,
-        richtext.convertToRichText
-      );
+      return getPopulatedBlogPostFields(entry, linkingData, richtext);
     case this.CONTENT_TYPES.MEDIA_IMAGE:
       return getPopulatedMediaImageFields(entry, linkingData);
     case this.CONTENT_TYPES.EXTERNAL_LINK:
