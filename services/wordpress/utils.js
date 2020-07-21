@@ -58,7 +58,9 @@ exports.writeToJson = (richtext, input) => {
     if (err) throw err;
   });
 
-  console.log(
-    `Finished running tests. \nPlease check the output file ${filename}`
+  this.log(
+    "info",
+    `Finished running tests. \nPlease check the output file ${filename}`,
+    true
   );
 };
