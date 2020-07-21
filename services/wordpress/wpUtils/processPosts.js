@@ -4,7 +4,13 @@ const entities = new Entities();
 
 const extractBodyImages = (post) => {
   const regex = /<img.*?src="(.*?)"/g;
+  const regexVideo = /<video.*?src="(.*?)"/g;
   post.bodyImages = [];
+
+  while ((foundImage = regexVideo.exec(post.body))) {
+    post.body = post.body.replace(/(<video("[^"]*"|[^\/">])*)>/gi, "$1/>");
+    post.body = post.body.replace(/<video/g, "<img");
+  }
 
   while ((foundImage = regex.exec(post.body))) {
     post.body = post.body.replace(/(<img("[^"]*"|[^\/">])*)>/gi, "$1/>");
