@@ -6,8 +6,6 @@ const extractBodyImages = (post) => {
   const regex = /<img.*?src="(.*?)"/g;
   const regexVideo = /<video.*?src="(.*?)"/g;
   post.bodyImages = [];
-  post.videos = [];
-  post.iframe = [];
 
   while ((foundImage = regexVideo.exec(post.body))) {
     post.body = post.body.replace(/(<video("[^"]*"|[^\/">])*)>/gi, "$1/>");
