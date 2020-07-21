@@ -37,7 +37,6 @@ const extractBodyImages = (post) => {
       description: "",
       title: "",
       postId: "",
-      type: "image",
     });
   }
 
