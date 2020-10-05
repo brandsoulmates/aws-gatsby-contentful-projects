@@ -1,10 +1,10 @@
 require('dotenv').config()
 module.exports = {
-  clientName: 'Ayzenberg Development',
+  clientName: 'ayzenbergdotcom',
   nickName: process.env.GATSBY_CLIENT_NICKNAME,
   version: '1',
   cms: 'contentful',
-  host: 'cohqa.com',
+  host: 'ayzenbergdotcom',
   github: {
     base: 'https://github.com',
     org: 'brandsoulmates',
@@ -26,7 +26,7 @@ module.exports = {
       previewMode: process.env.GATSBY_APOLLO_PREVIEW || false,
     }
   },
-  baseServiceName: process.env.GATSBY_CLIENT_NICKNAME + '-' + process.env.GATSBY_CONTENTFUL_SPACE_ID + '-' + process.env.GATSBY_CONTENTFUL_ENVIRONMENT,
+  baseServiceName: process.env.GATSBY_CLIENT_NICKNAME + '-' + '-' + process.env.GATSBY_CONTENTFUL_ENVIRONMENT,
   accessKeyId: process.env.GATSBY_AWS_ACCESS_KEY,
   secretAccessKey: process.env.GATSBY_AWS_SECRET_ACCESS_KEY,
   ACL: 'private', // private | public-read | public-read-write | authenticated-read,

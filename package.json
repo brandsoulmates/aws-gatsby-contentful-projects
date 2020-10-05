@@ -17,6 +17,7 @@
     "test:all": "node ./services/contentful/checkEntries.js",
     "test": "node ./services/contentful/checkEntries.js -e sitefinityContentHtml sitefinityDescriptionHtml",
     "find": "node ./services/contentful/findEntries.js",
+    "findByContentType": "node ./services/contentful/findEntriesByContentType.js",
     "wp": "node ./services/wordpress/migrate.js",
     "wp:clean": "node ./services/wordpress/clean.js",
     "export": "node ./services/wordpress/export.js",
