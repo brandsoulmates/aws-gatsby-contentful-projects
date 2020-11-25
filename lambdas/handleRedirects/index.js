@@ -4,25 +4,28 @@ const S3 = new AWS.S3({
   signatureVersion: 'v4'
 })
 
+RegExp.escape = function(string) {
+  return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+};
+
+const generateRegex = (str) => new RegExp(RegExp.escape(str))
+
 const redirects = [
   {
-    match: '/publications-items/details/?id=c28bbf6e-2334-6428-811c-ff00004cbded',
+    match: generateRegex('/publications-items/details/?id=c28bbf6e-2334-6428-811c-ff00004cbded'),
     redirect: "/insights/caveat-vendor/ftc-puts-children's-sites-on-notice-is-your-refrigerator-next"
   },
   {
-    match: '/PHOffices/', // ^/PHOffices(/|)$
+    match: /^\/PHOffices(\/|)$/,
     redirect: '/offices/'
   },
   {
-    match: '/publication-items/', // ^/publications-items(/|)$
+    match: /^\/publications-items(\/|)$/,
     redirect: '/insights/'
   }
 ]
 
 exports.handler = (event, context, callback) => {
-RegExp.escape = function(string) {
-  return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
-};
 
   const getRedirect = (url) => {
     /*
@@ -49,8 +52,8 @@ RegExp.escape = function(string) {
     // use local redirect
     let redirect = url
     for (const rule of redirects) {
-      //if (url.match(new RegExp(rule.match))) {
-      if (url === rule.match) {
+      if (url.match(rule.match)) {
+      //if (url === rule.match) {
         redirect = rule.redirect
       }
     }
