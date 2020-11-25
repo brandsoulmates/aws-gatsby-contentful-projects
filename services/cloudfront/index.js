@@ -12,5 +12,9 @@ const createCloudFront = async () => {
   }
 }
 
+createCloudFront()
+
+
+
 export default createCloudFront;
 

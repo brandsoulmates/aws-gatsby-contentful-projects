@@ -1,5 +1,7 @@
 const yargs = require('yargs')
-const { getTestResults, writeToJson } = require('./helpers/result')
+// const { getTestResults, writeToJson } = require('./helpers/result')
+const { getTestResults, writeToJson } = require('./helpers/ctype')
+
 
 // Get Options
 const argv = yargs
@@ -24,32 +26,21 @@ const argv = yargs
     description: 'Check a specific entry id',
     type: 'string',
   })
-  .option('limit', {
-    alias: 'l',
-    description: 'Check for a character limit, default is 6000',
-    type: 'string',
-  })
   .option('locales', {
     alias: 'L',
     description:
       'Check on certain locales. Default is "en-US, en-GB, ko, ja, fr, zh, and de"',
     type: 'array',
   })
-  .option('match', {
-    alias: 'm',
-    description:
-      'Set the regex to check for special characters match (ex: -m /myregex/i). Defaults to HTML Entities',
-    type: 'string',
-  })
   .option('output', {
     alias: 'o',
-    description: 'Specify the name of the output file. Defaults to check.json',
+    description: 'Specify the name of the output file. Defaults to find.json',
     type: 'string',
   })
   .option('test', {
     alias: 't',
     description:
-      'Specify a certain test. Valid arguments are: "char-limit, special-chars, broken-links, and dup-array-fields"',
+      'Specify a certain test. Valid arguments are: "dup-slugs, dup-ids, and all-fields-filled"',
     type: 'string',
   })
   // .option('verbose', {
@@ -61,10 +52,11 @@ const argv = yargs
   .alias('help', 'h').argv
 
 const main = async () => {
-  const testType = 'check'
+  const testType = 'find'
+  const testName = 'entries'
   const tests = await getTestResults(argv, testType)
 
-  writeToJson(argv, testType, tests)
+  writeToJson(argv, 'entries', tests)
 }
 
 main()

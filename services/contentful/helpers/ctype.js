@@ -10,8 +10,6 @@ const {
   getJoinedEntries,
   attemptToGetEntries,
   buildEntryJson,
-  buildGroupedJson,
-  buildOutputJson,
 } = require('./data')
 const {
   checkCharLimit,
@@ -107,26 +105,36 @@ const getTestResult = async (argv, contentType, testType) => {
 exports.getTestResults = async (argv, testType) => {
   const types2Check = argv['content-types'] || defaultAllTests
 
-  if (testType === 'find') {
     const entries = await getJoinedEntries(argv, types2Check)
-    return findEntries(argv, testType, entries)
-  }
-
-  return await Promise.all(
-    types2Check.map(async contentType => {
-      const { data, message } = await getTestResult(argv, contentType, testType)
-      return buildGroupedJson(data, contentType, testType, message)
-    })
-  )
+    return entries;
+    // return findEntries(argv, testType, entries)
 }
 
-exports.writeToJson = (argv, testType, tests) => {
+const buildOutputJsonEntriesObj = (tests, testType) => {
+
+
+  const getEntryCount = curr => curr.foundMatches
+  const reducer = (acc, curr) => acc + getEntryCount(curr)
+  const totalMatches = tests.reduce(reducer, 0)
+
+  const date = new Date()
+    .toISOString()
+    .replace(/T/, ' ')
+    .replace(/\..+/, '')
+
+  return {
+        entries: tests
+      }
+}
+
+exports.writeToJson = (argv, testType, entries) => {
   // Create filename
   const dirPath = path.resolve(__dirname, '../../out')
   const filename = path.resolve(dirPath, argv.output || `${testType}.json`)
 
   // Construct output file
-  const output = JSON.stringify(buildOutputJson(tests, testType), null, 2)
+  const output = JSON.stringify(buildOutputJsonEntriesObj(entries, testType), null, 2)
+
 
   // Write to existing directory or create a new one
   if (!fs.existsSync(dirPath)) {

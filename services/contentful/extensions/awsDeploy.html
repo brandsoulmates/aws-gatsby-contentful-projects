@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/contentful-ui-extensions-sdk@3"></script>
+  <link rel="stylesheet" href="https://unpkg.com/contentful-ui-extensions-sdk@3/dist/cf-extension.css" />
+  <style>
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      max-width: 50%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    button:disabled{
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+    }
+    button:focus {
+      outline: 0;
+    }
+
+    #triggerBuild {
+      width: 100%;
+      border-color: #172D33;
+      background-image: -webkit-gradient(linear,left bottom,left top,from(#264852),to(#203D45));
+      background-image: linear-gradient(0deg,#264852,#203D45);
+      background-size: 100% 200%;
+      outline: 0 !important;
+    }
+     #triggerBuild:disabled {
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+      outline: 0 !important;
+    }
+    #buildStatus {
+      color: #0eb87f;
+      display: inline-block;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+      font-weight: 600;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+    }
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div id="root" style="display:none">
+    <div style="margin-bottom: 0.5rem; color: #8091a5; display: flex; justify-content: space-between;">
+      <div id="tag">Current:</div>
+      <div id="buildStatus" style="color: #0eb87f;"></div>
+    </div>
+    <button id="triggerBuild" class="cf-btn-primary">Build &amp; Publish </button>
+    <div id="infoBox" style="margin-top: 1.285714285714286em; color: #8091a5;"></div>
+    <div id="site" style="margin-top: 10px"></div>
+    <ul id="history" style="margin-top: 10px; padding-left: 15px;"></ul>
+  </div>
+  <script>
+
+  function showPlaceholderExtension(extension) {
+      const aT= 'coh'
+      const protocol = 'http://'
+      const domainName = "d2abj3usd75puv.cloudfront.net"
+      const contentfulBranchNamesToCloudfrontDeployments = {
+          "production": `${protocol}${domainName}`,
+          "staging": `${protocol}${domainName}`,
+          "qa": `${protocol}${domainName}`,
+          "development": `${protocol}${domainName}`,
+        };
+
+    const branchName = 'development'
+    const baseUrl = contentfulBranchNamesToCloudfrontDeployments[branchName];
+    
+    document.getElementById('root').style.display = 'block';
+    document.getElementById('triggerBuild').style.display = 'none';
+    document.getElementById('infoBox').style.display = 'none';
+    document.getElementById('site').style.display = 'none';
+    document.getElementById('history').style.display = 'none';
+    var buildStatus = document.getElementById('buildStatus');
+    var tag = document.getElementById("tag");
+    tag.innerHTML='<span>Current site link:</span>'
+    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">LIVE</a></span>';
+  }
+    
+function showExtension(extension) {
+      document.getElementById('root').style.display = 'block';
+
+      function formatDate(date) {
+        return new Date(date).toLocaleString();
+      }
+      
+  		const aT= 'coh'
+      const protocol = 'http://'
+      const domainName = "d2abj3usd75puv.cloudfront.net"
+      const contentfulBranchNamesToCloudfrontDeployments = {
+          "production": `${protocol}${domainName}`,
+          "staging": `${protocol}${domainName}`,
+          "qa": `${protocol}${domainName}`,
+          "development": `${protocol}${domainName}`,
+        };
+
+      const branchName = 'development'
+      const baseUrl = contentfulBranchNamesToCloudfrontDeployments[branchName];
+  		const space = 'xqzvef1zylwc'
+
+      const clientQueryStringParam =  'client='+aT
+      const spaceQueryStringParam =  'sId='+space
+      const branchNameQueryStringParam = 'branch='+branchName;
+
+      const qSP= clientQueryStringParam + '&' + spaceQueryStringParam + '&' + branchNameQueryStringParam
+
+      var awsBuildHookURL = 'https://hnm853upah.execute-api.us-east-1.amazonaws.com/contentful?'+qSP+'&startBuild=true';
+      var awsCheckStatusHookURL = 'https://hnm853upah.execute-api.us-east-1.amazonaws.com/contentful?'+qSP+'&startBuild=false';
+
+     	const corsOptions = {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'content-type': 'application/json',
+          }
+        }
+
+      var interval = null;
+      var POLLING_INTERVAL = 3000;
+
+      var triggerBuildBtn = document.getElementById('triggerBuild');
+      var buildStatus = document.getElementById('buildStatus');
+      var infoBox = document.getElementById('infoBox');
+      var history = document.getElementById('history');
+      var site = document.getElementById('site');
+
+  // returns builds or error
+    function checkStatuses() {
+        return window.fetch(awsCheckStatusHookURL, corsOptions).then(response => response.json())
+          .then(({ builds }) => {
+            if (builds){
+              switch(builds[0].currentPhase){
+                case "SUBMITTED":
+                    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUBMITTED</a></span>';
+                case "QUEUED":
+                    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUBMITTED</a></span>';
+                  
+                case "PROVISIONING":
+                    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUBMITTED</a></span>';
+                  
+                case "DOWNLOAD_SOURCE":
+                    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">CONNECTING TO COH</a></span>';
+                  
+                case "INSTALL":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">DOWNLOADING COH CHANGES</a></span>';
+                case "PRE_BUILD":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">UPLOADING COH CHANGES</a></span>';
+                case "BUILD":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">BUILDING HTML</a></span>';
+                case "POST_BUILD":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">DEPLOYING HTML</a></span>';
+                case "UPLOAD_ARTIFACTS":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUCCEEDED</a></span>';
+                case "FINALIZING":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUCCEEDED</a></span>';
+                case "COMPLETED":
+                      buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">SUCCEEDED</a></span>';
+                default: 
+                    buildStatus.innerHTML = '<span><a target="_blank" href="'+baseUrl+'">LIVE</a></span>';
+              }
+            }
+        })
+          .catch(err => console.error(err));
+      }
+
+// returns build or error
+      function triggerBuild() 
+        return window.fetch(awsBuildHookURL, corsOptions).then(response => response.json())
+          .then(({build}) => {
+            if (build){
+              console.log('cool build', build)
+               if (build.buildStatus === 'QUEUED'){
+              var markup =[
+                '<li> New build triggered at:'+ (formatDate(build.startTime)) + '</li>',
+              ].join();
+              buildStatus.innerHTML = '<span>STARTED</span>';
+              // started then live switches back
+              history.innerHTML = markup;
+              extension.notifier.success("Build triggered at "+formatDate(build.startTime))
+            } else {
+              buildStatus.innerHTML = '<span>'+build.currentPhase+'</span>';
+              extension.notifier.error("Build not triggered - current build state: " + build.currentPhase);
+            }
+
+            }
+          if (interval) {
+                window.clearInterval(interval);
+              }
+        })
+      .catch(err => console.error(err));
+      }
+      
+      function startPollingStatuses() {
+          if (interval) {
+            window.clearInterval(interval);
+          }
+          checkStatuses();
+          interval = window.setInterval(checkStatuses, POLLING_INTERVAL);
+      }
+
+      
+
+      triggerBuildBtn.addEventListener('click', function () {
+        triggerBuild().then(function (data) {
+          startPollingStatuses();
+        });
+      });
+
+      checkStatuses()
+
+
+    }
+
+    window.contentfulExtension.init(function (extension) {
+      extension.window.startAutoResizer()
+      let roles = extension.user.spaceMembership.roles.length >=1 ? extension.user.spaceMembership.roles.map(role => role.name) :  extension.user.spaceMembership.roles
+  		let userRoles = extension.user.spaceMembership.admin ? ['admin'] : roles;
+
+      if (userRoles.includes('admin') || userRoles.includes('Editor') || userRoles.includes('API User')){
+        showExtension(extension)
+      } else {
+        showPlaceholderExtension(extension)
+        }
+    });
+  </script>
+</body>
+
+</html>

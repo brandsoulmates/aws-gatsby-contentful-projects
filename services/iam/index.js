@@ -8,6 +8,8 @@ import { printError } from '../../utils'
 import updateRoleWithPolicy from './updateRoleWithPolicy';
 
 
+// update codebuild policy
+
 const createIamPermissions = async () => {
   try {
     createServiceRole(cbTrustPolicy).then((res) => {

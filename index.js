@@ -11,6 +11,7 @@ const deploy = async () => {
   try {
     s3.then(() => {
       cF().then(() => {
+        // then update bucket policy s3.updateBucketPolicy
         iam().then(() => {
           cb()
         })

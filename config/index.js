@@ -1,14 +1,14 @@
 require('dotenv').config()
 module.exports = {
-  clientName: 'City of Hope',
+  clientName: 'ayzenbergdotcom',
   nickName: process.env.GATSBY_CLIENT_NICKNAME,
   version: '1',
   cms: 'contentful',
-  host: 'paulhastings.com',
+  host: 'ayzenbergdotcom',
   github: {
     base: 'https://github.com',
     org: 'brandsoulmates',
-    repo: process.env.GATSBY_CLIENT_NICKNAME
+    repo: process.env.GATSBY_GITHUB_REPO
   },
   branch: process.env.GATSBY_CONTENTFUL_ENVIRONMENT || 'master',
   region: 'us-east-1',
@@ -21,12 +21,12 @@ module.exports = {
       deliveryAccessToken: process.env.GATSBY_CONTENTFUL_DELIVERY_API,
       previewAccessToken: process.env.GATSBY_CONTENTFUL_PREVIEW_API,
       spaceId: process.env.GATSBY_CONTENTFUL_SPACE_ID,
-      environment: process.env.GATSBY_CONTENTFUL_ENVIRONMENT || 'master',
+      environment: process.env.GATSBY_CONTENTFUL_ENVIRONMENT || 'development',
       host: process.env.GATSBY_CONTENTFUL_HOST || 'cdn.contentful.com',
       previewMode: process.env.GATSBY_APOLLO_PREVIEW || false,
     }
   },
-  baseServiceName: process.env.GATSBY_CLIENT_NICKNAME + '-' + process.env.GATSBY_CONTENTFUL_SPACE_ID + '-' + process.env.GATSBY_CONTENTFUL_ENVIRONMENT,
+  baseServiceName: process.env.GATSBY_CLIENT_NICKNAME + '-' + '-' + process.env.GATSBY_CONTENTFUL_ENVIRONMENT,
   accessKeyId: process.env.GATSBY_AWS_ACCESS_KEY,
   secretAccessKey: process.env.GATSBY_AWS_SECRET_ACCESS_KEY,
   ACL: 'private', // private | public-read | public-read-write | authenticated-read,

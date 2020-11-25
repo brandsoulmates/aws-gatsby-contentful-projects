@@ -1,7 +1,8 @@
+
+// new deploy
 const AWS = require('aws-sdk');
 const region = 'us-east-1';
-const codebuild = new AWS.CodeBuild({ region });
-const codepipeline = new AWS.CodePipeline({ region });
+const cb = new AWS.CodeBuild({ region });
 
 
 global.listBuildsForProject = async function listBuildsForProject(awsCbProjectName) {
@@ -24,161 +25,138 @@ global.batchGetCodeBuilds = async function batchGetCodeBuilds(buildIds) {
       builds: response.builds.map(build => build),
   };
 };
- 
-exports.handler = (event, context, callback) => {
-  const contentfulBranchNames = {
-    "master": "paulhastings-prod",
-    "uat": "paulhastings-staging",
-    "qa": "paulhastings-qa",
-    "dev": "paulhastings-development"
-  };
-  let branchName = "dev";
-  let awsCbProjectName = "paulhastings-development";
-  let checkStatusOnly = false;
-  const responseCode = 200;
-      // "Access-Control-Allow-Credentials": "true",
-    // "X-Requested-With": '*',
-  const headers = {
-    "Access-Control-Allow-Origin": '*',
-    "Access-Control-Allow-Methods": 'POST,GET,OPTIONS,ANY',
-    "Access-Control-Allow-Credentials": true,
-    "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Requested-With,x-api-key',
-    'Content-Type': 'application/json'
-  };
 
-  if (event.queryStringParameters && event.queryStringParameters.branchName) {
-    console.log("Received branchName: " + event.queryStringParameters.branchName);
-    branchName = event.queryStringParameters.branchName;
-    awsCbProjectName = contentfulBranchNames[event.queryStringParameters.branchName]
-  }
+global.getCodeBuildStatus = async (projectName) => {
+  try {
+    const { ids } = await global.listBuildsForProject(projectName);
+    let buildIds = [ids[0], ids[1]];
+    const res = await global.batchGetCodeBuilds(buildIds)
+    return res;
 
-  if (event.queryStringParameters && event.queryStringParameters.statusOnly) {
-    checkStatusOnly = true;
+  } catch (e){
+    console.error(e)
   }
-  
-  function startBuild(awsCodeBuildProjectName, previousBuild, callback) {
-    var params = {
-      projectName: awsCodeBuildProjectName, /* required */
-      artifactsOverride: {
-        type: 'CODEPIPELINE',
+}
+
+
+exports.handler = async (event) => {
+    let response; 
+    let branch;
+    let client;
+    let sId;
+
+    let startBuild = false;
+    let validBranches = ['qa', 'production', 'development'];
+    let validClients = ['coh', 'anetcontent'];
+    let validAuthIds = ['3yvivwi0yvy3','xqzvef1zylwc']
+    
+    const headers = {
+        "Access-Control-Allow-Origin": '*',
+        "Access-Control-Allow-Methods": 'POST,GET,OPTIONS,ANY',
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Headers": 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Requested-With,x-api-key',
+        'Content-Type': 'application/json'
+      };
+
+    // check for valid client name
+    if (event.queryStringParameters && event.queryStringParameters.client && validClients.includes(event.queryStringParameters.client)) {
+        console.log("Received client: " + event.queryStringParameters.client);
+        client = event.queryStringParameters.client;
+    } else {
+        return {
+            statusCode: 200,
+            body: JSON.stringify(`Please include a valid client as a query string parameter.`),
+        };
+    }
+
+    // check for access token
+    if (event.queryStringParameters && event.queryStringParameters.sId && validAuthIds.includes(event.queryStringParameters.sId)) {
+        console.log("Received correct auth access token: " + event.queryStringParameters.sId);
+      sId = event.queryStringParameters.sId;
+    } else {
+        return {
+            statusCode: 200,
+            body: JSON.stringify(`Please include a valid auth access token.`),
+        };
+    }
+    
+    // check for valid branch
+    if (event.queryStringParameters && event.queryStringParameters.branch && validBranches.includes(event.queryStringParameters.branch )) {
+        console.log("Received branch: " + event.queryStringParameters.branch);
+        branch = event.queryStringParameters.branch;
+    } else {
+        return {
+            statusCode: 200,
+            body: JSON.stringify(`Please include a valid environment as a query string parameter (ie, branch=branchName).`),
+        };
+    }
+
+    // check for type of call 
+    if (event.queryStringParameters && event.queryStringParameters.startBuild ) {
+      console.log("Received call: " + event.queryStringParameters.startBuild);
+      startBuild = event.queryStringParameters.startBuild === 'true' ? true : false;
+    } else {
+        return {
+            statusCode: 200,
+            body: JSON.stringify(`Please include a valid start call as a query string parameter.`),
+        };
+    }
+
+
+    const startCodeBuild = async ({client, sId, branch}) => {
+      try {
+        const params = {
+          projectName: `${client}-${sId}-${branch}`, /* required */
+          artifactsOverride: {
+            type: 'CODEPIPELINE',
+          }
+        };
+
+          let res = await cb.startBuild(params).promise()
+
+          response = {
+              headers,
+              statusCode: 200,
+              body: JSON.stringify(res),
+          };
+          return response;
+      
+      } catch (e) {
+          response = {
+              statusCode: 400,
+              body: JSON.stringify(e),
+          };
+          console.error(e);
+          return response;
       }
-    };
-    codebuild.startBuild(params, (error, data) => {
-      if (error) {
-        console.log(error, error.stack);
-        return callback(error);
-      }
+    }
 
-      let startTime = new Date();
-                let responseBuildTriggered = {
-            statusCode: responseCode,
-            headers,
-            body: JSON.stringify({
-              "buildStatus": `TRIGGERED`,
-              "currentBuild": {
-                "status": "IN_PROGRESS",
-                "phase": "PROVISIONING",
-                "startTime": startTime,
-              },
-                            "previousBuild": {
-                "status": "SUCCEEDED",
-                "phase": "COMPLETED",
-                "endTime": previousBuild.endTime
-              }
-            })
-          }
-      return callback(null, responseBuildTriggered);
-    });
-  }
-    function startPipeline(awsCodeBuildProjectName, previousBuild, callback) {
-    var params = {
-      name: awsCodeBuildProjectName,
-    };
-    codepipeline.startPipelineExecution(params, (error, data) => {
-      if (error){
-        console.log(error, error.stack);
-        return callback(error);
-
-      }
-      let startTime = new Date();
-                let responseBuildTriggered = {
-            statusCode: responseCode,
-            headers,
-            body: JSON.stringify({
-              "buildStatus": `TRIGGERED`,
-              "currentBuild": {
-                "status": "IN_PROGRESS",
-                "phase": "PROVISIONING",
-                "startTime": startTime,
-              },
-                            "previousBuild": {
-                "status": "SUCCEEDED",
-                "phase": "COMPLETED",
-                "endTime": previousBuild.endTime
-              }
-            })
-          }
-      return callback(null, responseBuildTriggered);
-    })
-  }
-try {
-    global.listBuildsForProject(awsCbProjectName)
-    .then(({ids})=> {
-      let buildIds = [ids[0], ids[1]];
-
-      global.batchGetCodeBuilds(buildIds).then(data => {     
-      if (checkStatusOnly && data.builds[0].buildStatus !== 'IN_PROGRESS' ){
-          let currentBuild = data.builds[0];
-          let previousBuild = data.builds[1];
-          let responseCheckStatusOnly = {
-            statusCode: responseCode,
-            headers,
-            body: JSON.stringify({
-              "buildStatus": 'COMPLETED',
-              "currentBuild": {
-                "status": 'No current build',
-                "phase": 'No current build',
-                "startTime": 'No current build',
-              },
-              "previousBuild": {
-                "status": data.builds[0].buildStatus,
-                "phase": "COMPLETED",
-                "endTime": data.builds[0].endTime
-              }
-            })
-          }
-          return callback(null, responseCheckStatusOnly)
-        } else if (checkStatusOnly || data.builds[0].buildStatus === 'IN_PROGRESS'){
-          let currentBuild = data.builds[0];
-          let previousBuild = data.builds[1];
-          let responseNoBuildTriggered = {
-            statusCode: responseCode,
-            headers,
-            body: JSON.stringify({
-              "buildStatus": `IN_PROGRESS`,
-              "currentBuild": {
-                "status": currentBuild.buildStatus,
-                "phase": currentBuild.currentPhase,
-                "startTime": currentBuild.startTime
-              },
-              "previousBuild": {
-                "status": "SUCCEEDED",
-                "phase": "COMPLETED",
-                "endTime": previousBuild.endTime
-              }
-            })
-          }
-          return callback(null, responseNoBuildTriggered)
-        } else {
-          return startPipeline(awsCbProjectName, data.builds[0], callback)
-        }
+    const checkCodeBuildStatus = async ({client, sId, branch}) => {
+      try {
+        let projectName = `${client}-${sId}-${branch}`;
+        let res = await getCodeBuildStatus(projectName);
         
-      })
-
-    })
-
-  } catch(error){
-    console.log('Caught Error: ', error);
-    callback(error)
-  }
+        response = {
+            headers,
+            statusCode: 200,
+            body: JSON.stringify(res),
+        };
+      return response;
+      } catch(e) {
+        response = {
+          statusCode: 400,
+          body: JSON.stringify(e),
+        };
+        console.error(e);
+        return response;
+      }
+    }
+    
+    if (statusOnly){
+      let res = await checkCodeBuildStatus({client, sId, branch});
+      return res;
+    } else {
+      let res = await startCodeBuild({client, sId, branch})
+      return res;
+    }
 };
