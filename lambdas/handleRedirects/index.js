@@ -10,19 +10,19 @@ const redirects = [
     redirect: "/insights/caveat-vendor/ftc-puts-children's-sites-on-notice-is-your-refrigerator-next"
   },
   {
-    match: '^/PHOffices(/|)$',
-    redirect: '/offices'
+    match: '/PHOffices/', // ^/PHOffices(/|)$
+    redirect: '/offices/'
   },
   {
-    match: '^/publications-items(/|)$',
-    redirect: '/insights'
+    match: '/publication-items/', // ^/publications-items(/|)$
+    redirect: '/insights/'
   }
 ]
 
 exports.handler = (event, context, callback) => {
-  RegExp.escape = function (string) {
-    return string.replace(/\//g, '\\$&')
-  }
+RegExp.escape = function(string) {
+  return string.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+};
 
   const getRedirect = (url) => {
     /*
@@ -49,7 +49,8 @@ exports.handler = (event, context, callback) => {
     // use local redirect
     let redirect = url
     for (const rule of redirects) {
-      if (url.match(RegExp.escape(rule.match))) {
+      //if (url.match(new RegExp(rule.match))) {
+      if (url === rule.match) {
         redirect = rule.redirect
       }
     }
@@ -68,15 +69,13 @@ exports.handler = (event, context, callback) => {
     combinedpath = request.uri
   }
     const redirect = getRedirect(combinedpath)
-    console.log('Combined path: ', combinedpath, 'redirect: ', redirect)
 
     if (combinedpath !== redirect) {
     // Generate HTTP redirect response to a different landing page.
-      const redirectResponse = {
-        status: '301',
-        statusDescription: 'Moved Permanently',
-        headers: {
-          location: [{
+      request.status = '301'
+      request.statusDescription = 'Moved permanently'
+      request.headers = {
+        location: [{
             key: 'Location',
             value: redirect
           }],
@@ -84,9 +83,8 @@ exports.handler = (event, context, callback) => {
             key: 'Cache-Control',
             value: 'max-age=3600'
           }]
-        }
       }
-      callback(null, redirectResponse)
+      callback(null, request)
     } else {
     // for all other requests proceed to fetch the resources
     // Extract the URI from the request
@@ -108,7 +106,7 @@ exports.handler = (event, context, callback) => {
 
       // Replace the received URI with the URI that includes the index page
       request.uri = newUri
-
+      
       // Return to CloudFront
       return callback(null, request)
     }
