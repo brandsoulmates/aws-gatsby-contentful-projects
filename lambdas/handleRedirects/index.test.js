@@ -8,14 +8,14 @@ describe('Redirect', () => {
     event.Records.push({
       cf: {
         request: {
-          uri: '/publications-items/details/?id=c28bbf6e-2334-6428-811c-ff00004cbded'
+          uri: '/publication-items/details/?id=f4fddd69-2334-6428-811c-ff00004cbded'
         }
       }
     })
     handler(event, {}, (error, result) => {
       r = result
     })
-    expect(r.headers.location[0].value).toEqual(`/insights/caveat-vendor/ftc-puts-children's-sites-on-notice-is-your-refrigerator-next`)
+    expect(r.headers.location[0].value).toEqual(`/insights/attorney-authored/implementing-the-volcker-rule-the-covered-fund-restrictions`)
   })
 
   test('About Should not redirect', () => {
@@ -32,24 +32,25 @@ describe('Redirect', () => {
     handler(event, {}, (error, result) => {
       r = result
     })
+
     expect(r.uri).toEqual(`/about/index.html`)
   })
 
-  test('Offices should redirect', () => {
+  test('Professional regex', () => {
     const event = {}
     let r
     event.Records = []
     event.Records.push({
       cf: {
         request: {
-          uri: '/PHOffices/'
+          uri: '/professionals/details/gregnitzkowski'
         }
       }
     })
     handler(event, {}, (error, result) => {
       r = result
     })
-    expect(r.headers.location[0].value).toEqual(`/offices/`)
+    expect(r.headers.location[0].value).toEqual(`/professionals/gregnitzkowski`)
   })
 
 })
