@@ -8,7 +8,7 @@ describe('Redirect', () => {
     event.Records.push({
       cf: {
         request: {
-          uri: '/publication-items/details/?id=f4fddd69-2334-6428-811c-ff00004cbded'
+          uri: '/publication-items/details/?id=f9fddd69-2334-6428-811c-ff00004cbded'
         }
       }
     })
@@ -51,6 +51,57 @@ describe('Redirect', () => {
       r = result
     })
     expect(r.headers.location[0].value).toEqual(`/professionals/gregnitzkowski`)
+  })
+
+  test('PHOffices', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/PHOffices/'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/offices/`)
+  })
+
+  test('Practice Area', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/area/Anti-corruption-and-FCPA'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/practice-area/anti-corruption-and-fcpa`)
+  })
+
+  test('Publications Items', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/publications-items'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/insights`)
   })
 
 })
