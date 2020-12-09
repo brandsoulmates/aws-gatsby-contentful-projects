@@ -22,7 +22,7 @@ const redirects = [
   },
   {
     match: /area\/(.+)/,
-    redirect: '/practice-area/$1'
+    redirect: '/practice-areas/$1'
   },
   {
     match: /\/office\/(.+)/,
