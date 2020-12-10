@@ -8,7 +8,7 @@ describe('Redirect', () => {
     event.Records.push({
       cf: {
         request: {
-          uri: '/publication-items/details/?id=f9fddd69-2334-6428-811c-ff00004cbded'
+          uri: '/publications-items/details/?id=f9fddd69-2334-6428-811c-ff00004cbded'
         }
       }
     })
@@ -84,7 +84,7 @@ describe('Redirect', () => {
     handler(event, {}, (error, result) => {
       r = result
     })
-    expect(r.headers.location[0].value).toEqual(`/practice-area/anti-corruption-and-fcpa`)
+    expect(r.headers.location[0].value).toEqual(`/practice-areas/anti-corruption-and-fcpa`)
   })
 
   test('Publications Items', () => {
@@ -102,6 +102,23 @@ describe('Redirect', () => {
       r = result
     })
     expect(r.headers.location[0].value).toEqual(`/insights`)
+  })
+
+  test('Test publication item', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/publications-items/details/?id=1bc3e169-2334-6428-811c-ff00004cbded'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/insights/audio/asia-outbound-real-estate-investment-trends-opportunities-and-strategies-part-ii`)
   })
 
 })
