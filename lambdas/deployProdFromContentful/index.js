@@ -26,15 +26,14 @@ global.batchGetCodeBuilds = async function batchGetCodeBuilds(buildIds) {
 };
  
 exports.handler = (event, context, callback) => {
-  let validBranches = ['qa', 'master', 'dev', 'uat'];
   const contentfulBranchNames = {
     "master": "paulhastings-prod",
     "uat": "paulhastings-staging",
     "qa": "paulhastings-qa",
     "dev": "paulhastings-development"
   };
-  let branchName = "dev";
-  let awsCbProjectName = "paulhastings-development";
+  let branchName = "master";
+  let awsCbProjectName = "paulhastings-prod";
   let checkStatusOnly = false;
   const responseCode = 200;
       // "Access-Control-Allow-Credentials": "true",
@@ -48,28 +47,10 @@ exports.handler = (event, context, callback) => {
   };
 
   if (event.queryStringParameters && event.queryStringParameters.branchName) {
-    //console.log("Received branchName: " + event.queryStringParameters.branchName);
+    console.log("Received branchName: " + event.queryStringParameters.branchName);
     branchName = event.queryStringParameters.branchName;
-  }else
-  {
-    callback(null, {
-            statusCode: 200,
-            headers,
-            body: "Please include a valid branch."
-          })
-        return;
+    awsCbProjectName = contentfulBranchNames[event.queryStringParameters.branchName]
   }
-
-  if (!validBranches.includes(branchName)){
-        callback(null, {
-            statusCode: 200,
-            headers,
-            body: "Please include a valid branch."
-          })
-        return;
-    }
-
-  awsCbProjectName = contentfulBranchNames[event.queryStringParameters.branchName]
 
   if (event.queryStringParameters && event.queryStringParameters.statusOnly) {
     checkStatusOnly = true;

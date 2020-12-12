@@ -7805,10 +7805,6 @@ const redirects = [
     "redirect": "/events/american-conference-institutes-4th-annual-summit-on-life-sciences-ip-due-diligence"
   },
   {
-    "match": "/events/details/?id=6161ae6f-2334-6428-811c-ff00004cbded",
-    "redirect": "/events/american-conference-institutes-7th-annual-conference-on-women-leaders-in-life-sciences-law"
-  },
-  {
     "match": "/events/details/?id=5302b06f-2334-6428-811c-ff00004cbded",
     "redirect": "/events/4th-annual-legal-regulatory-and-compliance-forum-on-fintech-emerging-payment-systems"
   },
@@ -7875,6 +7871,170 @@ const redirects = [
   {
     "match": "/events/details/?id=d930e06f-2334-6428-811c-ff00004cbded",
     "redirect": "/events/virtual-conference-c5s-anti-corruption-and-compliance-programs-switzerland"
+  },
+  {
+    "match": "/events/details/?id=5928e86f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/garrett-corporate-counsel-virtual-institute"
+  },
+  {
+    "match": "/events/details/?id=b122f06f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/paul-hastings-virtual-anti-money-laundering-summit-day-1"
+  },
+  {
+    "match": "/events/details/?id=d422f06f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/paul-hastings-virtual-anti-money-laundering-summit-day-2"
+  },
+  {
+    "match": "/events/details/?id=092af06f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/the-deal-economy-riding-the-second-wave-opportunity-spotting"
+  },
+  {
+    "match": "/events/details/?id=0d5af36f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/usc-gould-school-of-law-2020-intellectual-property-institute"
+  },
+  {
+    "match": "/events/details/?id=c6b2f96f-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/the-clock-is-ticking-the-potential-impact-of-recent-executive-orders-on-chinese-investments-and-business-in-the-united-states"
+  },
+  {
+    "match": "/events/details/?id=eb040070-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/strategies-for-success-in-european-auction-processes"
+  },
+  {
+    "match": "/events/details/?id=e7c50470-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/impact-investment-funds-webinar-series"
+  },
+  {
+    "match": "/events/details/?id=1d830970-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/ptab-bar-association-annual-conference"
+  },
+  {
+    "match": "/events/details/?id=9c190b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/us-ipo-market-trends-webinar"
+  },
+  {
+    "match": "/events/details/?id=a26c1170-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/latinx-identity-in-the-workplace-afro-latinx-and-multidimensionality"
+  },
+  {
+    "match": "/events/details/?id=24961470-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/navigating-covid-19-relief-fraud"
+  },
+  {
+    "match": "/events/details/?id=169a1f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/impact-investment-funds-webinar-series"
+  },
+  {
+    "match": "/events/details/?id=642b2170-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/pay-data-collection-in-california-heightened-government-enforcement"
+  },
+  {
+    "match": "/events/details/?id=65782770-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/antitrust-after-2020-reversion-to-the-mean-or-revolution"
+  },
+  {
+    "match": "/events/details/?id=81c02d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/21st-annual-berkeley-stanford-advanced-patent-law-institute"
+  },
+  {
+    "match": "/events/details/?id=30c12d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/informaconnects-patient-support-services-congress-2020"
+  },
+  {
+    "match": "/events/details/?id=83b33570-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/end-of-libor-what-you-need-to-do-now"
+  },
+  {
+    "match": "/events/details/?id=26443770-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/njipla-34th-annual-pharmaceuticalchemical-practice-update-webinar-series"
+  },
+  {
+    "match": "/events/details/?id=d8d43870-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/cbis-patient-support-services-congress"
+  },
+  {
+    "match": "/events/details/?id=cd8a3d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/intellectual-property-owners-association-webinar-series-skinny-labels-and-inducing-infringement-after-gsk-v-teva"
+  },
+  {
+    "match": "/events/details/?id=fb8a3d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/cftc-cryptocurrency-regulation-whats-next"
+  },
+  {
+    "match": "/events/details/?id=1d3d4270-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/acis-37th-international-conference-on-the-fcpa"
+  },
+  {
+    "match": "/events/details/?id=563d4270-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/virtual-21st-annual-pharmaceutical-and-medical-device-compliance-congress-mini-summit-viii"
+  },
+  {
+    "match": "/events/details/?id=763d4270-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/virtual-21st-annual-pharmaceutical-and-medical-device-compliance-congress-mini-summit-xxv"
+  },
+  {
+    "match": "/events/details/?id=903d4270-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/virtual-21st-annual-pharmaceutical-and-medical-device-compliance-congress-mini-summit-xxvi"
+  },
+  {
+    "match": "/events/details/?id=5c5c4570-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/ma-today-webinar-series-spac-ma-issues-and-best-practices-in-selling-private-companies-to-special-purpose-acquisition-companies"
+  },
+  {
+    "match": "/events/details/?id=db0d4a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/impact-investment-funds-webinar-series"
+  },
+  {
+    "match": "/events/details/?id=032e4d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/11th-annual-us-asia-entertainment-summit-game-changer-awards"
+  },
+  {
+    "match": "/events/details/?id=4dc14e70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/the-future-of-esg-investing-in-the-us-the-view-after-the-election"
+  },
+  {
+    "match": "/events/details/?id=3ec64e70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/impact-investment-funds-webinar-series"
+  },
+  {
+    "match": "/events/details/?id=b6575070-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/the-new-workplace-webinar-series-minimizing-legal-risks-in-the-covid-era-workplace"
+  },
+  {
+    "match": "/events/details/?id=fceb5170-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/fireside-chat-gibraltar-introduces-flexible-and-modern-legislation-for-investment-funds"
+  },
+  {
+    "match": "/events/details/?id=1cec5170-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/exclusive-proximo-risk-adjusted-infrastructure-investing-virtual-roundtable"
+  },
+  {
+    "match": "/events/details/?id=6d145a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/ibor-transition-bdo-global-insights-series-legal-and-risk-management"
+  },
+  {
+    "match": "/events/details/?id=a1c05b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/what-do-regulators-expect-how-to-navigate-recent-regulatory-guidance-regarding-effective-ec-programs"
+  },
+  {
+    "match": "/events/details/?id=b8c05b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/acis-11th-annual-new-york-forum-on-economic-sanctions"
+  },
+  {
+    "match": "/events/details/?id=d1c05b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/human-rights-and-esg-priorities-challenges-and-compliance-considerations-hosted-by-paul-hastings-and-integrity-risk-international"
+  },
+  {
+    "match": "/events/details/?id=ecc05b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/a-discussion-on-transnational-corruption-with-drago-kos-chair-of-the-oecds-working-group-on-bribery"
+  },
+  {
+    "match": "/events/details/?id=67fb6170-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/adapting-a-quality-risk-management-program-and-creating-a-dashboard-for-effective-risk-based-monitoring"
+  },
+  {
+    "match": "/events/details/?id=4c436870-2334-6428-811c-ff00004cbded",
+    "redirect": "/events/californias-new-employment-laws-what-your-company-needs-to-know-for-2021"
   },
   {
     "match": "/news/details/?id=0970d769-2334-6428-811c-ff00004cbded",
@@ -17763,6 +17923,326 @@ const redirects = [
   {
     "match": "/news/details/?id=d995de6f-2334-6428-811c-ff00004cbded",
     "redirect": "/news/news-financial-times-recognizes-paul-hastings-as-one-of-the-most-innovative-law-firms-in-asia-pacific"
+  },
+  {
+    "match": "/news/details/?id=bafae46f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-yuzhou-group-completes-debut-green-senior-notes-offering"
+  },
+  {
+    "match": "/news/details/?id=f8f9e46f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-credit-suisse-citigroup-and-morgan-stanley-serve-as-book-running-managers-in-500-million-ipo-of-go-acquisition"
+  },
+  {
+    "match": "/news/details/?id=cfbfe96f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-finance-and-restructuring-growth-accelerates-with-high-profile-partner-addition-in-london"
+  },
+  {
+    "match": "/news/details/?id=8757eb6f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-altice-usa-issues-27-billion-in-notes"
+  },
+  {
+    "match": "/news/details/?id=1089ee6f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-continues-top-tier-talent-surge-in-london-with-addition-of-leading-energy-and-infrastructure-finance-partner"
+  },
+  {
+    "match": "/news/details/?id=0329f06f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-associated-materials-announces-completion-of-previously-announced-recapitalization-transactions"
+  },
+  {
+    "match": "/news/details/?id=a229f06f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-global-mutual-real-estate-partners-with-blvd-hospitality-on-acquisition-of-iconic-la-hotel"
+  },
+  {
+    "match": "/news/details/?id=9bb2f96f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-european-growth-advances-with-prominent-private-equityma-partner-addition-in-paris"
+  },
+  {
+    "match": "/news/details/?id=e446fb6f-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-named-innovator-of-the-year-by-international-legal-technology-association"
+  },
+  {
+    "match": "/news/details/?id=d2c50470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-advises-lead-investor-in-equity-financing-of-the-springhill-company"
+  },
+  {
+    "match": "/news/details/?id=bcc80470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-contemporary-ruiding-developments-us15-billion-debut-bond-offering"
+  },
+  {
+    "match": "/news/details/?id=6b5c0670-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-achieves-mansfield-certification-plus"
+  },
+  {
+    "match": "/news/details/?id=ed840970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-helios-towers-africa-issues-225-million-in-notes"
+  },
+  {
+    "match": "/news/details/?id=06850970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-oakley-capital-announces-sale-of-casait-to-eqt-ix"
+  },
+  {
+    "match": "/news/details/?id=8b170b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-elena-baca-named-to-daily-journals-2020-top-100-lawyers-in-california"
+  },
+  {
+    "match": "/news/details/?id=311c0b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-named-real-estate-law-firm-of-the-year-by-alb-china-law-awards-2020"
+  },
+  {
+    "match": "/news/details/?id=74d70f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-ip-practice-wins-hatch-waxman-litigation-firm-of-the-year-at-lmg-life-sciences-awards"
+  },
+  {
+    "match": "/news/details/?id=bdd70f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-ericsson-announces-11-billion-acquisition-of-cradlepoint"
+  },
+  {
+    "match": "/news/details/?id=7f681170-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-whats-next-for-us-ipos-a-busy-fall-with-covid-19-a-focus-of-disclosure-and-marketing-according-to-paul-hastings-going-public-the-us-ipo-report"
+  },
+  {
+    "match": "/news/details/?id=b1001370-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-pmv-consumer-acquisition-corp-prices-175m-ipo"
+  },
+  {
+    "match": "/news/details/?id=df941470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-leads-nominations-for-2020-british-legal-awards"
+  },
+  {
+    "match": "/news/details/?id=1c951470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-the-lawyer-nominates-paul-hastings-for-multiple-awards"
+  },
+  {
+    "match": "/news/details/?id=224b1970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-on-the-heels-of-an-ip-practice-group-of-the-year-award-paul-hastings-ip-attorneys-earn-top-rankings-by-lmg-life-sciences"
+  },
+  {
+    "match": "/news/details/?id=494c1970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-navigating-new-paths-to-growth-an-opportunity-for-in-house-to-reimagine-and-reshape-the-future-of-work"
+  },
+  {
+    "match": "/news/details/?id=424d1970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-four-paul-hastings-partners-named-sports-entertainment-law-trailblazers-by-the-national-law-journal"
+  },
+  {
+    "match": "/news/details/?id=954d1970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-financial-times-recognizes-paul-hastings-for-innovation-in-europe"
+  },
+  {
+    "match": "/news/details/?id=f3731c70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-the-davis-companies-closes-latest-value-add-real-estate-fund"
+  },
+  {
+    "match": "/news/details/?id=54751c70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-represents-joint-book-running-managers-for-sun-communities-incs-128-billion-public-offering-of-common-stock-in-connection-with-forward-sale-agreements-and-acquisition-of-safe-harbor"
+  },
+  {
+    "match": "/news/details/?id=ee061e70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-romeo-power-technology-to-list-on-nyse-through-merger-with-rmg-acquisition-corp"
+  },
+  {
+    "match": "/news/details/?id=d7981f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-achieves-2020-wilef-gold-standard-certification-in-us-and-uk"
+  },
+  {
+    "match": "/news/details/?id=252c2170-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-vector-capital-agrees-to-acquire-marklogic-corp"
+  },
+  {
+    "match": "/news/details/?id=db2c2170-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-intellectual-property-partner-christina-ondrick-selected-by-chips-to-serve-as-washington-dc-chapter-moderator"
+  },
+  {
+    "match": "/news/details/?id=a2bd2270-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-partner-donna-melby-honored-by-the-national-association-of-women-judges-for-advancing-opportunities-for-women-in-law"
+  },
+  {
+    "match": "/news/details/?id=d2bf2270-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-weihai-city-commercial-bank-completes-us365-million-hong-kong-ipo"
+  },
+  {
+    "match": "/news/details/?id=5a512470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-netflix-wins-auction-for-the-lumistella-companys-the-elf-on-the-shelf"
+  },
+  {
+    "match": "/news/details/?id=1ce52570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-advises-carlsberg-on-the-acquisition-of-wernesgrüner-brauerei"
+  },
+  {
+    "match": "/news/details/?id=c4772770-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-benchmark-litigation-distinguishes-paul-hastings-ip-practice-with-top-tier-national-ranking"
+  },
+  {
+    "match": "/news/details/?id=d29b2a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-benchmark-litigation-recognizes-paul-hastings-employment-law-practice"
+  },
+  {
+    "match": "/news/details/?id=199c2a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-advises-bregal-unternehmerkapital-on-the-acquisition-of-the-gus-group"
+  },
+  {
+    "match": "/news/details/?id=402f2c70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-recognized-at-china-law-practice-awards-2020"
+  },
+  {
+    "match": "/news/details/?id=cebf2d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-producer-michael-seitzman-brings-detroit-youth-choir-to-tv"
+  },
+  {
+    "match": "/news/details/?id=718d3270-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-cosco-shipping-development-to-sell-a-shares-and-h-shares-of-cimc-for-rmb634-billion"
+  },
+  {
+    "match": "/news/details/?id=16203470-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-recognized-in-legal-500-latin-america-guide"
+  },
+  {
+    "match": "/news/details/?id=6bb23570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-partners-with-snap-inc-on-law-in-technology-collaborative-to-foster-diversity"
+  },
+  {
+    "match": "/news/details/?id=f0423770-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-abry-backed-link-mobility-group-lists-on-oslo-børs"
+  },
+  {
+    "match": "/news/details/?id=68433770-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-named-to-worlds-top-10-best-investigations-practices-by-global-investigations-review"
+  },
+  {
+    "match": "/news/details/?id=c0d43870-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-smartbear-secures-investment-from-vista-equity-partners"
+  },
+  {
+    "match": "/news/details/?id=ed683a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-teleperformance-announces-acquisition-of-west-health-advocate-solutions-from-intrado-corporation"
+  },
+  {
+    "match": "/news/details/?id=d8683a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-participates-in-2020-mcca-creating-pathways-to-diversity-conference-and-gala"
+  },
+  {
+    "match": "/news/details/?id=42693a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-china-everbright-issues-us300-million-senior-perpetual-capital-securities"
+  },
+  {
+    "match": "/news/details/?id=7df83b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-francisco-partners-to-acquire-forcepoint-from-raytheon-technologies"
+  },
+  {
+    "match": "/news/details/?id=5e8c3d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-radiance-holdings-debuts-in-us331-million-hong-kong-ipo"
+  },
+  {
+    "match": "/news/details/?id=168b3d70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-sherrese-smith-named-a-2020-rainmaker-by-the-minority-corporate-council-association"
+  },
+  {
+    "match": "/news/details/?id=6a1a3f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-robert-luskin-named-law360-white-collar-mvp"
+  },
+  {
+    "match": "/news/details/?id=1a1b3f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-named-best-regulatory-law-firm-of-the-year-by-gamblingcompliance"
+  },
+  {
+    "match": "/news/details/?id=8e1b3f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-francisco-partners-to-acquire-the-myfitnesspal-platform-from-under-armour"
+  },
+  {
+    "match": "/news/details/?id=c81e3f70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-masimo-lhc-ltd-offer-for-lidco-group-plc"
+  },
+  {
+    "match": "/news/details/?id=5c3e4270-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-cosco-shipping-development-to-acquire-ten-62000-dwt-multi-purpose-vessels-for-us180-million"
+  },
+  {
+    "match": "/news/details/?id=7ecb4370-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-reef-raises-1-billion-to-build-proximity-platform-to-support-the-on-demand-economy"
+  },
+  {
+    "match": "/news/details/?id=cecc4370-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-barclays-bbva-and-keybanc-serve-as-joint-bookrunning-managers-in-prime-healthcares-debut-700-million-secured-notes-offering"
+  },
+  {
+    "match": "/news/details/?id=165c4570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-shortlisted-for-two-major-awards-at-the-american-lawyer-industry-awards"
+  },
+  {
+    "match": "/news/details/?id=3a5c4570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-uk-finance-announces-work-on-uk-statutory-sanctions-review"
+  },
+  {
+    "match": "/news/details/?id=dee94670-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-susan-z-williams-and-cameron-w-fox-among-daily-journals-top-women-in-law-2020"
+  },
+  {
+    "match": "/news/details/?id=bb7c4870-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-secures-major-pro-bono-victory-for-blue-water-navy-veterans"
+  },
+  {
+    "match": "/news/details/?id=a40b4a70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-premier-high-yield-platform-advises-on-12-billion-of-debut-high-yield-deals-in-the-healthcare-sector"
+  },
+  {
+    "match": "/news/details/?id=cf9b4b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-citigroup-and-ubs-serve-as-joint-book-running-managers-for-ipo-of-sandbridge-acquisition-corp"
+  },
+  {
+    "match": "/news/details/?id=7f555070-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-méliuz-completes-103-million-brazilian-ipo"
+  },
+  {
+    "match": "/news/details/?id=54c84e70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-dong-chul-kim-appointed-chair-of-paul-hastings-seoul-office"
+  },
+  {
+    "match": "/news/details/?id=82575070-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-global-growth-streak-continues-with-addition-of-leading-energy-and-environmental-partner-duo-in-san-francisco"
+  },
+  {
+    "match": "/news/details/?id=903d5570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-pine-island-acquisition-corp-prices-ipo"
+  },
+  {
+    "match": "/news/details/?id=9f3f5570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-ballys-and-sinclair-broadcast-group-team-up-for-transformational-sports-betting-and-igaming-strategic-partnership"
+  },
+  {
+    "match": "/news/details/?id=be3f5570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-named-transatlantic-firm-of-the-year-at-british-legal-awards-2020"
+  },
+  {
+    "match": "/news/details/?id=6d405570-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-suzano-sa-completes-500-million-sustainability-linked-senior-notes-reopening"
+  },
+  {
+    "match": "/news/details/?id=40675870-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-iam-global-leaders-2021-recognizes-the-paul-hastings-ip-practice"
+  },
+  {
+    "match": "/news/details/?id=b4dd5e70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-boparan-holdings-completes-successful-refinancing"
+  },
+  {
+    "match": "/news/details/?id=d76b6070-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-accelerates-growth-of-life-sciences-consulting-group-with-addition-of-five-industry-veterans"
+  },
+  {
+    "match": "/news/details/?id=1e6c6070-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-francisco-partners-to-acquire-international-business-of-cdk-global-for-145-billion"
+  },
+  {
+    "match": "/news/details/?id=eb8c6370-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-subversive-capital-acquisition-corp-announces-transactions-with-shawn-jay-z-carter-roc-nation-caliva-and-left-coast-ventures"
+  },
+  {
+    "match": "/news/details/?id=c7d56970-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-cosco-shipping-development-to-lease-74-vessels-to-cosco-shipping-lines-for-us462-billion"
+  },
+  {
+    "match": "/news/details/?id=a0656b70-2334-6428-811c-ff00004cbded",
+    "redirect": "/news/news-paul-hastings-advances-its-growth-in-frankfurt-with-addition-of-premier-capital-markets-partnerthe-latest-in-a-string-of-significant-corporate-laterals-across-europe"
   },
   {
     "match": "/publications-items/details/?id=f9fddd69-2334-6428-811c-ff00004cbded",
@@ -32129,335 +32609,335 @@ const redirects = [
     "redirect": "/insights/attorney-authored/chapter-11-introdução-à-reorganização-judicial-nos-eua"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=ca74b26f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/lições-aprendidas-pelo-doj-dos-estados-unidos-levam-a-diretrizes-adicionais-para-o-programa-de-compliance-dinâmico"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=fb6fb66f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/how-are-governments-reacting-to-the-invalidation-of-privacy-shield"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=21a5b96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/foreign-investment-control-in-france-new-derogatory-regime-applicable-to-foreign-investment-in-french-public-companies"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=29a7b96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/bloomberg-begins-publishing-fallback-rates-for-certain-key-ibors"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=0011c06f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/chinas-proposals-to-provide-a-patent-linkage-system-and-patent-term-extensions-considerations-for-drug-companies"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=5c8ec66f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/a-clear-standard-emerges-for-employers-dealing-with-offensive-conduct-in-the-workplace"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=ceebd46f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/california-supreme-court-issues-decision-in-ixchel-pharma-llc-v-biogen-inc-rule-of-reason-will-apply-to-non-compete-agreements-between-businesses"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=0e1cd86f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/tax-liability-insurance-podcast"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=47b8d96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/market-intersection-a-quarterly-look-at-the-us-credit-markets-2q20"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=c6b8d96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/market-trends-201920-latin-america"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=9355db6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/fasb-issues-accounting-standards-update-for-convertible-instruments"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=755edb6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/fda-issues-draft-guidance-for-developers-of-drugs-containing-cannabis-and-opens-comment-period"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=68f6dc6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/nine-things-you-need-to-know-about-the-trump-administration-sanctions-against-tiktok-and-wechat"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=7e27e86f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/commerce-simplifiesbut-expandsthe-foreign-direct-product-rule-for-huawei"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=3929e86f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-issues-new-alert-on-covid-19-risks-and-considerations-for-broker-dealers-and-investment-advisers"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=bec0e96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/where-the-new-normal-might-be-the-old-normal-addressing-corruption-concerns-relating-to-brazils-political-turmoil"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=11c1e96f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/quando-o-novo-normal-não-é-nada-novo-as-preocupações-sobre-corrupção-relacionadas-à-turbulência-política-no-brasil"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=0959eb6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/lsta-releases-final-draft-of-simple-sofr-concept-credit-agreement"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=8329f06f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/arrc-publishes-the-sofr-starter-kit-an-up-to-date-summary-of-the-transition-away-from-usd-libor"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=425af36f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/arrc-releases-sofr-in-arrears-conventions-for-syndicated-business-loans"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=c0f2f46f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-adopts-rules-updating-regulation-s-k-and-accredited-investor-and-qualified-institutional-buyer-definitions"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=da87f66f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/facilitating-tax-evasionenforcement-of-the-uks-corporate-criminal-offence"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=6370fe6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/california-passes-employer-pay-data-reporting-requirement-sb-973-awaits-governors-signature"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=f470fe6f-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/no-trade-secret-protections-for-information-discussed-via-open-zoom-call"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=a62f0370-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/california-legislature-gives-entertainment-and-other-industries-some-relief-from-restrictive-abc-independent-contractor-test"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=29c80470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/recent-clarification-from-the-dol-regarding-the-families-first-coronavirus-response-act"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=56c80470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/ab-1867-california-enacts-supplemental-covid-19-paid-sick-leave-law"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=a85c0670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/an-influential-guide-connecting-anti-corruption-and-business-and-human-rights"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=f2ef0770-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/turning-point-for-merger-control-in-europe"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=fb830970-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-amends-definition-of-accredited-investor-and-qualified-institutional-buyer"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=7f840970-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/beware-of-covid-relief-fraud"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=bd1a0b70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/arrc-encourages-adherence-to-isda-ibor-fallback-protocol"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=f3ae0c70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/english-high-court-confirms-the-application-of-privilege-to-foreign-lawyers"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=cd410e70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/china-enacts-regulations-on-unreliable-entity-list"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=20001370-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/breaking-down-the-epic-v-apple-fight"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=71921470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/federal-reserve-seeks-to-raise-interest-by-issuing-revised-faqs-for-its-main-street-lending-program"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=09931470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/cftc-continues-pursuit-of-misuse-of-material-nonpublic-information-following-settlement-with-nymex"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=ac951470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/executive-order-on-combatting-race-and-sex-stereotyping"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=01961470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/carpe-diem-a-holistic-strategy-for-assessing-supply-chain-compliance-risk-in-a-covid-19-world"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=8f281670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/spotlight-on-foreign-firmsuk-fca-sets-out-high-regulatory-expectations"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=d1281670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/amazon-deliveroo-case-study-internal-documents-as-the-key-tool-of-regulators-in-merger-control-procedures-a-pandoras-box-of-risks-and-opportunities"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=0bde1a70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/arrc-updates-bilateral-loan-recommended-hardwired-fallback-language-and-syndicated-loan-conventions"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=1f731c70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/takeaways-from-chinas-proposed-regulation-to-implement-a-drug-patent-linkage-system"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=da731c70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/pre-draft-of-the-eu-mandatory-corporate-due-diligence-and-corporate-accountability-initiative-10-questions-businesses-need-to-know"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=c2741c70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/us-government-publishes-white-paper-following-schrems-ii-decision"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=a99a1f70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/takeaways-from-paul-hastings-completion-of-the-first-zoom-hatch-waxman-act-trial-in-dnj"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=ca2b2170-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/recent-uk-cases-highlight-potential-pitfalls-in-acquisition-agreements"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=9c2c2170-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/戦略的目的での国際スタートアップ会社へのマイノリティ投資のリスク"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=e7bd2270-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/new-york-city-paid-safe-and-sick-leave-act-amendments"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=26512470-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/looking-beyond-2020-eighteen-new-employment-laws-employers-with-operations-in-california-need-to-know-for-2021"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=8ee32570-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/spac-to-the-future"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=37e52570-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/an-opportunity-for-in-house-to-reimagine-and-reshape-the-future-of-work"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=9c762770-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/broker-registration-requirements-the-sec-proposes-a-limited-conditional-exemption-for-finders"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=889a2a70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/fcc-adopts-rules-codifying-foreign-investment-process"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=3d2e2c70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/regulators-continue-to-emphasize-anti-money-laundering-compliance"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=bec02d70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/fda-manufacturing-challenges-for-gene-and-cell-therapy-developers"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=76512f70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/uk-gambling-commission-imposes-tighter-controls-on-customer-incentive-schemes-targeting-high-value-customers-and-vips"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=6e522f70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/compliance-officer-bulletin-money-laundering-and-financial-crime"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=198d3270-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-adopts-new-rule-for-fund-of-funds-arrangements"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=02b33570-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/frances-new-anti-benefits-regime-core-framework-and-key-takeaways"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=af443770-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/theres-a-new-sheriff-in-town-ccfpl-empowers-californias-financial-services-regulator"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=74653a70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/uk-serious-fraud-office-publishes-comprehensive-new-guidance-on-deferred-prosecution-agreements"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=2f8c3d70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/judgment-in-fcas-covid-19-business-interruption-insurance-test-case"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=d41c3f70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/new-german-preventive-restructuring-landscape-imminent"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=50ac4070-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/federal-reserve-seeks-to-further-expand-access-to-the-main-street-lending-program"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=2fad4070-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/china-enacts-new-export-control-law-global-businesses-take-heed"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=a73b4270-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/the-basics-uk-employment-law-e-guide"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=8d7c4870-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/the-delay-continues-california-passes-prop-24-and-employers-must-wait-and-see"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=bb9d4b70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/uk-gov-introduces-new-law-to-allow-intervention-in-ma-transactions-on-national-security-grounds"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=ea2c4d70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/edpb-publishes-highly-anticipated-recommendations-for-supplemental-measures-following-schrems-ii"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=90c64e70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-updates-exempt-offering-toolkit"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=2bc74e70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/climate-related-disclosures-for-financial-institutions-new-uk-mandatory-requirements"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=24eb5170-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/uk-supreme-court-considers-the-correct-approach-to-the-three-stage-test-for-the-application-of-the-illegality-defence-set-out-in-patel-v-mirza"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=63ce5670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/real-estate-fund-documentation-and-operations-may-be-impacted-by-sec-risk-alert"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=09cf5670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/how-the-antitrust-landscape-may-change-in-2021-compliance-risks-in-a-democratic-washington"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=a26a5870-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/sec-finally-permits-electronic-signatures-in-sec-filings"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=e2fd5970-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/stuck-in-the-middle-with-you-us-china-relations-and-the-impact-on-european-businesses"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=42135a70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/watching-the-backdoor-planning-for-and-responding-to-a-cybersecurity-incident-at-medical-device-companies-an-fda-perspective"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=8fdd5e70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/ph-covid-19-client-alert-series-calosha-emergency-covid-19-regulations-are-now-in-effect-employers-should-review-and-likely-augment-covid-19-policies-and-procedures"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=96dd5e70-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/return-of-the-mac-a-recent-ruling-in-the-english-courts-and-whether-the-covid-19-pandemic-could-see-more-uk-transactions-that-include-us-style-mac-protections"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=926c6070-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/dfeh-issues-faqs-on-new-pay-data-reporting-requirements"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=c3b66670-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/client-alerts/congress-passes-the-holding-foreign-companies-accountable-act-chinese-public-companies-confront-the-risk-of-delisting-from-us-securities-exchanges"
   },
   {
-    "match": "/publications-items/details/?id=null",
+    "match": "/publications-items/details/?id=c5426870-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/global-employer-update-minimizing-legal-risks-in-the-covid-era"
   }
 ]

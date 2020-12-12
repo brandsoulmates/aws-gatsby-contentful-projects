@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/contentful-ui-extensions-sdk@3"></script>
+  <link rel="stylesheet" href="https://unpkg.com/contentful-ui-extensions-sdk@3/dist/cf-extension.css" />
+  <style>
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    img {
+      max-width: 50%;
+      display: block;
+      margin-bottom: 10px;
+    }
+    button:disabled{
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+    }
+    button:focus {
+      outline: 0;
+    }
+
+    #triggerBuild {
+      width: 100%;
+      border-color: #172D33;
+      background-image: -webkit-gradient(linear,left bottom,left top,from(#264852),to(#203D45));
+      background-image: linear-gradient(0deg,#264852,#203D45);
+      background-size: 100% 200%;
+      outline: 0 !important;
+    }
+     #triggerBuild:disabled {
+      user-select: none;
+      cursor: not-allowed;
+      opacity: .5;
+      outline: 0 !important;
+    }
+    #buildStatus {
+      color: #0eb87f;
+      display: inline-block;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+      font-weight: 600;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .1rem;
+    }
+  </style>
+</head>
+
+<body style="margin: 0;">
+  <div id="root" style="display:none">
+    <div style="margin-bottom: 0.5rem; color: #8091a5; display: flex; justify-content: space-between;">
+      <div id="tag">Current:</div>
+      <div id="buildStatus" style="color: #0eb87f;"></div>
+    </div>
+    <button id="triggerBuild" class="cf-btn-primary">Build &amp; Publish </button>
+    <div id="infoBox" style="margin-top: 1.285714285714286em; color: #8091a5;"></div>
+    <div id="site" style="margin-top: 10px"></div>
+    <ul id="history" style="margin-top: 10px; padding-left: 15px;"></ul>
+  </div>
+  <script>
+function showPlaceholderExtension(extension) {
+         const protocol = 'https://'
+  const domainName = "paulhastings.com"
+  const contentfulBranchNamesToCloudfrontDeployments = {
+      "master": `${protocol}${domainName}`,
+      "uat": `${protocol}uat.${domainName}`,
+      "qa": `${protocol}qa.${domainName}`,
+      "dev": `${protocol}dev.${domainName}`,
+      "preview": `${protocol}preview.${domainName}`,
+    };
+  let branchName = 'qa';
+  const url = contentfulBranchNamesToCloudfrontDeployments[branchName];
+      document.getElementById('root').style.display = 'block';
+  document.getElementById('triggerBuild').style.display = 'none';
+  document.getElementById('infoBox').style.display = 'none';
+  document.getElementById('site').style.display = 'none';
+  document.getElementById('history').style.display = 'none';
+  var buildStatus = document.getElementById('buildStatus');
+  var tag = document.getElementById("tag");
+  tag.innerHTML='<span>Current site link:</span>'
+  buildStatus.innerHTML = '<span><a target="_blank" href="'+url+'">LIVE</a></span>';
+}
+    
+    function showExtension(extension) {
+      document.getElementById('root').style.display = 'block';
+      function formatDate(date) {
+        return new Date(date).toLocaleString();
+      }
+
+       const protocol = 'http://'
+  const domainName = "paulhastings.com"
+  const contentfulBranchNamesToCloudfrontDeployments = {
+      "master": `${protocol}${domainName}`,
+      "uat": `${protocol}uat.${domainName}`,
+      "qa": `${protocol}qa.${domainName}`,
+      "dev": `${protocol}dev.${domainName}`,
+      "preview": `${protocol}preview.${domainName}`,
+    };
+
+      var POLLING_INTERVAL = 3000;
+      let branchName = 'master';
+      var awsBuildHookURL = 'https://75nx6lh5q8.execute-api.us-east-1.amazonaws.com/contentful/triggerbuild?branchName='+branchName;
+      var awsCheckStatusHookURL = 'https://75nx6lh5q8.execute-api.us-east-1.amazonaws.com/contentful/triggerbuild?branchName='+branchName+'&statusOnly=true';
+      const awsProxyKeyId = 'AKIA6IOOUMVPTUROCVVZ';
+      const awsApiKey = 'c4AkJr7gF48VtIJFo9mro2afck9TwmQR9YuoGgsY';
+
+      const corsOptions = {
+          method: 'POST',
+          mode: 'cors',
+          headers: {
+            'content-type': 'application/json',
+            'x-api-key': awsApiKey
+          }
+        }
+
+      var interval = null;
+      var triggerBuildBtn = document.getElementById('triggerBuild');
+      var buildStatus = document.getElementById('buildStatus');
+      var infoBox = document.getElementById('infoBox');
+      var history = document.getElementById('history');
+      var site = document.getElementById('site');
+
+      const url = contentfulBranchNamesToCloudfrontDeployments[branchName];
+
+      function checkStatuses() {
+        return window.fetch(awsCheckStatusHookURL, corsOptions).then(response => response.json())
+          .then(data => {
+            if(data.buildStatus === 'COMPLETED'){
+              buildStatus.innerHTML = '<span><a target="_blank" href="'+url+'">LIVE</a></span>';
+            }
+            else if (data.buildStatus === 'TRIGGERED'){
+              console.log('cool', data.buildStatus)
+              buildStatus.innerHTML = '<span>BUILD STARTED</span>';
+              var markup ='<li>Current build in progress. Phase: ' + data.currentBuild.phase +'</li>';
+              history.innerHTML = markup;
+            } else {
+              buildStatus.innerHTML = '<span>'+data.currentBuild.phase+'</span>';
+              var markup ='<li>Current build in progress. Phase: ' + data.currentBuild.phase +'</li>';
+              history.innerHTML = markup;            }
+              lastBuild = 'Last deployed ' + formatDate(data.previousBuild.endTime);
+              infoBox.innerHTML = lastBuild;
+            
+        })
+      .catch(err => console.error(err));
+      }
+
+      function triggerBuild() {
+        return window.fetch(awsBuildHookURL, corsOptions).then(response => response.json())
+          .then(data => {
+          let buildStatusMessage = data.buildStatus;
+            if (buildStatusMessage === 'TRIGGERED'){
+              var markup =[
+                '<li> New build triggered at:'+ (formatDate(data.currentBuild.startTime)),'State: ' + data.currentBuild.status,'</li>',
+              ].join();
+              buildStatus.innerHTML = '<span>STARTED</span>';
+              // started then live switches back
+              history.innerHTML = markup;
+              extension.notifier.success("Build triggered at "+formatDate(data.currentBuild.startTime))
+              buildStatusMessage = 'IN_PROGRESS';
+            } else {
+              buildStatus.innerHTML = '<span>'+data.currentBuild.status+'</span>';
+              lastBuild = 'Last deployed ' + formatDate(data.previousBuild.endTime);
+              infoBox.innerHTML = lastBuild;
+              extension.notifier.error("Build not triggered - current build state: " + data.currentBuild.status);
+            }
+
+             if (interval) {
+                window.clearInterval(interval);
+              }
+        })
+      .catch(err => console.error(err));
+      }
+      
+      // switches back quickly to no current build
+      // need to make it not switch back
+      // only reference build statuses
+      // checkout response from lambda
+
+    // poll aws to get status updates
+      function startPollingStatuses() {
+          if (interval) {
+            window.clearInterval(interval);
+          }
+          checkStatuses();
+          interval = window.setInterval(checkStatuses, POLLING_INTERVAL);
+      }
+
+      
+
+      triggerBuildBtn.addEventListener('click', function () {
+        triggerBuild().then(function (data) {
+          startPollingStatuses();
+        });
+      });
+
+      checkStatuses()
+
+
+    }
+
+    window.contentfulExtension.init(function (extension) {
+      extension.window.startAutoResizer()
+      let roles = extension.user.spaceMembership.roles.length >=1 ? extension.user.spaceMembership.roles.map(role => role.name) :  extension.user.spaceMembership.roles
+      let userRoles = extension.user.spaceMembership.admin ? ['admin'] : roles
+  if (userRoles.includes('admin') || userRoles.includes('Editor') || userRoles.includes('API User')){
+                 showExtension(extension)
+
+       } else {
+                              showPlaceholderExtension(extension)
+       }
+  
+    });
+  </script>
+</body>
+
+</html>
