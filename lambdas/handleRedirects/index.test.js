@@ -121,4 +121,21 @@ describe('Redirect', () => {
     expect(r.headers.location[0].value).toEqual(`/insights/audio/asia-outbound-real-estate-investment-trends-opportunities-and-strategies-part-ii`)
   })
 
+  test('Test microsite', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/holidaymessage2015'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`https://sites.paulhastings.com/Microsites/holidaymessage2015/`)
+  })
+
 })

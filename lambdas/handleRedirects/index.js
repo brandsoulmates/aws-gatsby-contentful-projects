@@ -10,9 +10,10 @@ RegExp.escape = function(string) {
 
 const generateRegex = (str) => new RegExp(RegExp.escape(str))
 
-const redirects = [
-  //custom redirects. Make sure to update optimization regex at bottom too
-  {
+//test with jest -- lambdas/handleRedirects
+
+const customRedirects = [
+{
     match: "/PHOffices/",
     redirect: '/offices/'
   },
@@ -29,9 +30,89 @@ const redirects = [
     redirect: '/offices/$1'
   },
   {
+    match: /^\/docs\/default-source\/pdfs\/(.+)/,
+    redirect: 'https://webstorage.paulhastings.com/Documents/PDFs/$1'
+  },
+  {
+    match: /^\/docs\/default-source\/default-document-library\/(.+)/,
+    redirect: 'https://webstorage.paulhastings.com/Documents/Default%20Library/$1'
+  },
+  {
     match: /^\/publications-items(\/|)$/,
     redirect: '/insights',
-  }, //paste below from redirects.json, createredirects.js in paulhastings-contentful-migration
+  },
+  {
+    match: /^\/genderparitysupplement2016(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/genderparitysupplement2016/' 
+  },
+  {
+    match: /^\/holidaymessage2015(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2015/' 
+  },
+  {
+    match: /^\/holidaymessage2016(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2016/' 
+  },
+  {
+    match: /^\/holidaymessage2017(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2017/' 
+  },
+  {
+    match: /^\/holidaymessage2018(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2018/' 
+  },
+  {
+    match: /^\/holidaymessage2019(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2019/' 
+  },
+  {
+    match: /^\/holidaymessage2020(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2020/' 
+  },
+  {
+    match: /^\/IPOReport2019(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/IPOReport2019/' 
+  },
+  {
+    match: /^\/navigatingnewpaths(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/navigatingnewpaths/' 
+  },
+  {
+    match: /^\/Sao-Paulo-Announcement(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/Sao-Paulo-Announcement/' 
+  },
+  {
+    match: /^\/theYearAhead2019(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/theYearAhead2019/' 
+  },
+  {
+    match: /^\/theyearahead2020(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/theyearahead2020/' 
+  },
+  {
+    match: /^\/WellsFargo(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/WellsFargo/' 
+  },
+  {
+    match: /^\/wellsfargoyearend(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/wellsfargoyearend/' 
+  },
+  {
+    match: /^\/WomenBoardroom(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/WomenBoardroom/' 
+  },
+  {
+    match: /^\/yearahead2018(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/yearahead2018/' 
+  },
+  {
+    match: /^\/european-guide(\/|)$/,
+    redirect: 'https://sites.paulhastings.com/Microsites/european_guide/'
+  }
+]
+
+const generatedRedirects = [  
+   //paste below from redirects.json, createredirects.js in paulhastings-contentful-migration
   {
     "match": "/events/details/?id=acced869-2334-6428-811c-ff00004cbded",
     "redirect": "/events/corporate-counsel-women-of-color-4th-annual-career-strategies-conference"
@@ -32944,7 +33025,7 @@ const redirects = [
 
 exports.handler = (event, context, callback) => {
 
-  const getRedirect = (url) => {
+  const getRedirect = (url, redirArr) => {
     /*
     //get redirects from S3
     try {
@@ -32968,7 +33049,7 @@ exports.handler = (event, context, callback) => {
 
     // use local redirect
     let redirect = url
-    for (const rule of redirects) {
+    for (const rule of redirArr) {
       if(typeof(rule.match) === "string")
       {
         if (url.match(generateRegex(rule.match))) {
@@ -32981,7 +33062,14 @@ exports.handler = (event, context, callback) => {
           if(url.match(rule.match).length > 1 && rule.redirect.match(/\$1/)) //if redirect has wildcard
           {
             //wildcard match
-            redirect = rule.redirect.replace(/\$1/, url.match(rule.match)[1]).toLowerCase()
+            if(url.match(/^\/docs\//))
+            {
+              //don't force lower case for uploaded documents
+              redirect = rule.redirect.replace(/\$1/, url.match(rule.match)[1])
+            }else
+            {
+              redirect = rule.redirect.replace(/\$1/, url.match(rule.match)[1]).toLowerCase()
+            }
           }else{
             //regex match
             redirect = rule.redirect
@@ -33009,23 +33097,28 @@ exports.handler = (event, context, callback) => {
     callback(null, request)
     return
   }
-  
-  //optimization regex
-  if(!request.uri.match(/^(\/events|\/professionals|\/publications-items|\/news|\/PHOffices|\/area|\/office\/)/))
-  {
-    //don't bother searching redirects if it's not one of these types
-    //but do add .html if we need it
-    request.uri = addHtml(request.uri)
-    callback(null, request)
-    return
-  }
+
   if (querystring) { 
     combinedpath = request.uri + '?' + querystring 
   } else {
     combinedpath = request.uri
   }
+  
     //console.log("checking", combinedpath)
-    const redirect = getRedirect(combinedpath)
+    let redirect = getRedirect(combinedpath, customRedirects)
+    if (combinedpath === redirect) { //if no match, try generated redirects
+      //optimization regex
+      if(!request.uri.match(/^(\/events|\/professionals|\/publications-items|\/news|\/PHOffices|\/area|\/office\/)/))
+      {
+        //don't bother searching generated redirects if it's not one of these types
+        //but do add .html if we need it
+        request.uri = addHtml(request.uri)
+        callback(null, request)
+        return
+      }
+
+      redirect = getRedirect(combinedpath, generatedRedirects)
+    }    
 
     if (combinedpath !== redirect) {
     // Generate HTTP redirect response to a different landing page.
