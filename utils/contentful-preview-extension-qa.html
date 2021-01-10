@@ -83,7 +83,7 @@
       </div>
     </div>
     <span id="innerSpan">
-      <a href="https://preview.paulhastings.com">
+      <a href="https://d2gtjudnjwwk5h.cloudfront.net/">
       <button id="previewEntry" class="cf-btn-primary">Preview Entry</button>
       </a>
     </span>
@@ -433,12 +433,12 @@ function showExtension(extension, publishedState, displayedLocales) {
   const contentfulBranchNamesToCloudfrontDeployments = {
       "master": `${protocol}${domainName}`,
       "uat": `${protocol}${environment}.${domainName}`,
-      "qa": `${protocol}${environment}.${domainName}`,
+      "qa": `https://d2gtjudnjwwk5h.cloudfront.net/`,
       "dev": `${protocol}${environment}.${domainName}`,
       "preview": `${protocol}preview.${domainName}`,
     };
   
-  const branchName = 'preview';
+  const branchName = 'qa';
 
   const isNewEntry = publishedState.publishedCounter === 0;
   
