@@ -83,7 +83,7 @@
       </div>
     </div>
     <span id="innerSpan">
-      <a href="https://d2gtjudnjwwk5h.cloudfront.net/">
+      <a href="https://d2gtjudnjwwk5h.cloudfront.net">
       <button id="previewEntry" class="cf-btn-primary">Preview Entry</button>
       </a>
     </span>
@@ -322,19 +322,22 @@ function showExtension(extension, publishedState, displayedLocales) {
     };
   const previewSlugs = {
       "Event": {
-        slug: 'new-event',
+        slug: 'preview-event',
       },
       "Article": { 
-        slug: 'new-insights',
+        slug: 'preview-insights',
       },
       "News": {
-        slug: 'new-news',
+        slug: 'preview-news',
       },
       "Page": {
-        slug: 'new-page',
+        slug: 'preview-page',
       },
       "Practice Area": {
-        slug: 'new-practice-area',
+        slug: 'preview-practice-area',
+      },
+      "Filter Page": {
+        slug: 'preview-filter-page',
       }
     }
   
@@ -428,12 +431,12 @@ function showExtension(extension, publishedState, displayedLocales) {
   const { ids: { environment, entry: cId }, contentType: { name: contentType }, entry: { fields: entry} } = extension;
   
   
-  const protocol = 'http://'
+  const protocol = 'https://'
   const domainName = "paulhastings.com"
   const contentfulBranchNamesToCloudfrontDeployments = {
       "master": `${protocol}${domainName}`,
       "uat": `${protocol}${environment}.${domainName}`,
-      "qa": `https://d2gtjudnjwwk5h.cloudfront.net/`,
+      "qa": `https://d2gtjudnjwwk5h.cloudfront.net`,
       "dev": `${protocol}${environment}.${domainName}`,
       "preview": `${protocol}preview.${domainName}`,
     };
@@ -461,11 +464,29 @@ function showExtension(extension, publishedState, displayedLocales) {
     let isNewLocale = !(displayedLocales.includes(dropDown.value));
     let isChangedVersion = !isNewEntry && (publishedState.publishedVersion !== publishedState.version);
     let isNewLocalizedVersionNotPreviouslyDeployed = isNewLocale && isChangedVersion
- 
+    
+  /*
    if (isNewEntry || isNewLocalizedVersionNotPreviouslyDeployed){
     const locale = handleLocaleStr(dropDown.value);
     const slug = previewSlugs[contentType].slug
-
+  */ // Always use ID
+  if(isHome)
+  {
+    const locale = handleLocaleStr(dropDown.value);
+    const parentPath = handleParentPath(dropDown.value, contentType);
+    let slug = entry.slug._fieldLocales[dropDown.value]._value ? entry.slug._fieldLocales[dropDown.value]._value : entry.slug._fieldLocales['en-US']._value
+    formatUrlAndSetPreviewButton({
+      baseUrl: baseUrl,
+      slug: '',
+      locale: locale,
+      parentPath: parentPath
+     });
+  }else if(isInactiveProfessional){
+    setPreviewButtonDisabled()
+  }else
+  {
+    const locale = handleLocaleStr(dropDown.value);
+    const slug = previewSlugs[contentType].slug
     formatUrlAndSetPreviewButton({
       baseUrl: baseUrl,
       id: cId,
@@ -473,7 +494,8 @@ function showExtension(extension, publishedState, displayedLocales) {
       locale: locale,
       parentPath: ''
     })
-    
+  }
+  /*   
   } else if (isHome){
     const locale = handleLocaleStr(dropDown.value);
     const parentPath = handleParentPath(dropDown.value, contentType);
@@ -521,6 +543,7 @@ function showExtension(extension, publishedState, displayedLocales) {
       parentPath: parentPath
      });
   }
+  */
   }
     handleUpdateSlug();
 
