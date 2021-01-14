@@ -96,8 +96,8 @@ function showPlaceholderExtension(extension) {
         return new Date(date).toLocaleString();
       }
 
-       const protocol = 'http://'
-  const domainName = "paulhastings.com"
+       const protocol = 'https://'
+  const domainName = "d33l674dklnw8n.cloudfront.net"
   const contentfulBranchNamesToCloudfrontDeployments = {
       "master": `${protocol}${domainName}`,
       "uat": `${protocol}uat.${domainName}`,
@@ -113,7 +113,7 @@ function showPlaceholderExtension(extension) {
       const awsProxyKeyId = 'AKIA6IOOUMVPTUROCVVZ';
       const awsApiKey = 'c4AkJr7gF48VtIJFo9mro2afck9TwmQR9YuoGgsY';
 
-     	const corsOptions = {
+      const corsOptions = {
           method: 'POST',
           mode: 'cors',
           headers: {
@@ -134,7 +134,7 @@ function showPlaceholderExtension(extension) {
       function checkStatuses() {
         return window.fetch(awsCheckStatusHookURL, corsOptions).then(response => response.json())
           .then(data => {
-          	if(data.buildStatus === 'COMPLETED'){
+            if(data.buildStatus === 'COMPLETED'){
               buildStatus.innerHTML = '<span><a target="_blank" href="'+url+'">LIVE</a></span>';
             }
             else if (data.buildStatus === 'TRIGGERED'){
@@ -210,7 +210,7 @@ function showPlaceholderExtension(extension) {
     window.contentfulExtension.init(function (extension) {
       extension.window.startAutoResizer()
       let roles = extension.user.spaceMembership.roles.length >=1 ? extension.user.spaceMembership.roles.map(role => role.name) :  extension.user.spaceMembership.roles
-  		let userRoles = extension.user.spaceMembership.admin ? ['admin'] : roles
+      let userRoles = extension.user.spaceMembership.admin ? ['admin'] : roles
   if (userRoles.includes('admin') || userRoles.includes('Editor') || userRoles.includes('API User')){
                  showExtension(extension)
 
