@@ -138,4 +138,38 @@ describe('Redirect', () => {
     expect(r.headers.location[0].value).toEqual(`https://sites.paulhastings.com/Microsites/holidaymessage2015/`)
   })
 
+  test('Test blog', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/publications-items/blog/ph-fedaction-financial-regulatory-updates'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/insights/ph-fedaction-financial-regulatory-updates`)
+  })
+
+  test('Test practice area', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/area/Workplace-Retaliation-and-Whistleblower-Defense/'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/practice-areas/workplace-retaliation-and-whistleblower-defense`)
+  })
+
 })

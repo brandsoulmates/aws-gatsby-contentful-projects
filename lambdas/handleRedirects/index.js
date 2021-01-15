@@ -22,10 +22,6 @@ const customRedirects = [
     redirect: '/professionals/$1'
   },
   {
-    match: /area\/(.+)/,
-    redirect: '/practice-areas/$1'
-  },
-  {
     match: /\/office\/(.+)/,
     redirect: '/offices/$1'
   },
@@ -108,6 +104,414 @@ const customRedirects = [
   {
     match: /^\/european-guide(\/|)$/,
     redirect: 'https://sites.paulhastings.com/Microsites/european_guide/'
+  },
+  {
+    match: /^\/publications-items\/blog\/ph-fedaction-financial-regulatory-updates(\/|)$/,
+    redirect: '/insights/ph-fedaction-financial-regulatory-updates'
+  }
+  ,
+  {
+    match: /^\/publications-items\/blog\/international-regulatory-enforcement(\/|)$/,
+    redirect: '/insights/international-regulatory-enforcement'
+  }
+  ,
+  {
+    match: /^\/publications-items\/blog\/ph-privacy(\/|)$/,
+    redirect: '/insights/ph-privacy'
+  }
+  ,
+  {
+    match: /^\/publications-items\/blog\/caveat-vendor(\/|)$/,
+    redirect: '/insights/caveat-vendor'
+  }
+  ,
+  {
+    match: /^\/en-gb\/publications-items\/blog\/phlit-the-london-litigation-blog(\/|)$/,
+    redirect: '/insights/phlit-the-london-litigation-blog'
+  },
+  {
+    match: /^\/publications-items\/blog\/ph-money-matters-this-week-in-washington(\/|)$/,
+    redirect: '/insights/money-matters'
+  },
+  {
+  match: /^\/area\/Advertising-Gaming-and-Promotions(\/|)$/,
+  redirect: '/practice-areas/advertising-and-promotions'
+  },
+  {
+    match: /^\/area\/Affordable-Housing-and-Tax-Credits(\/|)$/,
+    redirect: '/practice-areas/affordable-housing-and-tax-credits'
+  },
+  {
+    match: /^\/area\/Alternative-Lender-and-Private-Credit(\/|)$/,
+    redirect: '/practice-areas/alternative-lender-and-private-credit'
+  },
+  {
+    match: /^\/area\/Anti-corruption-and-FCPA(\/|)$/,
+    redirect: '/practice-areas/anti-corruption-and-fcpa'
+  },
+  {
+    match: /^\/area\/Antitrust-and-Competition(\/|)$/,
+    redirect: '/practice-areas/antitrust-and-competition'
+  },
+  {
+    match: /^\/area\/Appellate-Litigation(\/|)$/,
+    redirect: '/practice-areas/appellate-litigation'
+  },
+  {
+    match: /^\/area\/Artificial-Intelligence(\/|)$/,
+    redirect: '/practice-areas/artificial-intelligence'
+  },
+  {
+    match: /^\/area\/Asia(\/|)$/,
+    redirect: '/practice-areas/asia'
+  },
+  {
+    match: /^\/area\/Asset-Securitization-and-Structured-Finance(\/|)$/,
+    redirect: '/practice-areas/asset-securitization-and-structured-finance'
+  },
+  {
+    match: /^\/area\/Bank-Regulatory(\/|)$/,
+    redirect: '/practice-areas/bank-regulatory'
+  },
+  {
+    match: /^\/area\/Class-Actions(\/|)$/,
+    redirect: '/practice-areas/class-actions'
+  },
+  {
+    match: /^\/area\/Client-Representation-in-Asia(\/|)$/,
+    redirect: '/practice-areas/client-representation-in-asia'
+  },
+  {
+    match: /^\/area\/Commercial-Leasing-and-Sales-Leaseback(\/|)$/,
+    redirect: '/practice-areas/commercial-leasing-and-sales-leaseback'
+  },
+  {
+    match: /^\/area\/Complex-Litigation-and-Arbitration(\/|)$/,
+    redirect: '/practice-areas/complex-litigation-and-arbitration'
+  },
+  {
+    match: /^\/area\/Congressional-Investigations(\/|)$/,
+    redirect: '/practice-areas/'
+  },
+  {
+    match: /^\/area\/Corporate(\/|)$/,
+    redirect: '/practice-areas/corporate'
+  },
+  {
+    match: /^\/area\/Data-Centers(\/|)$/,
+    redirect: '/practice-areas/data-centers'
+  },
+  {
+    match: /^\/area\/Derivatives(\/|)$/,
+    redirect: '/practice-areas/derivatives'
+  },
+  {
+    match: /^\/area\/Emerging-Growth-Companies(\/|)$/,
+    redirect: '/practice-areas/emerging-growth-companies'
+  },
+  {
+    match: /^\/area\/Employee-Mobility-and-Trade-Secrets(\/|)$/,
+    redirect: '/practice-areas/employee-mobility-and-trade-secrets'
+  },
+  {
+    match: /^\/area\/Employment-Counseling-and-Preventive-Advice(\/|)$/,
+    redirect: '/practice-areas/employment-counseling-and-preventive-advice'
+  },
+  {
+    match: /^\/area\/Employment-Law(\/|)$/,
+    redirect: '/practice-areas/employment-law'
+  },
+  {
+    match: /^\/area\/Employment-Litigation(\/|)$/,
+    redirect: '/practice-areas/employment-litigation'
+  },
+  {
+    match: /^\/area\/Energy(\/|)$/,
+    redirect: '/practice-areas/energy'
+  },
+  {
+    match: /^\/area\/Energy-and-Global-Climate-Change(\/|)$/,
+    redirect: '/practice-areas/energy-and-global-climate-change'
+  },
+  {
+    match: /^\/area\/Entertainment-and-Media(\/|)$/,
+    redirect: '/practice-areas/entertainment-and-media'
+  },
+  {
+    match: /^\/area\/Entertainment-and-Media----Corporate(\/|)$/,
+    redirect: '/practice-areas/entertainment-and-media-corporate'
+  },
+  {
+    match: /^\/area\/Entertainment-and-Media----Finance-and-Restructuring(\/|)$/,
+    redirect: '/practice-areas/entertainment-and-media-finance-and-restructuring'
+  },
+  {
+    match: /^\/area\/Entertainment-and-Media----Talent(\/|)$/,
+    redirect: '/practice-areas/talent'
+  },
+  {
+    match: /^\/area\/Entertainment-and-Media-Litigation(\/|)$/,
+    redirect: '/practice-areas/entertainment-and-media-litigation'
+  },
+  {
+    match: /^\/area\/Environment-and-Energy(\/|)$/,
+    redirect: '/practice-areas/environment-and-energy'
+  },
+  {
+    match: /^\/area\/ESG-Risk-Strategy-and-Compliance(\/|)$/,
+    redirect: '/practice-areas/esg-risk-strategy-and-compliance'
+  },
+  {
+    match: /^\/area\/Europe(\/|)$/,
+    redirect: '/practice-areas/europe'
+  },
+  {
+    match: /^\/area\/Finance(\/|)$/,
+    redirect: '/practice-areas/finance'
+  },
+  {
+    match: /^\/area\/Financial-Services(\/|)$/,
+    redirect: '/practice-areas/financial-services'
+  },
+  {
+    match: /^\/area\/Financial-Services-Litigation(\/|)$/,
+    redirect: '/practice-areas/financial-services-litigation'
+  },
+  {
+    match: /^\/area\/Fintech-and-Payments(\/|)$/,
+    redirect: '/practice-areas/fintech-and-payments'
+  },
+  {
+    match: /^\/area\/Gaming-and-Gambling(\/|)$/,
+    redirect: '/practice-areas/gaming-and-gambling'
+  },
+  {
+    match: /^\/area\/Global-Compensation-Benefits-and-ERISA(\/|)$/,
+    redirect: '/practice-areas/global-compensation-benefits-and-erisa'
+  },
+  {
+    match: /^\/area\/Global-Trade-Controls(\/|)$/,
+    redirect: '/practice-areas/global-trade-controls'
+  },
+  {
+    match: /^\/area\/Government-Affairs(\/|)$/,
+    redirect: '/practice-areas/government-affairs'
+  },
+  {
+    match: /^\/area\/Government-Contracts-Litigation(\/|)$/,
+    redirect: '/practice-areas/government-contracts-litigation'
+  },
+  {
+    match: /^\/area\/Hospitality-and-Leisure(\/|)$/,
+    redirect: '/practice-areas/hospitality-and-leisure'
+  },
+  {
+    match: /^\/area\/Impact-and-Sustainability(\/|)$/,
+    redirect: '/practice-areas/impact-and-sustainability'
+  },
+  {
+    match: /^\/area\/Impact-Investing(\/|)$/,
+    redirect: '/practice-areas/impact-investing'
+  },
+  {
+    match: /^\/area\/Infrastructure-and-Energy(\/|)$/,
+    redirect: '/practice-areas/infrastructure-and-energy'
+  },
+  {
+    match: /^\/area\/Intellectual-Property(\/|)$/,
+    redirect: '/practice-areas/intellectual-property'
+  },
+  {
+    match: /^\/area\/International-Arbitration(\/|)$/,
+    redirect: '/practice-areas/international-arbitration'
+  },
+  {
+    match: /^\/area\/International-Employment-Law(\/|)$/,
+    redirect: '/practice-areas/international-employment-law'
+  },
+  {
+    match: /^\/area\/Internet-of-Things(\/|)$/,
+    redirect: '/practice-areas/internet-of-things'
+  },
+  {
+    match: /^\/area\/Investigations-and-White-Collar-Defense(\/|)$/,
+    redirect: '/practice-areas/investigations-and-white-collar-defense'
+  },
+  {
+    match: /^\/area\/Investment-Management(\/|)$/,
+    redirect: '/practice-areas/investment-management'
+  },
+  {
+    match: /^\/area\/IP-Transactions-and-Licensing(\/|)$/,
+    redirect: '/practice-areas/ip-transactions-and-licensing'
+  },
+  {
+    match: /^\/area\/ITC-Section-337-Investigations(\/|)$/,
+    redirect: '/practice-areas/itc-section-337-investigations'
+  },
+  {
+    match: /^\/area\/Labor-Management-Relations(\/|)$/,
+    redirect: '/practice-areas/labormanagement-relations'
+  },
+  {
+    match: /^\/area\/Land-Use(\/|)$/,
+    redirect: '/practice-areas/land-use'
+  },
+  {
+    match: /^\/area\/Latin-America(\/|)$/,
+    redirect: '/practice-areas/latin-america'
+  },
+  {
+    match: /^\/area\/Leveraged-Finance(\/|)$/,
+    redirect: '/practice-areas/leveraged-finance'
+  },
+  {
+    match: /^\/area\/LIBOR-Transition(\/|)$/,
+    redirect: '/practice-areas/libor-transition'
+  },
+  {
+    match: /^\/area\/Life-Sciences-and-Healthcare(\/|)$/,
+    redirect: '/practice-areas/life-sciences-and-healthcare'
+  },
+  {
+    match: /^\/area\/Litigation(\/|)$/,
+    redirect: '/practice-areas/litigation'
+  },
+  {
+    match: /^\/area\/Mass-Tort-Toxic-Tort-and-Environmental-Litigation(\/|)$/,
+    redirect: '/practice-areas/mass-tort-toxic-tort-and-environmental-litigation'
+  },
+  {
+    match: /^\/area\/Mergers-and-Acquisitions(\/|)$/,
+    redirect: '/practice-areas/mergers-and-acquisitions'
+  },
+  {
+    match: /^\/area\/National-Security-Regulation-and-Investigations(\/|)$/,
+    redirect: '/practice-areas/national-security-regulation-and-investigations'
+  },
+  {
+    match: /^\/area\/Oil-and-Gas(\/|)$/,
+    redirect: '/practice-areas/oil-and-gas'
+  },
+  {
+    match: /^\/area\/Patent-Litigation(\/|)$/,
+    redirect: '/practice-areas/patent-litigation'
+  },
+  {
+    match: /^\/area\/Patent-Office(\/|)$/,
+    redirect: '/practice-areas/patent-office'
+  },
+  {
+    match: /^\/area\/Payment-Systems(\/|)$/,
+    redirect: '/practice-areas/payment-systems'
+  },
+  {
+    match: /^\/area\/Political-Risk-and-International-Trade-Credit-Insurance(\/|)$/,
+    redirect: '/practice-areas/political-risk-and-international-trade-credit-insurance'
+  },
+  {
+    match: /^\/area\/Privacy-and-Cybersecurity(\/|)$/,
+    redirect: '/practice-areas/privacy-and-cybersecurity'
+  },
+  {
+    match: /^\/area\/Private-Equity(\/|)$/,
+    redirect: '/practice-areas/private-equity'
+  },
+  {
+    match: /^\/area\/Private-Investment-Funds(\/|)$/,
+    redirect: '/practice-areas/private-investment-funds'
+  },
+  {
+    match: /^\/area\/Real-Estate(\/|)$/,
+    redirect: '/practice-areas/real-estate'
+  },
+  {
+    match: /^\/area\/Real-Estate-Acquisitions-and-Dispositions(\/|)$/,
+    redirect: '/practice-areas/real-estate-acquisitions-and-dispositions'
+  },
+  {
+    match: /^\/area\/Real-Estate-Capital-Markets(\/|)$/,
+    redirect: '/practice-areas/real-estate-capital-markets'
+  },
+  {
+    match: /^\/area\/Real-Estate-Development-and-Construction(\/|)$/,
+    redirect: '/practice-areas/real-estate-development-and-construction'
+  },
+  {
+    match: /^\/area\/Real-Estate-Equity-Investments-and-Joint-Ventures(\/|)$/,
+    redirect: '/practice-areas/real-estate-equity-investments-and-joint-ventures'
+  },
+  {
+    match: /^\/area\/Real-Estate-Finance(\/|)$/,
+    redirect: '/practice-areas/real-estate-finance'
+  },
+  {
+    match: /^\/area\/Real-Estate-Litigation(\/|)$/,
+    redirect: '/practice-areas/real-estate-litigation'
+  },
+  {
+    match: /^\/area\/Real-Estate-Restructuring-and-Reorganization(\/|)$/,
+    redirect: '/practice-areas/real-estate-restructuring-and-reorganization'
+  },
+  {
+    match: /^\/area\/Restructuring(\/|)$/,
+    redirect: '/practice-areas/restructuring'
+  },
+  {
+    match: /^\/area\/Securities-and-Capital-Markets(\/|)$/,
+    redirect: '/practice-areas/securities-and-capital-markets'
+  },
+  {
+    match: /^\/area\/Securities-Enforcement(\/|)$/,
+    redirect: '/practice-areas/securities-enforcement'
+  },
+  {
+    match: /^\/area\/Securities-Litigation(\/|)$/,
+    redirect: '/practice-areas/securities-litigation'
+  },
+  {
+    match: /^\/area\/Social-Enterprises(\/|)$/,
+    redirect: '/practice-areas/social-enterprises'
+  },
+  {
+    match: /^\/area\/Structured-Credit-(\/|)$/,
+    redirect: '/practice-areas/structured-credit'
+  },
+  {
+    match: /^\/area\/Tax(\/|)$/,
+    redirect: '/practice-areas/tax'
+  },
+  {
+    match: /^\/area\/Tax-Litigation-and-Controversy(\/|)$/,
+    redirect: '/practice-areas/tax-litigation-and-controversy'
+  },
+  {
+    match: /^\/area\/Technology(\/|)$/,
+    redirect: '/practice-areas/technology'
+  },
+  {
+    match: /^\/area\/Technology-Media-and-Telecommunications(\/|)$/,
+    redirect: '/practice-areas/technology-media-and-telecommunications'
+  },
+  {
+    match: /^\/area\/Trade-Secrets(\/|)$/,
+    redirect: '/practice-areas/trade-secrets'
+  },
+  {
+    match: /^\/area\/United-States(\/|)$/,
+    redirect: '/practice-areas/united-states'
+  },
+  {
+    match: /^\/area\/White-Collar-Defense(\/|)$/,
+    redirect: '/practice-areas/white-collar-defense'
+  },
+  {
+    match: /^\/area\/Workforce-Data-and-Technology(\/|)$/,
+    redirect: '/practice-areas/workforce-data-and-technology'
+  },
+  {
+    match: /^\/area\/Workplace-Retaliation-and-Whistleblower-Defense(\/|)$/,
+    redirect: '/practice-areas/workplace-retaliation-and-whistleblower-defense'
   }
 ]
 
