@@ -28,7 +28,7 @@ exports.handler = async (event) => {
     let response; 
     let branch;
     let validBranches = ['qa', 'master', 'dev'];
-    if (event.queryStringParameters && (decodeURIComponent(event.queryStringParameters.phId) === process.env.browserPassword)) {
+    if (event.queryStringParameters && (decodeURIComponent(event.queryStringParameters.phId) === process.env.phidPassword)) {
         console.log("Received correct Id: " + event.queryStringParameters.phId);
     } else {
         return {
