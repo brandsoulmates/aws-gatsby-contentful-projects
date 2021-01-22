@@ -29,7 +29,7 @@ exports.handler = async (event) => {
     let branch;
     let validBranches = ['qa', 'master', 'dev'];
     if (event.queryStringParameters && (decodeURIComponent(event.queryStringParameters.phId) === process.env.phidPassword)) {
-        console.log("Received correct Id: " + event.queryStringParameters.phId);
+        //do nothing
     } else {
         return {
             statusCode: 200,
@@ -38,7 +38,6 @@ exports.handler = async (event) => {
     }
     
     if (event.queryStringParameters && event.queryStringParameters.branch && event.queryStringParameters.phId) {
-        console.log("Received branch: " + event.queryStringParameters.branch);
         branch = event.queryStringParameters.branch;
     } else {
         return {
@@ -54,15 +53,6 @@ exports.handler = async (event) => {
     }
     // valid query items - production, qa, development
     // valid codebuild names - prod, qa, development
-    if (branch === 'master'){
-        branch = 'prod'
-    }
-    if (branch === 'dev'){
-        branch = 'development'
-    }
-    let params = {
-        name: `paulhastings-${branch}`
-    };
     
     const contentfulBranchNames = {
     "master": "paulhastings-prod",
@@ -70,9 +60,13 @@ exports.handler = async (event) => {
     "qa": "paulhastings-qa",
     "dev": "paulhastings-development"
     };
-  
+
     let awsCbProjectName = "paulhastings-development";
     awsCbProjectName = contentfulBranchNames[branch]
+    
+    let params = {
+        name: awsCbProjectName
+    };
     
     try {
         let {ids} = await global.listBuildsForProject(awsCbProjectName)
