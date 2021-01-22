@@ -172,4 +172,21 @@ describe('Redirect', () => {
     expect(r.headers.location[0].value).toEqual(`/practice-areas/workplace-retaliation-and-whistleblower-defense`)
   })
 
+  test('Test practice area article', () => {
+    const event = {}
+    let r
+    event.Records = []
+    event.Records.push({
+      cf: {
+        request: {
+          uri: '/about-us/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/u.s.-court-closings-cancellations-and-restrictions-due-to-covid-19'
+        }
+      }
+    })
+    handler(event, {}, (error, result) => {
+      r = result
+    })
+    expect(r.headers.location[0].value).toEqual(`/insights/practice-area-articles/u-s-court-closings-restrictions-and-re-openings-due-to-covid-19`)
+  })
+
 })

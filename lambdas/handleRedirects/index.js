@@ -18,501 +18,545 @@ const customRedirects = [
     redirect: '/offices/'
   },
   {
-    match: /\/professionals\/details\/(.+)/,
+    match: /\/professionals\/details\/(.+)/i,
     redirect: '/professionals/$1'
   },
   {
-    match: /\/office\/(.+)/,
+    match: /\/office\/(.+)/i,
     redirect: '/offices/$1'
   },
   {
-    match: /^\/docs\/default-source\/pdfs\/(.+)/,
+    match: /^\/docs\/default-source\/pdfs\/(.+)/i,
     redirect: 'https://webstorage.paulhastings.com/Documents/PDFs/$1'
   },
   {
-    match: /^\/docs\/default-source\/default-document-library\/(.+)/,
+    match: /^\/docs\/default-source\/default-document-library\/(.+)/i,
     redirect: 'https://webstorage.paulhastings.com/Documents/Default%20Library/$1'
   },
   {
-    match: /^\/publications-items(\/|)$/,
+    match: /^\/publications-items(\/|)$/i,
     redirect: '/insights',
   },
+  //microsites
   {
-    match: /^\/genderparitysupplement2016(\/|)$/,
+    match: /^\/genderparitysupplement2016(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/genderparitysupplement2016/' 
   },
   {
-    match: /^\/holidaymessage2015(\/|)$/,
+    match: /^\/holidaymessage2015(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2015/' 
   },
   {
-    match: /^\/holidaymessage2016(\/|)$/,
+    match: /^\/holidaymessage2016(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2016/' 
   },
   {
-    match: /^\/holidaymessage2017(\/|)$/,
+    match: /^\/holidaymessage2017(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2017/' 
   },
   {
-    match: /^\/holidaymessage2018(\/|)$/,
+    match: /^\/holidaymessage2018(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2018/' 
   },
   {
-    match: /^\/holidaymessage2019(\/|)$/,
+    match: /^\/holidaymessage2019(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2019/' 
   },
   {
-    match: /^\/holidaymessage2020(\/|)$/,
+    match: /^\/holidaymessage2020(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/holidaymessage2020/' 
   },
   {
-    match: /^\/IPOReport2019(\/|)$/,
+    match: /^\/IPOReport2019(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/IPOReport2019/' 
   },
   {
-    match: /^\/navigatingnewpaths(\/|)$/,
+    match: /^\/navigatingnewpaths(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/navigatingnewpaths/' 
   },
   {
-    match: /^\/Sao-Paulo-Announcement(\/|)$/,
+    match: /^\/Sao-Paulo-Announcement(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/Sao-Paulo-Announcement/' 
   },
   {
-    match: /^\/theYearAhead2019(\/|)$/,
+    match: /^\/theYearAhead2019(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/theYearAhead2019/' 
   },
   {
-    match: /^\/theyearahead2020(\/|)$/,
+    match: /^\/theyearahead2020(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/theyearahead2020/' 
   },
   {
-    match: /^\/WellsFargo(\/|)$/,
+    match: /^\/WellsFargo(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/WellsFargo/' 
   },
   {
-    match: /^\/wellsfargoyearend(\/|)$/,
+    match: /^\/wellsfargoyearend(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/wellsfargoyearend/' 
   },
   {
-    match: /^\/WomenBoardroom(\/|)$/,
+    match: /^\/WomenBoardroom(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/WomenBoardroom/' 
   },
   {
-    match: /^\/yearahead2018(\/|)$/,
+    match: /^\/yearahead2018(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/yearahead2018/' 
   },
   {
-    match: /^\/european-guide(\/|)$/,
+    match: /^\/european-guide(\/|)$/i,
     redirect: 'https://sites.paulhastings.com/Microsites/european_guide/'
   },
   {
-    match: /^\/publications-items\/blog\/ph-fedaction-financial-regulatory-updates(\/|)$/,
+    match: /^\/publications-items\/blog\/ph-fedaction-financial-regulatory-updates(\/|)$/i,
     redirect: '/insights/ph-fedaction-financial-regulatory-updates'
   }
   ,
   {
-    match: /^\/publications-items\/blog\/international-regulatory-enforcement(\/|)$/,
+    match: /^\/publications-items\/blog\/international-regulatory-enforcement(\/|)$/i,
     redirect: '/insights/international-regulatory-enforcement'
   }
   ,
   {
-    match: /^\/publications-items\/blog\/ph-privacy(\/|)$/,
+    match: /^\/publications-items\/blog\/ph-privacy(\/|)$/i,
     redirect: '/insights/ph-privacy'
   }
   ,
   {
-    match: /^\/publications-items\/blog\/caveat-vendor(\/|)$/,
+    match: /^\/publications-items\/blog\/caveat-vendor(\/|)$/i,
     redirect: '/insights/caveat-vendor'
   }
   ,
   {
-    match: /^\/en-gb\/publications-items\/blog\/phlit-the-london-litigation-blog(\/|)$/,
+    match: /^\/en-gb\/publications-items\/blog\/phlit-the-london-litigation-blog(\/|)$/i,
     redirect: '/insights/phlit-the-london-litigation-blog'
   },
   {
-    match: /^\/publications-items\/blog\/ph-money-matters-this-week-in-washington(\/|)$/,
+    match: /^\/publications-items\/blog\/ph-money-matters-this-week-in-washington(\/|)$/i,
     redirect: '/insights/money-matters'
   },
+  //practice areas
   {
-  match: /^\/area\/Advertising-Gaming-and-Promotions(\/|)$/,
+  match: /^\/area\/Advertising-Gaming-and-Promotions(\/|)$/i,
   redirect: '/practice-areas/advertising-and-promotions'
   },
   {
-    match: /^\/area\/Affordable-Housing-and-Tax-Credits(\/|)$/,
+    match: /^\/area\/Affordable-Housing-and-Tax-Credits(\/|)$/i,
     redirect: '/practice-areas/affordable-housing-and-tax-credits'
   },
   {
-    match: /^\/area\/Alternative-Lender-and-Private-Credit(\/|)$/,
+    match: /^\/area\/Alternative-Lender-and-Private-Credit(\/|)$/i,
     redirect: '/practice-areas/alternative-lender-and-private-credit'
   },
   {
-    match: /^\/area\/Anti-corruption-and-FCPA(\/|)$/,
+    match: /^\/area\/Anti-corruption-and-FCPA(\/|)$/i,
     redirect: '/practice-areas/anti-corruption-and-fcpa'
   },
   {
-    match: /^\/area\/Antitrust-and-Competition(\/|)$/,
+    match: /^\/area\/Antitrust-and-Competition(\/|)$/i,
     redirect: '/practice-areas/antitrust-and-competition'
   },
   {
-    match: /^\/area\/Appellate-Litigation(\/|)$/,
+    match: /^\/area\/Appellate-Litigation(\/|)$/i,
     redirect: '/practice-areas/appellate-litigation'
   },
   {
-    match: /^\/area\/Artificial-Intelligence(\/|)$/,
+    match: /^\/area\/Artificial-Intelligence(\/|)$/i,
     redirect: '/practice-areas/artificial-intelligence'
   },
   {
-    match: /^\/area\/Asia(\/|)$/,
+    match: /^\/area\/Asia(\/|)$/i,
     redirect: '/practice-areas/asia'
   },
   {
-    match: /^\/area\/Asset-Securitization-and-Structured-Finance(\/|)$/,
+    match: /^\/area\/Asset-Securitization-and-Structured-Finance(\/|)$/i,
     redirect: '/practice-areas/asset-securitization-and-structured-finance'
   },
   {
-    match: /^\/area\/Bank-Regulatory(\/|)$/,
+    match: /^\/area\/Bank-Regulatory(\/|)$/i,
     redirect: '/practice-areas/bank-regulatory'
   },
   {
-    match: /^\/area\/Class-Actions(\/|)$/,
+    match: /^\/area\/Class-Actions(\/|)$/i,
     redirect: '/practice-areas/class-actions'
   },
   {
-    match: /^\/area\/Client-Representation-in-Asia(\/|)$/,
+    match: /^\/area\/Client-Representation-in-Asia(\/|)$/i,
     redirect: '/practice-areas/client-representation-in-asia'
   },
   {
-    match: /^\/area\/Commercial-Leasing-and-Sales-Leaseback(\/|)$/,
+    match: /^\/area\/Commercial-Leasing-and-Sales-Leaseback(\/|)$/i,
     redirect: '/practice-areas/commercial-leasing-and-sales-leaseback'
   },
   {
-    match: /^\/area\/Complex-Litigation-and-Arbitration(\/|)$/,
+    match: /^\/area\/Complex-Litigation-and-Arbitration(\/|)$/i,
     redirect: '/practice-areas/complex-litigation-and-arbitration'
   },
   {
-    match: /^\/area\/Congressional-Investigations(\/|)$/,
+    match: /^\/area\/Congressional-Investigations(\/|)$/i,
     redirect: '/practice-areas/'
   },
   {
-    match: /^\/area\/Corporate(\/|)$/,
+    match: /^\/area\/Corporate(\/|)$/i,
     redirect: '/practice-areas/corporate'
   },
   {
-    match: /^\/area\/Data-Centers(\/|)$/,
+    match: /^\/area\/Data-Centers(\/|)$/i,
     redirect: '/practice-areas/data-centers'
   },
   {
-    match: /^\/area\/Derivatives(\/|)$/,
+    match: /^\/area\/Derivatives(\/|)$/i,
     redirect: '/practice-areas/derivatives'
   },
   {
-    match: /^\/area\/Emerging-Growth-Companies(\/|)$/,
+    match: /^\/area\/Emerging-Growth-Companies(\/|)$/i,
     redirect: '/practice-areas/emerging-growth-companies'
   },
   {
-    match: /^\/area\/Employee-Mobility-and-Trade-Secrets(\/|)$/,
+    match: /^\/area\/Employee-Mobility-and-Trade-Secrets(\/|)$/i,
     redirect: '/practice-areas/employee-mobility-and-trade-secrets'
   },
   {
-    match: /^\/area\/Employment-Counseling-and-Preventive-Advice(\/|)$/,
+    match: /^\/area\/Employment-Counseling-and-Preventive-Advice(\/|)$/i,
     redirect: '/practice-areas/employment-counseling-and-preventive-advice'
   },
   {
-    match: /^\/area\/Employment-Law(\/|)$/,
+    match: /^\/area\/Employment-Law(\/|)$/i,
     redirect: '/practice-areas/employment-law'
   },
   {
-    match: /^\/area\/Employment-Litigation(\/|)$/,
+    match: /^\/area\/Employment-Litigation(\/|)$/i,
     redirect: '/practice-areas/employment-litigation'
   },
   {
-    match: /^\/area\/Energy(\/|)$/,
+    match: /^\/area\/Energy(\/|)$/i,
     redirect: '/practice-areas/energy'
   },
   {
-    match: /^\/area\/Energy-and-Global-Climate-Change(\/|)$/,
+    match: /^\/area\/Energy-and-Global-Climate-Change(\/|)$/i,
     redirect: '/practice-areas/energy-and-global-climate-change'
   },
   {
-    match: /^\/area\/Entertainment-and-Media(\/|)$/,
+    match: /^\/area\/Entertainment-and-Media(\/|)$/i,
     redirect: '/practice-areas/entertainment-and-media'
   },
   {
-    match: /^\/area\/Entertainment-and-Media----Corporate(\/|)$/,
+    match: /^\/area\/Entertainment-and-Media----Corporate(\/|)$/i,
     redirect: '/practice-areas/entertainment-and-media-corporate'
   },
   {
-    match: /^\/area\/Entertainment-and-Media----Finance-and-Restructuring(\/|)$/,
+    match: /^\/area\/Entertainment-and-Media----Finance-and-Restructuring(\/|)$/i,
     redirect: '/practice-areas/entertainment-and-media-finance-and-restructuring'
   },
   {
-    match: /^\/area\/Entertainment-and-Media----Talent(\/|)$/,
+    match: /^\/area\/Entertainment-and-Media----Talent(\/|)$/i,
     redirect: '/practice-areas/talent'
   },
   {
-    match: /^\/area\/Entertainment-and-Media-Litigation(\/|)$/,
+    match: /^\/area\/Entertainment-and-Media-Litigation(\/|)$/i,
     redirect: '/practice-areas/entertainment-and-media-litigation'
   },
   {
-    match: /^\/area\/Environment-and-Energy(\/|)$/,
+    match: /^\/area\/Environment-and-Energy(\/|)$/i,
     redirect: '/practice-areas/environment-and-energy'
   },
   {
-    match: /^\/area\/ESG-Risk-Strategy-and-Compliance(\/|)$/,
+    match: /^\/area\/ESG-Risk-Strategy-and-Compliance(\/|)$/i,
     redirect: '/practice-areas/esg-risk-strategy-and-compliance'
   },
   {
-    match: /^\/area\/Europe(\/|)$/,
+    match: /^\/area\/Europe(\/|)$/i,
     redirect: '/practice-areas/europe'
   },
   {
-    match: /^\/area\/Finance(\/|)$/,
+    match: /^\/area\/Finance(\/|)$/i,
     redirect: '/practice-areas/finance'
   },
   {
-    match: /^\/area\/Financial-Services(\/|)$/,
+    match: /^\/area\/Financial-Services(\/|)$/i,
     redirect: '/practice-areas/financial-services'
   },
   {
-    match: /^\/area\/Financial-Services-Litigation(\/|)$/,
+    match: /^\/area\/Financial-Services-Litigation(\/|)$/i,
     redirect: '/practice-areas/financial-services-litigation'
   },
   {
-    match: /^\/area\/Fintech-and-Payments(\/|)$/,
+    match: /^\/area\/Fintech-and-Payments(\/|)$/i,
     redirect: '/practice-areas/fintech-and-payments'
   },
   {
-    match: /^\/area\/Gaming-and-Gambling(\/|)$/,
+    match: /^\/area\/Gaming-and-Gambling(\/|)$/i,
     redirect: '/practice-areas/gaming-and-gambling'
   },
   {
-    match: /^\/area\/Global-Compensation-Benefits-and-ERISA(\/|)$/,
+    match: /^\/area\/Global-Compensation-Benefits-and-ERISA(\/|)$/i,
     redirect: '/practice-areas/global-compensation-benefits-and-erisa'
   },
   {
-    match: /^\/area\/Global-Trade-Controls(\/|)$/,
+    match: /^\/area\/Global-Trade-Controls(\/|)$/i,
     redirect: '/practice-areas/global-trade-controls'
   },
   {
-    match: /^\/area\/Government-Affairs(\/|)$/,
+    match: /^\/area\/Government-Affairs(\/|)$/i,
     redirect: '/practice-areas/government-affairs'
   },
   {
-    match: /^\/area\/Government-Contracts-Litigation(\/|)$/,
+    match: /^\/area\/Government-Contracts-Litigation(\/|)$/i,
     redirect: '/practice-areas/government-contracts-litigation'
   },
   {
-    match: /^\/area\/Hospitality-and-Leisure(\/|)$/,
+    match: /^\/area\/Hospitality-and-Leisure(\/|)$/i,
     redirect: '/practice-areas/hospitality-and-leisure'
   },
   {
-    match: /^\/area\/Impact-and-Sustainability(\/|)$/,
+    match: /^\/area\/Impact-and-Sustainability(\/|)$/i,
     redirect: '/practice-areas/impact-and-sustainability'
   },
   {
-    match: /^\/area\/Impact-Investing(\/|)$/,
+    match: /^\/area\/Impact-Investing(\/|)$/i,
     redirect: '/practice-areas/impact-investing'
   },
   {
-    match: /^\/area\/Infrastructure-and-Energy(\/|)$/,
+    match: /^\/area\/Infrastructure-and-Energy(\/|)$/i,
     redirect: '/practice-areas/infrastructure-and-energy'
   },
   {
-    match: /^\/area\/Intellectual-Property(\/|)$/,
+    match: /^\/area\/Intellectual-Property(\/|)$/i,
     redirect: '/practice-areas/intellectual-property'
   },
   {
-    match: /^\/area\/International-Arbitration(\/|)$/,
+    match: /^\/area\/International-Arbitration(\/|)$/i,
     redirect: '/practice-areas/international-arbitration'
   },
   {
-    match: /^\/area\/International-Employment-Law(\/|)$/,
+    match: /^\/area\/International-Employment-Law(\/|)$/i,
     redirect: '/practice-areas/international-employment-law'
   },
   {
-    match: /^\/area\/Internet-of-Things(\/|)$/,
+    match: /^\/area\/Internet-of-Things(\/|)$/i,
     redirect: '/practice-areas/internet-of-things'
   },
   {
-    match: /^\/area\/Investigations-and-White-Collar-Defense(\/|)$/,
+    match: /^\/area\/Investigations-and-White-Collar-Defense(\/|)$/i,
     redirect: '/practice-areas/investigations-and-white-collar-defense'
   },
   {
-    match: /^\/area\/Investment-Management(\/|)$/,
+    match: /^\/area\/Investment-Management(\/|)$/i,
     redirect: '/practice-areas/investment-management'
   },
   {
-    match: /^\/area\/IP-Transactions-and-Licensing(\/|)$/,
+    match: /^\/area\/IP-Transactions-and-Licensing(\/|)$/i,
     redirect: '/practice-areas/ip-transactions-and-licensing'
   },
   {
-    match: /^\/area\/ITC-Section-337-Investigations(\/|)$/,
+    match: /^\/area\/ITC-Section-337-Investigations(\/|)$/i,
     redirect: '/practice-areas/itc-section-337-investigations'
   },
   {
-    match: /^\/area\/Labor-Management-Relations(\/|)$/,
+    match: /^\/area\/Labor-Management-Relations(\/|)$/i,
     redirect: '/practice-areas/labormanagement-relations'
   },
   {
-    match: /^\/area\/Land-Use(\/|)$/,
+    match: /^\/area\/Land-Use(\/|)$/i,
     redirect: '/practice-areas/land-use'
   },
   {
-    match: /^\/area\/Latin-America(\/|)$/,
+    match: /^\/area\/Latin-America(\/|)$/i,
     redirect: '/practice-areas/latin-america'
   },
   {
-    match: /^\/area\/Leveraged-Finance(\/|)$/,
+    match: /^\/area\/Leveraged-Finance(\/|)$/i,
     redirect: '/practice-areas/leveraged-finance'
   },
   {
-    match: /^\/area\/LIBOR-Transition(\/|)$/,
+    match: /^\/area\/LIBOR-Transition(\/|)$/i,
     redirect: '/practice-areas/libor-transition'
   },
   {
-    match: /^\/area\/Life-Sciences-and-Healthcare(\/|)$/,
+    match: /^\/area\/Life-Sciences-and-Healthcare(\/|)$/i,
     redirect: '/practice-areas/life-sciences-and-healthcare'
   },
   {
-    match: /^\/area\/Litigation(\/|)$/,
+    match: /^\/area\/Litigation(\/|)$/i,
     redirect: '/practice-areas/litigation'
   },
   {
-    match: /^\/area\/Mass-Tort-Toxic-Tort-and-Environmental-Litigation(\/|)$/,
+    match: /^\/area\/Mass-Tort-Toxic-Tort-and-Environmental-Litigation(\/|)$/i,
     redirect: '/practice-areas/mass-tort-toxic-tort-and-environmental-litigation'
   },
   {
-    match: /^\/area\/Mergers-and-Acquisitions(\/|)$/,
+    match: /^\/area\/Mergers-and-Acquisitions(\/|)$/i,
     redirect: '/practice-areas/mergers-and-acquisitions'
   },
   {
-    match: /^\/area\/National-Security-Regulation-and-Investigations(\/|)$/,
+    match: /^\/area\/National-Security-Regulation-and-Investigations(\/|)$/i,
     redirect: '/practice-areas/national-security-regulation-and-investigations'
   },
   {
-    match: /^\/area\/Oil-and-Gas(\/|)$/,
+    match: /^\/area\/Oil-and-Gas(\/|)$/i,
     redirect: '/practice-areas/oil-and-gas'
   },
   {
-    match: /^\/area\/Patent-Litigation(\/|)$/,
+    match: /^\/area\/Patent-Litigation(\/|)$/i,
     redirect: '/practice-areas/patent-litigation'
   },
   {
-    match: /^\/area\/Patent-Office(\/|)$/,
+    match: /^\/area\/Patent-Office(\/|)$/i,
     redirect: '/practice-areas/patent-office'
   },
   {
-    match: /^\/area\/Payment-Systems(\/|)$/,
+    match: /^\/area\/Payment-Systems(\/|)$/i,
     redirect: '/practice-areas/payment-systems'
   },
   {
-    match: /^\/area\/Political-Risk-and-International-Trade-Credit-Insurance(\/|)$/,
+    match: /^\/area\/Political-Risk-and-International-Trade-Credit-Insurance(\/|)$/i,
     redirect: '/practice-areas/political-risk-and-international-trade-credit-insurance'
   },
   {
-    match: /^\/area\/Privacy-and-Cybersecurity(\/|)$/,
+    match: /^\/area\/Privacy-and-Cybersecurity(\/|)$/i,
     redirect: '/practice-areas/privacy-and-cybersecurity'
   },
   {
-    match: /^\/area\/Private-Equity(\/|)$/,
+    match: /^\/area\/Private-Equity(\/|)$/i,
     redirect: '/practice-areas/private-equity'
   },
   {
-    match: /^\/area\/Private-Investment-Funds(\/|)$/,
+    match: /^\/area\/Private-Investment-Funds(\/|)$/i,
     redirect: '/practice-areas/private-investment-funds'
   },
   {
-    match: /^\/area\/Real-Estate(\/|)$/,
+    match: /^\/area\/Real-Estate(\/|)$/i,
     redirect: '/practice-areas/real-estate'
   },
   {
-    match: /^\/area\/Real-Estate-Acquisitions-and-Dispositions(\/|)$/,
+    match: /^\/area\/Real-Estate-Acquisitions-and-Dispositions(\/|)$/i,
     redirect: '/practice-areas/real-estate-acquisitions-and-dispositions'
   },
   {
-    match: /^\/area\/Real-Estate-Capital-Markets(\/|)$/,
+    match: /^\/area\/Real-Estate-Capital-Markets(\/|)$/i,
     redirect: '/practice-areas/real-estate-capital-markets'
   },
   {
-    match: /^\/area\/Real-Estate-Development-and-Construction(\/|)$/,
+    match: /^\/area\/Real-Estate-Development-and-Construction(\/|)$/i,
     redirect: '/practice-areas/real-estate-development-and-construction'
   },
   {
-    match: /^\/area\/Real-Estate-Equity-Investments-and-Joint-Ventures(\/|)$/,
+    match: /^\/area\/Real-Estate-Equity-Investments-and-Joint-Ventures(\/|)$/i,
     redirect: '/practice-areas/real-estate-equity-investments-and-joint-ventures'
   },
   {
-    match: /^\/area\/Real-Estate-Finance(\/|)$/,
+    match: /^\/area\/Real-Estate-Finance(\/|)$/i,
     redirect: '/practice-areas/real-estate-finance'
   },
   {
-    match: /^\/area\/Real-Estate-Litigation(\/|)$/,
+    match: /^\/area\/Real-Estate-Litigation(\/|)$/i,
     redirect: '/practice-areas/real-estate-litigation'
   },
   {
-    match: /^\/area\/Real-Estate-Restructuring-and-Reorganization(\/|)$/,
+    match: /^\/area\/Real-Estate-Restructuring-and-Reorganization(\/|)$/i,
     redirect: '/practice-areas/real-estate-restructuring-and-reorganization'
   },
   {
-    match: /^\/area\/Restructuring(\/|)$/,
+    match: /^\/area\/Restructuring(\/|)$/i,
     redirect: '/practice-areas/restructuring'
   },
   {
-    match: /^\/area\/Securities-and-Capital-Markets(\/|)$/,
+    match: /^\/area\/Securities-and-Capital-Markets(\/|)$/i,
     redirect: '/practice-areas/securities-and-capital-markets'
   },
   {
-    match: /^\/area\/Securities-Enforcement(\/|)$/,
+    match: /^\/area\/Securities-Enforcement(\/|)$/i,
     redirect: '/practice-areas/securities-enforcement'
   },
   {
-    match: /^\/area\/Securities-Litigation(\/|)$/,
+    match: /^\/area\/Securities-Litigation(\/|)$/i,
     redirect: '/practice-areas/securities-litigation'
   },
   {
-    match: /^\/area\/Social-Enterprises(\/|)$/,
+    match: /^\/area\/Social-Enterprises(\/|)$/i,
     redirect: '/practice-areas/social-enterprises'
   },
   {
-    match: /^\/area\/Structured-Credit-(\/|)$/,
+    match: /^\/area\/Structured-Credit-(\/|)$/i,
     redirect: '/practice-areas/structured-credit'
   },
   {
-    match: /^\/area\/Tax(\/|)$/,
+    match: /^\/area\/Tax(\/|)$/i,
     redirect: '/practice-areas/tax'
   },
   {
-    match: /^\/area\/Tax-Litigation-and-Controversy(\/|)$/,
+    match: /^\/area\/Tax-Litigation-and-Controversy(\/|)$/i,
     redirect: '/practice-areas/tax-litigation-and-controversy'
   },
   {
-    match: /^\/area\/Technology(\/|)$/,
+    match: /^\/area\/Technology(\/|)$/i,
     redirect: '/practice-areas/technology'
   },
   {
-    match: /^\/area\/Technology-Media-and-Telecommunications(\/|)$/,
+    match: /^\/area\/Technology-Media-and-Telecommunications(\/|)$/i,
     redirect: '/practice-areas/technology-media-and-telecommunications'
   },
   {
-    match: /^\/area\/Trade-Secrets(\/|)$/,
+    match: /^\/area\/Trade-Secrets(\/|)$/i,
     redirect: '/practice-areas/trade-secrets'
   },
   {
-    match: /^\/area\/United-States(\/|)$/,
+    match: /^\/area\/United-States(\/|)$/i,
     redirect: '/practice-areas/united-states'
   },
   {
-    match: /^\/area\/White-Collar-Defense(\/|)$/,
+    match: /^\/area\/White-Collar-Defense(\/|)$/i,
     redirect: '/practice-areas/white-collar-defense'
   },
   {
-    match: /^\/area\/Workforce-Data-and-Technology(\/|)$/,
+    match: /^\/area\/Workforce-Data-and-Technology(\/|)$/i,
     redirect: '/practice-areas/workforce-data-and-technology'
   },
   {
-    match: /^\/area\/Workplace-Retaliation-and-Whistleblower-Defense(\/|)$/,
+    match: /^\/area\/Workplace-Retaliation-and-Whistleblower-Defense(\/|)$/i,
     redirect: '/practice-areas/workplace-retaliation-and-whistleblower-defense'
-  }
+  },
+  //practice area articles
+  {
+  match: /^\/area\/securities-and-capital-markets\/ipo-report----half-year-2020(\/|)$/i,
+  redirect: "/insights/practice-area-articles/going-public-the-u-s-ipo-report"
+  },
+  {
+    match: /^\/area\/libor-transition\/libor-transition-timeline\/?id=b94c956e-2334-6428-811c-ff00004cbded(\/|)$/i,
+    redirect: "/insights/practice-area-articles/libor-transition-timeline"
+  },
+  {
+    match: /^\/area\/intellectual-property\/how-to-successfully-litigate-during-a-pandemic(\/|)$/i,
+    redirect: "/insights/practice-area-articles/how-to-successfully-litigate-during-a-pandemic"
+  },
+  {
+    match: /^\/area\/libor-transition\/libor-transition-timeline\/?id=b94c956e-2334-6428-811c-ff00004cbded(\/|)$/i,
+    redirect: "/insights/practice-area-articles/libor-transition-timeline"
+  },
+  {
+    match: /^\/area\/employment-law\/future-of-work(\/|)$/i,
+    redirect: "/insights/practice-area-articles/future-of-work"
+  },
+  {
+    match: /^\/about-us\/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events\/u.s.-court-closings-cancellations-and-restrictions-due-to-covid-19(\/|)$/i,
+    redirect: "/insights/practice-area-articles/u-s-court-closings-restrictions-and-re-openings-due-to-covid-19"
+  },
+  {
+    match: /^\/area\/international-employment-law\/international-employment-law-map(\/|)$/i,
+    redirect: "/insights/practice-area-articles/international-employment-law-map"
+  },
+  {
+    match: /^\/area\/Technology-Media-Entertainment-and-Telecommunications\/survival-and-growth-in-the-new-digital-economy(\/|)$/i,
+    redirect: "/insights/practice-area-articles/survival-and-growth-in-the-new-digital-economy"
+  },
+  //csr
+  {
+    match: /^\/csr\/diversity\/diversity-and-inclusion-insights(\/|)$/i,
+    redirect: "https://csr.paulhastings.com/diversity-inclusion/"
+  },
+  {
+    match: /^\/csr\/diversity(\/|)$/i,
+    redirect: "https://csr.paulhastings.com/diversity-inclusion/"
+  },
 ]
 
 const generatedRedirects = [  
@@ -33424,7 +33468,3739 @@ const generatedRedirects = [
   {
     "match": "/publications-items/details/?id=c5426870-2334-6428-811c-ff00004cbded",
     "redirect": "/insights/attorney-authored/global-employer-update-minimizing-legal-risks-in-the-covid-era"
-  }
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/01/23/federal-government-issues-final-rules-governing-mental-health-and-substance-abuse-parity",
+    "redirect": "/insights/erisa-and-global-benefits/blog-federal-government-issues-final-rules-governing-mental-health-and-substance-abuse-parity"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/11/19/the-global-compensation-benefits-erisa-practice-group",
+    "redirect": "/insights/erisa-and-global-benefits/blog-seventh-circuit-ruling-expands-circuit-split-on-contraception-mandate"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/08/27/When-It-Comes-To-Robocalls-Consent-is-Not-Forever",
+    "redirect": "/insights/caveat-vendor/blog-when-it-comes-to-robocalls-consent-is-not-forever"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/11/25/-Legally-binding-Rights-Tax-Ruling-for-Bonus-Deductions-409A-",
+    "redirect": "/insights/erisa-and-global-benefits/blog-legally-binding-rights-tax-ruling-for-bonus-deductions-409a"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/11/19/Federal-Government-Issues-Final-Rules-Governing-Mental-Health-and-Substance-Abuse-Parity",
+    "redirect": "/insights/erisa-and-global-benefits/blog-federal-government-issues-final-rules-governing-mental-health-and-substance-abuse-parity"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/11/04/New-FSA-Carry-over-Rule",
+    "redirect": "/insights/erisa-and-global-benefits/blog-new-fsa-carry-over-rule"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/10/30/CEO-Pay-Ratio-Disclosure-Now-is-the-Time-for-Comments-on-the-SEC-s-Proposed-Rules",
+    "redirect": "/insights/erisa-and-global-benefits/blog-ceo-pay-ratio-disclosure-now-is-the-time-for-comments-on-the-secs-proposed-rules"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/10/17/California-Adopts-Same-Sex-and-Domestic-Partner-Gross-up-Tax-Provision",
+    "redirect": "/insights/erisa-and-global-benefits/blog-california-adopts-same-sex-and-domestic-partner-gross-up-tax-provision"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/10/03/IRS-Provides-Special-Administrative-Procedures-For-Post-Windsor-Refund-Claims",
+    "redirect": "/insights/erisa-and-global-benefits/blog-irs-provides-special-administrative-procedures-for-post-windsor-refund-claims"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/10/02/New-Law-Expands-California-s-Paid-Family-Leave-Benefits-to-Cover-Care-for-Ill-Siblings-Grandparents-Grandchildren-and-Parents-In-Law-",
+    "redirect": "/insights/erisa-and-global-benefits/blog-new-law-expands-californias-paid-family-leave-benefits-to-cover-care-for-ill-siblings-grandparents-grandchildren-and-parents-in-law"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/09/20/DOL-Announces-State-of-Celebration-ERISA-Rule-for-Same-Sex-Marriage-Agreeing-with-IRS-and-Treasury",
+    "redirect": "/insights/erisa-and-global-benefits/blog-dol-announces-state-of-celebration-erisa-rule-for-same-sex-marriage-agreeing-with-irs-and-treasury"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/09/16/Severance-Pay-and-Employment-Taxes-Addressed-in-IRS-Chief-Counsel-Memo-",
+    "redirect": "/insights/erisa-and-global-benefits/blog-severance-pay-and-employment-taxes-addressed-in-irs-chief-counsel-memo"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/09/09/IRS-and-Treasury-Apply-State-of-Celebration-Rule-for-Same-Sex-Marriage",
+    "redirect": "/insights/erisa-and-global-benefits/blog-irs-and-treasury-apply-state-of-celebration-rule-for-same-sex-marriage"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/09/03/Stock-Plan-Limits-162-m-Disclosure-Gives-Legs-to-Shareholder-Derivative-Litigation",
+    "redirect": "/insights/erisa-and-global-benefits/blog-stock-plan-limits-162m-disclosure-gives-legs-to-shareholder-derivative-litigation"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/08/01/Death-Benefits-Post-Windsor-First-Decision-for-the-Same-sex-Spouse",
+    "redirect": "/insights/erisa-and-global-benefits/blog-death-benefits-post-windsor-first-decision-for-the-same-sex-spouse"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2013/08/01/Consider-ERISA-Pension-Liability-Risks-from-Portfolio-Plans-",
+    "redirect": "/insights/erisa-and-global-benefits/blog-consider-erisa-pension-liability-risks-from-portfolio-plans"
+  },
+  {
+    "match": "/publications-items/blog/practical-intelligence-alert/practical-intelligence-alert/2014/02/12/european-derivatives-regulation-spotlight-on-the-european-markets-and-infrastructure-regulation-(-emir-)",
+    "redirect": "/insights/practical-intelligence-alert/blog-european-derivatives-regulation-spotlight-on-the-european-markets-and-infrastructure-regulation-emir"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/02/12/second-circuit-certifies-separate-entity-rule-to-new-york-court-of-appeals",
+    "redirect": "/insights/the-enforcer/blog-second-circuit-certifies-separate-entity-rule-to-new-york-court-of-appeals"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/03/04/The-Gift-that-Keeps-on-Giving-FTC-Settles-with-Additional-Text-Marketers-in-Ongoing-Gift-Card-Enforcement-Sweep",
+    "redirect": "/insights/caveat-vendor/blog-the-gift-that-keeps-on-giving-ftc-settles-with-additional-text-marketers-in-ongoing-gift-card-enforcement-sweep"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/02/21/-Expectorating-the-Shell-Doesn-t-Spit-Out-the-Liability",
+    "redirect": "/insights/caveat-vendor/blog-expectorating-the-shell-doesnt-spit-out-the-liability"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/02/05/Ninth-Circuit-Issues-Important-Case-Interpreting-Article-III-Requirements-in-Statutory-Rights-Cases",
+    "redirect": "/insights/caveat-vendor/blog-ninth-circuit-issues-important-case-interpreting-article-iii-requirements-in-statutory-rights-cases"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/01/24/One-More-Time-FCC-Seeks-Public-Comment-on-Request-to-Exempt-On-Demand-Texts-From-New-TCPA-Regs",
+    "redirect": "/insights/caveat-vendor/blog-one-more-time-fcc-seeks-public-comment-on-request-to-exempt-on-demand-texts-from-new-tcpa-regs"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/01/14/For-Some-Disease-and-Health-Related-Claims-Two-Trials-Is-Too-Much-Says-FTC-Commissioner",
+    "redirect": "/insights/caveat-vendor/blog-for-some-disease-and-health-related-claims-two-trials-is-too-much-says-ftc-commissioner"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/12/18/The-Ordinary-Course-A-Look-at-Privacy-Law-Developments-in-the-Google-Cases",
+    "redirect": "/insights/caveat-vendor/blog-the-ordinary-course-a-look-at-privacy-law-developments-in-the-google-cases"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/12/04/Not-Done-Yet-The-FCC-Asks-for-Public-Input-on-a-Request-to-Exempt-Package-Delivery-Notices-from-TCPA-Consent-Requirements",
+    "redirect": "/insights/caveat-vendor/blog-not-done-yet-the-fcc-asks-for-public-input-on-a-request-to-exempt-package-delivery-notices-from-tcpa-consent-requirements"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/12/03/Another-Week-Another-TCPA-Petition-FCC-Seeks-Comment-on-Treatment-of-User-Initiated-SMS-under-TCPA",
+    "redirect": "/insights/caveat-vendor/blog-another-week-another-tcpa-petition-fcc-seeks-comment-on-treatment-of-user-initiated-sms-under-tcpa"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/26/The-FTC-Workshop-on-Privacy-Security-and-the-Internet-of-Things",
+    "redirect": "/insights/caveat-vendor/blog-the-ftc-workshop-on-privacy-security-and-the-internet-of-things"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/20/More-Clarification-Needed-FCC-Seeks-Public-Input-on-Autodialer-Definition-under-TCPA-",
+    "redirect": "/insights/caveat-vendor/blog-more-clarification-needed-fcc-seeks-public-input-on-autodialer-definition-under-tcpa"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/20/Government-Spying-and-Big-Data-What-are-the-Implications-for-Data-Centers-and-their-Customers-",
+    "redirect": "/insights/caveat-vendor/blog-government-spying-and-big-data-what-are-the-implications-for-data-centers-and-their-customers"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/12/Recent-Song-Beverly-Act-Cases-Highlight-Divide-Between-Online-and-Offline-Commerce",
+    "redirect": "/insights/caveat-vendor/blog-recent-song-beverly-act-cases-highlight-divide-between-online-and-offline-commerce"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/11/Six-Degrees-of-Separation-California-Continues-To-Pull-Away-From-the-Pack-With-Six-New-Privacy-Laws-This-Session",
+    "redirect": "/insights/caveat-vendor/blog-six-degrees-of-separation-california-continues-to-pull-away-from-the-pack-with-six-new-privacy-laws-this-session"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/08/-Please-Reconsider-The-Direct-Marketing-Industry-Asks-The-FCC-To-Re-Think-Its-Position-On-TCPA-Consents",
+    "redirect": "/insights/caveat-vendor/blog-please-reconsider-the-direct-marketing-industry-asks-the-fcc-to-re-think-its-position-on-tcpa-consents"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/06/Wheel-of-Fortune-New-FCC-Chair-Wheeler-To-Take-A-Whirl-at-Privacy-How-Will-Industry-Fare-",
+    "redirect": "/insights/caveat-vendor/blog-wheel-of-fortune-new-fcc-chair-wheeler-to-take-a-whirl-at-privacy-how-will-industry-fare"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/04/Important-Developments-for-Telemarketers-and-Their-Clients-in-FCC-Regulations-under-the-Telephone-Consumer-Protection-Act",
+    "redirect": "/insights/caveat-vendor/blog-important-developments-for-telemarketers-and-their-clients-in-fcc-regulations-under-the-telephone-consumer-protection-act"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/11/01/Even-More-Radical-Changes-to-EU-Data-Protection-Regime-May-Be-Delayed-to-2015",
+    "redirect": "/insights/caveat-vendor/blog-even-more-radical-changes-to-eu-data-protection-regime-may-be-delayed-to-2015"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/10/24/EU-On-Data-Privacy-One-Tough-Cookie",
+    "redirect": "/insights/caveat-vendor/blog-eu-on-data-privacy-one-tough-cookie"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/10/07/New-York-s-Statutory-Prohibition-on-Surcharging-Credit-Card-Transactions-Held-Unconstitutional",
+    "redirect": "/insights/caveat-vendor/blog-new-yorks-statutory-prohibition-on-surcharging-credit-card-transactions-held-unconstitutional"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/10/01/California-Expands-Data-Breach-Notification-Requirements",
+    "redirect": "/insights/caveat-vendor/blog-california-expands-data-breach-notification-requirements"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/10/01/The-California-Personal-Privacy-Initiative-A-Potential-Platform-for-New-Consumer-Class-Actions-in-California",
+    "redirect": "/insights/caveat-vendor/blog-the-california-personal-privacy-initiative-a-potential-platform-for-new-consumer-class-actions-in-california"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/30/California-Gives-its-Teens-the-Right-to-Be-Forgotten",
+    "redirect": "/insights/caveat-vendor/blog-california-gives-its-teens-the-right-to-be-forgotten"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/23/New-Paul-Hastings-Partner-To-Address-Changes-To-TCPA",
+    "redirect": "/insights/caveat-vendor/blog-new-paul-hastings-partner-to-address-changes-to-tcpa"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/23/FCC-s-New-Rules-On-Telemarketing-Calls-Take-Full-Effect-In-October",
+    "redirect": "/insights/caveat-vendor/blog-fccs-new-rules-on-telemarketing-calls-take-full-effect-in-october"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/23/Waiver-As-to-One-Waiver-As-to-All-California-Court-Says-Pre-Certification-Discovery-Waives-Rights-to-Compel-Arbitration-in-Consumer-Class-Action-Disputes",
+    "redirect": "/insights/caveat-vendor/blog-waiver-as-to-one-waiver-as-to-all-california-court-says-pre-certification-discovery-waives-rights-to-compel-arbitration-in-consumer-class-action-disputes"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/18/FTC-No-Fan-of-Blurred-Lines-When-It-Comes-To-Sponsored-Ads",
+    "redirect": "/insights/caveat-vendor/blog-ftc-no-fan-of-blurred-lines-when-it-comes-to-sponsored-ads"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/09/17/Revel-Lawsuit-Shows-Ad-Fine-Print-Isn-t-Always-a-Safe-Bet",
+    "redirect": "/insights/caveat-vendor/blog-revel-lawsuit-shows-ad-fine-print-isnt-always-a-safe-bet"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/08/26/Julie-Brill-the-Safe-Harbor-and-the-NSA-Unintended-Consequences-",
+    "redirect": "/insights/caveat-vendor/blog-julie-brill-the-safe-harbor-and-the-nsa-unintended-consequences"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/08/22/FTC-Releases-Second-Set-of-COPPA-FAQs-Here-Are-Some-Highlights",
+    "redirect": "/insights/caveat-vendor/blog-ftc-releases-second-set-of-coppa-faqs-here-are-some-highlights"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/08/02/Fifth-Circuit-Says-We-re-Not-New-Jersey-Or-We-Don-t-Need-No-Stinking-Warrant-",
+    "redirect": "/insights/caveat-vendor/blog-fifth-circuit-says-were-not-new-jersey-or-we-dont-need-no-stinking-warrant"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/08/01/NTIA-Code-Requires-Disclosure-of-Information-Collection-Practices-Before-App-Downloads",
+    "redirect": "/insights/caveat-vendor/blog-ntia-code-requires-disclosure-of-information-collection-practices-before-app-downloads"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/07/30/Ninth-Circuit-Slams-Conditional-Incentive-Awards-in-Class-Action-Settlement",
+    "redirect": "/insights/caveat-vendor/blog-ninth-circuit-slams-conditional-incentive-awards-in-class-action-settlement"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/07/22/The-Garden-State-Says-Hands-Off-My-Cell-Phone-Data-",
+    "redirect": "/insights/caveat-vendor/blog-the-garden-state-says-hands-off-my-cell-phone-data"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/07/10/Policing-Mobile-Apps-Remains-Top-Priority-for-California-s-Attorney-General",
+    "redirect": "/insights/caveat-vendor/blog-policing-mobile-apps-remains-top-priority-for-californias-attorney-general"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/06/26/Supreme-Court-to-Decide-Constitutionality-of-Recess-Appointments",
+    "redirect": "/insights/caveat-vendor/blog-supreme-court-to-decide-constitutionality-of-recess-appointments"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/06/13/Attention-Bargain-Shoppers-When-a-Sale-Really-Is-Too-Good-To-Be-True",
+    "redirect": "/insights/caveat-vendor/blog-attention-bargain-shoppers-when-a-sale-really-is-too-good-to-be-true"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/06/13/FinCEN-Virtual-Currencies-Guidance-Already-Shaking-Up-Online-Currency-Exchanges",
+    "redirect": "/insights/caveat-vendor/blog-fincen-virtual-currencies-guidance-already-shaking-up-online-currency-exchanges"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/06/11/Small-Case-Big-Impact-CFPB-Cracks-Down-on-Abusive-Practices-Under-Dodd-Frank",
+    "redirect": "/insights/caveat-vendor/blog-small-case-big-impact-cfpb-cracks-down-on-abusive-practices-under-dodd-frank"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/05/29/FTC-Proposes-Ban-on-Telemarketers-Use-of-Novel-Payment-Instruments-",
+    "redirect": "/insights/caveat-vendor/blog-ftc-proposes-ban-on-telemarketers-use-of-novel-payment-instruments"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/05/22/Social-Media-Privacy-New-Jersey-Joins-The-Fray",
+    "redirect": "/insights/caveat-vendor/blog-social-media-privacy-new-jersey-joins-the-fray"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/05/10/California-s-Attorney-General-Foiled-In-First-Foray-On-Mobile-Privacy",
+    "redirect": "/insights/caveat-vendor/blog-californias-attorney-general-foiled-in-first-foray-on-mobile-privacy"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/05/08/State-Attorneys-General-Step-Up-Scrutiny-of-Data-Breaches",
+    "redirect": "/insights/caveat-vendor/blog-state-attorneys-general-step-up-scrutiny-of-data-breaches"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/05/06/Legislation-To-Permit-Cyber-Intelligence-Sharing-Why-All-The-Fuss-",
+    "redirect": "/insights/caveat-vendor/blog-legislation-to-permit-cyber-intelligence-sharing-why-all-the-fuss"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/04/29/FTC-Releases-Updated-COPPA-FAQs",
+    "redirect": "/insights/caveat-vendor/blog-ftc-releases-updated-coppa-faqs"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/04/23/The-Social-Media-Backlash-Begins-",
+    "redirect": "/insights/caveat-vendor/blog-the-social-media-backlash-begins"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/04/17/No-Right-to-Privacy-in-Peer-to-Peer-File-Sharing",
+    "redirect": "/insights/caveat-vendor/blog-no-right-to-privacy-in-peer-to-peer-file-sharing"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/04/17/Why-a-YouTube-Video-Continues-to-Affect-Your-Access-to-Online-Banking",
+    "redirect": "/insights/caveat-vendor/blog-why-a-youtube-video-continues-to-affect-your-access-to-online-banking"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/04/10/Certification-of-Privacy-Class-Harbinger-of-Things-to-Come-",
+    "redirect": "/insights/caveat-vendor/blog-certification-of-privacy-class-harbinger-of-things-to-come"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/21/Supreme-Court-Says-Federal-Courts-Not-So-Easily-Avoided-In-Class-Cases-",
+    "redirect": "/insights/caveat-vendor/blog-supreme-court-says-federal-courts-not-so-easily-avoided-in-class-cases"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/20/Sports-Bettors-Can-Start-Fantasizing-New-Jersey-to-Allow-Fantasy-Sports-Betting-at-Casinos",
+    "redirect": "/insights/caveat-vendor/blog-sports-bettors-can-start-fantasizing-new-jersey-to-allow-fantasy-sports-betting-at-casinos"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/16/Do-you-have-a-right-to-privacy-in-your-address-",
+    "redirect": "/insights/caveat-vendor/blog-do-you-have-a-right-to-privacy-in-your-address"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/15/Can-There-Be-Too-Much-Notice-House-of-Representatives-Says-Yes-",
+    "redirect": "/insights/caveat-vendor/blog-can-there-be-too-much-notice-house-of-representatives-says-yes"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/14/FTC-Revises-Its-Guide-To-Dot-Com-Disclosures",
+    "redirect": "/insights/caveat-vendor/blog-ftc-revises-its-guide-to-dot-com-disclosures"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/13/Digital-Privacy-Reform-Bipartisan-Legislation-Introduced-in-the-House",
+    "redirect": "/insights/caveat-vendor/blog-digital-privacy-reform-bipartisan-legislation-introduced-in-the-house"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/12/Employers-Employees-and-Social-Media-",
+    "redirect": "/insights/caveat-vendor/blog-employers-employees-and-social-media"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/12/FTC-Puts-Children-s-Sites-On-Notice-Is-Your-Refrigerator-Next-",
+    "redirect": "/insights/caveat-vendor/blog-ftc-puts-childrens-sites-on-notice-is-your-refrigerator-next"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/12/FTC-Issues-Privacy-and-Security-Recommendations-for-Mobile-Payments-Industry",
+    "redirect": "/insights/caveat-vendor/blog-ftc-issues-privacy-and-security-recommendations-for-mobile-payments-industry"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/07/Online-Privacy-Reform-More-Talk-Promises-of-Action-",
+    "redirect": "/insights/caveat-vendor/blog-online-privacy-reform-more-talk-promises-of-action"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/02/Obama-Chooses-Ramirez-for-FTC-Chair-",
+    "redirect": "/insights/caveat-vendor/blog-obama-chooses-ramirez-for-ftc-chair"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/03/01/Supreme-Court-Speculative-Spying-Not-Enough-for-Standing",
+    "redirect": "/insights/caveat-vendor/blog-supreme-court-speculative-spying-not-enough-for-standing"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/20/NAD-Attempts-To-Deter-Copy-Cat-Class-Actions-",
+    "redirect": "/insights/caveat-vendor/blog-nad-attempts-to-deter-copy-cat-class-actions"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/09/-CBR-to-Class-Members-For-Your-Troubles-Credit-Monitoring",
+    "redirect": "/insights/caveat-vendor/blog-cbr-to-class-members-for-your-troubles-credit-monitoring"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/09/Domino-Effect-How-A-Ruling-On-The-National-Labor-Relations-Board-Could-Cripple-The-Consumer-Financial-Protection-Bureau",
+    "redirect": "/insights/caveat-vendor/blog-domino-effect-how-a-ruling-on-the-national-labor-relations-board-could-cripple-the-consumer-financial-protection-bureau"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/08/FTC-Data-Security-Promise-Keeper-",
+    "redirect": "/insights/caveat-vendor/blog-ftc-data-security-promise-keeper"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/07/California-Supreme-Court-Rules-in-Apple-Inc-v-Superior-Court-That-Online-Retailers-May-Request-Personal-Identification-Information-From-Purchasers-of-Electronic-Downloads-",
+    "redirect": "/insights/caveat-vendor/blog-california-supreme-court-rules-in-apple-inc-v-superior-court-that-online-retailers-may-request-personal-identification-information-from-purchasers-of-electronic-downloads"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/07/HITECH-Final-Rule-Makes-Significant-Changes-to-and-Provides-Key-Clarifications-on-HIPAA-Rules",
+    "redirect": "/insights/caveat-vendor/blog-hitech-final-rule-makes-significant-changes-to-and-provides-key-clarifications-on-hipaa-rules"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/02/When-Does-A-Game-Become-Gambling-The-UK-May-Be-Barking-Up-The-Wrong-Tree-",
+    "redirect": "/insights/caveat-vendor/blog-when-does-a-game-become-gambling-the-uk-may-be-barking-up-the-wrong-tree"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/01/FTC-Finds-POM-Not-So-Wonderful",
+    "redirect": "/insights/caveat-vendor/blog-ftc-finds-pom-not-so-wonderful"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2013/02/01/Preventing-Employer-Access-to-Social-Media-Silver-Bullets-or-Near-Misses-",
+    "redirect": "/insights/caveat-vendor/blog-preventing-employer-access-to-social-media-silver-bullets-or-near-misses"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/03/10/All-You-Need-Is-Harm-SCOTUS-Denies-Cert-To-Eighth-Circuit-Opinion-on-Article-III-Standing",
+    "redirect": "/insights/caveat-vendor/blog-all-you-need-is-harm-scotus-denies-cert-to-eighth-circuit-opinion-on-article-iii-standing"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/02/19/Spin-off-Playbook-When-Corporate-Transactions-Impact-Benefit-Plans",
+    "redirect": "/insights/erisa-and-global-benefits/blog-spin-off-playbook-when-corporate-transactions-impact-benefit-plans"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/02/10/401-k-Committee-Minutes-and-Attorney-Client-Privilege",
+    "redirect": "/insights/erisa-and-global-benefits/blog-401k-committee-minutes-and-attorney-client-privilege"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/03/13/court-of-appeals-accepts-certified-questions-concerning-the-separate-entity-rule",
+    "redirect": "/insights/the-enforcer/blog-court-of-appeals-accepts-certified-questions-concerning-the-separate-entity-rule"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/02/04/first-line-of-defense-bauman-s-significant-impact-on-enforcement-proceedings-against-foreign-corporation-judgment-debtors",
+    "redirect": "/insights/the-enforcer/blog-first-line-of-defense-baumans-significant-impact-on-enforcement-proceedings-against-foreign-corporation-judgment-debtors"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/03/31/shades-of-gray-broad-definition-of-consent-creates-formidable-obstacle-to-privacy-class-claims",
+    "redirect": "/insights/caveat-vendor/blog-shades-of-gray-broad-definition-of-consent-creates-formidable-obstacle-to-privacy-class-claims"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/04/10/chevron-v.-donziger-an-enforcement-action-drama",
+    "redirect": "/insights/the-enforcer/blog-chevron-v-donziger-an-enforcement-action-drama"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/04/10/ftc-data-security-case-moves-forward",
+    "redirect": "/insights/caveat-vendor/blog-ftc-data-security-case-moves-forward"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/03/28/fcc-takes-first-steps-to-clarify-tcpa-rules",
+    "redirect": "/insights/caveat-vendor/blog-fcc-takes-first-steps-to-clarify-tcpa-rules"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/03/10/cybersecurity-and-data-theft-obama-cares",
+    "redirect": "/insights/caveat-vendor/blog-cybersecurity-and-data-theft-obama-cares"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/04/17/judgment-of-a-foreign-criminal-court-held-not-penal-under-the-uniform-foreign-country-money-judgments-recognition-act",
+    "redirect": "/insights/the-enforcer/blog-judgment-of-a-foreign-criminal-court-held-not-penal-under-the-uniform-foreign-country-money-judgments-recognition-act"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/04/30/pom-decertification-wonderful-for-class-defendants-not-so-sweet-for-plaintiffs",
+    "redirect": "/insights/caveat-vendor/blog-pom-decertification-wonderful-for-class-defendants-not-so-sweet-for-plaintiffs"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/05/01/overseas-data-not-safe-from-u.s.-government-search-warrant-power",
+    "redirect": "/insights/caveat-vendor/blog-overseas-data-not-safe-from-us-government-search-warrant-power"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/05/09/going-going-not-gone-snapchat-settles-ftc-claims-regarding-non-disappearing-messages",
+    "redirect": "/insights/caveat-vendor/blog-going-going-not-gone-snapchat-settles-ftc-claims-regarding-non-disappearing-messages"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/05/14/scope-of-stored-communications-act-continues-to-be-defined-doj-says-companies-can-share-aggregated-cyber-threat-data",
+    "redirect": "/insights/caveat-vendor/blog-scope-of-stored-communications-act-continues-to-be-defined-doj-says-companies-can-share-aggregated-cyber-threat-data"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/05/21/one-view-ecj-s-google-ruling-will-make-it-harder-to-trust-search-results",
+    "redirect": "/insights/caveat-vendor/blog-one-view-ecjs-google-ruling-will-make-it-harder-to-trust-search-results"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/05/23/clarifying-california-law-on-privacy-policies-california-ag-issues-new-guidance",
+    "redirect": "/insights/caveat-vendor/blog-clarifying-california-law-on-privacy-policies-california-ag-issues-new-guidance"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/02/the-ftc-s-five-specific-recommendations-to-limit-data-brokers-spur-to-action-or-legislative-dead-end",
+    "redirect": "/insights/caveat-vendor/blog-the-ftcs-five-specific-recommendations-to-limit-data-brokers-spur-to-action-or-legislative-dead-end"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/03/florida-revamps-data-breach-notification-law",
+    "redirect": "/insights/caveat-vendor/blog-florida-revamps-data-breach-notification-law"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/11/possible-new-state-legislative-trend-bans-on-microbeads-in-cosmetics-and-other-personal-consumer-products",
+    "redirect": "/insights/caveat-vendor/blog-possible-new-state-legislative-trend-bans-on-microbeads-in-cosmetics-and-other-personal-consumer-products"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/13/supreme-court-oks-lanham-act-for-food-labeling-despite-fdca",
+    "redirect": "/insights/caveat-vendor/blog-supreme-court-oks-lanham-act-for-food-labeling-despite-fdca"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/13/warrantless-cell-tracking-won-t-work-.-.-.-at-least-not-in-the-eleventh-circuit",
+    "redirect": "/insights/caveat-vendor/blog-warrantless-cell-tracking-wont-work-at-least-not-in-the-eleventh-circuit"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/06/26/cell-phones-are-not-like-pockets-says-scotus",
+    "redirect": "/insights/caveat-vendor/blog-cell-phones-are-not-like-pockets-says-scotus"
+  },
+  {
+    "match": "/publications-items/blog/the-enforcer/the-enforcer/2014/06/30/reluctant-guests-board-rule-69-s-fishing-charter",
+    "redirect": "/insights/the-enforcer/blog-reluctant-guests-board-rule-69s-fishing-charter"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/07/03/presumption-of-esop-fiduciary-prudence-a-fading-memory",
+    "redirect": "/insights/erisa-and-global-benefits/blog-presumption-of-esop-fiduciary-prudence-a-fading-memory"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/07/07/erisa-budget-accounts-top-six-action-items",
+    "redirect": "/insights/erisa-and-global-benefits/blog-erisa-budget-accounts-top-six-action-items"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/07/14/death-debt-collection-and-the-tcpa-fcc-urges-second-circuit-to-limit-scope-of-son-in-law-s-consent",
+    "redirect": "/insights/caveat-vendor/blog-death-debt-collection-and-the-tcpa-fcc-urges-second-circuit-to-limit-scope-of-son-in-laws-consent"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/07/14/9th-circuit-affirms-that-taco-bell-is-not-vicariously-liable-for-tcpa-violations",
+    "redirect": "/insights/caveat-vendor/blog-9th-circuit-affirms-that-taco-bell-is-not-vicariously-liable-for-tcpa-violations"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/07/23/appellate-courts-disagree-on-whether-federal-exchange-premium-subsidies-are-legal-under-aca",
+    "redirect": "/insights/erisa-and-global-benefits/blog-appellate-courts-disagree-on-whether-federal-exchange-premium-subsidies-are-legal-under-aca"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/07/24/call-(and-record)-me-maybe-dismissal-of-call-recording-class-action-may-signal-reduced-liability-for-service-providers",
+    "redirect": "/insights/caveat-vendor/blog-call-and-record-me-maybe-dismissal-of-call-recording-class-action-may-signal-reduced-liability-for-service-providers"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/08/01/m-a-severance-payable-despite-no-job-loss-(plan-terminology-backfires)",
+    "redirect": "/insights/erisa-and-global-benefits/blog-ma-severance-payable-despite-no-job-loss-plan-terminology-backfires"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/09/08/forfeiture-for-disloyalty-sustained-by-texas-supreme-court-(applying-ny-choice-of-law)",
+    "redirect": "/insights/erisa-and-global-benefits/blog-forfeiture-for-disloyalty-sustained-by-texas-supreme-court-applying-ny-choice-of-law"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/09/16/italian-data-privacy-law-the-recent-decision-on-google",
+    "redirect": "/insights/caveat-vendor/blog-italian-data-privacy-law-the-recent-decision-on-google"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/09/18/ftc-workshop-on-big-data-lots-of-questions-a-few-answers",
+    "redirect": "/insights/caveat-vendor/blog-ftc-workshop-on-big-data-lots-of-questions-a-few-answers"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/09/24/a-growing-tcpa-storm-courts-grapple-with-jurisdictional-issues-in-tcpa-litigation",
+    "redirect": "/insights/caveat-vendor/blog-a-growing-tcpa-storm-courts-grapple-with-jurisdictional-issues-in-tcpa-litigation"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/09/25/complex-and-competing-data-privacy-considerations-in-apple-s-move-to-store-data-in-china",
+    "redirect": "/insights/caveat-vendor/blog-complex-and-competing-data-privacy-considerations-in-apples-move-to-store-data-in-china"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/09/29/do-proposed-fda-pharma-twitter-rules-violate-the-firstamendment",
+    "redirect": "/insights/caveat-vendor/blog-do-proposed-fda-pharma-twitter-rules-violate-the-firstamendment"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/10/08/tcpa-update-eleventh-circuit-rejects-district-court-s-attempt-to-review-the-fcc-s-consent-policy-for-debt-collection-calls",
+    "redirect": "/insights/caveat-vendor/blog-tcpa-update-eleventh-circuit-rejects-district-courts-attempt-to-review-the-fccs-consent-policy-for-debt-collection-calls"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/10/08/eleventh-circuit-holds-that-an-erisa-plan-seeking-to-recover-funds-via-an-equitable-lien-created-by-the-plan-s-subrogation-provision-is-not-required-to-satisfy-traditional-strict-tracing-rules",
+    "redirect": "/insights/erisa-and-global-benefits/blog-11th-cir-declares-tracing-not-required-for-erisa-liens"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/10/14/first-circuit-rejects-continuing-violation-or-installment-contract-accrual-theories-for-erisa-benefits-claims",
+    "redirect": "/insights/erisa-and-global-benefits/blog-first-circuit-rejects-continuing-violation-or-installment-contract-accrual-theories-for-erisa-benefits-claims"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/10/20/fcc-seeks-public-input-who-qualifies-as-a-called-party-under-tcpa",
+    "redirect": "/insights/caveat-vendor/blog-fcc-seeks-public-input-who-qualifies-as-a-called-party-under-tcpa"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/10/20/tcpa-update-second-circuit-agrees-with-fcc-and-limits-scope-of-son-in-law-s-consent",
+    "redirect": "/insights/caveat-vendor/blog-tcpa-update-second-circuit-agrees-with-fcc-and-limits-scope-of-son-in-laws-consent"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/10/22/certain-financial-institutions-can-save-money-by-posting-privacy-notices-online-says-the-cfpb",
+    "redirect": "/insights/caveat-vendor/blog-certain-financial-institutions-can-save-money-by-posting-privacy-notices-online-says-the-cfpb"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/10/28/fcc-enters-new-area-of-privacy-and-data-security-regulation-with-proposed-$10-million-fine",
+    "redirect": "/insights/caveat-vendor/blog-fcc-enters-new-area-of-privacy-and-data-security-regulation-with-proposed-10-million-fine"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/11/06/self-regulatory-organization-enforcement-agreements-aim-to-increase-transparency-in-personalized-ads",
+    "redirect": "/insights/caveat-vendor/blog-self-regulatory-organization-enforcement-agreements-aim-to-increase-transparency-in-personalized-ads"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2014/11/14/another-stock-award-scandal",
+    "redirect": "/insights/erisa-and-global-benefits/blog-another-stock-award-scandal"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2014/12/15/privacy-and-security-issues-faced-by-tech-companies",
+    "redirect": "/insights/caveat-vendor/blog-privacy-and-security-issues-faced-by-tech-companies"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/01/13/in-visit-to-ftc-president-outlines-broad-privacy-agenda-offers-scant-details",
+    "redirect": "/insights/caveat-vendor/blog-in-visit-to-ftc-president-outlines-broad-privacy-agenda-offers-scant-details"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/01/14/new-law-requires-new-jersey-health-insurance-companies-to-encrypt-personal-information",
+    "redirect": "/insights/caveat-vendor/blog-new-law-requires-new-jersey-health-insurance-companies-to-encrypt-personal-information"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/01/29/avoid-self-inflicted-liability-extraneous-plan-provisions",
+    "redirect": "/insights/erisa-and-global-benefits/blog-avoid-self-inflicted-liability-extraneous-plan-provisions"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/02/02/ftc-to-iot-developers-get-serious-(or-at-least-reasonable)-about-security",
+    "redirect": "/insights/caveat-vendor/blog-ftc-to-iot-developers-get-serious-or-at-least-reasonable-about-security"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/02/03/ninth-circuit-holds-that-beneficiary-designation-forms-are-not-plan-documents",
+    "redirect": "/insights/erisa-and-global-benefits/blog-ninth-circuit-holds-that-beneficiary-designation-forms-are-not-plan-documents"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/02/05/in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight",
+    "redirect": "/insights/caveat-vendor/blog-in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/02/10/clear-and-present-(capacity)-in-the-absence-of-fcc-guidance-federal-judge-interprets-scope-of-autodialer-definition-under-tcpa",
+    "redirect": "/insights/caveat-vendor/blog-clear-and-present-capacity-in-the-absence-of-fcc-guidance-federal-judge-interprets-scope-of-autodialer-definition-under-tcpa"
+  },
+  {
+    "match": "/publications-items/blog/the-federal-circuit-tracker/the-federal-circuit-tracker/2015/02/27/in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight",
+    "redirect": "/insights/the-federal-circuit-tracker/blog-in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight"
+  },
+  {
+    "match": "/publications-items/blog/the-federal-circuit-tracker/the-federal-circuit-tracker/2015/02/27/in-sweeping-proposal--sets-stage-for-greater-privacy-and-data-security-oversight",
+    "redirect": "/insights/the-federal-circuit-tracker/blog-in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight"
+  },
+  {
+    "match": "/publications-items/blog/the-federal-circuit-tracker/the-federal-circuit-tracker/2015/02/27/in-sweeping-proposal-to-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight",
+    "redirect": "/insights/the-federal-circuit-tracker/blog-in-sweeping-proposal-to-regulate-broadband-internet-service-fcc-sets-stage-for-greater-privacy-and-data-security-oversight"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/02/27/the-sec-s-proposed-disclosure-rules-for-hedging-transactions-by-directors-officers-and-employees",
+    "redirect": "/insights/erisa-and-global-benefits/blog-the-secs-proposed-disclosure-rules-for-hedging-transactions-by-directors-officers-and-employees"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/04/14/the-video-privacy-protection-act---recent-decisions-further-narrow-the-contours-of-liability",
+    "redirect": "/insights/caveat-vendor/blog-the-video-privacy-protection-act-recent-decisions-further-narrow-the-contours-of-liability"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/04/17/new-eeoc-guidance-about-wellness-programs",
+    "redirect": "/insights/erisa-and-global-benefits/blog-new-eeoc-guidance-about-wellness-programs"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/04/23/linkedin-reference-searches-do-not-violate-the-fcra-says-a-federal-court",
+    "redirect": "/insights/caveat-vendor/blog-linkedin-reference-searches-do-not-violate-the-fcra-says-a-federal-court"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/04/29/summary-plan-description-discretionary-grants-are-ineffective-to-invoke-firestone-defense-ninth-circuit-holds",
+    "redirect": "/insights/erisa-and-global-benefits/blog-summary-plan-description-discretionary-grants-are-ineffective-to-invoke-firestone-defense-ninth-circuit-holds"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/05/08/video-privacy-protection-act-does-not-protect-device-identifiers-another-court-rules",
+    "redirect": "/insights/caveat-vendor/blog-video-privacy-protection-act-does-not-protect-device-identifiers-another-court-rules"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/05/18/minnesota-online-lottery-gambling-takes-a-step-back",
+    "redirect": "/insights/caveat-vendor/blog-minnesota-online-lottery-gambling-takes-a-step-back"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/05/21/kansas-recognizes-fantasy-sports",
+    "redirect": "/insights/caveat-vendor/blog-kansas-recognizes-fantasy-sports"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/05/28/fcc-chairman-proposes-a-broad-ruling-to-clarify-and-expand-telemarketing-rules",
+    "redirect": "/insights/caveat-vendor/blog-fcc-chairman-proposes-a-broad-ruling-to-clarify-and-expand-telemarketing-rules"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/06/03/final-pay-ratio-rule-coming-in-2015-and-clawback-proposal-too",
+    "redirect": "/insights/erisa-and-global-benefits/blog-final-pay-ratio-rule-coming-in-2015-and-clawback-proposal-too"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/06/09/california-court-of-appeals-fine-tunes-the-reach-of-the-song-beverly-act",
+    "redirect": "/insights/caveat-vendor/blog-california-court-of-appeals-fine-tunes-the-reach-of-the-song-beverly-act"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/06/24/internet-of-things-continued-regulatory-focus-and-consistent-themes-but-not-without-discord",
+    "redirect": "/insights/caveat-vendor/blog-internet-of-things-continued-regulatory-focus-and-consistent-themes-but-not-without-discord"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/12/welcome-to-washington-perspectives",
+    "redirect": "/insights/washington-perspectives/blog-welcome-to-washington-perspectives"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/16/p5-1-negotiations-with-iran---june-16-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-16-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/17/p5-1-negotiations-with-iran---june-17-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-17-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/18/p5-1-negotiations-with-iran---june-18-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-18-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/19/p5-1-negotiations-with-iran---june-19-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-19-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/22/negotiations-could-continue-past-june-30-deadline",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-22-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/23/p5-1-negotiations-with-iran---june-23-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-23-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/24/p5-1-negotiations-with-iran---june-24-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-24-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/25/p5-1-negotiations-with-iran---june-25-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-25-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/26/p5-1-negotiations-with-iran---june-26-update",
+    "redirect": "/insights/washington-perspectives/blog-p5-1-negotiations-with-iran-june-26-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/29/p5-1-negotiations-with-iran---june-29-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-29-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/06/30/p5-1-negotiations-with-iran---june-30-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-june-30-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/01/new-chapter-begins-as-u.s.-and-cuba-agree-to-reopen-embassies",
+    "redirect": "/insights/washington-perspectives/blog-new-chapter-begins-as-us-and-cuba-agree-to-reopen-embassies"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/01/signs-of-progress-on-key-issues-emerge-in-vienna",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-1-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/02/p5-1-negotiations-with-iran---july-2-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-2-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/03/p5-1-negotiations-with-iran---july-3-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-3-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/06/p5-1-negotiations-with-iran---july-6-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-6-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/07/p5-1-negotiations-with-iran---july-7-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-7-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/08/p5-1-negotiations-with-iran---july-8-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-8-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/09/p5-1-negotiations-with-iran---july-9-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-9-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/10/p5-1-negotiations-with-iran---july-10-update",
+    "redirect": "/insights/washington-perspectives/blog-p51-negotiations-with-iran-july-10-update"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/14/p5-1-and-iran-reach-nuclear-agreement-in-vienna",
+    "redirect": "/insights/washington-perspectives/blog-p51-and-iran-reach-nuclear-agreement-in-vienna"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/07/20/the-dol-s-worker-misclassification-memo-and-benefit-plan-diligence",
+    "redirect": "/insights/erisa-and-global-benefits/blog-the-dols-worker-misclassification-memo-and-benefit-plan-diligence"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/20/united-states-and-cuba-formally-restore-diplomatic-ties",
+    "redirect": "/insights/washington-perspectives/blog-united-states-and-cuba-formally-restore-diplomatic-ties"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/07/20/un-passes-resolution-endorsing-joint-comprehensive-plan-of-action",
+    "redirect": "/insights/washington-perspectives/blog-un-passes-resolution-endorsing-joint-comprehensive-plan-of-action"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/07/27/seventh-circuit-expands-standing-for-consumers-bringing-suits-for-data-breaches",
+    "redirect": "/insights/caveat-vendor/blog-seventh-circuit-expands-standing-for-consumers-bringing-suits-for-data-breaches"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/07/31/internet-of-things-emerging-legal-landmines",
+    "redirect": "/insights/caveat-vendor/blog-internet-of-things-emerging-legal-landmines"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/08/03/fcc-and-the-iot-what-to-watch-for-this-week",
+    "redirect": "/insights/caveat-vendor/blog-fcc-and-the-iot-what-to-watch-for-this-week"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/08/10/a-circuit-split-emerges-at-least-for-now-the-protection-afforded-to-cell-location-information-depends-on-where-you-are",
+    "redirect": "/insights/caveat-vendor/blog-a-circuit-split-emerges-at-least-for-now-the-protection-afforded-to-cell-location-information-depends-on-where-you-are"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/09/01/three-lessons-learned-from-a-data-breach-investigation",
+    "redirect": "/insights/caveat-vendor/blog-three-lessons-learned-from-a-data-breach-investigation"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2015/08/14/u.s.-secretary-of-state-john-kerry-reopens-american-embassy-in-cuba",
+    "redirect": "/insights/washington-perspectives/blog-us-secretary-of-state-john-kerry-reopens-american-embassy-in-cuba"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/08/19/wave-of-ftc-safe-harbor-enforcement-continues-with-13-proposed-settlements",
+    "redirect": "/insights/caveat-vendor/blog-wave-of-ftc-safe-harbor-enforcement-continues-with-13-proposed-settlements"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/09/02/third-circuit-upholds-ftc-s-authority-to-regulate-cybersecurity-unfairness",
+    "redirect": "/insights/caveat-vendor/blog-third-circuit-upholds-ftcs-authority-to-regulate-cybersecurity-unfairness"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/09/15/asset-purchasers-face-escalating-erisa-liability-exposure-(9th-cir.-decision-is-the-latest)",
+    "redirect": "/insights/erisa-and-global-benefits/blog-asset-purchasers-face-escalating-erisa-liability-exposure-9th-cir-decision-is-the-latest"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/09/16/social-media-site-posts-safe-from-criminal-defendants-pre-trial-subpoenas-says-a-california-appellate-court",
+    "redirect": "/insights/caveat-vendor/blog-social-media-site-posts-safe-from-criminal-defendants-pre-trial-subpoenas-says-a-california-appellate-court"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/09/24/section-409a-corrections-to-employment-agreements---time-for-an-ounce-of-protection-in-2015",
+    "redirect": "/insights/erisa-and-global-benefits/blog-section-409a-corrections-to-employment-agreements-time-for-an-ounce-of-protection-in-2015"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/10/26/5-things-companies-should-consider-in-reaction-to-the-eu-decision-on-safe-harbor",
+    "redirect": "/insights/caveat-vendor/blog-5-things-companies-should-consider-in-reaction-to-the-eu-decision-on-safe-harbor"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/10/26/demise-of-the-eu-us-safe-harbor-10-steps-to-consider-moving-forward",
+    "redirect": "/insights/caveat-vendor/blog-demise-of-the-eu-us-safe-harbor-10-steps-to-consider-moving-forward"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/10/26/house-seeks-to-reassure-europe-by-approving-bill-to-extend-privacy-protections-to-certain-foreign-citizens",
+    "redirect": "/insights/caveat-vendor/blog-house-seeks-to-reassure-europe-by-approving-bill-to-extend-privacy-protections-to-certain-foreign-citizens"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/11/06/eu-u.s.-safe-harbor-update-agreement-in-principle-on-aspects-of-a-new-framework",
+    "redirect": "/insights/caveat-vendor/blog-eu-us-safe-harbor-update-agreement-in-principle-on-aspects-of-a-new-framework"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/11/10/6-things-financial-institutions-are-doing-in-response-to-new-regulator-cyber-audit-guidance-other-industries-take-note",
+    "redirect": "/insights/caveat-vendor/blog-6-things-financial-institutions-are-doing-in-response-to-new-regulator-cyber-audit-guidance-other-industries-take-note"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/11/18/has-labmd-slain-the-ftc-cybsecurity-dragon",
+    "redirect": "/insights/caveat-vendor/blog-has-labmd-slain-the-ftc-cybersecurity-dragon"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/11/23/key-takeaways-from-ftc-workshop-on-cross-device-tracking",
+    "redirect": "/insights/caveat-vendor/blog-key-takeaways-from-ftc-workshop-on-cross-device-tracking"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2015/12/02/eu-u.s.-safe-harbor-update-u.s.-chamber-of-commerce-businesseurope-issue-letter-urging-leaders-to-reach-new-agreement",
+    "redirect": "/insights/caveat-vendor/blog-eu-us-safe-harbor-update-us-chamber-of-commerce-businesseurope-issue-letter-urging-leaders-to-reach-new-agreement"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2015/12/28/cadillac-tax-delayed",
+    "redirect": "/insights/erisa-and-global-benefits/blog-cadillac-tax-delayed"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/12/02/eu-u.s.-safe-harbor-update-u.s.-chamber-of-commerce-businesseurope-issue-letter--urging-leaders-to-reach-new-agreement",
+    "redirect": "/insights/ph-privacy/blog-eu-us-safe-harbor-update-us-chamber-of-commerce-businesseurope-issue-letter-urging-leaders-to-reach-new-agreement"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/11/23/key-takeaways-from-ftc-workshop-on-cross-device-tracking-phprivacy",
+    "redirect": "/insights/ph-privacy/blog-key-takeaways-from-ftc-workshop-on-cross-device-tracking"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/11/18/has-labmd-slain-the-ftc-cybsecurity-dragon-phprivacy",
+    "redirect": "/insights/ph-privacy/blog-has-labmd-slain-the-ftc-cybersecurity-dragon"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/11/10/6-things-financial-institutions-are-doing-in-response-to-new-regulator-cyber-audit-guidance-other-industries-take-note-phprivacy",
+    "redirect": "/insights/ph-privacy/blog-6-things-financial-institutions-are-doing-in-response-to-new-regulator-cyber-audit-guidance-other-industries-take-note"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/01/08/belly-up-usda-and-hhs-release-2015-dietary-guidelines-for-americans",
+    "redirect": "/insights/caveat-vendor/blog-belly-up-usda-and-hhs-release-2015-dietary-guidelines-for-americans"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/01/12/ftc-report-on-big-data-risks-recommendations",
+    "redirect": "/insights/caveat-vendor/blog-ftc-report-on-big-data-risks-recommendations"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/01/27/cyberattacks-on-public-infrastructure-is-this-the-real-life-is-this-just-fantasy",
+    "redirect": "/insights/caveat-vendor/blog-cyberattacks-on-public-infrastructure-is-this-the-real-life-is-this-just-fantasy"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/01/27/cyberattacks-on-public-infrastructure-is-this-the-real-life-is-this-just-fantasy",
+    "redirect": "/insights/ph-privacy/blog-cyberattacks-on-public-infrastructure-is-this-the-real-life-is-this-just-fantasy"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/01/12/ftc-report-on-big-data--recommendations",
+    "redirect": "/insights/ph-privacy/blog-ftc-report-on-big-data-risks-recommendations"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/10/26/house-seeks-to--reassure-europe-by-approving-bill-to-extend-privacy-protections-to-certain-foreign-citizens",
+    "redirect": "/insights/ph-privacy/blog-house-seeks-to-reassure-europe-by-approving-bill-to-extend-privacy-protections-to-certain-foreign-citizens"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/11/06/eu-u.s.-safe-harbor-update-agreement-in-principle-on-aspects-of-a-new-framework",
+    "redirect": "/insights/ph-privacy/blog-eu-us-safe-harbor-update-agreement-in-principle-on-aspects-of-a-new-framework"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/10/26/demise-of-the-eu-us-safe-harbor-10-steps-to-consider-moving-forward",
+    "redirect": "/insights/ph-privacy/blog-demise-of-the-eu-us-safe-harbor-10-steps-to-consider-moving-forward"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2015/10/26/5-things-companies-should-consider-in-reaction-to-the-eu-decision-on-safe-harbor",
+    "redirect": "/insights/ph-privacy/blog-5-things-companies-should-consider-in-reaction-to-the-eu-decision-on-safe-harbor"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/02/03/too-late-but-will-it-prove-too-little-u.s.-and-eu-eke-out-last-minute-data-deal",
+    "redirect": "/insights/ph-privacy/blog-too-late-but-will-it-prove-too-little-us-and-eu-eke-out-last-minute-data-deal"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/02/03/too-late-but-will-it-prove-too-little-u.s.-and-eu-eke-out-last-minute-data--deal",
+    "redirect": "/insights/caveat-vendor/blog-too-late-but-will-it-prove-too-little-us-and-eu-eke-out-last-minute-data-deal"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/02/09/the-future-of-consumer-data-security-privacy-and-the-internet-of-things-guidance-from-ftc-commissioner-terrell-mcsweeny",
+    "redirect": "/insights/ph-privacy/blog-the-future-of-consumer-data-security-privacy-and-the-internet-of-things-guidance-from-ftc-commissioner-terrell-mcsweeny"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/02/09/the-future-of-consumer-security-privacy-and-the-internet-of-things-guidance-from-ftc-commissioner-terrell-mcsweeny",
+    "redirect": "/insights/caveat-vendor/blog-the-future-of-consumer-data-security-privacy-and-the-internet-of-things-guidance-from-ftc-commissioner-terrell-mcsweeny"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/02/11/undressing-the-judicial-redress-act",
+    "redirect": "/insights/ph-privacy/blog-undressing-the-judicial-redress-act"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/02/11/undressing-the-judicial-redress-act",
+    "redirect": "/insights/caveat-vendor/blog-undressing-the-judicial-redress-act"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/02/12/equity-aids-the-vigilant-the-supreme-courts-montanile-decision-and-its-lessons-for-erisa-plans-efforts-to-recover-medical-payments",
+    "redirect": "/insights/erisa-and-global-benefits/blog-equity-aids-the-vigilant-the-supreme-courts-montanile-decision-and-its-lessons-for-erisa-plans-efforts-to-recover-medical-payments"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/02/23/2016-proxy-season-heads-up-for-new-or-amended-stock-award-plans",
+    "redirect": "/insights/erisa-and-global-benefits/blog-2016-proxy-season-heads-up-for-new-or-amended-stock-award-plans"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/02/29/top-10-trends-executives-and-general-counsel-should-follow",
+    "redirect": "/insights/ph-privacy/blog-top-10-trends-executives-and-general-counsel-should-follow"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/03/04/cfpb-s-first-foray-into-data-security-makes-$100-000-splash",
+    "redirect": "/insights/ph-privacy/blog-cfpbs-first-foray-into-data-security-makes-100000-splash"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/03/04/cfpb-s-first-foray-into-data-security-makes-$100-000-splash",
+    "redirect": "/insights/caveat-vendor/blog-cfpbs-first-foray-into-data-security-makes-100000-splash"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/03/30/the-ninth-circuit-relies-on-reasonable-consumers-experiences-to-dismiss-a-cosmetics-false-advertising-case",
+    "redirect": "/insights/caveat-vendor/blog-the-ninth-circuit-relies-on-reasonable-consumers39-experiences-to-dismiss-a-cosmetics-false-advertising-case"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/04/01/fcc-seeks-comments-on-new-privacy-rules-for-broadband-isps",
+    "redirect": "/insights/ph-privacy/blog-fcc-seeks-comments-on-new-privacy-rules-for-broadband-isps"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/04/26/you-can-bank-on-your-incentive-pay---eventually-proposed-regulations-would-require-sweeping-changes",
+    "redirect": "/insights/erisa-and-global-benefits/blog-you-can-bank-on-your-incentive-pay-eventually-proposed-regulations-would-require-sweeping-changes"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/05/05/ftc-s-first-foray-into-apec-cross-border-privacy-rules-settlement-reached",
+    "redirect": "/insights/ph-privacy/blog-ftcs-first-foray-into-apec-cross-border-privacy-rules-settlement-reached"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/05/05/ftc-s-first-foray-into-apec-cross-border-privacy-rules-settlement-reached",
+    "redirect": "/insights/caveat-vendor/blog-ftcs-first-foray-into-apec-cross-border-privacy-rules-settlement-reached"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/05/09/assessing-erisa-risks-from-esops-5th-circuit-clobbers-founder-of-closely-held-company",
+    "redirect": "/insights/erisa-and-global-benefits/blog-assessing-erisa-risks-from-esops-5th-circuit-clobbers-founder-of-closely-held-company"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/05/26/i-spokeo-i-and-article-iii-standing-you-may-be-particularized-but-are-you-concrete",
+    "redirect": "/insights/ph-privacy/blog-spokeo-and-article-iii-standing-you-may-be-particularized-but-are-you-concrete"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/05/31/problematic-pay-practices---as-identified-by-iss-in-its-2016-u.s.-policy-update",
+    "redirect": "/insights/erisa-and-global-benefits/blog-problematic-pay-practices-as-identified-by-iss-in-its-2016-us-policy-update"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/06/08/no-safe-harbor-in-germany-first-fines-imposed-for-relying-on-safe-harbor-for-data-transfers",
+    "redirect": "/insights/ph-privacy/blog-no-safe-harbor-in-germanyfirst-fines-imposed-for-relying-on-safe-harbor-for-data-transfers"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/06/08/no-safe-harbor-in-germany-first-fines-imposed-for-relying-on-safe-harbor-for-data-transfers",
+    "redirect": "/insights/caveat-vendor/blog-no-safe-harbor-in-germanyfirst-fines-imposed-for-relying-on-safe-harbor-for-data-transfers"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/06/23/$16m-awarded-to-optionees-due-to-flawed-cash-out-in-spin-merger",
+    "redirect": "/insights/erisa-and-global-benefits/blog-16m-awarded-to-optionees-due-to-flawed-cash-out-in-spinmerger"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/06/30/public-interest-group-asks-fcc-to-pause-connected-car-spectrum-usage-over-privacy-and-cybersecurity-concerns",
+    "redirect": "/insights/ph-privacy/blog-public-interest-group-asks-fcc-to-pause-connected-car-spectrum-usage-over-privacy-and-cybersecurity-concerns"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/06/30/public-interest-group-asks-fcc-to-pause-connected-car-spectrum-usage-over-privacy-and-cybersecurity-concerns",
+    "redirect": "/insights/caveat-vendor/blog-public-interest-group-asks-fcc-to-pause-connected-car-spectrum-usage-over-privacy-and-cybersecurity-concerns"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/07/08/privacy-shield-set-for-formal-adoption-next-week-beyond-that-the-future-is-cloudy",
+    "redirect": "/insights/ph-privacy/blog-privacy-shield-set-for-formal-adoption-next-week-beyond-that-the-future-is-cloudy"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/07/08/privacy-shield-set-for-formal-adoption-next-week-beyond-that-the-future-is-cloudy",
+    "redirect": "/insights/caveat-vendor/blog-privacy-shield-set-for-formal-adoption-next-week-beyond-that-the-future-is-cloudy"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/07/15/five-ways-that-privacy-shield-is-different-from-safe-harbor-and-five-simple-steps-companies-can-take-to-prepare-for-certification",
+    "redirect": "/insights/ph-privacy/blog-five-ways-that-privacy-shield-is-different-from-safe-harbor-and-five-simple-steps-companies-can-take-to-prepare-for-certification"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/07/21/trifecta-of-m-a-related-erisa-cases-(and-warn-decisions)",
+    "redirect": "/insights/erisa-and-global-benefits/blog-trifecta-of-ma-related-erisa-cases-and-warn-decisions"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/08/26/clarifying-two-areas-of-confusion-on-privacy-shield-september-30-2016-deadline-effect-on-swiss-safe-harbor",
+    "redirect": "/insights/ph-privacy/blog-clarifying-two-areas-of-confusion-on-privacy-shield-september-30-2016-deadline-effect-on-swiss-safe-harbor"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/08/26/clarifying-two-areas-of-confusion-on-privacy-shield-september-30-2016-deadline-effect-on-swiss-safe-harbor",
+    "redirect": "/insights/caveat-vendor/blog-clarifying-two-areas-of-confusion-on-privacy-shield-september-30-2016-deadline-effect-on-swiss-safe-harbor"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2016/10/11/72-hour-cyberattack-reporting-rule-for-federal-government-contractors-finalized",
+    "redirect": "/insights/ph-privacy/blog-72-hour-cyberattack-reporting-rule-for-federal-government-contractors-finalized"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/10/17/2017-new-year-new-retirement-requirements-for-california-employers",
+    "redirect": "/insights/erisa-and-global-benefits/blog-2017-new-year-new-retirement-requirements-for-california-employers"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/10/20/feel-the-burn-equity-compensation-plan-amendment-to-increase-withholding-is-not-a-material-amendment",
+    "redirect": "/insights/erisa-and-global-benefits/blog-feel-the-burn-equity-compensation-plan-amendment-to-increase-withholding-is-not-a-material-amendment"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/10/24/monitoring-incentive-compensation-either-create-a-tail-or-chase-yours",
+    "redirect": "/insights/erisa-and-global-benefits/blog-monitoring-incentive-compensation-either-create-a-tail-or-chase-yours"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/10/28/2017-proxy-season-reminder",
+    "redirect": "/insights/erisa-and-global-benefits/blog-2017-proxy-season-reminder"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2016/10/31/director-compensation---equilar-data-highlights-meaningful-limit-risk",
+    "redirect": "/insights/erisa-and-global-benefits/blog-director-compensation-equilar-data-highlights-meaningful-limit-risk"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2016/12/07/introducing-your-new-benefits-site",
+    "redirect": "/insights/benefits-bulletin/blog-introducing-your-new-benefits-site"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/11/30/california-s-menu-labeling-law-takes-effect-december-1-2016-months-ahead-of-fda-enforcement",
+    "redirect": "/insights/caveat-vendor/blog-californias-menu-labeling-law-takes-effect-december-1-2016-months-ahead-of-fda-enforcement"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2016/12/14/update-your-health-savings-account",
+    "redirect": "/insights/benefits-bulletin/blog-update-your-health-savings-account"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2016/12/15/watch-out-for-holiday-security-scams",
+    "redirect": "/insights/benefits-bulletin/blog-watch-out-for-holiday-security-scams"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2016/12/15/introducing-progyny",
+    "redirect": "/insights/benefits-bulletin/blog-introducing-progyny"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2016/12/19/outlook-for-u.s.-internet-gambling-under-president-trump-rough-times-ahead",
+    "redirect": "/insights/caveat-vendor/blog-outlook-for-us-internet-gambling-under-president-trump-rough-times-ahead"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/10/family-care-help-for-the-hectic-holiday-season",
+    "redirect": "/insights/benefits-bulletin/blog-family-care-help-for-the-hectic-holiday-season"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/10/teladoc-talk-to-a-doctor-anytime-anywhere!",
+    "redirect": "/insights/benefits-bulletin/blog-talk-to-a-doctor-anytime-anywhere"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/10/stay-on-course-in-2017-with-health-advocate",
+    "redirect": "/insights/benefits-bulletin/blog-stay-on-course-in-2017-with-health-advocate"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/11/bright-horizons-to-the-rescue!",
+    "redirect": "/insights/benefits-bulletin/blog-bright-horizons-to-the-rescue"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/12/health-matters-2017-the-road-to-well-being",
+    "redirect": "/insights/benefits-bulletin/blog-health-matters-2017-the-road-to-well-being"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/12/save-it-don-t-spend-it!",
+    "redirect": "/insights/benefits-bulletin/blog-save-it-dont-spend-it"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/12/your-2017-benefit-deductions-check-your-paycheck",
+    "redirect": "/insights/benefits-bulletin/blog-your-2017-benefit-deductions-check-your-paycheck"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/01/12/maximizing-your-401(k)-potential",
+    "redirect": "/insights/benefits-bulletin/blog-maximizing-your-401k-potential"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/01/12/swiss-privacy-shield-approved-applications-accepted-april-12",
+    "redirect": "/insights/ph-privacy/blog-swiss-privacy-shield-approved-applications-accepted-april-12"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/01/13/d-link-challenges-ftc-s-continued-pursuit-of-unfair-security-practices-absent-evidence-of-harm-calls-allegations-unsubstantiated-and-vague",
+    "redirect": "/insights/ph-privacy/blog-d-link-challenges-ftcs-continued-pursuit-of-unfair-security-practices-absent-evidence-of-harm-calls-allegations-unsubstantiated-and-vague"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/02/03/40-day-delay-in-hipaa-breach-notification-costs-illinois-health-system-$475-000",
+    "redirect": "/insights/ph-privacy/blog-40-day-delay-in-hipaa-breach-notification-costs-illinois-health-system-475000"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/01/30/ftc-staff-releases-new-report-on-cross-device-tracking-recommending-transparency-and-choice-for-consumers",
+    "redirect": "/insights/ph-privacy/blog-ftc-staff-releases-new-report-on-cross-device-tracking-recommending-transparency-and-choice-for-consumers"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2017/02/13/stock-award-web-process-works-non-compete-enforced",
+    "redirect": "/insights/erisa-and-global-benefits/blog-stock-award-web-process-works-non-compete-enforced"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/dcap-receipts-now",
+    "redirect": "/insights/benefits-bulletin/blog-dcap-receipts-now"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/beat-the-cold-flu",
+    "redirect": "/insights/benefits-bulletin/blog-beat-the-cold-flu"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/heart-healthy-valentine-s-day",
+    "redirect": "/insights/benefits-bulletin/blog-heart-healthy-valentines-day"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/mindfulness",
+    "redirect": "/insights/benefits-bulletin/blog-mindfulness"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/pharmacy-what-s-new-for-2017",
+    "redirect": "/insights/benefits-bulletin/blog-pharmacy-whats-new-for-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/02/13/tax-filing-and-your-1095-c",
+    "redirect": "/insights/benefits-bulletin/blog-tax-filing-and-your-1095-c"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/01/meet-ron-ringlien-wellness-coach",
+    "redirect": "/insights/benefits-bulletin/blog-meet-ron-ringlien-wellness-coach"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2017/02/15/5-hour-energy-harbinger-of-increased-state-activism-in-the-age-of-trump",
+    "redirect": "/insights/caveat-vendor/blog-5-hour-energy-harbinger-of-increased-state-activism-in-the-age-of-trump"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/02/22/new-york-s-new-cybersecurity-rule-for-financial-institutions-how-it-may-affect-you",
+    "redirect": "/insights/ph-privacy/blog-new-yorks-new-cybersecurity-rule-for-financial-institutions-how-it-may-affect-you"
+  },
+  {
+    "match": "/publications-items/blog/international-trade-secrets-report/international-trade-secrets-report/2017/03/10/the-commission-on-the-theft-of-american-intellectual-property-s-2017-update-to-the-ip-commission-report",
+    "redirect": "/insights/international-trade-secrets-report/blog-the-commission-on-the-theft-of-american-intellectual-propertys-2017-update-to-the-ip-commission-report"
+  },
+  {
+    "match": "/publications-items/blog/international-trade-secrets-report/international-trade-secrets-report/2017/03/10/the-defend-trade-secrets-act-and-rico-expanding-options-for-trade-secret-plaintiffs",
+    "redirect": "/insights/international-trade-secrets-report/blog-the-defend-trade-secrets-act-and-rico-expanding-options-for-trade-secret-plaintiffs"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/13/plan-early-for-spring-and-summer-care-needs",
+    "redirect": "/insights/benefits-bulletin/blog-plan-early-for-spring-and-summer-care-needs"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/13/there-s-an-app-for-that!",
+    "redirect": "/insights/benefits-bulletin/blog-theres-an-app-for-that"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/13/national-sleep-awareness-month",
+    "redirect": "/insights/benefits-bulletin/blog-national-sleep-awareness-month"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/13/submit-your-2016-dcap-receipts-now",
+    "redirect": "/insights/benefits-bulletin/blog-submit-your-2016-dcap-receipts-now"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/03/13/healthy-musts-for-a-lucky-st.-patrick-s-day",
+    "redirect": "/insights/benefits-bulletin/blog-healthy-musts-for-a-lucky-st-patricks-day"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/03/21/swiss-privacy-shield-update-get-ready-to-certify-on-april-12",
+    "redirect": "/insights/ph-privacy/blog-swiss-privacy-shield-update-get-ready-to-certify-on-april-12"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2017/03/28/sec-pay-ratio-comment-letter-paul-hastings-assists-american-benefits-council",
+    "redirect": "/insights/erisa-and-global-benefits/blog-sec-pay-ratio-comment-letter-paul-hastings-assists-american-benefits-council"
+  },
+  {
+    "match": "/publications-items/blog/erisa-and-global-benefits/erisa-and-global-benefits/2017/04/06/voluntary-severance-plans-case-on-point",
+    "redirect": "/insights/erisa-and-global-benefits/blog-voluntary-severance-plans-case-on-point"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/04/18/alcohol-awareness-month",
+    "redirect": "/insights/benefits-bulletin/blog-alcohol-awareness-month"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/04/18/a-heart-healthy-lifestyle",
+    "redirect": "/insights/benefits-bulletin/blog-a-heart-healthy-lifestyle"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/04/18/distracted-driving-awareness-month",
+    "redirect": "/insights/benefits-bulletin/blog-distracted-driving-awareness-month"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/04/18/take-a-bite-out-of-grime-spring-cleaning-checklist",
+    "redirect": "/insights/benefits-bulletin/blog-take-a-bite-out-of-grime-spring-cleaning-checklist"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/04/18/pain-in-the-neck",
+    "redirect": "/insights/benefits-bulletin/blog-pain-in-the-neck"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/05/19/protecting-your-networks-and-your-brand-how-to-avoid-and-respond-to-ransomware-attacks",
+    "redirect": "/insights/ph-privacy/blog-protecting-your-networks-and-your-brand-how-to-avoid-and-respond-to-ransomware-attacks"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/05/24/seeing-is-believing-healthy-vision-month",
+    "redirect": "/insights/benefits-bulletin/blog-seeing-is-believing-healthy-vision-month"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/05/24/strategies-to-help-stay-in-control-on-vacation",
+    "redirect": "/insights/benefits-bulletin/blog-strategies-to-help-stay-in-control-on-vacation"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/06/15/summer-crafts-for-kids",
+    "redirect": "/insights/benefits-bulletin/blog-summer-crafts-for-kids"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/06/15/dcap-reimbursements",
+    "redirect": "/insights/benefits-bulletin/blog-dcap-reimbursements"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/06/15/summer-vacation-hot-spots",
+    "redirect": "/insights/benefits-bulletin/blog-summer-vacation-hot-spots"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/06/15/mid-year-update-to-aetna-medical-coverage",
+    "redirect": "/insights/benefits-bulletin/blog-mid-year-update-to-aetna-medical-coverage"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/06/22/complying-with-coppa-ftc-releases-updated-six-step-compliance-plan-for-businesses",
+    "redirect": "/insights/ph-privacy/blog-complying-with-coppa-ftc-releases-updated-six-step-compliance-plan-for-businesses"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2017/07/11/cfpb-opens-the-door-to-class-action-lawsuits",
+    "redirect": "/insights/caveat-vendor/blog-cfpb-opens-the-door-to-class-action-lawsuits"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/oneamerica-security-updates",
+    "redirect": "/insights/benefits-bulletin/blog-oneamerica-security-updates"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/water-safety-for-kids",
+    "redirect": "/insights/benefits-bulletin/blog-water-safety-for-kids"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/teladoc-is-here",
+    "redirect": "/insights/benefits-bulletin/blog-teladoc-is-here"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/new-support-for-nursing-moms",
+    "redirect": "/insights/benefits-bulletin/blog-new-support-for-nursing-moms"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/changes-to-aetna-s-pharmacy-program",
+    "redirect": "/insights/benefits-bulletin/blog-changes-to-aetnas-pharmacy-program"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/enjoy-the-great-outdoors-with-your-four-legged-pal-this-summer",
+    "redirect": "/insights/benefits-bulletin/blog-enjoy-the-great-outdoors-with-your-four-legged-pal-this-summer"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/07/13/pros-and-cons-of-herbal-remedies",
+    "redirect": "/insights/benefits-bulletin/blog-pros-and-cons-of-herbal-remedies"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/07/14/apple-opens-new-data-center-in-china-to-comply-with-the-prc-s-new-cybersecurity-law",
+    "redirect": "/insights/ph-privacy/blog-apple-opens-new-data-center-in-china-to-comply-with-the-prcs-new-cybersecurity-law"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2017/07/14/apple-opens-new-data-center-in-china-to-comply-with-the-prc-s-new-cybersecurity-law",
+    "redirect": "/insights/caveat-vendor/blog-apple-opens-new-data-center-in-china-to-comply-with-the-prcs-new-cybersecurity-law"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/08/08/bi-partisan-group-of-senators-propose-iot-cybersecurity-legislation",
+    "redirect": "/insights/ph-privacy/blog-bi-partisan-group-of-senators-propose-iot-cybersecurity-legislation"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/06/26/this-week-in-washington-for-june-26-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-26-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/07/03/this-week-in-washington-for-july-3-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-3-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/07/10/this-week-in-washington-for-july-10-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-10-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/07/17/this-week-in-washington-for-july-17-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-17-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/07/24/this-week-in-washington-for-july-24-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-24-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/07/31/this-week-in-washington-for-july-31-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-31-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/08/07/this-week-in-washington-for-august-7-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-7-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/06/19/this-week-in-washington-for-june-19-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-19-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/06/12/this-week-in-washington-for-june-12-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-12-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/06/05/this-week-in-washington-for-june-5-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-5-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/05/30/this-week-in-washington-for-may-30-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-30-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/citi-online-health-care-program-ending",
+    "redirect": "/insights/benefits-bulletin/blog-citi-online-health-care-program-ending"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/24-hour-nurse-line",
+    "redirect": "/insights/benefits-bulletin/blog-24-hour-nurse-line"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/financial-health-webinar",
+    "redirect": "/insights/benefits-bulletin/blog-financial-health-webinar"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/understanding-your-sleep-needs",
+    "redirect": "/insights/benefits-bulletin/blog-understanding-your-sleep-needs"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/communication-skills-webinar",
+    "redirect": "/insights/benefits-bulletin/blog-communication-skills-webinar"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/08/11/how-to-protect-your-eyes-from-harmful-uv-rays-with-sunglasses",
+    "redirect": "/insights/benefits-bulletin/blog-how-to-protect-your-eyes-from-harmful-uv-rays-with-sunglasses"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/08/11/state-ags-reach-settlement-with-nationwide-over-2012-data-breach",
+    "redirect": "/insights/ph-privacy/blog-state-ags-reach-settlement-with-nationwide-over-2012-data-breach"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/08/14/this-week-in-washington-for-august-14-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-14-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/08/21/this-week-in-washington-for-august-21-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-21-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/08/28/this-week-in-washington-for-august-28-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-28-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/09/11/wageworks-commuter-program",
+    "redirect": "/insights/benefits-bulletin/blog-wageworks-commuter-program"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/09/11/personal-umbrella-liability-(pul)-insurance-enrollment-opportunity",
+    "redirect": "/insights/benefits-bulletin/blog-personal-umbrella-liability-pul-insurance-enrollment-opportunity"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/09/11/this-week-in-washington-for-september-11-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-11-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/09/05/this-week-in-washington-for-september-5-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-5-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/09/12/childhood-obesity-awareness",
+    "redirect": "/insights/benefits-bulletin/blog-childhood-obesity-awareness"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/09/12/mindfulness",
+    "redirect": "/insights/benefits-bulletin/blog-mindfulness"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/09/12/change-in-editors-change-in-directors",
+    "redirect": "/insights/benefits-bulletin/blog-change-in-editors-change-in-directors"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/09/18/this-week-in-washington-for-september-18-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-18-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/09/25/this-week-in-washington-for-september-25-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-25-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/10/02/this-week-in-washington-for-october-2-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-2-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/10/09/this-week-in-washington-for-october-9-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-9-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/10/16/this-week-in-washington-for-october-16-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-16-2017"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2017/10/20/less-biometric-security-is-more-security-a-fifth-amendment-primer",
+    "redirect": "/insights/ph-privacy/blog-less-biometric-security-is-more-security-a-fifth-amendment-primer"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/10/23/this-week-in-washington-for-october-23-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-23-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/10/30/time-to-get-your-flu-shot!",
+    "redirect": "/insights/benefits-bulletin/blog-time-to-get-your-flu-shot"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/10/30/preparis-app",
+    "redirect": "/insights/benefits-bulletin/blog-preparis-app"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/10/30/progyny-sunset",
+    "redirect": "/insights/benefits-bulletin/blog-progyny-sunset"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/10/30/benefits-firmwide-plans-for-2018-wellness",
+    "redirect": "/insights/benefits-bulletin/blog-benefits-firmwide-plans-for-2018-wellness"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/11/01/this-week-in-washington-for-october-30-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-30-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/11/06/this-week-in-washington-for-november-6-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-6-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/11/13/this-week-in-washington-for-november-13-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-13-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/11/20/this-week-in-washington-for-november-20-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-20-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/11/20/holiday-craft-ideas-for-kids",
+    "redirect": "/insights/benefits-bulletin/blog-holiday-craft-ideas-for-kids"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/11/20/healthy-skin-month-tips",
+    "redirect": "/insights/benefits-bulletin/blog-healthy-skin-month-tips"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/11/20/extra-help-for-the-busy-holiday-season!",
+    "redirect": "/insights/benefits-bulletin/blog-extra-help-for-the-busy-holiday-season"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/11/20/healthy-holiday-eating",
+    "redirect": "/insights/benefits-bulletin/blog-healthy-holiday-eating"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/11/20/november-is-american-diabetes-awareness-month",
+    "redirect": "/insights/benefits-bulletin/blog-november-is-american-diabetes-awareness-month"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/12/05/this-week-in-washington-for-december-4-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-4-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/12/11/this-week-in-washington-for-december-11-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-11-2017"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2017/12/18/this-week-in-washington-for-december-18-2017",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-18-2017"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/12/26/quick-guide-to-quit-smoking-in-the-new-year",
+    "redirect": "/insights/benefits-bulletin/blog-quick-guide-to-quit-smoking-in-the-new-year"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/12/26/holiday-driving-safety-tips",
+    "redirect": "/insights/benefits-bulletin/blog-holiday-driving-safety-tips"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/12/26/health-savings-account-(hsa)-limits-for-2018",
+    "redirect": "/insights/benefits-bulletin/blog-health-savings-account-hsa-limits-for-2018"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/12/26/new-commuter-limit-for-2018",
+    "redirect": "/insights/benefits-bulletin/blog-how-will-the-new-tax-law-affect-you"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2017/12/26/new-health-care-id-cards",
+    "redirect": "/insights/benefits-bulletin/blog-new-health-care-id-cards"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/01/08/this-week-in-washington-for-decejanuart-8-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-8-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/01/12/key-takeaways-from-the-ftc-s-latest-privacy-enforcement",
+    "redirect": "/insights/ph-privacy/blog-key-takeaways-from-the-ftcs-latest-privacy-enforcement"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/01/16/this-week-in-washington-for-january-15-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-15-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/01/22/this-week-in-washington-for-january-22-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-22-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/01/29/this-week-in-washington-for-january-29-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-29-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/02/05/this-week-in-washington-for-february-5-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-5-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/02/12/this-week-in-washington-for-february-12-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-12-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/02/19/this-week-in-washington-for-february-19-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-19-2018"
+  },
+  {
+    "match": "/publications-items/blog/international-trade-secrets-report/international-trade-secrets-report/2018/01/10/unexpected-arrival-what-to-do-when-your-employee-arrives-with-stolen-trade-secrets",
+    "redirect": "/insights/international-trade-secrets-report/blog-unexpected-arrival-what-to-do-when-your-employee-arrives-with-stolen-trade-secrets"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/02/26/this-week-in-washington-for-february-26-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-26-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/02/28/recap-oral-arguments-in-united-states-v.-microsoft-corp",
+    "redirect": "/insights/ph-privacy/blog-recap-oral-arguments-in-united-states-v-microsoft-corp"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/03/05/this-week-in-washington-for-march-5-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-5-2018"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/06/2018-benefit-changes",
+    "redirect": "/insights/benefits-bulletin/blog-our-new-health-dental-and-dependent-care-plan-service-providers"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/06/livehealth-online",
+    "redirect": "/insights/benefits-bulletin/blog-livehealth-online"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/06/benefits-yammer-page",
+    "redirect": "/insights/benefits-bulletin/blog-benefits-yammer-page"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/06/2017-dcap-deadlines",
+    "redirect": "/insights/benefits-bulletin/blog-2017-dcap-deadlines"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/03/06/ftc-recommendations-for-enhanced-security-updates-on-mobile-devices",
+    "redirect": "/insights/ph-privacy/blog-ftc-recommendations-for-enhanced-security-updates-on-mobile-devices"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/03/12/this-week-in-washington-for-march-12-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-12-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/03/19/this-week-in-washington-for-march-19-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-19-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/03/20/the-d.c.-circuit-reins-in-the-fcc-on-robocalls-and-texts",
+    "redirect": "/insights/ph-privacy/blog-the-dc-circuit-reins-in-the-fcc-on-robocalls-and-texts"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/21/important-notice-hsa-contribution-reduction",
+    "redirect": "/insights/benefits-bulletin/blog-important-notice-hsa-contribution-reduction"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/22/irs-federal-tax-withholding-calculator",
+    "redirect": "/insights/benefits-bulletin/blog-irs-federal-tax-withholding-calculator"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/03/26/this-week-in-washington-for-march-26-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-26-2018"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/03/26/avoiding-legal-issues-while-abroad",
+    "redirect": "/insights/benefits-bulletin/blog-avoiding-legal-issues-while-abroad"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/03/30/cloud-act-implements-crucial-statutory-changes-affecting-law-enforcement-access-to-data",
+    "redirect": "/insights/ph-privacy/blog-cloud-act-implements-crucial-statutory-changes-affecting-law-enforcement-access-to-data"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/04/02/this-week-in-washington-for-april-2-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-2-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/04/09/this-week-in-washington-for-april-9-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-9-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/04/16/this-week-in-washington-for-april-16-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-16-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/04/23/this-week-in-washington-for-april-23-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-23-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/05/07/this-week-in-washington-for-may-7-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-7-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/05/14/this-week-in-washington-for-may-14-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-14-2018"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2018/05/14/supreme-court-opens-door-to-state-authorized-sports-betting-in-far-reaching-opinion",
+    "redirect": "/insights/caveat-vendor/blog-supreme-court-opens-door-to-state-authorized-sports-betting-in-far-reaching-opinion"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/05/30/this-week-in-washington-for-may-28-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-28-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/05/30/tech-giants-already-facing-complaints-under-gdpr",
+    "redirect": "/insights/ph-privacy/blog-tech-giants-already-facing-complaints-under-gdpr"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/06/04/this-week-in-washington-for-june-4-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-4-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/06/11/11th-circuit-to-ftc-general-prescriptions-of-reasonableness-in-data-security-are-unreasonably-vague",
+    "redirect": "/insights/ph-privacy/blog-11th-circuit-to-ftc-general-prescriptions-of-reasonableness-in-data-security-are-unreasonably-vague"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/06/11/this-week-in-washington-for-june-11-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-11-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/06/18/this-week-in-washington-for-june-18-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-18-2018"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/18/maxorplus",
+    "redirect": "/insights/benefits-bulletin/blog-maxorplus"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/18/collegebound-529",
+    "redirect": "/insights/benefits-bulletin/blog-collegebound-529"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/18/health-advocate-employee-assistance-program-work-life-support",
+    "redirect": "/insights/benefits-bulletin/blog-health-advocate-employee-assistance-program-worklife-support"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/18/wageworks--mobile-app",
+    "redirect": "/insights/benefits-bulletin/blog-wageworks-mobile-app"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/19/health-advocacy-support",
+    "redirect": "/insights/benefits-bulletin/blog-health-advocacy-support"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/19/bright-horizons",
+    "redirect": "/insights/benefits-bulletin/blog-bright-horizons"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/19/chair-ergonomics",
+    "redirect": "/insights/benefits-bulletin/blog-chair-ergonomics"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/06/19/benefits-self-service-through-workday",
+    "redirect": "/insights/benefits-bulletin/blog-benefits-self-service-through-workday"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/06/22/carpenter-v.-united-states-a-watershed-for-digital-privacy",
+    "redirect": "/insights/ph-privacy/blog-carpenter-v-united-states-a-watershed-for-digital-privacy"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/06/25/this-week-in-washington-for-june-25-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-25-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/07/02/this-week-in-washington-for-july-2-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-2-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/07/05/european-parliament-votes-to-suspend-eu-u.s.-privacy-shield",
+    "redirect": "/insights/ph-privacy/blog-european-parliament-votes-to-suspend-eu-us-privacy-shield"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/07/09/this-week-in-washington-for-july-9-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-9-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/07/10/ca-consumer-privacy-act-of-2018-set-to-dramatically-change-privacy-landscape-across-the-country",
+    "redirect": "/insights/ph-privacy/blog-california-to-europe-we-want-to-be-more-like-you"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/07/16/this-week-in-washington-for-july-16-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-16-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/07/23/this-week-in-washington-for-july-23-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-23-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/07/30/this-week-in-washington-for-july-30-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-30-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/08/06/this-week-in-washington-for-august-6-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-6-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/08/13/this-week-in-washington-for-august-13-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-13-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/08/27/this-week-in-washington-for-august-27-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-27-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/09/10/this-week-in-washington-for-september-10-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-10-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/09/17/this-week-in-washington-for-september-17-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-17-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/09/24/this-week-in-washington-for-september-24-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-24-2018"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/medicare-part-d---disclosure-notice",
+    "redirect": "/insights/benefits-bulletin/blog-medicare-part-d-disclosure-notice"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/bright-horizons-back-up-care",
+    "redirect": "/insights/benefits-bulletin/blog-bright-horizons-back-up-care"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/prescriptions-generics-maintenance-medications-and-making-the-most-of-your-coverage",
+    "redirect": "/insights/benefits-bulletin/blog-prescriptions-generics-maintenance-medications-and-making-the-most-of-your-coverage"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/travel-international-sos",
+    "redirect": "/insights/benefits-bulletin/blog-travel-international-sos"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/anthem-24-7-nurseline",
+    "redirect": "/insights/benefits-bulletin/blog-247-nurseline"
+  },
+  {
+    "match": "/publications-items/blog/benefits-bulletin/benefits-bulletin/2018/09/25/2018-paul-hastings-wellness-program",
+    "redirect": "/insights/benefits-bulletin/blog-2018-paul-hastings-wellness-program"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/10/01/this-week-in-washington-for-october-1-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-1-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/10/11/this-week-in-washington-for-october-8-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-8-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/10/15/this-week-in-washington-for-october-15-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-15-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/10/22/this-week-in-washington-for-october-22-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-22-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/11/05/this-week-in-washington-for-november-5-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-5-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/10/29/this-week-in-washington-for-october-29-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-29-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/11/12/this-week-in-washington-for-november-12-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-12-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/11/19/this-week-in-washington-for-november-19-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-19-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/12/03/this-week-in-washington-for-december3-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-3-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/12/10/this-week-in-washington-for-december-10-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-10-2018"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2018/12/17/this-week-in-washington-for-december-17-2018",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-17-2018"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2018/12/20/the-eu-us-privacy-shield-lives-to-fight-another-day",
+    "redirect": "/insights/ph-privacy/blog-the-eu-us-privacy-shield-lives-to-fight-another-day"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/01/07/this-week-in-washington-for-january-7-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-7-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/01/14/this-week-in-washington-for-january-14-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-14-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/01/22/this-week-in-washington-for-january-22-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-22-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/01/28/this-week-in-washington-for-january-29-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-29-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/02/04/this-week-in-washington-for-february-4-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-4-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/02/19/this-week-in-washington-for-february-19-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-19-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/03/01/this-week-in-washington-for-february-25-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-25-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/03/04/this-week-in-washington-for-march-4-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-4-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/03/12/this-week-in-washington-for-march11-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march11-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/03/18/this-week-in-washington-for-march18-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-18-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/03/20/ftc-proposes-to-ramp-up-data-security-obligations-on-financial-institutions",
+    "redirect": "/insights/ph-privacy/blog-ftc-proposes-to-ramp-up-data-security-obligations-on-financial-institutions"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/03/25/this-week-in-washington-for-march-25-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-25-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/04/01/this-week-in-washington-for-april-1-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-1-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/04/01/brexit-update-what-does-this-mean-for-data-privacy",
+    "redirect": "/insights/ph-privacy/blog-brexit-update-what-does-this-mean-for-data-privacy"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/04/09/this-week-in-washington-for-april-8-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-8-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/04/15/this-week-in-washington-for-april-13-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-15-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/04/22/this-week-in-washington-for-april-22-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-22-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/04/29/this-week-in-washington-for-april-29-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-29-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/05/06/this-week-in-washington-for-may-6-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-6-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/05/13/this-week-in-washington-for-may-13-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-13-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/05/20/this-week-in-washington-for-may-20-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-20-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/05/28/this-week-in-washington-for-may-27-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-27-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/06/03/this-week-in-washington-for-june-3-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-3-2019"
+  },
+  {
+    "match": "/publications-items/blog/caveat-vendor/caveat-vendor/2019/06/05/federal-court-delivers-stinging-rebuke-to-justice-department-declaring-wire-act-applies-only-to-sports",
+    "redirect": "/insights/caveat-vendor/blog-federal-court-delivers-stinging-rebuke-to-justice-department-declaring-wire-act-applies-only-to-sports"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/06/07/occ-warns-banks-manage-cybersecurity-risk-when-partnering-with-third-party-service-providers",
+    "redirect": "/insights/ph-privacy/blog-occ-warns-banks-manage-cybersecurity-risk-when-partnering-with-third-party-service-providers"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/06/10/this-week-in-washington-for-june-10-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-10-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/06/11/uk-information-commissioner-calls-time-on-gdpr-non-compliance",
+    "redirect": "/insights/ph-privacy/blog-uk-information-commissioner-calls-time-on-gdpr-non-compliance"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/06/17/this-week-in-washington-for-june-17-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-17-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/06/17/eu-commission-determined-to-raise-awareness-of-gdpr-among-eu-data-subjects",
+    "redirect": "/insights/ph-privacy/blog-eu-commission-determined-to-raise-awareness-of-gdpr-among-eu-data-subjects"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/06/18/ftc-zeroes-in-on-false-claims-of-certified-participation-in-cross-border-privacy-frameworks",
+    "redirect": "/insights/ph-privacy/blog-ftc-zeroes-in-on-false-claims-of-certified-participation-in-cross-border-privacy-frameworks"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/06/20/the-european-commission-set-to-take-the-next-step-towards-cyber-regulation",
+    "redirect": "/insights/ph-privacy/blog-the-european-commission-set-to-take-the-next-step-towards-cyber-regulation"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/06/24/this-week-in-washington-for-june-24-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-24-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/07/29/new-york-senate-considers-sweeping-new-privacy-bill-that-would-create-a-fiduciary-duty-to-consumers",
+    "redirect": "/insights/ph-privacy/blog-new-york-senate-considers-sweeping-new-privacy-bill-that-would-create-a-fiduciary-duty-to-consumers"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/07/01/this-week-in-washington-for-july-1-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-1-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/07/08/british-airways-faced-with-record-fine-of-183.39m-for-personal-data-breach",
+    "redirect": "/insights/ph-privacy/blog-british-airways-faced-with-record-fine-of-18339m-for-personal-data-breach"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/07/08/this-week-in-washington-for-july-8-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-8-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/07/15/this-week-in-washington-for-july-15-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-15-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/07/22/this-week-in-washington-for-july-22-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-22-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/07/29/this-week-in-washington-for-july-29-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-29-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/07/30/data-collection-moves-fast-the-ftc-seeks-comment-on-modernizing-the-coppa-rule",
+    "redirect": "/insights/ph-privacy/blog-data-collection-moves-fast-the-ftc-seeks-comment-on-modernizing-the-coppa-rule"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/08/05/website-operators-jointly-liable-for-data-collection-and-transmission-through-social-media-plug-ins",
+    "redirect": "/insights/ph-privacy/blog-fashion-id-website-operators-jointly-liable-for-data-collection-and-transmission-through-social-media-plug-ins"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/08/05/this-week-in-washington-for-august-5-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-5-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/08/27/this-week-in-washington-for-august-27-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-27-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/09/03/this-week-in-washington-for-september-3-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-3-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/09/09/this-week-in-washington-for-september-9-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-9-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/09/10/the-ccpa-and-coppa-looking-for-the-betwixt-and-between",
+    "redirect": "/insights/ph-privacy/blog-the-ccpa-and-coppa-looking-for-the-betwixt-and-between"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/09/16/california-legislature-adopts-temporary-ban-on-facial-recognition-by-law-enforcement",
+    "redirect": "/insights/ph-privacy/blog-california-legislature-adopts-temporary-ban-on-facial-recognition-by-law-enforcement"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/09/16/in-washington-for-september-16-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-16-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/09/16/ccpa-amendment-effort-largely-fizzles-out-only-modest-changes-enacted-(but-employment-info-is-granted-a-partial-one-year-reprieve)",
+    "redirect": "/insights/ph-privacy/blog-ccpa-amendment-effort-largely-fizzles-out-only-modest-changes-enacted-but-employment-info-is-granted-a-partial-one-year-reprieve"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/09/23/this-week-in-washington-for-september-23-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-23-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/09/25/the-right-to-be-forgotten-held-to-apply-only-to-europe-in-landmark-european-court-of-justice-decision",
+    "redirect": "/insights/ph-privacy/blog-the-right-to-be-forgotten-held-to-apply-only-to-europe-in-landmark-european-court-of-justice-decision"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/09/26/ccpa-text-integrating-newly-passed-amendments",
+    "redirect": "/insights/ph-privacy/blog-ccpa-text-integrating-newly-passed-amendments"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/09/30/this-week-in-washington-for-september-30-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-30-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/10/15/this-week-in-washington-for-october-14-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-14-2019"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/05/06/something-familiar-something-new-ofac-s-compliance-program-framework",
+    "redirect": "/insights/international-regulatory-enforcement/blog-something-familiar-something-new-ofacs-compliance-program-framework"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/03/25/containing-risk-and-seizing-opportunity-the-in-house-lawyer's-guide-to-artificial-intelligence",
+    "redirect": "/insights/international-regulatory-enforcement/blog-containing-risk-and-seizing-opportunity-the-in-house-lawyers-guide-to-artificial-intelligence"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/10/21/this-week-in-washington-for-october-21-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-21-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/10/28/this-week-in-washington-for-october-28-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-28-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/11/04/this-week-in-washington-for-november-4-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-4-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/11/11/this-week-in-washington-for-november-11-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-11-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/11/13/brexit-what-does-this-mean-for-data-privacy",
+    "redirect": "/insights/ph-privacy/blog-brexit-update-what-does-this-mean-for-data-privacy"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/11/18/this-week-in-washington-for-november-18-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-18-2019"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/04/11/not-a-u.s.-fits-all-proposition-four-key-considerations-when-building-the-compliance-framework-to-go-global-with-patient-support-part-i-of-ii",
+    "redirect": "/insights/international-regulatory-enforcement/blog-not-a-us-fits-all-proposition-four-key-considerations-when-building-the-compliance-framework-to-go-global-with-patient-supportpart-i-of-ii"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2017/01/24/a-new-enforcement-agency-joins-the-world-of-international-corruption-enforcement",
+    "redirect": "/insights/international-regulatory-enforcement/blog-a-new-enforcement-agency-joins-the-world-of-international-corruption-enforcement"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/08/13/u.k.-serious-fraud-office-issues-new-cooperation-guidance",
+    "redirect": "/insights/international-regulatory-enforcement/blog-uk-serious-fraud-office-issues-new-cooperation-guidance"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/08/13/the-transformative-cfius-bill-not-so-fast",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-transformative-cfius-bill-not-so-fast"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/09/06/the-privilege-to-conduct-an-internal-investigation",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-privilege-to-conduct-an-internal-investigation"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/02/04/the-eu-is-launching-instex-to-support-trade-with-iran-despite-u.s.-sanctions",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-eu-is-launching-instex-to-support-trade-with-iran-despite-us-sanctions"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/05/29/the-eu-commission-aims-its-blocking-statute-at-renewed-u.s.-sanctions-against-iran",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-eu-commission-aims-its-blocking-statute-at-renewed-us-sanctions-against-iran"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/11/30/the-blocking-of-digital-currency-a-new-phase-of-sanctions-enforcement",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-blocking-of-digital-currency-a-new-phase-of-sanctions-enforcement"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/04/10/tailor-made-compliance-for-galloping-corruption",
+    "redirect": "/insights/international-regulatory-enforcement/blog-tailor-made-compliance-for-galloping-corruption"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/04/10/sanctions-compliance-shortfalls-result-in-$1b-global-enforcement-action",
+    "redirect": "/insights/international-regulatory-enforcement/blog-sanctions-compliance-shortfalls-result-in-1b-global-enforcement-action"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/06/27/respectful-consideration-supreme-court-clarifies-deference-due-to-foreign-governments-interpretation-of-its-law",
+    "redirect": "/insights/international-regulatory-enforcement/blog-respectful-consideration-supreme-court-clarifies-deference-due-to-foreign-governments-interpretation-of-its-law"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/05/08/president-trump-withdraws-from-iran-deal---six-key-takeaways",
+    "redirect": "/insights/international-regulatory-enforcement/blog-president-trump-withdraws-from-iran-deal-six-key-takeaways"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/09/09/new-german-act-to-combat-corporate-crime",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-german-act-to-combat-corporate-crime"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/01/22/italy-introduces-new-measures-to-simplify-dual-use-export-transactions-and-sets-the-sanctions-related-to-trade-embargoes-and-proliferating-materials",
+    "redirect": "/insights/international-regulatory-enforcement/blog-italy-introduces-new-measures-to-simplify-dual-use-export-transactions-and-sets-the-sanctions-related-to-trade-embargoes-and-proliferating-materials"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/04/16/french-anticorruption-agency-issues-detailed-new-guidelines-for-compliance-with-sapin-ii",
+    "redirect": "/insights/international-regulatory-enforcement/blog-french-anticorruption-agency-issues-detailed-new-guidelines-for-compliance-with-sapin-ii"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/07/17/fatf-adopts-new-anti-money-laundering-guidelines-for-virtual-assets-and-related-providers",
+    "redirect": "/insights/international-regulatory-enforcement/blog-fatf-adopts-new-anti-money-laundering-guidelines-for-virtual-assets-and-related-providers"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/12/20/eu-screening-of-foreign-investments",
+    "redirect": "/insights/international-regulatory-enforcement/blog-eu-screening-of-foreign-investments"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/09/02/eu-adopted-regulation-on-screening-of-foreign-investments",
+    "redirect": "/insights/international-regulatory-enforcement/blog-eu-adopted-regulation-on-screening-of-foreign-investments"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/03/06/doj-may-rely-on-fcpa-policy-in-resolving-securities-and-financial-fraud-cases",
+    "redirect": "/insights/international-regulatory-enforcement/blog-doj-may-rely-on-fcpa-policy-in-resolving-securities-and-financial-fraud-cases"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/05/02/clarity-or-confusion-new-doj-guidance-for-evaluating-corporate-compliance-programs",
+    "redirect": "/insights/international-regulatory-enforcement/blog-clarity-or-confusion-new-doj-guidance-for-evaluating-corporate-compliance-programs"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/09/24/cftc-paying-for-a-companys-dirty-laundry-new-whistleblower-initiatives-and-rewards-suggest-increased-enforcement-in-the-virtual-currency-foreign-corrupt-practices-insider-trading-and-bsa-spaces",
+    "redirect": "/insights/international-regulatory-enforcement/blog-cftc-paying-for-a-companys-dirty-laundry-new-whistleblower-initiatives-and-rewards-suggest-increased-enforcement-in-the-virtual-currency-foreign-corrupt-practices-insider-trading-and-bsa-spaces"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/06/04/cftc-reaffirms-focus-on-foreign-corrupt-practices",
+    "redirect": "/insights/international-regulatory-enforcement/blog-cftc-reaffirms-focus-on-foreign-corrupt-practices"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/10/16/cfius's-new-pilot-program-signals-an-expansive-approach-to-its-jurisdiction-under-firrma",
+    "redirect": "/insights/international-regulatory-enforcement/blog-cfiuss-new-pilot-program-signals-an-expansive-approach-to-its-jurisdiction-under-firrma"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2018/09/17/can-the-u.s.-mexico-trade-agreement-replace-nafta",
+    "redirect": "/insights/international-regulatory-enforcement/blog-can-the-us-mexico-trade-agreement-replace-nafta"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/05/16/a-one-two-punch-the-u.s.-government-hits-china's-technology-sector",
+    "redirect": "/insights/international-regulatory-enforcement/blog-a-one-two-punch-the-us-government-hits-chinas-technology-sector"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/11/25/this-week-in-washington-for-november-25-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-25-2019"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/12/09/this-week-in-washington-for-december9-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-9-2019"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2019/12/13/financial-regulators-issue-joint-guidance-to-snuff-out-reporting-requirement-on-legal-hemp-related-businesses",
+    "redirect": "/insights/international-regulatory-enforcement/blog-financial-regulators-issue-joint-guidance-to-snuff-out-reporting-requirement-on-legal-hemp-related-businesses"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/12/16/this-week-in-washington-for-december-16-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-16-2019"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2019/12/19/has-the-advocate-general-just-given-many-businesses-an-early-christmas-present",
+    "redirect": "/insights/ph-privacy/blog-has-the-advocate-general-just-given-many-businesses-an-early-christmas-present"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2019/12/23/this-week-in-washington-for-december-23-2019",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-december-23-2019"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/06/new-eu-anti-money-laundering-laws-applicable-to-cryptocurrency",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-eu-anti-money-laundering-laws-applicable-to-cryptocurrency"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/08/new-export-regulations-on-ai-software-could-signal-narrow-approach-to-pending-emerging-technology-controls",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-export-regulations-on-ai-software-could-signal-narrow-approach-to-pending-emerging-technology-controls"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/01/09/the-u.s.-federal-trade-commission-articulates-a-strengthened-approach-to-data-security-orders",
+    "redirect": "/insights/ph-privacy/blog-the-us-federal-trade-commission-articulates-a-strengthened-approach-to-data-security-orders"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/07/enhancing-workforce-confidence-in-internal-investigations",
+    "redirect": "/insights/international-regulatory-enforcement/blog-enhancing-workforce-confidence-in-internal-investigations"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/10/ofac-s-mixed-signals-lead-to-exxon-victory-in-district-court",
+    "redirect": "/insights/international-regulatory-enforcement/blog-ofacs-mixed-signals-lead-to-exxon-victory-in-district-court"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/01/13/this-week-in-washington-for-january-13-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/13/u.s.-increases-sanctions-on-iran-as-tensions-escalate",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-increases-sanctions-on-iran-as-tensions-escalate"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/10/navigating-an-oecd-ncp-specific-instance",
+    "redirect": "/insights/international-regulatory-enforcement/blog-navigating-an-oecd-ncp-specific-instance"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/10/esg-and-mission-critical-issues-for-director-officer-liability",
+    "redirect": "/insights/international-regulatory-enforcement/blog-esg-and-mission-critical-issues-for-director-officer-liability"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/17/foreign-investment-control-in-france-a-strengthened-regime",
+    "redirect": "/insights/international-regulatory-enforcement/blog-foreign-investment-control-in-france-a-strengthened-regime"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/01/21/this-week-in-washington-for-january-20-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-january-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/01/31/brexit-update-31-1-what-does-this-mean-for-data-privacy",
+    "redirect": "/insights/ph-privacy/blog-brexit-update-what-does-this-mean-for-data-privacy"
+  },
+  {
+    "match": "/publications-items/blog/brazil-privatizations-blog/brazil-privatizations-blog/2020/02/13/brazil's-petrobras-closes-$1.5-billion-deal-to-sell-stake-in-african-joint-venture",
+    "redirect": "/insights/brazil-privatizations-blog/blog-unlocking-investment-opportunities-in-2020-privatizations-in-brazil"
+  },
+  {
+    "match": "/publications-items/blog/brazil-privatizations-blog/brazil-privatizations-blog/2020/02/13/brazil's-petrobras-adds-pelotas-basin-blocks-to-asset-sale-program",
+    "redirect": "/insights/brazil-privatizations-blog/blog-brazils-petrobras-adds-pelotas-basin-blocks-to-asset-sale-program"
+  },
+  {
+    "match": "/publications-items/blog/brazil-privatizations-blog/brazil-privatizations-blog/2020/02/13/brazil's-petrobras-steps-up-asset-sales-to-raise-cash",
+    "redirect": "/insights/brazil-privatizations-blog/blog-brazils-petrobras-steps-up-asset-sales-to-raise-cash"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/02/19/proposed-rules-california-releases-much-anticipated-revisions-to-ccpa-regulations",
+    "redirect": "/insights/ph-privacy/blog-proposed-rules-california-releases-much-anticipated-revisions-to-ccpa-regulations"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/02/24/this-week-in-washington-for-february-24-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-february-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/03/02/this-week-in-washington-for-march-2-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/03/09/this-week-in-washington-for-march-9-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/09/employment-issues",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-employment-issues"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/04/privacy-and-cybersecurity-issues",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-privacy-and-cybersecurity-issues"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/04/regulatory-and-corporate-governance",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-regulatory-and-corporate-governance"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/05/contracting-performance-and-litigation-risk",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-contracting-performance-and-litigation-risk"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/04/public-considerations",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-public-considerations"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/09/considerations-for-private-equity-investors",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-considerations-for-private-equity-investors"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/04/law-360-it's-all-practice-groups-on-deck-to-tackle-coronavirus",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-law-360-its-all-practice-groups-on-deck-to-tackle-coronavirus"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/06/coronavirus-s-spread-could-complicate-corporate-anti-bribery-efforts",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-coronaviruss-spread-could-complicate-corporate-anti-bribery-efforts"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/11/annual-shareholders-meetings-delayed-or-to-be-held-virtually",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-annual-shareholders-meetings-delayed-or-to-be-held-virtually"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/11/sec-advises-staff-to-telework",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-sec-advises-staff-to-telework"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/11/coronavirus-impact-on-investment-fund-board-meetings",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-coronavirus-impact-on-investment-fund-board-meetings"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/12/tracking-rising-cases-of-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-tracking-rising-cases-of-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/12/democrats-proposed-coronavirus-emergency-aid-package-includes-relief-for-employees",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-democrats-proposed-coronavirus-emergency-aid-package-includes-relief-for-employees"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/12/california-prohibits-mass-gatherings-to-slow-the-spread-of-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-california-prohibits-mass-gatherings-to-slow-the-spread-of-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/12/interpreting-the-federal-government-s-next-steps-regarding-the-coronavirus",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-interpreting-the-federal-governments-next-steps-regarding-the-coronavirus"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/a-global-perspective-for-the-international-employer",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-a-global-perspective-for-the-international-employer"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/the-impact-of-coronavirus-on-sec-reporting-obligations-and-public-disclosure",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-the-impact-of-coronavirus-on-sec-reporting-obligations-and-public-disclosure"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/community-spread-social-distance-and-the-economic-gap-more-dramatic-governmental-and-institutional-responses-to-the-coronavirus",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-community-spread-social-distance-and-the-economic-gap-more-dramatic-governmental-and-institutional-responses-to-the-coronavirus"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/03/13/updated-proposed-rules-california-attorney-general-releases-revised-set-of-ccpa-regulations",
+    "redirect": "/insights/ph-privacy/blog-updated-proposed-rules-california-attorney-general-releases-revised-set-of-ccpa-regulations"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/sec-releases-additional-guidance-to-promote-virtual-annual-meetings",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-sec-releases-additional-guidance-to-promote-virtual-annual-meetings-and-grants-additional-relief-to-investment-advisers-and-investment-funds"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/attys-prep-for-phone-hearings-as-fed.-circ.-braces-for-virus",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-attys-prep-for-phone-hearings-as-fed-circ-braces-for-virus"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/13/dealmakers-see-range-of-renegotiations-as-virus-spreads",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-dealmakers-see-range-of-renegotiations-as-virus-spreads"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/15/ph-covid-19-client-alert-series-hsr-filings-impacted-by-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-hsr-filings-impacted-by-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/16/sec-facilitates-cboe-shift-to-electronic-trading",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-sec-facilitates-cboe-shift-to-electronic-trading"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/03/16/this-week-in-washington-for-march-16-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/16/hospitality-and-leisure-considerations",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-hospitality-and-leisure-industry-considerations"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/16/the-warn-act-and-similar-state-laws",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-the-warn-act-and-similar-state-laws"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/17/issues-for-private-fund-managers-in-the-age-of-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-issues-for-private-fund-managers-in-the-age-of-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/22/teleconference",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-webinar-covid-19-employment-update"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/17/irs-california-ftb-tax-payments-can-be-delayed",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-irs-california-ftb-tax-payments-can-be-delayed"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/17/navigating-share-repurchases-in-volatile-markets",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-navigating-share-repurchases-in-volatile-markets"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/17/regulatory-and-practical-issues-facing-registered-investment-companies-and-investment-advisers",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-regulatory-and-practical-issues-facing-registered-investment-companies-and-investment-advisers"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/the-evolving-federal-legislative-response",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-ffcra-overview"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/executive-order-from-governor-newsom-regarding-the-california-warn-act",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-executive-order-from-governor-newsom-regarding-the-california-warn-act"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/u.s.-senate-passes-covid-19-package",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-us-senate-passes-covid-19-package"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/uk-economic-response-to-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-uk-economic-response-to-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/sec-provides-relief-for-public-company-annual-shareholder-meetings-considerations-around-implementing-virtual-meetings",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-sec-provides-relief-for-public-company-annual-shareholder-meetings-considerations-around-implementing-virtual-meetings"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/18/new-york-state's-legislative-response",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-new-york-states-legislative-response"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/19/the-cybersecurity-implications-of-an-entire-organization-working-from-home",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-the-cybersecurity-implications-of-an-entire-organization-working-from-home"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/19/state-tax-filing-guidance-for-covid-19",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-state-tax-filing-guidance-for-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/19/new-york-executive-order-requires-businesses-to-reduce-in-office-workforce",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-new-york-executive-order-requires-businesses-to-reduce-in-office-workforce"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/20/new-legislation-on-paid-sick-leave-and-employer-tax-credits",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-new-legislation-on-paid-sick-leave-and-employer-tax-credits"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/20/tax-provisions-of-senate-gop-draft-of-third-covid-19-relief-bill",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-tax-provisions-of-senate-gop-draft-of-third-covid-19-relief-bill"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/20/unprecedented-government-help-for-u.k.-employers",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-unprecedented-government-help-for-uk-employers"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/20/public-health-orders-overview-and-preemptive-measures",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-public-health-orders-overview-and-preemptive-measures"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/22/saturday-covid-19-briefing-webinar",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-covid-19-briefing-webinar"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/03/23/this-week-in-washington-for-march-23-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/03/27/details-on-washington-d.c.-covid-19-closure-of-non-essential-businesses-order",
+    "redirect": "/insights/international-regulatory-enforcement/blog-details-on-washington-dc-covid-19-closure-of-non-essential-businesses-order"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/03/26/oecd-national-contact-points-lessons-from-veon-anz",
+    "redirect": "/insights/international-regulatory-enforcement/blog-oecd-national-contact-points-lessons-from-veon-anz"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/03/28/about-our-blog",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-about-our-updates"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/03/29/daily-financial-regulation-update-sunday-march-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-sunday-march-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/03/30/this-week-in-washington-for-march-30-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-march-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/03/30/covid-19-webinar-workforce-planning",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-covid-19-webinar-workforce-planning"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/03/31/daily-financial-regulation-update---monday-march-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-march-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/01/daily-financial-regulation-update---monday-march-31-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-march-31-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/02/daily-financial-regulation-update---wednesday-april-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-april-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/03/daily-financial-regulation-update---thursday-april-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-april-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/03/sec-and-cftc-issue-additional-relief-to-address-growing-coronavirus-concerns",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-sec-and-cftc-issue-additional-relief-to-address-growing-coronavirus-concerns"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/04/02/covid-19-business-as-usual-for-data-privacy-compliance-in-the-uk-and-the-eu",
+    "redirect": "/insights/ph-privacy/blog-covid-19-business-as-usual-for-data-privacy-compliance-in-the-uk-and-the-eu"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/03/19/ph-covid-19-client-alert-series-the-cybersecurity-implications-of-an-entire-organization-working-from-home",
+    "redirect": "/insights/ph-privacy/blog-ph-covid-19-client-alert-series-the-cybersecurity-implications-of-an-entire-organization-working-from-home"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/03/04/ph-covid-19-client-alert-series-data-protection-issues",
+    "redirect": "/insights/ph-privacy/blog-ph-covid-19-client-alert-series-data-protection-issues"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/04/02/ph-covid-19-client-alert-series-location-privacy-in-a-crisis-considerations-for-businesses",
+    "redirect": "/insights/ph-privacy/blog-ph-covid-19-client-alert-series-location-privacy-in-a-crisisconsiderations-for-businesses"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/04/daily-financial-regulation-update---friday-april-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-april-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/06/daily-financial-regulation-update---sunday-april-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-sunday-april-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/04/06/this-week-in-washington-for-april-6-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/03/covid-19-webinar-public-company-disclosures",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-covid-19-webinar-public-company-disclosures"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/06/daily-financial-regulation-update---monday-april-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-april-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/07/judicial-council-adopts-emergency-covid-19-rules-on-civil-deadlines-bail",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-judicial-council-adopts-emergency-covid-19-rules-on-civil-deadlines-bail"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/08/daily-financial-regulation-update---tuesday-april-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-april-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/04/08/covid-19-best-practices-for-videoconferences-protecting-the-privacy-of-confidential-conversations",
+    "redirect": "/insights/ph-privacy/blog-covid-19-best-practices-for-videoconferences-protecting-the-privacy-of-confidential-conversations"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/09/daily-financial-regulation-update---wednesday-april-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-april-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/10/daily-financial-regulation-update---thursday-april-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-april-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/11/daily-financial-regulation-updates---friday-april-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-updates-friday-april-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/13/daily-financial-regulation-updates---sunday-april-12-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-updates-sunday-april-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/04/13/this-week-in-washington-for-april-13-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/13/liability-management-webinar",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-liability-management-webinar"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/04/10/ph-covid-19-client-alert-series-relaxation-of-hipaa-restrictions-in-the-covid-19-era",
+    "redirect": "/insights/ph-privacy/blog-ph-covid-19-client-alert-series-relaxation-of-hipaa-restrictions-in-the-covid-19-era"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/14/daily-financial-regulation-update---tuesday-april-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-april-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/15/daily-financial-regulation-update---tuesday-april-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-april-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/16/daily-financial-regulation-update---wednesday-april-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-april-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/17/daily-financial-regulation-update---thursday-april-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-april-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/04/17/timeline-for-selected-global-privacy-compliance-activities-in-light-of-covid-19",
+    "redirect": "/insights/ph-privacy/blog-timeline-for-selected-global-privacy-compliance-activities-in-light-of-covid-19"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/18/daily-financial-regulation-update---friday-april-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-april-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/20/daily-financial-regulation-update---monday-april-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-april-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/01/23/what-drug-companies-should-be-thinking-about-after-the-u.s.---china-trade-deal",
+    "redirect": "/insights/international-regulatory-enforcement/blog-what-drug-companies-should-be-thinking-about-after-the-us-china-trade-deal"
+  },
+  {
+    "match": "/publications-items/blog/washington-perspectives/washington-perspectives/2020/04/20/this-week-in-washington-for-april-13-2020",
+    "redirect": "/insights/washington-perspectives/blog-this-week-in-washington-for-april-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/02/05/melanie-rupert-mi-zhou-jake-silvers",
+    "redirect": "/insights/international-regulatory-enforcement/blog-harvard-professor-arrested-for-allegedly-hiding-ties-to-china-what-universities-can-do-to-protect-national-security-while-promoting-an-open-academic-environment"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/02/19/new-rules-for-cfius-how-investment-funds-can-react-and-take-advantage",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-rules-for-cfius-how-investment-funds-can-react-and-take-advantage"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/02/20/the-new-cfius-regulations-how-will-this-actually-work-faqs-we-wish-treasury-would-answer",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-new-cfius-regulations-how-will-this-actually-work-faqs-we-wish-treasury-would-answer"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/07/new-team-telecom-process-formalized-fcc-rules-to-follow",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-team-telecom-process-formalized-fcc-rules-to-follow"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/09/the-u.k.-and-u.s.-security-agencies-issue-joint-covid-19-cyber-threat-update",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-uk-and-us-security-agencies-issue-joint-covid-19-cyber-threat-update"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/21/daily-financial-regulation-update---tuesday-april-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-april-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/22/daily-financial-regulation-update---wednesday-april-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-april-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/23/trends-and-insights-in-the-latin-america-market-in-light-of-covid-19-webinar",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-trends-and-insights-in-the-latin-america-market-in-light-of-covid-19-webinar"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/23/daily-financial-regulation-update---wednesday-april-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-april-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/22/humanitarian-aid-to-iran-under-existing-sanctions-an-important-reminder-in-a-time-of-pandemic",
+    "redirect": "/insights/international-regulatory-enforcement/blog-humanitarian-aid-to-iran-under-existing-sanctionsan-important-reminder-in-a-time-of-pandemic"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/24/daily-financial-regulation-update---friday-april-24-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-april-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/24/u.k.-court-of-appeals-holds-company-not-liable-for-acts-of-the-police-or-for-following-the-voluntary-principles",
+    "redirect": "/insights/international-regulatory-enforcement/blog-uk-court-of-appeals-holds-company-not-liable-for-acts-of-the-police-or-for-following-the-voluntary-principles"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/25/daily-financial-regulation-update---saturday-april-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-april-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/27/daily-financial-regulation-update---monday-april-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-april-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/04/27/this-week-in-washington-for-april-27-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-april-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/28/daily-financial-regulation-update---tuesday-april-28-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-april-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/29/daily-financial-regulation-update---wednesday-april-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-april-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/27/all-eyes-on-me-practical-tips-for-anti-corruption-compliance-in-and-after-a-time-of-crisis",
+    "redirect": "/insights/international-regulatory-enforcement/blog-all-eyes-on-me-practical-tips-for-anti-corruption-compliance-in-and-after-a-time-of-crisis"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/04/30/daily-financial-regulation-update---thursday-april-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-april-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/04/22/webinar-the-basics-of-subleasing",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-webinar-the-basics-of-subleasing"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/01/daily-financial-regulation-update---friday-may-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-may-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/02/daily-financial-regulation-update---saturday-may-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-may-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/04/daily-financial-regulation-update---monday-may-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-may-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/05/04/this-week-in-washington-for-may-4-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/05/daily-financial-regulation-update---tuesday-may-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-may-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-advice-for-businesses-in-dealing-with-the-exanding-coronavirus-events/2020/05/05/webinar-current-issues-for-fund-managers-in-light-of-the-covid-19-pandemic",
+    "redirect": "/insights/advice-for-businesses-in-dealing-with-the-expanding-coronavirus-events/blog-webinar-current-issues-for-fund-managers-in-light-of-the-covid-19-pandemic"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/06/daily-financial-regulation-update---wednesday-may-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-may-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/05/06/cyber-threats-for-uk-and-us-healthcare-organisation-a-joint-advisory-update",
+    "redirect": "/insights/ph-privacy/blog-cyber-threats-for-uk-and-us-healthcare-organisations-a-joint-advisory-update"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/07/daily-financial-regulation-update---thursday-may-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-may-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/05/07/covid-19-new-federal-data-protection-bill-introduced",
+    "redirect": "/insights/ph-privacy/blog-covid-19-new-federal-data-protection-bill-introduced"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/08/daily-financial-regulation-update---friday-may-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-may-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/05/09/seventh-circuit-lowers-the-federal-standing-threshold-for-illinois-biometric-privacy-act-claimants",
+    "redirect": "/insights/ph-privacy/blog-seventh-circuit-lowers-the-federal-standing-threshold-for-illinois-biometric-privacy-act-claimants"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/09/daily-financial-regulation-update---saturday-may-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-may-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/11/daily-financial-regulation-update---monday-may-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-may-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/05/11/this-week-in-washington-for-may-11-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/12/daily-financial-regulation-update---monday-may-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-may-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/13/daily-financial-regulation-update---wednesday-may-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-may-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/14/daily-financial-regulation-update--thursday-may-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-may-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/15/daily-financial-regulation-update---friday-may-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-may-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/16/daily-financial-regulation-update---saturday-may-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-may-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/18/daily-financial-regulation-update---saturday-may-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-may-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/05/18/this-week-in-washington-for-may-18-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/05/15/covid-19-uk-the-uk-ico-publishes-anticipated-guidance-on-workplace-testing",
+    "redirect": "/insights/ph-privacy/blog-covid-19-uk-the-uk-ico-publishes-anticipated-guidance-on-workplace-testing"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/19/daily-financial-regulation-update---tuesday-may-19-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-may-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/20/daily-financial-regulation-update---wednesday-may-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-may-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/21/daily-financial-regulation-update---thursday-may-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-may-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/22/daily-financial-regulation-update---friday-may-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-may-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/23/daily-financial-regulation-update---saturday-may-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-may-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/26/daily-financial-regulation-update---tuesday-may-26-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-may-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/05/26/this-week-in-washington-for-may-26-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-may-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/27/daily-financial-regulation-update---wednesday-may-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-may-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/28/daily-financial-regulation-update---wednesday-may-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-may-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/05/28/proposed-california-privacy-rights-act-explained-(with-redline)",
+    "redirect": "/insights/ph-privacy/blog-proposed-california-privacy-rights-act-explained-with-redline"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/29/daily-financial-regulation-update---friday-may-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-may-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/29/u.s.-policymakers-look-to-limit-reliance-on-manufacturing-in-china",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-policymakers-look-to-limit-reliance-on-manufacturing-in-china"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/05/30/daily-financial-regulation-update---saturday-may-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-may-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/06/01/this-week-in-washington-for-june-1-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/02/daily-financial-regulation-update---tuesday-june-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-june-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/03/daily-financial-regulation-update---wednesday-june-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-june-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/04/daily-financial-regulation-update---thursday-june-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-june-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/05/daily-financial-regulation-update---friday-june-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-june-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/06/daily-financial-regulation-update---saturday-june-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-june-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/06/08/this-week-in-washington-for-june-8-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/08/commerce-department-adds-thirty-three-companies-to-the-entity-list-as-trade-tensions-with-china-escalate",
+    "redirect": "/insights/international-regulatory-enforcement/blog-commerce-department-adds-thirty-three-companies-to-the-entity-list-as-trade-tensions-with-china-escalate"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/09/daily-financial-regulation-update---tuesday-june-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-june-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/10/daily-financial-regulation-update---wednesday-june-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-june-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/11/daily-financial-regulation-update---thursday-june-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-june-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/12/daily-financial-regulation-update---friday-june-12-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-june-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/13/daily-financial-regulation-update---saturday-june-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-june-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/15/daily-financial-regulation-update---monday-june-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-june-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/16/daily-financial-regulation-update---tuesday-june-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-june-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/04/29/commerce-department-increases-restrictions-on-exports-to-china-russia-and-venezuela",
+    "redirect": "/insights/international-regulatory-enforcement/blog-commerce-department-increases-restrictions-on-exports-to-china-russia-and-venezuela"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/06/déjà-vu-all-over-again-government-enforcement-in-response-to-economic-crises",
+    "redirect": "/insights/international-regulatory-enforcement/blog-déjà-vu-all-over-again-government-enforcement-in-response-to-economic-crises"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/12/executive-order-restricts-acquisition-of-bulk-power-system-equipment-from-foreign-adversaries",
+    "redirect": "/insights/international-regulatory-enforcement/blog-executive-order-restricts-acquisition-of-bulk-power-system-equipment-from-foreign-adversaries"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/19/u.s.-department-of-commerce-imposes-further-restrictions-directed-at-huawei",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-department-of-commerce-imposes-further-restrictions-directed-at-huawei"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/21/covid-19-and-corruption-related-risks-high-on-the-international-agenda",
+    "redirect": "/insights/international-regulatory-enforcement/blog-covid-19-and-corruption-related-risks-high-on-the-international-agenda"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/22/anti-corruption-and-contractual-relations-beyond-words-legal-consequences",
+    "redirect": "/insights/international-regulatory-enforcement/blog-anti-corruption-and-contractual-relations-beyond-words-legal-consequences"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/28/mandatory-be-10-benchmark-survey-of-u.s.-investment-abroad-due-may-29-2020",
+    "redirect": "/insights/international-regulatory-enforcement/blog-mandatory-be-10-benchmark-survey-of-us-investment-abroad-due-may-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/05/28/more-clarity-more-complexity-new-cfius-rules-put-spotlight-on-mandatory-filings",
+    "redirect": "/insights/international-regulatory-enforcement/blog-more-clarity-more-complexity-new-cfius-rules-put-spotlight-on-mandatory-filings"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/01/human-rights-diligence-catching-up-to-anti-corruption",
+    "redirect": "/insights/international-regulatory-enforcement/blog-human-rights-diligence-catching-up-to-anti-corruption"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/04/lessons-learned-by-doj-provide-further-guidance-on-developing-a-dynamic-compliance-program",
+    "redirect": "/insights/international-regulatory-enforcement/blog-lessons-learned-by-doj-provide-further-guidance-on-developing-a-dynamic-compliance-program"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/10/cfius-extends-its-reach-to-order-the-termination-of-ekso-bionics'-role-in-joint-venture-in-china",
+    "redirect": "/insights/international-regulatory-enforcement/blog-cfius-extends-its-reach-to-order-the-termination-of-ekso-bionics-role-in-joint-venture-in-china"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/06/16/this-week-in-washington-for-june-15-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/17/daily-financial-regulation-update---wednesday-june-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-june-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/18/daily-financial-regulation-update---thursday-june-18-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-june-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/19/daily-financial-regulation-update---friday-june-19-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-june-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/20/daily-financial-regulation-update---saturday-june-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-june-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/22/daily-financial-regulation-update---monday-june-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-june-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/06/22/this-week-in-washington-for-june-22-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/23/daily-financial-regulation-update---tuesday-june-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-june-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/24/daily-financial-regulation-update---wednesday-june-24-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-june-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/06/24/the-edpb-on-data-protection-and-covid-19-in-the-eu",
+    "redirect": "/insights/ph-privacy/blog-the-edpb-on-data-protection-and-covid-19-in-the-eu"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/24/the-trend-continues-as-outward-bound-investments-from-japanese-multinationals-continue-to-grow-so-do-abac-compliance-and-other-enforcement-risks",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-trend-continues-as-outward-bound-investments-from-japanese-multinationals-continue-to-grow-so-do-abac-compliance-and-other-enforcement-risks"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/25/daily-financial-regulation-update---thursday-june-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-june-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/26/daily-financial-regulation-update--friday-june-26-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-june-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/06/25/foreign-investment-control-and-covid-19-in-germany",
+    "redirect": "/insights/international-regulatory-enforcement/blog-foreign-investment-control-and-covid-19-in-germany"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/27/daily-financial-regulation-update---saturday-june-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-june-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/06/29/this-week-in-washington-for-june-29-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-june-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/06/30/daily-financial-regulation-update---tuesday-june-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-june-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/01/daily-financial-regulation-update---wednesday-july-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-july-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/02/daily-financial-regulation-update---thursday-july-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-july-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/02/key-takeaways-from-the-novartis-345-million-dollar-settlement",
+    "redirect": "/insights/international-regulatory-enforcement/blog-key-takeaways-from-the-novartis-345-million-fcpa-settlement"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/03/daily-financial-regulation-update---friday-july-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-july-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/07/06/this-week-in-washington-for-july-6-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/06/uk-government-uses-sanctions-to-target-human-rights-contraventions",
+    "redirect": "/insights/international-regulatory-enforcement/blog-uk-government-uses-sanctions-to-target-human-rights-contraventions"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/07/daily-financial-regulation-update---tuesday-july-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-july-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/07/sacré-bleu!-france-sends-a-message-in-the-fight-against-foreign-bribery",
+    "redirect": "/insights/international-regulatory-enforcement/blog-sacré-bleu-france-sends-a-message-in-the-fight-against-foreign-bribery"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/08/daily-financial-regulation-update---wednesday-july-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-july-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/08/watch-out-the-blind-spot-export-credit-and-the-fight-against-corruption",
+    "redirect": "/insights/international-regulatory-enforcement/blog-watch-out-the-blind-spot-export-credit-and-the-fight-against-corruption"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/09/daily-financial-regulation-update--thursday-july-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-july-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/09/at-long-last-doj-and-sec-update-their-fcpa-resource-guide",
+    "redirect": "/insights/international-regulatory-enforcement/blog-at-long-last-doj-and-sec-update-their-fcpa-resource-guide"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/09/uk-implements-sanctions-on-somalia-in-preparation-for-brexit",
+    "redirect": "/insights/international-regulatory-enforcement/blog-uk-implements-sanctions-on-somalia-in-preparation-for-brexit"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/10/daily-financial-regulation-update----friday-july-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-july-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/11/daily-financial-regulation-update----saturday-july-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-july-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/13/daily-financial-regulation-update----monday-july-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-july-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/07/13/this-week-in-washington-for-july-13-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/14/daily-financial-regulation-update----tuesday-july-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-july-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/15/daily-financial-regulation-update----wednesday-july-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-july-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/16/daily-financial-regulation-update----thursday-july-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-july-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/17/new-targeted-and-secondary-sanctions-regime-for-hong-kong-and-the-prc",
+    "redirect": "/insights/international-regulatory-enforcement/blog-new-targeted-and-secondary-sanctions-regime-for-hong-kong-and-the-prc"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/17/on-the-heels-of-significant-fcpa-settlements-past-present-meet-novartis-reaches-fca-settlements",
+    "redirect": "/insights/international-regulatory-enforcement/blog-on-the-heels-of-significant-fcpa-settlements-past-present-meet-novartis-reaches-fca-settlements"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/17/daily-financial-regulation-update----friday-july-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-july-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/18/daily-financial-regulation-update----saturday-july-18-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-july-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/20/international-chamber-of-commerce-releases-covid-19-recovery-guidance",
+    "redirect": "/insights/international-regulatory-enforcement/blog-international-chamber-of-commerce-releases-covid-19-recovery-guidance"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/07/20/this-week-in-washington-for-july-20-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/07/20/the-results-are-in-privacy-shield-has-been-declared-invalid-but-the-sccs-remain-valid",
+    "redirect": "/insights/ph-privacy/blog-the-results-are-in-privacy-shield-has-been-declared-invalid-but-the-sccs-remain-valid"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/21/daily-financial-regulation-update----tuesday-july-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-july-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/22/daily-financial-regulation-update----wednesday-july-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-july-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/23/daily-financial-regulation-update----thursday-july-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-july-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/07/23/practical-next-steps-following-invalidation-of-privacy-shield",
+    "redirect": "/insights/ph-privacy/blog-practical-next-steps-following-invalidation-of-privacy-shield"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/24/daily-financial-regulation-update----thursday-july-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-july-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/24/foreign-investment-control-in-france-new-derogatory-regime-applicable-to-foreign-investment-in-french-public-companies",
+    "redirect": "/insights/international-regulatory-enforcement/blog-foreign-investment-control-in-france-new-derogatory-regime-applicable-to-foreign-investment-in-french-public-companies"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/24/u.s.-corporate-regulation-increases-amidst-u.s.-china-tensions",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-corporate-regulation-increases-amidst-us-china-tensions"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/25/daily-financial-regulation-update----saturday-july-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-july-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/07/27/this-week-in-washington-for-july-27-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-july-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/28/daily-financial-regulation-update----tuesday-july-28-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-july-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/29/daily-financial-regulation-update----wednesday-july-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-july-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/29/uk-and-eu-financial-sanctions-regimes-likely-to-diverge-post-brexit",
+    "redirect": "/insights/international-regulatory-enforcement/blog-uk-and-eu-financial-sanctions-regimes-likely-to-diverge-post-brexit"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/30/daily-financial-regulation-update----thursday-july-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-july-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/07/21/anti-money-laundering-lessons-to-be-learnt-from-the-commerzbank-fine",
+    "redirect": "/insights/international-regulatory-enforcement/blog-anti-money-laundering-lessons-to-be-learnt-from-the-commerzbank-fine"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/07/31/daily-financial-regulation-update----friday-july-31-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-july-31-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/07/23/how-are-governments-reacting-to-the-invalidation-of-privacy-shield",
+    "redirect": "/insights/ph-privacy/blog-how-are-governments-reacting-to-the-invalidation-of-privacy-shield"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/01/daily-financial-regulation-update----saturday-august-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-august-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/03/daily-financial-regulation-update----monday-august-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-august-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/03/u.s.-department-of-commerce-issues-final-rule-suspending-certain-preferential-license-exceptions-for-hong-kong",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-department-of-commerce-issues-final-rule-suspending-certain-preferential-license-exceptions-for-hong-kong"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/08/03/this-week-in-washington-for-august-3-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/04/daily-financial-regulation-update----tuesday-august-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-august-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/05/daily-financial-regulation-update----wednesday-august-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-august-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/06/daily-financial-regulation-update----thursday-august-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-august-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/06/at-last-the-european-public-prosecutor-s-office-(eppo)-is-getting-real!",
+    "redirect": "/insights/international-regulatory-enforcement/blog-at-lastthe-european-public-prosecutors-office-eppo-is-getting-real"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/07/daily-financial-regulation-update----friday-august-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-august-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/08/daily-financial-regulation-update----saturday-august-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-august-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/08/10/this-week-in-washington-for-august-10-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/11/daily-financial-regulation-update----tuesday-august-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-august-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/08/11/us-eu-joint-statement-privacy-shield",
+    "redirect": "/insights/ph-privacy/blog-us-eu-joint-statement-privacy-shield"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/10/nine-things-you-need-to-know-about-the-trump-administration-sanctions-against-tiktok-and-wechat",
+    "redirect": "/insights/international-regulatory-enforcement/blog-nine-things-you-need-to-know-about-the-trump-administration-sanctions-against-tiktok-and-wechat"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/12/daily-financial-regulation-update----wednesday-august-12-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-august-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/13/daily-financial-regulation-update----thursday-august-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-august-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/14/daily-financial-regulation-update----friday-august-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-august-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/15/daily-financial-regulation-update---saturday-august-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-august-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/08/17/this-week-in-washington-for-august-17-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/18/daily-financial-regulation-update---tuesday-august-18-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-august-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/08/18/ccpa-final-regulations-california-attorney-general-announces-approved-ccpa-regulations-for-immediate-effect",
+    "redirect": "/insights/ph-privacy/blog-ccpa-final-regulations-california-attorney-general-announces-approved-ccpa-regulations-for-immediate-effect"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/18/fcpa-liability-payments-to-an-individual-vs.-an-instrumentality",
+    "redirect": "/insights/international-regulatory-enforcement/blog-fcpa-opinion-procedure-release-20-01-much-ado-about-nothing"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/19/daily-financial-regulation-update----wednesday-august-19-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-august-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/20/draft-business-and-human-rights-treaty-take-3",
+    "redirect": "/insights/international-regulatory-enforcement/blog-draft-business-and-human-rights-treaty-take-3"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/20/daily-financial-regulation-update----thursday-august-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-august-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/21/daily-financial-regulation-update----friday-august-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-august-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/08/21/the-battle-continues-101-complaints-are-filed-against-companies-transferring-data-to-the-united-states",
+    "redirect": "/insights/ph-privacy/blog-the-battle-continues-101-complaints-are-filed-against-companies-transferring-data-to-the-united-states"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/20/where-the-new-normal-could-be-the-old-normal-addressing-corruption-concerns-relating-to-brazil-s-political-turmoil",
+    "redirect": "/insights/international-regulatory-enforcement/blog-where-the-new-normal-could-be-the-old-normal-addressing-corruption-concerns-relating-to-brazils-political-turmoil"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/19/commerce-simplifies-but-expands-the-foreign-direct-product-rule-for-huawei",
+    "redirect": "/insights/international-regulatory-enforcement/blog-commerce-simplifiesbut-expandsthe-foreign-direct-product-rule-for-huawei"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/22/daily-financial-regulation-update---saturday-august-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-august-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/08/24/this-week-in-washington-for-august-24-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/25/daily-financial-regulation-update----tuesday-august-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-august-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/25/how-a-biden-administration-may-approach-business-and-human-rights",
+    "redirect": "/insights/international-regulatory-enforcement/blog-how-a-biden-administration-may-approach-business-and-human-rights"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/26/daily-financial-regulation-update----wednesday-august-26-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-august-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/27/daily-financial-regulation-update----thursday-august-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-august-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/28/daily-financial-regulation-update----friday-august-28-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-august-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/28/state-and-commerce-departments-take-new-action-on-24-chinese-companies",
+    "redirect": "/insights/international-regulatory-enforcement/blog-state-and-commerce-departments-take-new-action-on-24-chinese-companies"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/08/28/facilitating-tax-evasion-is-the-uk-s-corporate-criminal-offence-being-enforced",
+    "redirect": "/insights/international-regulatory-enforcement/blog-facilitating-tax-evasion-is-the-uks-corporate-criminal-offence-being-enforced"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/08/29/daily-financial-regulation-update----saturday-august-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-august-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/08/31/this-week-in-washington-for-august-31-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-august-31-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/08/31/ccpa-s-hr-and-b2b-carve-outs-extended-until-january-1-2022",
+    "redirect": "/insights/ph-privacy/blog-ccpas-hr-and-b2b-carve-outs-extended-until-january-1-2022"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/01/daily-financial-regulation-update----tuesday-september-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-september-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/02/daily-financial-regulation-update----wednesday-september-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-september-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/03/daily-financial-regulation-update----thursday-september-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-september-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/04/daily-financial-regulation-update----friday-september-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-september-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/05/daily-financial-regulation-update----saturday-september-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-september-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/09/08/blog-post-how-are-governments-reacting-to-the-invalidation-of-privacy-shield",
+    "redirect": "/insights/ph-privacy/blog-how-are-governments-reacting-to-the-invalidation-of-privacy-shield"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/09/08/this-week-in-washington-for-september-8-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/09/daily-financial-regulation-update----wednesday-september-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-september-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/10/daily-financial-regulation-update----thursday-september-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-september-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/10/its-only-the-beginning-covid-19-public-procurement-and-corruption",
+    "redirect": "/insights/international-regulatory-enforcement/blog-its-only-the-beginning-covid-19-public-procurement-and-corruption"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/11/daily-financial-regulation-update----friday-september-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-september-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/11/the-eu-human-rights-due-diligence-legislative-initiative-and-the-business-and-human-rights-treaty",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-eu-human-rights-due-diligence-legislative-initiative-and-the-business-and-human-rights-treaty"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/12/daily-financial-regulation-update----saturday-september-12-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-september-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/09/14/this-week-in-washington-for-september-14-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/15/daily-financial-regulation-update----tuesday-september-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-september-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/16/daily-financial-regulation-update----wednesday-september-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-september-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/17/daily-financial-regulation-update----thursday-september-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-september-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/18/daily-financial-regulation-update----friday-september-18-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-september-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/18/a-cooperation-agreement-concluded-between-the-french-financial-market-agency-(amf)-and-the-french-anti-corruption-agency-(afa)",
+    "redirect": "/insights/international-regulatory-enforcement/blog-a-cooperation-agreement-concluded-between-the-french-financial-market-agency-amf-and-the-french-anti-corruption-agency-afa"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/19/daily-financial-regulation-update----saturday-september-19-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-september-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/09/21/this-week-in-washington-for-september-21-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/22/daily-financial-regulation-update----tuesday-september-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-september-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/21/english-high-court-confirms-the-application-of-privilege-to-foreign-lawyers",
+    "redirect": "/insights/international-regulatory-enforcement/blog-english-high-court-confirms-the-application-of-privilege-to-foreign-lawyers"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/22/china-enacts-regulations-on-unreliable-entity-list",
+    "redirect": "/insights/international-regulatory-enforcement/blog-china-enacts-regulations-on-unreliable-entity-list"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/23/daily-financial-regulation-update----wednesday-september-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-september-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/24/daily-financial-regulation-update----thursday-september-24-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-september-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/25/daily-financial-regulation-update----friday-september-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-september-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/26/daily-financial-regulation-update----saturday-september-26-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-september-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/09/28/u.s.-house-of-representatives-passes-bill-that-would-impose-mini-embargo-and-disclosure-of-goods-from-xinjiang",
+    "redirect": "/insights/international-regulatory-enforcement/blog-us-house-of-representatives-passes-bill-that-would-impose-mini-embargo-and-disclosure-of-goods-from-xinjiang"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/09/28/this-week-in-washington-for-september-28-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-september-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/29/daily-financial-regulation-update---tuesday-september-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-september-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/09/30/daily-financial-regulation-update----wednesday-september-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-september-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/01/daily-financial-regulation-update----thursday-october-1-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-october-1-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/02/daily-financial-regulation-update----friday-october-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-october-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/03/daily-financial-regulation-update----saturday-october-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-october-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/05/daily-financial-regulation-update----saturday-october-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-october-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/06/daily-financial-regulation-update----tuesday-october-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-october-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/10/06/this-week-in-washington-for-october-5-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/07/daily-financial-regulation-update----wednesday-october-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-october-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/08/daily-financial-regulation-update----thursday-october-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-october-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/10/08/january-1-2022-extension-of-ccpa-s-hr-and-b2b-carve-outs-signed-into-law",
+    "redirect": "/insights/ph-privacy/blog-january-1-2022-extension-of-ccpas-hr-and-b2b-carve-outs-signed-into-law"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/09/daily-financial-regulation-update----friday-october-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-october-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/10/daily-financial-regulation-update----saturday-october-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-october-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/10/12/this-week-in-washington-for-october-12-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/13/daily-financial-regulation-update----tuesday-october-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-october-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/14/daily-financial-regulation-update----wednesday-october-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-october-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/10/14/california-doj-announces-a-third-set-of-proposed-modifications-to-the-ccpa-regulations",
+    "redirect": "/insights/ph-privacy/blog-california-doj-announces-a-third-set-of-proposed-modifications-to-the-ccpa-regulations"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/10/14/recent-cfaa-decision-deepens-circuit-split-scotus-resolution-on-the-horizon",
+    "redirect": "/insights/ph-privacy/blog-recent-cfaa-decision-deepens-circuit-split-scotus-resolution-on-the-horizon"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/15/daily-financial-regulation-update----thursday-october-15-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-october-15-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/16/daily-financial-regulation-update----friday-october-16-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-october-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/17/daily-financial-regulation-update----saturday-october-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-october-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/10/19/this-week-in-washington-for-october-19-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/20/daily-financial-regulation-update----tuesday-october-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-october-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/21/daily-financial-regulation-update----wednesday-october-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-october-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/22/daily-financial-regulation-update----thursday-october-22-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-october-22-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/23/daily-financial-regulation-update----friday-october-23-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-october-23-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/24/daily-financial-regulation-update----saturday-october-24-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-october-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/10/26/this-week-in-washington-for-october-26-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-october-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/27/daily-financial-regulation-update----tuesday-october-27-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-october-27-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/28/daily-financial-regulation-update----wednesday-october-28-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-october-28-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/10/28/the-eu-global-human-rights-agenda-is-taking-shape",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-eu-global-human-rights-agenda-is-taking-shape"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/10/28/new-guidance-is-published-by-the-uk-ico-on-the-right-of-access",
+    "redirect": "/insights/ph-privacy/blog-new-guidance-is-published-by-the-uk-ico-on-the-right-of-access"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/29/daily-financial-regulation-update----thursday-october-29-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-october-29-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/30/daily-financial-regulation-update----friday-october-30-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-october-30-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/10/31/daily-financial-regulation-update----saturday-october-31-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-october-31-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/11/02/this-week-in-washington-for-november-2-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/03/daily-financial-regulation-update----tuesday-november-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-november-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/11/03/recent-fincen-advisory-targets-recognition-of-human-trafficking",
+    "redirect": "/insights/international-regulatory-enforcement/blog-recent-fincen-advisory-targets-recognition-of-human-trafficking"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/05/daily-financial-regulation-update----thursday-november-5-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-november-5-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/04/daily-financial-regulation-update----wednesday-november-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-november-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/06/daily-financial-regulation-update----friday-november-6-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-november-6-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/11/06/the-california-privacy-rights-act-(cpra)-has-been-enacted-into-law",
+    "redirect": "/insights/ph-privacy/blog-the-california-privacy-rights-act-cpra-has-been-enacted-into-law"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/07/daily-financial-regulation-update----saturday-november-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-november-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/11/09/this-week-in-washington-for-november-9-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/11/09/european-data-protection-supervisor-announces-strategy-for-eu-institutions-compliance-with-schrems-ii",
+    "redirect": "/insights/ph-privacy/blog-european-data-protection-supervisor-announces-strategy-for-eu-institutions-compliance-with-schrems-ii"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/10/daily-financial-regulation-update----tuesday-november-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-november-10-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/11/daily-financial-regulation-update----wednesday-november-11-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-november-11-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/12/daily-financial-regulation-update----thursday-november-12-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-november-12-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/11/12/european-commission-releases-draft-sccs-for-consultation",
+    "redirect": "/insights/ph-privacy/blog-european-commission-releases-draft-sccs-for-consultation"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/13/daily-financial-regulation-update----friday-november-13-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-november-13-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/14/daily-financial-regulation-update----saturday-november-14-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-november-14-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/11/16/this-week-in-washington-for-november-16-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/17/daily-financial-regulation-update----tuesday-november-17-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-november-17-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/11/17/protests-in-belarus---eu-imposes-fresh-sanctions-on-the-belarusian-regime-and-follows-the-uk-us-and-canada-in-imposing-sanctions-on-lukashenko",
+    "redirect": "/insights/international-regulatory-enforcement/blog-protests-in-belarus-eu-imposes-fresh-sanctions-on-the-belarusian-regime-and-follows-the-uk-us-and-canada-in-imposing-sanctions-on-lukashenko"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/11/18/oecd-s-working-group-on-bribery-applauds-united-states-for-continued-enforcement-of-fcpa-and-recommends-additional-steps-to-increase-guidance",
+    "redirect": "/insights/international-regulatory-enforcement/blog-oecds-working-group-on-bribery-applauds-united-states-for-continued-enforcement-of-fcpa-and-recommends-additional-steps-to-increase-guidance"
+  },
+  {
+    "match": "/publications-items/blog/ph-privacy/ph-privacy/2020/11/18/european-commission-releases-draft-article-28-scc",
+    "redirect": "/insights/ph-privacy/blog-european-commission-releases-draft-article-28-sccs"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/19/daily-financial-regulation-update----wednesday-november-18-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-november-18-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/19/daily-financial-regulation-update----thursday-november-19-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-november-19-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/20/daily-financial-regulation-update----friday-november-20-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-november-20-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/21/daily-financial-regulation-update----saturday-november-21-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-saturday-november-21-2020"
+  },
+  {
+    "match": "/publications-items/blog/money-matters/ph-money-matters-this-week-in-washington/2020/11/23/this-week-in-washington-for-november-16-2020",
+    "redirect": "/insights/money-matters/blog-this-week-in-washington-for-november-16-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/24/daily-financial-regulation-update----tuesday-november-24-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-november-24-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/25/daily-financial-regulation-update----wednesday-november-25-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-november-25-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/11/30/daily-financial-regulation-update----thursday-november-26-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-november-26-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/02/daily-financial-regulation-update----tuesday-december-2-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-december-2-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/03/daily-financial-regulation-update----thursday-december-3-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-december-3-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/04/daily-financial-regulation-update----friday-december-4-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-friday-december-4-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/12/04/eu-announces-new-rules-on-trade-of-dual-use-items",
+    "redirect": "/insights/international-regulatory-enforcement/blog-eu-announces-new-rules-on-trade-of-dual-use-items"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/07/daily-financial-regulation-update----monday-december-7-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-monday-december-7-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/12/07/the-integration-of-business-and-human-rights-into-international-regulatory-compliance",
+    "redirect": "/insights/international-regulatory-enforcement/blog-the-integration-of-business-and-human-rights-into-international-regulatory-compliance"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/12/07/recent-trends-and-challenges-on-anti-corruption-compliance-and-responsible-business-conduct-in-southeast-asia",
+    "redirect": "/insights/international-regulatory-enforcement/blog-recent-trends-and-challenges-on-anti-corruption-compliance-and-responsible-business-conduct-in-southeast-asia"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/08/daily-financial-regulation-update----tuesday-december-8-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-tuesday-december-8-2020"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/09/daily-financial-regulation-update----wednesday-december-9-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-wednesday-december-9-2020"
+  },
+  {
+    "match": "/publications-items/blog/international-regulatory-enforcement/international-regulatory-enforcement/2020/12/09/european-council-takes-significant-actions-on-global-human-rights",
+    "redirect": "/insights/international-regulatory-enforcement/blog-european-council-takes-significant-actions-on-global-human-rights"
+  },
+  {
+    "match": "/publications-items/blog/ph-fedaction-financial-regulatory-updates/ph-fedaction-financial-regulatory-updates/2020/12/10/daily-financial-regulation-update----thursday-december-10-2020",
+    "redirect": "/insights/ph-fedaction-financial-regulatory-updates/blog-daily-financial-regulation-update-thursday-december-10-2020"
+  },
 ]
 
 exports.handler = (event, context, callback) => {
