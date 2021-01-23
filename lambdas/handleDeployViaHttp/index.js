@@ -28,7 +28,18 @@ exports.handler = async (event) => {
     let response; 
     let branch;
     let validBranches = ['qa', 'master', 'dev'];
-    if (event.queryStringParameters && (decodeURIComponent(event.queryStringParameters.phId) === process.env.phidPassword)) {
+    let bodyParams = {}
+    try{
+        bodyParams = JSON.parse(event.body)
+
+    }catch(error){
+        return {
+            statusCode: 200,
+            body: JSON.stringify(`Invalid JSON parameters.`),
+        };
+    }
+    
+    if (decodeURIComponent(bodyParams.phId) === process.env.phidPassword) {
         //do nothing
     } else {
         return {
@@ -37,18 +48,18 @@ exports.handler = async (event) => {
         };
     }
     
-    if (event.queryStringParameters && event.queryStringParameters.branch && event.queryStringParameters.phId) {
-        branch = event.queryStringParameters.branch;
+    if (bodyParams.branch && bodyParams.phId) {
+        branch = bodyParams.branch;
     } else {
         return {
             statusCode: 200,
-            body: JSON.stringify(`Please include a valid environment as a query string parameter (ie, branch=branchName).`),
+            body: JSON.stringify(`Please include a valid environment as a body parameter (ie, {"branch":"branchName"}).`),
         };
     }
     if (!validBranches.includes(branch)){
         return {
             statusCode: 200,
-            body: JSON.stringify(`Please include a valid environment as a query string paramter: production, qa, or dev.`),
+            body: JSON.stringify(`Please include a valid environment as a body parameter: production, qa, or dev.`),
         };
     }
     // valid query items - production, qa, development
