@@ -29,10 +29,19 @@ exports.handler = async (event) => {
     let branch;
     let validBranches = ['qa', 'master', 'dev'];
     let bodyParams = {}
-    try{
-        bodyParams = JSON.parse(event.body)
+    if(event.body)
+    {
+        try{
+            bodyParams = JSON.parse(event.body)
 
-    }catch(error){
+        }catch(error){
+            return {
+                statusCode: 200,
+                body: JSON.stringify(`Invalid JSON parameters.`),
+            };
+        }
+    }else
+    {
         return {
             statusCode: 200,
             body: JSON.stringify(`Invalid JSON parameters.`),
